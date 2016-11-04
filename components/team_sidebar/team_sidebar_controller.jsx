@@ -145,38 +145,40 @@ export default class TeamSidebar extends React.Component {
                 );
             });
 
-        if (moreTeams) {
-            teams.push(
-                <TeamButton
-                    btnClass='team-btn__add'
-                    key='more_teams'
-                    url='/select_team'
-                    isMobile={this.state.isMobile}
-                    tip={
-                        <FormattedMessage
-                            id='team_sidebar.join'
-                            defaultMessage='Other teams you can join.'
-                        />
-                    }
-                    content={<i className='fa fa-plus'/>}
-                />
-            );
-        } else if (global.window.mm_config.EnableTeamCreation === 'true' || isSystemAdmin) {
-            teams.push(
-                <TeamButton
-                    btnClass='team-btn__add'
-                    key='more_teams'
-                    url='/create_team'
-                    isMobile={this.state.isMobile}
-                    tip={
-                        <FormattedMessage
-                            id='navbar_dropdown.create'
-                            defaultMessage='Create a New Team'
-                        />
-                    }
-                    content={<i className='fa fa-plus'/>}
-                />
-            );
+        if (!global.window.mm_config.DefaultTeamName) {
+            if (moreTeams) {
+                teams.push(
+                    <TeamButton
+                        btnClass='team-btn__add'
+                        key='more_teams'
+                        url='/select_team'
+                        isMobile={this.state.isMobile}
+                        tip={
+                            <FormattedMessage
+                                id='team_sidebar.join'
+                                defaultMessage='Other teams you can join.'
+                            />
+                        }
+                        content={<i className='fa fa-plus'/>}
+                    />
+                );
+            } else if (global.window.mm_config.EnableTeamCreation === 'true' || isSystemAdmin) {
+                teams.push(
+                    <TeamButton
+                        btnClass='team-btn__add'
+                        key='more_teams'
+                        url='/create_team'
+                        isMobile={this.state.isMobile}
+                        tip={
+                            <FormattedMessage
+                                id='navbar_dropdown.create'
+                                defaultMessage='Create a New Team'
+                            />
+                        }
+                        content={<i className='fa fa-plus'/>}
+                    />
+                );
+            }
         }
 
         return (

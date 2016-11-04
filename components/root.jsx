@@ -18,6 +18,7 @@ import LocalizationStore from 'stores/localization_store.jsx';
 import UserStore from 'stores/user_store.jsx';
 
 import Constants from 'utils/constants.jsx';
+import TeamStore from 'stores/team_store.jsx';
 
 export default class Root extends React.Component {
     constructor(props) {
@@ -91,9 +92,13 @@ export default class Root extends React.Component {
     }
 
     redirectIfNecessary(props) {
+        const DefaultTeamName = global.window.mm_config.DefaultTeamName;
+        const defaultTeam = TeamStore.getByName(DefaultTeamName);
         if (props.location.pathname === '/') {
             if (UserStore.getNoAccounts()) {
                 browserHistory.push('/signup_user_complete');
+            } else if (UserStore.getCurrentUser() && defaultTeam) {
+                browserHistory.push(`/${defaultTeam.name}/channels/town-square`);
             } else if (UserStore.getCurrentUser()) {
                 GlobalActions.redirectUserToDefaultTeam();
             } else {

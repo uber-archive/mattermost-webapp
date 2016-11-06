@@ -268,7 +268,7 @@ export default class AbstractOAuthApp extends React.PureComponent {
                         <div className='form__help'>
                             <FormattedMessage
                                 id='add_oauth_app.trusted.help'
-                                defaultMessage="When true, the OAuth 2.0 application is considered trusted by the Mattermost server and doesn't require the user to accept authorization. When false, an additional window will appear, asking the user to accept or deny the authorization."
+                                defaultMessage="When true, the OAuth 2.0 application is considered trusted by the uChat server and doesn't require the user to accept authorization. When false, an additional window will appear, asking the user to accept or deny the authorization."
                             />
                         </div>
                     </div>

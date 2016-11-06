@@ -123,7 +123,14 @@ export default class FileAttachment extends React.Component {
                     trigger={['hover', 'focus']}
                     delayShow={1000}
                     placement='top'
-                    overlay={<Tooltip id='file-name__tooltip'>{fileName}</Tooltip>}
+                    overlay={
+                        <Tooltip
+                            className='hidden-xs'
+                            id='file-name__tooltip'
+                        >
+                            {fileName}
+                        </Tooltip>
+                    }
                 >
                     <a
                         href='#'
@@ -145,7 +152,14 @@ export default class FileAttachment extends React.Component {
                     trigger={['hover', 'focus']}
                     delayShow={1000}
                     placement='top'
-                    overlay={<Tooltip id='file-name__tooltip'>{Utils.localizeMessage('file_attachment.download', 'Download') + ' "' + fileName + '"'}</Tooltip>}
+                    overlay={
+                        <Tooltip
+                            className='hidden-xs'
+                            id='file-name__tooltip'
+                        >
+                            {Utils.localizeMessage('file_attachment.download', 'Download') + ' "' + fileName + '"'}
+                        </Tooltip>
+                    }
                 >
                     <a
                         href={fileUrl}

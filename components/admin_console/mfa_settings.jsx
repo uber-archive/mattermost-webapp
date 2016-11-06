@@ -84,7 +84,7 @@ export default class MfaSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.service.enforceMfaDesc'
-                            defaultMessage="When true, <a href='https://docs.mattermost.com/deployment/auth.html' target='_blank'>multi-factor authentication</a> is required for login. New users will be required to configure MFA on signup. Logged in users without MFA configured are redirected to the MFA setup page until configuration is complete.<br/><br/>If your system has users with login methods other than AD/LDAP and email, MFA must be enforced with the authentication provider outside of Mattermost."
+                            defaultMessage="When true, <a href='https://docs.mattermost.com/deployment/auth.html' target='_blank'>multi-factor authentication</a> is required for login. New users will be required to configure MFA on signup. Logged in users without MFA configured are redirected to the MFA setup page until configuration is complete.<br/><br/>If your system has users with login methods other than AD/LDAP and email, MFA must be enforced with the authentication provider outside of uChat."
                         />
                     }
                     disabled={!this.state.enableMultifactorAuthentication}

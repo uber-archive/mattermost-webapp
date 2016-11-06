@@ -86,7 +86,7 @@ export default class NavbarInfoButton extends React.PureComponent {
                 trigger='click'
                 placement='bottom'
                 overlay={popover}
-                className='description'
+                className='description hidden-xs'
                 rootClose={true}
             >
                 <div className='navbar-toggle navbar-right__icon navbar-info-button pull-right'>

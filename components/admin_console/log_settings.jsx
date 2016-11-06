@@ -149,7 +149,7 @@ export default class LogSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.log.locationDescription'
-                            defaultMessage='The location of the log files. If blank, they are stored in the ./logs directory. The path that you set must exist and Mattermost must have write permissions in it.'
+                            defaultMessage='The location of the log files. If blank, they are stored in the ./logs directory. The path that you set must exist and uChat must have write permissions in it.'
                         />
                     }
                     value={this.state.fileLocation}
@@ -198,7 +198,7 @@ export default class LogSettings extends AdminSettings {
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.log.enableDiagnosticsDescription'
-                            defaultMessage='Enable this feature to improve the quality and performance of Mattermost by sending error reporting and diagnostic information to Mattermost, Inc. Read our <a href="https://about.mattermost.com/default-privacy-policy/" target="_blank">privacy policy</a> to learn more.'
+                            defaultMessage='Enable this feature to improve the quality and performance of uChat by sending error reporting and diagnostic information to uChat, Inc. Read our <a href="https://about.mattermost.com/default-privacy-policy/" target="_blank">privacy policy</a> to learn more.'
                         />
                     }
                     value={this.state.enableDiagnostics}

@@ -50,10 +50,12 @@ export default class WebrtcSettings extends AdminSettings {
 
     renderTitle() {
         return (
-            <FormattedMessage
-                id='admin.integrations.webrtc'
-                defaultMessage='Mattermost WebRTC (Beta)'
-            />
+            <h3>
+                <FormattedMessage
+                    id='admin.integrations.webrtc'
+                    defaultMessage='uChat WebRTC (Beta)'
+                />
+            </h3>
         );
     }
 
@@ -65,13 +67,13 @@ export default class WebrtcSettings extends AdminSettings {
                     label={
                         <FormattedMessage
                             id='admin.webrtc.enableTitle'
-                            defaultMessage='Enable Mattermost WebRTC: '
+                            defaultMessage='Enable uChat WebRTC: '
                         />
                     }
                     helpText={
                         <FormattedHTMLMessage
                             id='admin.webrtc.enableDescription'
-                            defaultMessage='When true, Mattermost allows making <strong>one-on-one</strong> video calls. WebRTC calls are available on Chrome, Firefox and Mattermost Desktop Apps.'
+                            defaultMessage='When true, uChat allows making <strong>one-on-one</strong> video calls. WebRTC calls are available on Chrome, Firefox and uChat Desktop Apps.'
                         />
                     }
                     value={this.state.enableWebrtc}
@@ -110,7 +112,7 @@ export default class WebrtcSettings extends AdminSettings {
                         <FormattedMessage
                             id='admin.webrtc.gatewayAdminUrlDescription'
                             defaultMessage='Enter https://<mattermost-webrtc-gateway-url>:<port>/admin. Make sure you use HTTP or HTTPS in your URL depending on your server configuration.
-                            Mattermost WebRTC uses this URL to obtain valid tokens for each peer to establish the connection.'
+                            uChat WebRTC uses this URL to obtain valid tokens for each peer to establish the connection.'
                         />
                     }
                     value={this.state.gatewayAdminUrl}

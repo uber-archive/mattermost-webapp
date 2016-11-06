@@ -265,7 +265,7 @@ export default class AnnouncementBar extends React.PureComponent {
             message = (
                 <FormattedHTMLMessage
                     id={ErrorBarTypes.WEBSOCKET_PORT_ERROR}
-                    defaultMessage='Please check connection, Mattermost unreachable. If issue persists, ask administrator to <a href="https://about.mattermost.com/default-websocket-port-help" target="_blank">check WebSocket port</a>.'
+                    defaultMessage='Please check connection, uChat unreachable. If issue persists, ask administrator to <a href="https://about.mattermost.com/default-websocket-port-help" target="_blank">check WebSocket port</a>.'
                 />
             );
         } else if (message === ErrorBarTypes.SITE_URL) {
@@ -273,7 +273,7 @@ export default class AnnouncementBar extends React.PureComponent {
             let defaultMessage;
             if (global.mm_config.EnableSignUpWithGitLab === 'true') {
                 id = 'error_bar.site_url_gitlab';
-                defaultMessage = 'Please configure your {docsLink} in the System Console or in gitlab.rb if you\'re using GitLab Mattermost.';
+                defaultMessage = 'Please configure your {docsLink} in the System Console or in gitlab.rb if you\'re using GitLab uChat.';
             } else {
                 id = 'error_bar.site_url';
                 defaultMessage = 'Please configure your {docsLink} in the System Console.';

@@ -181,7 +181,6 @@ export default class SearchResultsItem extends React.Component {
         if (post.props && post.props.from_webhook) {
             botIndicator = <div className='bot-indicator'>{Constants.BOT_NAME}</div>;
         }
-
         const profilePic = (
             <ProfilePicture
                 src={PostUtils.getProfilePicSrcForPost(post, user)}

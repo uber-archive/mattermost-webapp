@@ -1,9 +1,9 @@
 @charset 'UTF-8';
 
 .file-preview__container {
-    height: 100px;
-    margin: 1px 0 10px;
-    max-height: 100px;
+    height: 100%;
+    margin: 5px 0 10px;
+    max-height: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     position: relative;
@@ -144,6 +144,12 @@
     position: relative;
     width: 240px;
 
+    &.preview {
+        display: inline-block;
+        float: none;
+        margin-right: 10px;
+    }
+
     &--placeholder {
         visibility: hidden;
     }
@@ -157,22 +163,51 @@
     width: 100%;
 }
 
+.post-image__thumbnail {
+    @include cursor(zoom-in);
+    color: alpha-color($black, .8);
+    float: left;
+    height: 100%;
+    width: 50%;
+}
+
+.post-image__preview {
+    display: inline-block;
+
+    .post-image__image {
+        max-width: 300px;
+    }
+
+    .post-image__info {
+        margin: 5px 0 5px 0;
+
+        .post-image__name {
+            font-size: .97em;
+            color: #717171;
+            margin-left: 5px;
+
+            &:after {
+                content: " \2022 ";
+            }
+        }
+
+        .post-image__size {
+            font-size: .97em;
+            color: #717171;
+        }
+    }
+}
+
 .post-image {
     background-color: $white;
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     height: 100%;
     overflow: hidden;
     position: relative;
     text-align: center;
     width: 100%;
-
-    &.small {
-        background-position: center;
-    }
-
-    &.normal {
-        background-position: top left;
-    }
 
     .spinner {
         .file__loading {
@@ -198,13 +233,6 @@
     }
 }
 
-.post-image__thumbnail {
-    @include cursor(zoom-in);
-    float: left;
-    height: 100%;
-    width: 50%;
-}
-
 .post-image__details {
     @include clearfix;
     background: $white;
@@ -216,17 +244,25 @@
     padding: 7px;
     width: 50%;
     word-break: break-word;
+    white-space: normal;
 
     .post-image__name {
         display: block;
         margin-bottom: 3px;
     }
 
+    .post-image__info {
+        position: absolute;
+        font-size: 12px;
+        bottom: 12px;
+    }
+
     .post-image__download {
         @include opacity(.7);
+        position: absolute;
+        bottom: 10px;
+        right: 8px;
         cursor: pointer;
-        display: inline-block;
-        padding-right: 7px;
     }
 
     .post-image__type {

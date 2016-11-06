@@ -30,7 +30,7 @@ export default class ErrorPage extends React.Component {
             return (
                 <FormattedMessage
                     id='error.local_storage.title'
-                    defaultMessage='Cannot Load Mattermost'
+                    defaultMessage='Cannot Load uChat'
                 />
             );
         case ErrorPageTypes.PERMALINK_NOT_FOUND:
@@ -63,7 +63,7 @@ export default class ErrorPage extends React.Component {
                 <div>
                     <FormattedMessage
                         id='error.local_storage.message'
-                        defaultMessage='Mattermost was unable to load because a setting in your browser prevents the use of its local storage features. To allow Mattermost to load, try the following actions:'
+                        defaultMessage='uChat was unable to load because a setting in your browser prevents the use of its local storage features. To allow uChat to load, try the following actions:'
                     />
                     <ul>
                         <li>
@@ -120,7 +120,7 @@ export default class ErrorPage extends React.Component {
                     <p>
                         <FormattedMessage
                             id='error.oauth_missing_code.office365'
-                            defaultMessage='For {link} make sure the administrator of your Microsoft organization has enabled the Mattermost app.'
+                            defaultMessage='For {link} make sure the administrator of your Microsoft organization has enabled the uChat app.'
                             values={{
                                 link: this.renderLink('https://docs.mattermost.com/deployment/sso-office.html', 'error.oauth_missing_code.office365.link', 'Office 365')
                             }}
@@ -203,7 +203,7 @@ export default class ErrorPage extends React.Component {
                     <Link to='/'>
                         <FormattedMessage
                             id='error.generic.link'
-                            defaultMessage='Back to Mattermost'
+                            defaultMessage='Back to uChat'
                         />
                     </Link>
                 </div>

@@ -56,7 +56,7 @@ export default class EmailAuthenticationSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.email.allowSignupDescription'
-                            defaultMessage='When true, Mattermost allows account creation using email and password. This value should be false only when you want to limit sign up to a single sign-on service like AD/LDAP, SAML or GitLab.'
+                            defaultMessage='When true, uChat allows account creation using email and password. This value should be false only when you want to limit sign up to a single sign-on service like AD/LDAP, SAML or GitLab.'
                         />
                     }
                     value={this.state.enableSignUpWithEmail}
@@ -73,7 +73,7 @@ export default class EmailAuthenticationSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.email.allowEmailSignInDescription'
-                            defaultMessage='When true, Mattermost allows users to sign in using their email and password.'
+                            defaultMessage='When true, uChat allows users to sign in using their email and password.'
                         />
                     }
                     value={this.state.enableSignInWithEmail}

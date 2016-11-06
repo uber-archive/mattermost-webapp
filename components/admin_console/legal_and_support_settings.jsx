@@ -62,7 +62,7 @@ export default class LegalAndSupportSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.support.termsDesc'
-                            defaultMessage='Link to the terms under which users may use your online service. By default, this includes the "Mattermost Conditions of Use (End Users)" explaining the terms under which Mattermost software is provided to end users. If you change the default link to add your own terms for using the service you provide, your new terms must include a link to the default terms so end users are aware of the Mattermost Conditions of Use (End User) for Mattermost software.'
+                            defaultMessage='Link to the terms under which users may use your online service. By default, this includes the "uChat Conditions of Use (End Users)" explaining the terms under which uChat software is provided to end users. If you change the default link to add your own terms for using the service you provide, your new terms must include a link to the default terms so end users are aware of the uChat Conditions of Use (End User) for uChat software.'
                         />
                     }
                     value={this.state.termsOfServiceLink}
@@ -96,7 +96,7 @@ export default class LegalAndSupportSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.support.aboutDesc'
-                            defaultMessage='The URL for the About link on the Mattermost login and sign-up pages. If this field is empty, the About link is hidden from users.'
+                            defaultMessage='The URL for the About link on the uChat login and sign-up pages. If this field is empty, the About link is hidden from users.'
                         />
                     }
                     value={this.state.aboutLink}
@@ -113,7 +113,7 @@ export default class LegalAndSupportSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.support.helpDesc'
-                            defaultMessage='The URL for the Help link on the Mattermost login page, sign-up pages, and Main Menu. If this field is empty, the Help link is hidden from users.'
+                            defaultMessage='The URL for the Help link on the uChat login page, sign-up pages, and Main Menu. If this field is empty, the Help link is hidden from users.'
                         />
                     }
                     value={this.state.helpLink}

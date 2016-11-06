@@ -100,7 +100,7 @@ export default class ConfigurationSettings extends AdminSettings {
         const reloadConfigurationHelpText = (
             <FormattedMessage
                 id='admin.reload.reloadDescription'
-                defaultMessage='Deployments using multiple databases can switch from one master database to another without restarting the Mattermost server by updating "config.json" to the new desired configuration and using the {featureName} feature to load the new settings while the server is running. The administrator should then use the {recycleDatabaseConnections} feature to recycle the database connections based on the new settings.'
+                defaultMessage='Deployments using multiple databases can switch from one master database to another without restarting the uChat server by updating "config.json" to the new desired configuration and using the {featureName} feature to load the new settings while the server is running. The administrator should then use the {recycleDatabaseConnections} feature to recycle the database connections based on the new settings.'
                 values={{
                     featureName: (
                         <b>
@@ -167,7 +167,7 @@ export default class ConfigurationSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.service.siteURLDescription'
-                            defaultMessage='The URL that users will use to access Mattermost. Standard ports, such as 80 and 443, can be omitted, but non-standard ports are required. For example: http://mattermost.example.com:8065. This setting is required.'
+                            defaultMessage='The URL that users will use to access uChat. Standard ports, such as 80 and 443, can be omitted, but non-standard ports are required. For example: http://uChat.example.com:8065. This setting is required.'
                         />
                     }
                     value={this.state.siteURL}
@@ -185,7 +185,7 @@ export default class ConfigurationSettings extends AdminSettings {
                     helpText={
                         <FormattedMessage
                             id='admin.service.listenDescription'
-                            defaultMessage='The address and port to which to bind and listen. Specifying ":8065" will bind to all network interfaces. Specifying "127.0.0.1:8065" will only bind to the network interface having that IP address. If you choose a port of a lower level (called "system ports" or "well-known ports", in the range of 0-1023), you must have permissions to bind to that port. On Linux you can use: "sudo setcap cap_net_bind_service=+ep ./bin/platform" to allow Mattermost to bind to well-known ports.'
+                            defaultMessage='The address and port to which to bind and listen. Specifying ":8065" will bind to all network interfaces. Specifying "127.0.0.1:8065" will only bind to the network interface having that IP address. If you choose a port of a lower level (called "system ports" or "well-known ports", in the range of 0-1023), you must have permissions to bind to that port. On Linux you can use: "sudo setcap cap_net_bind_service=+ep ./bin/platform" to allow uChat to bind to well-known ports.'
                         />
                     }
                     value={this.state.listenAddress}

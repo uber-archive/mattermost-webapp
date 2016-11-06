@@ -20,7 +20,7 @@ const SECTION_NONE = (
         <td>
             <FormattedMessage
                 id='admin.connectionSecurityNoneDescription'
-                defaultMessage='Mattermost will connect over an insecure connection.'
+                defaultMessage='uChat will connect over an unsecure connection.'
             />
         </td>
     </tr>
@@ -37,7 +37,7 @@ const SECTION_TLS = (
         <td>
             <FormattedMessage
                 id='admin.connectionSecurityTlsDescription'
-                defaultMessage='Encrypts the communication between Mattermost and your server.'
+                defaultMessage='Encrypts the communication between uChat and your server.'
             />
         </td>
     </tr>

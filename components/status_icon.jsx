@@ -17,14 +17,20 @@ export default function StatusIcon(props) {
     let statusIcon = '';
     if (type === 'avatar') {
         if (status === 'online') {
-            statusIcon = Constants.ONLINE_AVATAR_SVG;
+            statusIcon = <i className='uchat-icons-person_online online--icon'/>;
         } else if (status === 'away') {
-            statusIcon = Constants.AWAY_AVATAR_SVG;
+            statusIcon = <i className='uchat-icons-person_away away--icon'/>;
         } else if (status === 'dnd') {
             statusIcon = Constants.DND_AVATAR_SVG;
         } else {
-            statusIcon = Constants.OFFLINE_AVATAR_SVG;
+            statusIcon = <i className='uchat-icons-person_offline'/>;
         }
+
+        return (
+            <span className='status'>
+                {statusIcon}
+            </span>
+        );
     } else if (status === 'online') {
         statusIcon = Constants.ONLINE_ICON_SVG;
     } else if (status === 'away') {

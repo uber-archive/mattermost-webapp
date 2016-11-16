@@ -13,7 +13,10 @@ import * as Utils from 'utils/utils.jsx';
 
 function flagToolTip(isFlagged) {
     return (
-        <Tooltip id='flagTooltip'>
+        <Tooltip
+            className='hidden-xs'
+            id='flagTooltip'
+        >
             <FormattedMessage
                 id={isFlagged ? 'flag_post.unflag' : 'flag_post.flag'}
                 defaultMessage={isFlagged ? 'Unflag' : 'Flag for follow up'}
@@ -60,6 +63,7 @@ export default function PostFlagIcon(props) {
         return (
             <OverlayTrigger
                 trigger={['hover', 'focus']}
+                className='hidden-xs'
                 key={'flagtooltipkey' + flagVisible}
                 delayShow={Constants.OVERLAY_TIME_DELAY}
                 placement='top'

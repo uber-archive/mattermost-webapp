@@ -40,7 +40,10 @@ export default class SearchResultsHeader extends React.Component {
         );
 
         const closeSidebarTooltip = (
-            <Tooltip id='closeSidebarTooltip'>
+            <Tooltip
+                className='hidden-xs'
+                id='closeSidebarTooltip'
+            >
                 <FormattedMessage
                     id='rhs_header.closeSidebarTooltip'
                     defaultMessage='Close Sidebar'
@@ -49,7 +52,10 @@ export default class SearchResultsHeader extends React.Component {
         );
 
         const expandSidebarTooltip = (
-            <Tooltip id='expandSidebarTooltip'>
+            <Tooltip
+                className='hidden-xs'
+                id='expandSidebarTooltip'
+            >
                 <FormattedMessage
                     id='rhs_header.expandSidebarTooltip'
                     defaultMessage='Expand Sidebar'
@@ -58,7 +64,10 @@ export default class SearchResultsHeader extends React.Component {
         );
 
         const shrinkSidebarTooltip = (
-            <Tooltip id='shrinkSidebarTooltip'>
+            <Tooltip
+                className='hidden-xs'
+                id='shrinkSidebarTooltip'
+            >
                 <FormattedMessage
                     id='rhs_header.shrinkSidebarTooltip'
                     defaultMessage='Shrink Sidebar'
@@ -104,6 +113,7 @@ export default class SearchResultsHeader extends React.Component {
                     >
                         <OverlayTrigger
                             trigger={['hover', 'focus']}
+                            className='hidden-xs'
                             delayShow={Constants.OVERLAY_TIME_DELAY}
                             placement='top'
                             overlay={expandSidebarTooltip}
@@ -112,6 +122,7 @@ export default class SearchResultsHeader extends React.Component {
                         </OverlayTrigger>
                         <OverlayTrigger
                             trigger={['hover', 'focus']}
+                            className='hidden-xs'
                             delayShow={Constants.OVERLAY_TIME_DELAY}
                             placement='top'
                             overlay={shrinkSidebarTooltip}
@@ -128,6 +139,7 @@ export default class SearchResultsHeader extends React.Component {
                     >
                         <OverlayTrigger
                             trigger={['hover', 'focus']}
+                            className='hidden-xs'
                             delayShow={Constants.OVERLAY_TIME_DELAY}
                             placement='top'
                             overlay={closeSidebarTooltip}

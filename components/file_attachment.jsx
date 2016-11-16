@@ -121,6 +121,7 @@ export default class FileAttachment extends React.Component {
             filenameOverlay = (
                 <OverlayTrigger
                     trigger={['hover', 'focus']}
+                    className='hidden-xs'
                     delayShow={1000}
                     placement='top'
                     overlay={
@@ -150,6 +151,7 @@ export default class FileAttachment extends React.Component {
             filenameOverlay = (
                 <OverlayTrigger
                     trigger={['hover', 'focus']}
+                    className='hidden-xs'
                     delayShow={1000}
                     placement='top'
                     overlay={

@@ -77,6 +77,7 @@ export default class UserProfile extends React.Component {
         return (
             <OverlayTrigger
                 ref='overlay'
+                className='hidden-xs'
                 trigger='click'
                 placement='right'
                 rootClose={true}

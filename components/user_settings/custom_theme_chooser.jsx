@@ -275,6 +275,7 @@ class CustomThemeChooser extends React.Component {
                             </select>
                             <OverlayTrigger
                                 trigger={['hover', 'focus']}
+                                className='hidden-xs'
                                 placement='top'
                                 overlay={popoverContent}
                                 ref='headerOverlay'

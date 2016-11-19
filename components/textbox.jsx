@@ -173,14 +173,7 @@ export default class Textbox extends React.Component {
     }
 
     render() {
-        const hasText = this.props.value && this.props.value.length > 0;
-
         let editHeader;
-        let helpTextClass = '';
-
-        if (this.props.value && this.props.value.length > this.props.characterLimit) {
-            helpTextClass = 'hidden';
-        }
 
         if (this.props.previewMessageLink) {
             editHeader = (
@@ -200,71 +193,24 @@ export default class Textbox extends React.Component {
         let previewLink = null;
         if (Utils.isFeatureEnabled(PreReleaseFeatures.MARKDOWN_PREVIEW)) {
             previewLink = (
-                <a
-                    id='previewLink'
-                    onClick={this.togglePreview}
-                    className='textbox-preview-link'
-                >
-                    {this.state.preview ? (
-                        editHeader
-                    ) : (
-                        <FormattedMessage
-                            id='textbox.preview'
-                            defaultMessage='Preview'
-                        />
-                    )}
-                </a>
+                <div className='md-preview__text'>
+                    <a
+                        id='previewLink'
+                        onClick={this.togglePreview}
+                        className='textbox-preview-link'
+                    >
+                        {this.state.preview ? (
+                            editHeader
+                        ) : (
+                            <FormattedMessage
+                                id='textbox.preview'
+                                defaultMessage='Preview'
+                            />
+                        )}
+                    </a>
+                </div>
             );
         }
-
-        const helpText = (
-            <div
-                id='helpText'
-                style={{visibility: hasText ? 'visible' : 'hidden', opacity: hasText ? '0.45' : '0'}}
-                className='help__format-text'
-            >
-                <b>
-                    <FormattedMessage
-                        id='textbox.bold'
-                        defaultMessage='**bold**'
-                    />
-                </b>
-                <i>
-                    <FormattedMessage
-                        id='textbox.italic'
-                        defaultMessage='_italic_'
-                    />
-                </i>
-                <span>
-                    {'~~'}
-                    <strike>
-                        <FormattedMessage
-                            id='textbox.strike'
-                            defaultMessage='strike'
-                        />
-                    </strike>
-                    {'~~ '}
-                </span>
-                <span>
-                    <FormattedMessage
-                        id='textbox.inlinecode'
-                        defaultMessage='`inline code`'
-                    />
-                </span>
-                <span>
-                    <FormattedMessage
-                        id='textbox.preformatted'
-                        defaultMessage='```preformatted```'
-                    />
-                </span>
-                <span>
-                    <FormattedMessage
-                        id='textbox.quote'
-                        defaultMessage='>quote'
-                    />
-                </span>
-            </div>
-        );
 
         const options = {
             mentionKeys: UserStore.getCurrentMentionKeys(),
@@ -321,22 +267,7 @@ export default class Textbox extends React.Component {
                     popoverMentionKeyClick={this.props.popoverMentionKeyClick}
                 />
                 {preview}
-                <div className={'help__text ' + helpTextClass}>
-                    {helpText}
-                    {previewLink}
-                    <a
-                        id='helpTextLink'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        href='/help/messaging'
-                        className='textbox-help-link'
-                    >
-                        <FormattedMessage
-                            id='textbox.help'
-                            defaultMessage='Help'
-                        />
-                    </a>
-                </div>
+                {previewLink}
             </div>
         );
     }

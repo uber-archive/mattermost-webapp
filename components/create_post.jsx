@@ -725,6 +725,54 @@ export default class CreatePost extends React.Component {
             );
         }
 
+        const helpText = (
+            <div
+                style={{visibility: this.state.message ? 'visible' : 'hidden', opacity: this.state.message ? '0.45' : '0'}}
+                className='help__format-text'
+            >
+                <b>
+                    <FormattedMessage
+                        id='textbox.bold'
+                        defaultMessage='**bold**'
+                    />
+                </b>
+                <i>
+                    <FormattedMessage
+                        id='textbox.italic'
+                        defaultMessage='_italic_'
+                    />
+                </i>
+                <span>
+                    {'~~'}
+                    <strike>
+                        <FormattedMessage
+                            id='textbox.strike'
+                            defaultMessage='strike'
+                        />
+                    </strike>
+                    {'~~ '}
+                </span>
+                <span>
+                    <FormattedMessage
+                        id='textbox.inlinecode'
+                        defaultMessage='`inline code`'
+                    />
+                </span>
+                <span>
+                    <FormattedMessage
+                        id='textbox.preformatted'
+                        defaultMessage='```preformatted```'
+                    />
+                </span>
+                <span>
+                    <FormattedMessage
+                        id='textbox.quote'
+                        defaultMessage='>quote'
+                    />
+                </span>
+            </div>
+        );
+
         return (
             <form
                 id='create_post'
@@ -777,6 +825,20 @@ export default class CreatePost extends React.Component {
                         {postError}
                         {preview}
                         {serverError}
+                        <div className='help__text'>
+                            {helpText}
+                            <a
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                href='/help/messaging'
+                                className='textbox-help-link'
+                            >
+                                <FormattedMessage
+                                    id='textbox.help'
+                                    defaultMessage='Help'
+                                />
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <PostDeletedModal

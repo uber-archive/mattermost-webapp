@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+
 import logoImage from 'images/uchat_color.png';
 
 import {useSafeUrl} from 'utils/url';

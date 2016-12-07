@@ -209,6 +209,14 @@
     text-align: center;
     width: 100%;
 
+    &.small {
+        background-position: center;
+    }
+
+    &.normal {
+        background-position: top left;
+    }
+
     .spinner {
         .file__loading {
             left: 50%;
@@ -231,6 +239,13 @@
             width: 120px;
         }
     }
+}
+
+.post-image__thumbnail {
+    @include cursor(zoom-in);
+    float: left;
+    height: 100%;
+    width: 50%;
 }
 
 .post-image__details {
@@ -263,6 +278,8 @@
         bottom: 10px;
         right: 8px;
         cursor: pointer;
+        display: inline-block;
+        padding-right: 7px;
     }
 
     .post-image__type {

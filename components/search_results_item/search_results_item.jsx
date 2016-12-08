@@ -223,13 +223,11 @@ export default class SearchResultsItem extends React.PureComponent {
         }
 
         let overrideUsername;
-        let disableProfilePopover = false;
         if (post.props &&
                 post.props.from_webhook &&
                 post.props.override_username &&
                 global.window.mm_config.EnablePostUsernameOverride === 'true') {
             overrideUsername = post.props.override_username;
-            disableProfilePopover = true;
         }
 
         let botIndicator;
@@ -243,6 +241,7 @@ export default class SearchResultsItem extends React.PureComponent {
                 user={this.props.user}
                 status={this.props.status}
                 isBusy={this.props.isBusy}
+                disablePopover={true}
             />
 
         );
@@ -363,7 +362,7 @@ export default class SearchResultsItem extends React.PureComponent {
                                         <UserProfile
                                             user={user}
                                             overwriteName={overrideUsername}
-                                            disablePopover={disableProfilePopover}
+                                            disablePopover={true}
                                             status={this.props.status}
                                             isBusy={this.props.isBusy}
                                         />

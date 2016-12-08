@@ -90,10 +90,8 @@
 
     &#user-profile-popover-new {
         text-align: center;
-        background: transparent;
         border: none;
         box-shadow: none;
-        top: -190px !important;
         .popover-title, .arrow {
             display: none;
         }
@@ -103,13 +101,9 @@
             height: auto;
             overflow: auto;
             .profile-popover-container {
-                background-color: #ffffff;
                 overflow: auto;
                 width: 200px;
                 padding-top: 15px;
-                -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
-                -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
-                box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
                 .user-popover__image {
                     height: 100px;
                     width: 100px;
@@ -119,6 +113,7 @@
                     -o-border-radius: 100px;
                     border-radius: 100px;
                     margin: 0;
+                    border: 1px solid gray;
                 }
                 .profile-popover-name {
                     padding: 0 12px;
@@ -128,12 +123,28 @@
                         margin-bottom: 0;
                     }
                 }
+                .profile-popover-position {
+                    font-size: 12px;
+                    max-width: 185px;
+                    margin: 0 8px;
+                }
+                .profile-popover-timezone {
+                    font-size: 12px;
+                }
                 .profile-popover-icons {
                     margin: 0 auto;
                     .profile-popover-icon {
                         margin: 13px 12px 12px;
                         height: 32px;
                         width: 32px;
+                        a {
+                            i {
+                                padding: 9px 10px 10px 11px;
+                                border-radius: 16px;
+                                background-color: #11939a;
+                                color: white;
+                            }
+                        }
                     }
                 }
                 .username-btn {
@@ -189,7 +200,6 @@
 
 .user-popover__image {
     @include border-radius(128px);
-    display: block;
     margin: 5px 0;
     object-fit: cover;
 }

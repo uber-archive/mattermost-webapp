@@ -8,7 +8,7 @@ import {General} from 'mattermost-redux/constants';
 
 import AtMention from 'components/at_mention/at_mention.jsx';
 
-jest.mock('components/profile_popover', () => {
+jest.mock('components/profile_popover_uchat', () => {
     return class FakeProfilePopover extends require('react').PureComponent {};
 });
 

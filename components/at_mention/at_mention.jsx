@@ -8,7 +8,7 @@ import {Client4} from 'mattermost-redux/client';
 import {displayUsername} from 'mattermost-redux/utils/user_utils';
 
 import Pluggable from 'plugins/pluggable';
-import ProfilePopover from 'components/profile_popover';
+import ProfilePopover from 'components/profile_popover_uchat';
 
 export default class AtMention extends React.PureComponent {
     static propTypes = {

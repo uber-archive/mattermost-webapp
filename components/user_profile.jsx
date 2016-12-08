@@ -8,7 +8,7 @@ import {OverlayTrigger} from 'react-bootstrap';
 import Pluggable from 'plugins/pluggable';
 import * as Utils from 'utils/utils.jsx';
 
-import ProfilePopover from './profile_popover';
+import ProfilePopover from './profile_popover_uchat';
 
 export default class UserProfile extends React.Component {
     constructor(props) {
@@ -19,10 +19,6 @@ export default class UserProfile extends React.Component {
 
     shouldComponentUpdate(nextProps) {
         if (!Utils.areObjectsEqual(nextProps.user, this.props.user)) {
-            return true;
-        }
-
-        if (!Utils.areObjectsEqual(nextProps.post, this.props.post)) {
             return true;
         }
 
@@ -114,7 +110,6 @@ UserProfile.defaultProps = {
 };
 UserProfile.propTypes = {
     user: PropTypes.object,
-    post: PropTypes.object,
     overwriteName: PropTypes.node,
     overwriteImage: PropTypes.string,
     disablePopover: PropTypes.bool,

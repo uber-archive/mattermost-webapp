@@ -9,12 +9,14 @@ import {browserHistory} from 'react-router';
 import {openDirectChannelToUser} from 'actions/channel_actions.jsx';
 import * as GlobalActions from 'actions/global_actions.jsx';
 import * as WebrtcActions from 'actions/webrtc_actions.jsx';
+import PreferenceStore from 'stores/preference_store.jsx';
 import TeamStore from 'stores/team_store.jsx';
 import UserStore from 'stores/user_store.jsx';
 import WebrtcStore from 'stores/webrtc_store.jsx';
 
 import Constants from 'utils/constants.jsx';
 import * as Utils from 'utils/utils.jsx';
+import {getCurrentTimezone} from 'utils/timezone.jsx';
 
 const UserStatuses = Constants.UserStatuses;
 
@@ -248,6 +250,26 @@ class ProfilePopoverNew extends React.Component {
                     </div>
                 </OverlayTrigger>
             );
+        }
+
+        if (global.window.mm_config.EnableTimezoneSelection === 'true') {
+            const currentTimezone = getCurrentTimezone(this.props.user.timezone);
+            if (currentTimezone) {
+                const useMilitaryTime = PreferenceStore.getBool(Constants.Preferences.CATEGORY_DISPLAY_SETTINGS, 'use_military_time');
+                const date = new Date();
+                const localDate = date.toLocaleString('en', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: !useMilitaryTime,
+                    timeZone: currentTimezone
+                });
+                dataContent.push(
+                    <span
+                        className='overflow--ellipsis text-nowrap profile-popover-position'>
+                        {`Local Time: ${localDate}`}
+                    </span>
+                );
+            }
         }
 
         if (showDirectChannel) {

@@ -92,6 +92,7 @@ exports[`components/AddUsersToTeam should match when renderOption is called 1`] 
   onClick={[Function]}
 >
   <ProfilePicture
+    disablePopover={false}
     hasMention={false}
     height="32"
     isRHS={false}
@@ -132,6 +133,7 @@ exports[`components/AddUsersToTeam should match when renderOption is called 2`] 
   onClick={[Function]}
 >
   <ProfilePicture
+    disablePopover={false}
     hasMention={false}
     height="32"
     isRHS={false}

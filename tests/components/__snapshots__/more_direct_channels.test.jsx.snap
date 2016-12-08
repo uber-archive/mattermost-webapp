@@ -6,6 +6,7 @@ exports[`components/MoreDirectChannels should match renderOption snapshot 1`] = 
   onClick={[Function]}
 >
   <ProfilePicture
+    disablePopover={false}
     hasMention={false}
     height="32"
     isRHS={false}

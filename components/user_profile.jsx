@@ -9,7 +9,7 @@ import Pluggable from 'plugins/pluggable';
 
 import * as Utils from 'utils/utils.jsx';
 
-import ProfilePopover from './profile_popover.jsx';
+import ProfilePopover from './profile_popover_new.jsx';
 
 export default class UserProfile extends React.Component {
     constructor(props) {
@@ -91,6 +91,7 @@ export default class UserProfile extends React.Component {
                             hide={this.hideProfilePopover}
                             isRHS={this.props.isRHS}
                             hasMention={this.props.hasMention}
+                            parent={this}
                         />
                     </Pluggable>
                 }

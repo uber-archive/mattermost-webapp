@@ -10,7 +10,7 @@ import Pluggable from 'plugins/pluggable';
 
 import * as PostUtils from 'utils/post_utils.jsx';
 
-import ProfilePopover from './profile_popover.jsx';
+import ProfilePopover from './profile_popover_new.jsx';
 import StatusIcon from './status_icon.jsx';
 
 export default class ProfilePicture extends React.PureComponent {
@@ -18,7 +18,8 @@ export default class ProfilePicture extends React.PureComponent {
         width: '36',
         height: '36',
         isRHS: false,
-        hasMention: false
+        hasMention: false,
+        disablePopover: false
     };
 
     static propTypes = {
@@ -30,7 +31,8 @@ export default class ProfilePicture extends React.PureComponent {
         isBusy: PropTypes.bool,
         isRHS: PropTypes.bool,
         hasMention: PropTypes.bool,
-        post: PropTypes.object
+        post: PropTypes.object,
+        disablePopover: React.PropTypes.bool
     };
 
     hideProfilePopover = () => {
@@ -42,7 +44,7 @@ export default class ProfilePicture extends React.PureComponent {
         if (this.props.post) {
             isSystemMessage = PostUtils.isSystemMessage(this.props.post);
         }
-        if (this.props.user) {
+        if (this.props.user && !this.props.disablePopover) {
             return (
                 <OverlayTrigger
                     ref='overlay'
@@ -60,6 +62,7 @@ export default class ProfilePicture extends React.PureComponent {
                                 hide={this.hideProfilePopover}
                                 isRHS={this.props.isRHS}
                                 hasMention={this.props.hasMention}
+                                parent={this}
                             />
                         </Pluggable>
                     }

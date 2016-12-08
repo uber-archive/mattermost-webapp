@@ -65,6 +65,7 @@ const holders = defineMessages({
         defaultMessage: 'Nickname'
     },
     */
+
     username: {
         id: 'user.settings.general.username',
         defaultMessage: 'Username'
@@ -104,6 +105,7 @@ class UserSettingsGeneralTab extends React.Component {
         this.submitUsername = this.submitUsername.bind(this);
 
         // this.submitNickname = this.submitNickname.bind(this);
+
         this.submitName = this.submitName.bind(this);
         this.submitEmail = this.submitEmail.bind(this);
         this.submitUser = this.submitUser.bind(this);
@@ -115,6 +117,7 @@ class UserSettingsGeneralTab extends React.Component {
         this.updateLastName = this.updateLastName.bind(this);
 
         // this.updateNickname = this.updateNickname.bind(this);
+
         this.updateEmail = this.updateEmail.bind(this);
         this.updateConfirmEmail = this.updateConfirmEmail.bind(this);
         this.updatePicture = this.updatePicture.bind(this);
@@ -363,6 +366,7 @@ class UserSettingsGeneralTab extends React.Component {
             lastName: user.last_name,
 
             // nickname: user.nickname,
+
             position: user.position,
             originalEmail: user.email,
             email: '',

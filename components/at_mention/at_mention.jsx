@@ -9,7 +9,7 @@ import {Client4} from 'mattermost-redux/client';
 
 import Pluggable from 'plugins/pluggable';
 
-import ProfilePopover from 'components/profile_popover.jsx';
+import ProfilePopover from 'components/profile_popover_new.jsx';
 
 export default class AtMention extends React.PureComponent {
     static propTypes = {
@@ -89,6 +89,7 @@ export default class AtMention extends React.PureComponent {
                                 hide={this.hideProfilePopover}
                                 isRHS={this.props.isRHS}
                                 hasMention={this.props.hasMention}
+                                parent={this}
                             />
                         </Pluggable>
                     }

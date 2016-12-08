@@ -68,7 +68,6 @@
         background: transparent;
         border: none;
         box-shadow: none;
-        top: -190px !important;
         .popover-title, .arrow {
             display: none;
         }
@@ -102,6 +101,11 @@
                     p {
                         margin-bottom: 0;
                     }
+                }
+                .profile-popover-position {
+                    font-size: 12px;
+                    max-width: 185px;
+                    margin: 0 8px;
                 }
                 .profile-popover-icons {
                     margin: 0 auto;

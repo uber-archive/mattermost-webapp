@@ -81,6 +81,8 @@ export default class SidebarHeader extends React.Component {
         }
 
         let teamNameWithToolTip = null;
+
+        /*
         if (this.props.teamDescription === '') {
             teamNameWithToolTip = (
                 <div
@@ -91,33 +93,35 @@ export default class SidebarHeader extends React.Component {
                 </div>
             );
         } else {
-            var me = this.props.currentUser;
-            const fullName = Utils.getFullName(me);
-            teamNameWithToolTip = (
-                <OverlayTrigger
-                    className='hidden-xs'
-                    trigger={['hover', 'focus']}
-                    delayShow={Constants.OVERLAY_TIME_DELAY}
-                    placement='bottom'
-                    overlay={(
-                        <Tooltip
-                            className='hidden-xs'
-                            id='full-name__tooltip'
-                        >
-                            {fullName}
-                        </Tooltip>
-                    )}
-                    ref='descriptionOverlay'
-                >
-                    <div
-                        id='headerTeamName'
-                        className='full__name'
+        */
+        var me = this.props.currentUser;
+        const fullName = Utils.getFullName(me);
+        teamNameWithToolTip = (
+            <OverlayTrigger
+                className='hidden-xs'
+                trigger={['hover', 'focus']}
+                delayShow={Constants.OVERLAY_TIME_DELAY}
+                placement='bottom'
+                overlay={(
+                    <Tooltip
+                        className='hidden-xs'
+                        id='full-name__tooltip'
                     >
                         {fullName}
-                    </div>
-                </OverlayTrigger>
-            );
-        }
+                    </Tooltip>
+                )}
+                ref='descriptionOverlay'
+            >
+                <div
+                    id='headerTeamName'
+                    className='full__name'
+                >
+                    {fullName}
+                </div>
+            </OverlayTrigger>
+        );
+
+        // }
 
         return (
             <div

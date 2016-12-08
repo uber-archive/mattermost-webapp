@@ -7,7 +7,8 @@ import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
 
 import MenuIcon from 'components/svg/menu_icon';
-import Constants from 'utils/constants.jsx';
+import {Constants} from 'utils/constants.jsx';
+import * as Utils from 'utils/utils.jsx';
 
 import MenuTutorialTip from 'components/tutorial/menu_tutorial_tip';
 
@@ -36,27 +37,46 @@ export default class SidebarHeaderDropdownButton extends React.PureComponent {
             );
         }
 
-        let teamNameWithToolTip = (
-            <h1
-                id='headerTeamName'
-                className='team__name'
-            >
-                {this.props.teamDisplayName}
-            </h1>
-        );
-        if (this.props.teamDescription) {
+        let teamNameWithToolTip = null;
+
+        /*
+        if (this.props.teamDescription === '') {
             teamNameWithToolTip = (
-                <OverlayTrigger
-                    trigger={['hover', 'focus']}
-                    delayShow={Constants.OVERLAY_TIME_DELAY}
-                    placement='bottom'
-                    overlay={<Tooltip id='team-name__tooltip'>{this.props.teamDescription}</Tooltip>}
-                    ref='descriptionOverlay'
+                <h1
+                    id='headerTeamName'
+                    className='team__name'
                 >
-                    {teamNameWithToolTip}
-                </OverlayTrigger>
+                    {this.props.teamDisplayName}
+                </h1>
             );
-        }
+        } else {
+        */
+        var me = this.props.currentUser;
+        const fullName = Utils.getFullName(me);
+        teamNameWithToolTip = (
+            <OverlayTrigger
+                trigger={['hover', 'focus']}
+                delayShow={Constants.OVERLAY_TIME_DELAY}
+                placement='bottom'
+                overlay={(
+                    <Tooltip
+                        id='full-name__tooltip'
+                    >
+                        {fullName}
+                    </Tooltip>
+                )}
+                ref='descriptionOverlay'
+            >
+                <h1
+                    id='headerTeamName'
+                    className='full__name'
+                >
+                    {fullName}
+                </h1>
+            </OverlayTrigger>
+        );
+
+        // }
 
         return (
             <div

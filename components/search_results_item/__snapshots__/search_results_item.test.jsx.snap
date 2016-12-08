@@ -43,6 +43,7 @@ exports[`components/SearchResultsItem should match snapshot for DM 1`] = `
       >
         <Connect(PostProfilePicture)
           compactDisplay={true}
+          disablePopover={true}
           post={
             Object {
               "channel_id": "channel_id",
@@ -74,7 +75,7 @@ exports[`components/SearchResultsItem should match snapshot for DM 1`] = `
           >
             <strong>
               <Connect(UserProfile)
-                disablePopover={false}
+                disablePopover={true}
                 isRHS={true}
                 userId="user_id"
               />
@@ -256,6 +257,7 @@ exports[`components/SearchResultsItem should match snapshot for archived channel
       >
         <Connect(PostProfilePicture)
           compactDisplay={true}
+          disablePopover={true}
           post={
             Object {
               "channel_id": "channel_id",
@@ -287,7 +289,7 @@ exports[`components/SearchResultsItem should match snapshot for archived channel
           >
             <strong>
               <Connect(UserProfile)
-                disablePopover={false}
+                disablePopover={true}
                 isRHS={true}
                 userId="user_id"
               />
@@ -460,6 +462,7 @@ exports[`components/SearchResultsItem should match snapshot for channel 1`] = `
       >
         <Connect(PostProfilePicture)
           compactDisplay={true}
+          disablePopover={true}
           post={
             Object {
               "channel_id": "channel_id",
@@ -491,7 +494,7 @@ exports[`components/SearchResultsItem should match snapshot for channel 1`] = `
           >
             <strong>
               <Connect(UserProfile)
-                disablePopover={false}
+                disablePopover={true}
                 isRHS={true}
                 userId="user_id"
               />
@@ -664,6 +667,7 @@ exports[`components/SearchResultsItem should match snapshot for deleted message 
       >
         <Connect(PostProfilePicture)
           compactDisplay={true}
+          disablePopover={true}
           post={
             Object {
               "channel_id": "channel_id",

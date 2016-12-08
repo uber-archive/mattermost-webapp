@@ -176,13 +176,11 @@ export default class SearchResultsItem extends React.PureComponent {
         }
 
         let overrideUsername;
-        let disableProfilePopover = false;
         if (post.props &&
             post.props.from_webhook &&
             post.props.override_username &&
             this.props.enablePostUsernameOverride) {
             overrideUsername = post.props.override_username;
-            disableProfilePopover = true;
         }
 
         let botIndicator;
@@ -202,6 +200,7 @@ export default class SearchResultsItem extends React.PureComponent {
                 compactDisplay={this.props.compactDisplay}
                 post={post}
                 userId={post.user_id}
+                disablePopover={true}
             />
         );
 
@@ -330,8 +329,8 @@ export default class SearchResultsItem extends React.PureComponent {
                                         <UserProfile
                                             userId={post.user_id}
                                             overwriteName={overrideUsername}
-                                            disablePopover={disableProfilePopover}
                                             isRHS={true}
+                                            disablePopover={true}
                                         />
                                     </strong>
                                 </div>

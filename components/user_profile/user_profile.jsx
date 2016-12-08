@@ -7,7 +7,7 @@ import {OverlayTrigger} from 'react-bootstrap';
 
 import {imageURLForUser, isMobile} from 'utils/utils.jsx';
 
-import ProfilePopover from 'components/profile_popover';
+import ProfilePopover from 'components/profile_popover_uchat';
 
 export default class UserProfile extends PureComponent {
     static propTypes = {

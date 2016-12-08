@@ -78,7 +78,6 @@
         background: transparent;
         border: none;
         box-shadow: none;
-        top: -190px !important;
         .popover-title, .arrow {
             display: none;
         }
@@ -113,12 +112,25 @@
                         margin-bottom: 0;
                     }
                 }
+                .profile-popover-position {
+                    font-size: 12px;
+                    max-width: 185px;
+                    margin: 0 8px;
+                }
                 .profile-popover-icons {
                     margin: 0 auto;
                     .profile-popover-icon {
                         margin: 13px 12px 12px;
                         height: 32px;
                         width: 32px;
+                        a {
+                            i {
+                                padding: 9px 10px 10px 11px;
+                                border-radius: 16px;
+                                background-color: #11939a;
+                                color: white;
+                            }
+                        }
                     }
                 }
                 .username-btn {

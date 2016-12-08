@@ -98,6 +98,8 @@ export default class SidebarHeader extends React.Component {
         }
 
         let teamNameWithToolTip = null;
+
+        /*
         if (this.props.teamDescription === '') {
             teamNameWithToolTip = (
                 <h1
@@ -108,32 +110,33 @@ export default class SidebarHeader extends React.Component {
                 </h1>
             );
         } else {
-            var me = this.props.currentUser;
-            const fullName = Utils.getFullName(me);
-            teamNameWithToolTip = (
-                <OverlayTrigger
-                    trigger={['hover', 'focus']}
-                    delayShow={Constants.OVERLAY_TIME_DELAY}
-                    placement='bottom'
-                    overlay={(
-                        <Tooltip
-                            className='hidden-xs'
-                            id='full-name__tooltip'
-                        >
-                            {fullName}
-                        </Tooltip>
-                    )}
-                    ref='descriptionOverlay'
-                >
-                    <h1
-                        id='headerTeamName'
-                        className='team__name'
+        */
+        var me = this.props.currentUser;
+        const fullName = Utils.getFullName(me);
+        teamNameWithToolTip = (
+            <OverlayTrigger
+                trigger={['hover', 'focus']}
+                delayShow={Constants.OVERLAY_TIME_DELAY}
+                placement='bottom'
+                overlay={(
+                    <Tooltip
+                        id='full-name__tooltip'
                     >
                         {fullName}
-                    </h1>
-                </OverlayTrigger>
-            );
-        }
+                    </Tooltip>
+                )}
+                ref='descriptionOverlay'
+            >
+                <h1
+                    id='headerTeamName'
+                    className='full__name'
+                >
+                    {fullName}
+                </h1>
+            </OverlayTrigger>
+        );
+
+        // }
 
         return (
             <div

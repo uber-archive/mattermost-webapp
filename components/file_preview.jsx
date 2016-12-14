@@ -4,11 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import {getFileThumbnailUrl, getFileUrl} from 'mattermost-redux/utils/file_utils';
-
-import Constants from 'utils/constants.jsx';
-import * as Utils from 'utils/utils.jsx';
-
+import FileAttachment from 'components/file_attachment.jsx';
 import loadingGif from 'images/load.gif';
 
 export default class FilePreview extends React.Component {
@@ -42,53 +38,15 @@ export default class FilePreview extends React.Component {
     render() {
         var previews = [];
         const fileInfos = this.props.fileInfos.sort((a, b) => a.create_at - b.create_at);
-        fileInfos.forEach((info) => {
-            const type = Utils.getFileType(info.extension);
-
-            let className = 'file-preview';
-            let previewImage;
-            if (type === 'svg') {
-                previewImage = (
-                    <img
-                        className='post-image normal'
-                        src={getFileUrl(info.id)}
-                    />
-                );
-            } else if (type === 'image') {
-                let imageClassName = 'post-image';
-
-                if (info.width < Constants.THUMBNAIL_WIDTH && info.height < Constants.THUMBNAIL_HEIGHT) {
-                    imageClassName += ' small';
-                } else {
-                    imageClassName += ' normal';
-                }
-
-                previewImage = (
-                    <div
-                        className={imageClassName}
-                        style={{
-                            backgroundImage: `url(${getFileThumbnailUrl(info.id)})`
-                        }}
-                    />
-                );
-            } else {
-                className += ' custom-file';
-                previewImage = <div className={'file-icon ' + Utils.getIconClassName(type)}/>;
-            }
-
+        fileInfos.forEach((info, index) => {
             previews.push(
-                <div
+                <FileAttachment
+                    index={index}
                     key={info.id}
-                    className={className}
-                >
-                    {previewImage}
-                    <a
-                        className='file-preview__remove'
-                        onClick={this.handleRemove.bind(this, info.id)}
-                    >
-                        <i className='fa fa-remove'/>
-                    </a>
-                </div>
+                    fileInfo={info}
+                    displayType='preview'
+                    handleRemoveClick={this.handleRemove.bind(this, info.id)}
+                />
             );
         });
 

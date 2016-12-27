@@ -375,21 +375,23 @@ export default class SystemUsersDropdown extends React.Component {
 
         let passwordReset;
         if (user.auth_service) {
-            passwordReset = (
-                <li role='presentation'>
-                    <a
-                        id='switchEmailPassword'
-                        role='menuitem'
-                        href='#'
-                        onClick={this.handleResetPassword}
-                    >
-                        <FormattedMessage
-                            id='admin.user_item.switchToEmail'
-                            defaultMessage='Switch to Email/Password'
-                        />
-                    </a>
-                </li>
-            );
+            if (global.window.mm_config.EnableAuthenticationTransfer === 'true') {
+                passwordReset = (
+                    <li role='presentation'>
+                        <a
+                            id='switchEmailPassword'
+                            role='menuitem'
+                            href='#'
+                            onClick={this.handleResetPassword}
+                        >
+                            <FormattedMessage
+                                id='admin.user_item.switchToEmail'
+                                defaultMessage='Switch to Email/Password'
+                            />
+                        </a>
+                    </li>
+                );
+            }
         } else {
             passwordReset = (
                 <li role='presentation'>

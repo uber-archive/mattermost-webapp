@@ -20,7 +20,7 @@ exports[`components/integrations/InstalledOAuthApps should match snapshot 1`] = 
   }
   helpText={
     <FormattedMessage
-      defaultMessage="Create {oauthApplications} to securely integrate bots and third-party apps with Mattermost. Visit the {appDirectory} to find available self-hosted apps."
+      defaultMessage="Create {oauthApplications} to securely integrate bots and third-party apps with uChat. Visit the {appDirectory} to find available self-hosted apps."
       id="installed_oauth_apps.help"
       values={
         Object {

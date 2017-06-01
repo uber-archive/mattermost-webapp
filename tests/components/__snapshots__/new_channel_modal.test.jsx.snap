@@ -93,7 +93,7 @@ exports[`components/NewChannelModal should match snapshot, modal not showing 1`]
               autoFocus={true}
               className="form-control"
               id="newPublicChannelName"
-              maxLength={22}
+              maxLength={64}
               onChange={[Function]}
               placeholder="E.g.: \\"Bugs\\", \\"Marketing\\", \\"客户支持\\""
               tabIndex="1"
@@ -343,7 +343,7 @@ exports[`components/NewChannelModal should match snapshot, modal showing 1`] = `
               autoFocus={true}
               className="form-control"
               id="newPublicChannelName"
-              maxLength={22}
+              maxLength={64}
               onChange={[Function]}
               placeholder="E.g.: \\"Bugs\\", \\"Marketing\\", \\"客户支持\\""
               tabIndex="1"
@@ -593,7 +593,7 @@ exports[`components/NewChannelModal should match snapshot, private channel fille
               autoFocus={true}
               className="form-control"
               id="newPrivateChannelName"
-              maxLength={22}
+              maxLength={64}
               onChange={[Function]}
               placeholder="E.g.: \\"Bugs\\", \\"Marketing\\", \\"客户支持\\""
               tabIndex="1"

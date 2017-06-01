@@ -251,7 +251,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
           className="about-modal__title"
         >
           uChat
-
+           
           <FormattedMessage
             defaultMessage="Enterprise Edition"
             id="about.enterpriseEditione1"
@@ -447,7 +447,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
           className="about-modal__title"
         >
           uChat
-
+           
           <FormattedMessage
             defaultMessage="Team Edition"
             id="about.teamEditiont0"
@@ -510,7 +510,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
         className="form-group about-modal__copyright"
       >
         <FormattedMessage
-          defaultMessage="Copyright 2015 - {currentYear}, Uber Technologies, Inc. All rights reserved""
+          defaultMessage="Copyright 2015 - {currentYear}, Uber Technologies, Inc. All rights reserved"
           id="about.copyright"
           values={
             Object {

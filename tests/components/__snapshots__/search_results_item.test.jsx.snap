@@ -44,6 +44,7 @@ exports[`components/SearchResultsItem should match snapshot for DM 1`] = `
         className="post__img"
       >
         <ProfilePicture
+          disablePopover={true}
           hasMention={false}
           height="36"
           isBusy={false}
@@ -69,7 +70,7 @@ exports[`components/SearchResultsItem should match snapshot for DM 1`] = `
           >
             <strong>
               <UserProfile
-                disablePopover={false}
+                disablePopover={true}
                 hasMention={false}
                 isBusy={false}
                 isRHS={false}
@@ -266,6 +267,7 @@ exports[`components/SearchResultsItem should match snapshot for channel 1`] = `
         className="post__img"
       >
         <ProfilePicture
+          disablePopover={true}
           hasMention={false}
           height="36"
           isBusy={false}
@@ -291,7 +293,7 @@ exports[`components/SearchResultsItem should match snapshot for channel 1`] = `
           >
             <strong>
               <UserProfile
-                disablePopover={false}
+                disablePopover={true}
                 hasMention={false}
                 isBusy={false}
                 isRHS={false}
@@ -467,6 +469,7 @@ exports[`components/SearchResultsItem should match snapshot for deleted message 
         className="post__img"
       >
         <ProfilePicture
+          disablePopover={true}
           hasMention={false}
           height="36"
           isBusy={false}

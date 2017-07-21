@@ -49,10 +49,11 @@ export default class TeamButton extends React.Component {
 
         let btn;
         let content = this.props.content;
+        const shortName = this.props.displayName ? this.props.displayName.substring(0, 2) : '??';
         if (!content) {
             content = (
                 <div className='team-btn__initials'>
-                    {this.props.displayName.substring(0, 2)}
+                    {shortName}
                     <div className='team-btn__content'>
                         {this.props.displayName}
                     </div>

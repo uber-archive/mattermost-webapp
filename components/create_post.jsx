@@ -421,7 +421,7 @@ export default class CreatePost extends React.Component {
         this.setState({
             ctrlSend: PreferenceStore.getBool(Preferences.CATEGORY_ADVANCED_SETTINGS, 'send_on_ctrl_enter'),
             fullWidthTextBox: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.CHANNEL_DISPLAY_MODE, Preferences.CHANNEL_DISPLAY_MODE_DEFAULT) === Preferences.CHANNEL_DISPLAY_MODE_FULL_SCREEN,
-            showTutorialTip: tutorialStep === TutorialSteps.POST_POPOVER,
+            showTutorialTip: tutorialStep === TutorialSteps.POST_POPOVER && global.window.mm_config.EnableTutorial === 'true',
             enableSendButton
         });
     }
@@ -466,7 +466,7 @@ export default class CreatePost extends React.Component {
     onPreferenceChange() {
         const tutorialStep = PreferenceStore.getInt(Preferences.TUTORIAL_STEP, UserStore.getCurrentId(), 999);
         this.setState({
-            showTutorialTip: tutorialStep === TutorialSteps.POST_POPOVER,
+            showTutorialTip: tutorialStep === TutorialSteps.POST_POPOVER && global.window.mm_config.EnableTutorial === 'true',
             ctrlSend: PreferenceStore.getBool(Preferences.CATEGORY_ADVANCED_SETTINGS, 'send_on_ctrl_enter'),
             fullWidthTextBox: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.CHANNEL_DISPLAY_MODE, Preferences.CHANNEL_DISPLAY_MODE_DEFAULT) === Preferences.CHANNEL_DISPLAY_MODE_FULL_SCREEN
         });

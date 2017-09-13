@@ -13,7 +13,7 @@ import {
 import {clearErrors, logError} from 'mattermost-redux/actions/errors';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 
-import UserSettingsGeneralTab from './user_settings_general.jsx';
+import UserSettingsGeneralTab from './user_settings_general_uchat.jsx';
 
 function mapStateToProps(state) {
     const config = getConfig(state);

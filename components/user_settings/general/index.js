@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import {getMe} from 'mattermost-redux/actions/users';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 
-import UserSettingsGeneralTab from './user_settings_general.jsx';
+import UserSettingsGeneralTab from './user_settings_general_uchat.jsx';
 
 function mapStateToProps(state) {
     const config = getConfig(state);

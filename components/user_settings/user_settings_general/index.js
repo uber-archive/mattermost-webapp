@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 
 import {getMe} from 'mattermost-redux/actions/users';
 
-import UserSettingsGeneralTab from './user_settings_general.jsx';
+import UserSettingsGeneralTab from './user_settings_general_new.jsx';
 
 function mapStateToProps(state, ownProps) {
     return {

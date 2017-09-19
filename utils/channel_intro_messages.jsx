@@ -186,9 +186,8 @@ export function createOffTopicIntroMessage(channel, centeredIntro) {
 
 export function createDefaultIntroMessage(channel, centeredIntro) {
     let inviteModalLink = (
-        <a
-            className='intro-links'
-            href='#'
+        <span
+            className='intro-links color--link'
             onClick={GlobalActions.showGetTeamInviteLinkModal}
         >
             <i className='fa fa-user-plus'/>
@@ -196,7 +195,7 @@ export function createDefaultIntroMessage(channel, centeredIntro) {
                 id='intro_messages.inviteOthers'
                 defaultMessage='Invite others to this team'
             />
-        </a>
+        </span>
     );
 
     const isChannelAdmin = ChannelStore.isChannelAdminForCurrentChannel();
@@ -356,7 +355,7 @@ export function createStandardIntroMessage(channel, centeredIntro) {
 function createInviteChannelMemberButton(channel, uiType) {
     return (
         <ToggleModalButton
-            className='intro-links'
+            className='intro-links color--link'
             dialogType={ChannelInviteModal}
             dialogProps={{channel}}
         >
@@ -375,7 +374,7 @@ function createInviteChannelMemberButton(channel, uiType) {
 function createSetHeaderButton(channel) {
     return (
         <ToggleModalButton
-            className='intro-links'
+            className='intro-links color--link'
             dialogType={EditChannelHeaderModal}
             dialogProps={{channel}}
         >

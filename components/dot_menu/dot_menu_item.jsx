@@ -77,8 +77,7 @@ export default function DotMenuItem(props) {
             key={attrib.idPrefix}
             role='presentation'
         >
-            <a
-                href='#'
+            <div
                 role='menuitem'
                 onClick={attrib.onClick}
             >
@@ -86,7 +85,7 @@ export default function DotMenuItem(props) {
                     id={attrib.formattedMessageId}
                     defaultMessage={attrib.formattedDefaultMessage}
                 />
-            </a>
+            </div>
         </li>
     );
 }

@@ -14,24 +14,22 @@ export default function SettingItemMin(props) {
     if (!props.disableOpen && Utils.isMobile()) {
         editButton = (
             <li className='col-xs-12 col-sm-3 section-edit'>
-                <a
+                <span
                     id={Utils.createSafeId(props.title) + 'Edit'}
-                    className='theme'
-                    href='#'
+                    className='color--link cursor--pointer'
                     onClick={props.updateSection}
                 >
                     <i className='fa fa-pencil'/>
                     {props.describe}
-                </a>
+                </span>
             </li>
         );
     } else if (!props.disableOpen) {
         editButton = (
             <li className='col-xs-12 col-sm-3 section-edit'>
-                <a
+                <div
                     id={Utils.createSafeId(props.title) + 'Edit'}
-                    className='theme'
-                    href='#'
+                    className='color--link cursor--pointer'
                     onClick={props.updateSection}
                 >
                     <i className='fa fa-pencil'/>
@@ -39,7 +37,7 @@ export default function SettingItemMin(props) {
                         id='setting_item_min.edit'
                         defaultMessage='Edit'
                     />
-                </a>
+                </div>
             </li>
         );
 

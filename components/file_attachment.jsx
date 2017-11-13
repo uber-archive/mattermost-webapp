@@ -124,7 +124,7 @@ export default class FileAttachment extends React.Component {
             trimmedFilename = fileName;
         }
 
-        const canDownloadFiles = FileUtils.canDownloadFiles();
+        const canDownloadFiles = FileUtils.canDownloadFiles() && this.props.displayType !== 'preview';
 
         let filenameOverlay;
         if (this.props.compactDisplay) {
@@ -215,21 +215,6 @@ export default class FileAttachment extends React.Component {
             );
         }
 
-        let downloadButton = null;
-        if (canDownloadFiles) {
-            downloadButton = (
-                <a
-                    href={fileUrl}
-                    download={fileName}
-                    className='post-image__download'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                >
-                    <span className='fa fa-download'/>
-                </a>
-            );
-        }
-
         let fileCTA;
         if (this.props.displayType === 'preview') {
             fileCTA = (
@@ -303,7 +288,6 @@ export default class FileAttachment extends React.Component {
                     <div className='post-image__details'>
                         {filenameOverlay}
                         <div className='post-image__info'>
-                            {downloadButton}
                             <span className='post-image__type'>{fileInfo.extension.toUpperCase()}</span>
                             <span className='post-image__size'>{Utils.fileSizeToString(fileInfo.size)}</span>
                         </div>

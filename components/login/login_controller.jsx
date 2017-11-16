@@ -560,9 +560,13 @@ export default class LoginController extends React.Component {
         }
 
         if (samlSigninEnabled) {
+            let samlClassname = 'btn btn-custom-login saml';
+            if (!emailSigninEnabled && !usernameSigninEnabled) {
+                samlClassname += ' email-username-hidden';
+            }
             loginControls.push(
                 <a
-                    className='btn btn-custom-login saml'
+                    className={samlClassname}
                     key='saml'
                     href={'/login/sso/saml' + this.props.location.search}
                 >

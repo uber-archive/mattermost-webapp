@@ -21,7 +21,7 @@ export default function StatusIcon(props) {
         } else if (status === 'away') {
             statusIcon = <i className='uchat-icons-person_away away--icon'/>;
         } else if (status === 'dnd') {
-            statusIcon = Constants.DND_AVATAR_SVG;
+            statusIcon = <i className='uchat-icons-person_dnd away--icon'/>;
         } else {
             statusIcon = <i className='uchat-icons-person_offline'/>;
         }

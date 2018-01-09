@@ -1,4 +1,9 @@
 .get-app {
+    $uchat-teal: #90d0bd;
+
+    @include display-flex;
+    @include flex-direction(column);
+
     -webkit-overflow-scrolling: touch;
     height: 100%;
     left: 0;
@@ -7,6 +12,7 @@
     position: absolute;
     top: 0;
     width: 100%;
+    height: 90vh;
 
     hr {
         border-top: 1px solid #ddd;
@@ -39,6 +45,35 @@
         font-weight: 600;
         border-radius: 4px;
         line-height: 40px;
+    }
+
+    .get-app__logo {
+        width: 120px;
+        margin: auto;
+        display: block;
+    }
+
+    .btn {
+        display: block;
+        font-size: 20px;
+        margin: 0 auto 20px;
+        padding: 12px;
+        width: 80%;
+        border-width: 2px;
+        color: $uchat-teal;
+
+        &.btn-primary.get-android-app__open-mattermost,
+        &.btn-primary.get-ios-app__open-mattermost {
+            font-weight: bold;
+            background-color: transparent;
+            border-color: $uchat-teal;
+            &:hover,
+            &:focus,
+            &:active {
+                color: $white;
+                background: $uchat-teal;
+            }
+        }
     }
 }
 
@@ -91,5 +126,31 @@
         font-size: 18px;
         margin-bottom: 20px;
         text-align: center;
+    }
+
+    .get-ios-app__open-mattermost {
+        display: block;
+        font-size: 20px;
+        margin: auto;
+        padding: 12px;
+        width: 80%;
+    }
+}
+
+@media screen and (min-width:330px) and (max-width: 440px) {
+    .get-app {
+        .btn {
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .get-app {
+        .btn {
+            width: 100%;
+            margin: auto;
+            font-size: 12px;
+        }
     }
 }

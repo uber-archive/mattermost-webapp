@@ -1,4 +1,11 @@
 .get-app {
+    $uchat-teal: #90d0bd;
+
+    @include display-flex;
+    @include flex-direction(column);
+
+    height: 90vh;
+
     hr {
         border-top: 1px solid #ddd;
     }
@@ -21,6 +28,35 @@
         margin-top: 40px;
         padding-bottom: 30px;
         text-align: center;
+    }
+
+    .get-app__logo {
+        width: 120px;
+        margin: auto;
+        display: block;
+    }
+
+    .btn {
+        display: block;
+        font-size: 20px;
+        margin: 0 auto 20px;
+        padding: 12px;
+        width: 80%;
+        border-width: 2px;
+        color: $uchat-teal;
+
+        &.btn-primary.get-android-app__open-mattermost,
+        &.btn-primary.get-ios-app__open-mattermost {
+            font-weight: bold;
+            background-color: transparent;
+            border-color: $uchat-teal;
+            &:hover,
+            &:focus,
+            &:active {
+                color: $white;
+                background: $uchat-teal;
+            }
+        }
     }
 }
 
@@ -92,6 +128,22 @@
         font-size: 20px;
         margin: auto;
         padding: 12px;
-        width: 220px;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .get-app {
+        .btn {
+            font-size: 18px;
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .get-app {
+        .btn {
+            font-size: 16px;
+        }
     }
 }

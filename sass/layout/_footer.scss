@@ -22,8 +22,8 @@
 }
 
 .footer,
-.footer-pane, {
+.footer-pane,
+.footer-push {
+    display: none !important;
     height: 89px;
 }
-
-

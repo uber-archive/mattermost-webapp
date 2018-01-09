@@ -15,11 +15,14 @@
     background-repeat: no-repeat;
     background-size: contain;
     display: inline-block;
-    height: 21px;
+    height: 1.8em;
     min-height: 1em;
     min-width: 1em;
     vertical-align: middle;
-    width: 21px;
+    width: 1.8px;
+    margin-bottom: .25em;
+    width: 1.8em;
+    object-fit: contain;
 }
 
 .emoticon-suggestion {
@@ -45,6 +48,7 @@
     padding: 0;
     text-align: center;
     vertical-align: middle;
+    object-fit: contain;
 }
 
 .emoji-picker {

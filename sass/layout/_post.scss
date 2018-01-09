@@ -35,7 +35,7 @@
         z-index: 2;
     }
 
-    .help__text {
+    .help__text, .md-preview__text {
         bottom: -23px;
         font-size: 13px;
         position: absolute;
@@ -300,6 +300,7 @@
         left: 50%;
         margin: 5px auto;
         position: absolute;
+        right: 0;
         text-align: center;
         visibility: hidden;
         z-index: 3;
@@ -422,7 +423,7 @@
         bottom: 0;
         max-height: 162px;
         overflow: hidden;
-        padding: 12px 0 12px 15px;
+        padding-top: 8px;
         resize: none;
 
         &:not(.custom-textarea--emoji-picker) {
@@ -470,7 +471,7 @@
 
     .post-body__actions {
         display: flex;
-        height: 100%;
+        height: 94%;
         position: absolute;
         right: 0;
         top: 0;
@@ -486,10 +487,15 @@
             > span,
             div {
                 display: block;
-                height: 49px;
-                line-height: 49px;
+                height: 40px;
+                line-height: 40px;
                 text-align: center;
                 width: 100%;
+            }
+
+            .icon--attachment {
+                width: 19px;
+                margin: 0 auto;
             }
         }
 
@@ -571,7 +577,7 @@
             display: none;
             font-size: 17px;
             height: 100%;
-            line-height: 49px;
+            line-height: 40px;
             padding-right: 4px;
             text-align: center;
             vertical-align: bottom;
@@ -582,6 +588,7 @@
             }
 
             &.disabled {
+                color: grey;
                 i {
                     color: inherit;
                 }
@@ -628,6 +635,11 @@
                 &:hover {
                     @include opacity(.9);
                 }
+
+                svg {
+                    position: relative;
+                    top: 3px;
+                }
             }
         }
 
@@ -650,6 +662,16 @@
             margin-bottom: 0;
             position: absolute;
             top: 4px;
+        }
+
+        .help__text {
+            bottom: 6px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 13px;
+            position: absolute;
+            text-align: right;
+            z-index: 3;
         }
     }
 
@@ -724,6 +746,12 @@
                 @include opacity(1);
             }
         }
+
+        .post__header {
+            .col__reply {
+                display: inline-block;
+            }
+        }
     }
 
     &.post--hovered {
@@ -739,6 +767,7 @@
         .post__header {
             .col__reply {
                 z-index: 7;
+                display: inline-block;
             }
         }
 
@@ -1181,6 +1210,7 @@
         }
 
         .col__reply {
+            display: none;
             border: 1px solid transparent;
             border-radius: 2px;
             min-width: 70px;
@@ -1230,12 +1260,29 @@
             fill: inherit;
         }
 
+        .icon {
+            &--uchat {
+                .uchat-bubble-color {
+                    fill: #8ed0bc;
+                }
+
+                .uchat-letter-color {
+                    fill: #fff;
+                }
+            }
+        }
+
         img {
             @include border-radius(50px);
             height: 32px;
             max-width: none;
             vertical-align: inherit;
             width: 32px;
+            max-width: none;
+        }
+
+        .icon--uchat {
+            @include border-radius(0px);
         }
     }
 
@@ -1398,7 +1445,7 @@
         }
 
         .pending-post-actions {
-            background: alpha-color($black, .7);
+            @include alpha-property(background, $black, .7);
             color: $white;
             font-size: .9em;
             padding: 5px 7px;

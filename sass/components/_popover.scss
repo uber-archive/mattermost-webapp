@@ -62,6 +62,61 @@
             }
         }
     }
+
+    &#user-profile-popover-new {
+        text-align: center;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        top: -190px !important;
+        .popover-title, .arrow {
+            display: none;
+        }
+
+        .popover-content {
+            padding: 5px;
+            height: auto;
+            overflow: auto;
+            .profile-popover-container {
+                background-color: #ffffff;
+                overflow: auto;
+                width: 200px;
+                padding-top: 15px;
+                -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+                -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+                box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+                .user-popover__image {
+                    height: 100px;
+                    width: 100px;
+                    -webkit-border-radius: 100px;
+                    -moz-border-radius: 100px;
+                    -ms-border-radius: 100px;
+                    -o-border-radius: 100px;
+                    border-radius: 100px;
+                    margin: 0;
+                }
+                .profile-popover-name {
+                    padding: 0 12px;
+                    font-size: 16px;
+                    line-height: 1.3;
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+                .profile-popover-icons {
+                    margin: 0 auto;
+                    .profile-popover-icon {
+                        margin: 13px 12px 12px;
+                        height: 32px;
+                        width: 32px;
+                    }
+                }
+                .username-btn {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
 
 .channel-header__info {
@@ -85,6 +140,7 @@
 .user-popover__image {
     @include border-radius(128px);
     margin: 0 0 10px;
+    object-fit: cover;
 }
 
 .user-popover__email {
@@ -262,7 +318,7 @@
         .more-modal__row {
             border: none;
             cursor: pointer;
-            height: 50px;
+            height: 45px;
             margin: 1px 0;
             overflow: hidden;
             padding-left: 20px;
@@ -299,6 +355,7 @@
         .more-modal__name {
             font-size: 13.5px;
             font-weight: normal;
+            line-height: 33px;
         }
 
         .more-modal__image {

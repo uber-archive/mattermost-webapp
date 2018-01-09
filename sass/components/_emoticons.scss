@@ -2,7 +2,7 @@
 
 .reacticon {
     display: inline-block;
-    fill: inherit;
+    /* fill: inherit; Do not remove */
     opacity: .7;
     position: relative;
     top: 2px;
@@ -22,6 +22,7 @@
     min-width: 1em;
     vertical-align: middle;
     width: 21px;
+    object-fit: contain;
 
     &--unicode {
         font-size: 21px;
@@ -56,6 +57,7 @@
     padding: 0;
     text-align: center;
     vertical-align: middle;
+    object-fit: contain;
 }
 
 .emoji-picker {

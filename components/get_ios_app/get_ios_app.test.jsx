@@ -21,6 +21,7 @@ describe('components/GetIosApp', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
+    /* Removed because uChat doesn't have this link
     test('should contain the download link', () => {
         const wrapper = shallow(
             <GetIosApp
@@ -31,6 +32,7 @@ describe('components/GetIosApp', () => {
         const link = wrapper.find('.get-ios-app__app-store-link');
         expect(link.prop('href')).toEqual('https://about.mattermost.com/mattermost-ios-app');
     });
+    */
 
     test('should redirect if the user chooses to stay in the browser. Redirect url param is present', () => {
         const push = jest.fn();

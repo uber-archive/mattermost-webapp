@@ -99,7 +99,7 @@ class TeamImportTab extends React.Component {
                 <p>
                     <FormattedMessage
                         id='team_import_tab.importHelpLine1'
-                        defaultMessage="Slack import to Mattermost supports importing of messages in your Slack team's public channels."
+                        defaultMessage="Slack import to uChat supports importing of messages in your Slack team's public channels."
                     />
                 </p>
                 <p>
@@ -174,7 +174,7 @@ class TeamImportTab extends React.Component {
                     />
                     <a
                         href={this.state.link}
-                        download='MattermostImportSummary.txt'
+                        download='uChatImportSummary.txt'
                     >
                         <FormattedMessage
                             id='team_import_tab.summary'
@@ -197,7 +197,7 @@ class TeamImportTab extends React.Component {
                     />
                     <a
                         href={this.state.link}
-                        download='MattermostImportSummary.txt'
+                        download='uChatImportSummary.txt'
                     >
                         <FormattedMessage
                             id='team_import_tab.summary'

@@ -19,7 +19,7 @@ exports[`components/HeaderFooterTemplate should match snapshot with about link 1
         <span
           className="pull-right footer-site-name"
         >
-          Mattermost
+          uChat
         </span>
       </div>
       <div
@@ -28,7 +28,7 @@ exports[`components/HeaderFooterTemplate should match snapshot with about link 1
         <span
           className="pull-right footer-link copyright"
         >
-          © 2015-2017 Mattermost, Inc.
+          © 2015-2017 uChat, Inc.
         </span>
         <span
           className="pull-right"
@@ -72,7 +72,7 @@ exports[`components/HeaderFooterTemplate should match snapshot with all links 1`
         <span
           className="pull-right footer-site-name"
         >
-          Mattermost
+          uChat
         </span>
       </div>
       <div
@@ -81,7 +81,7 @@ exports[`components/HeaderFooterTemplate should match snapshot with all links 1`
         <span
           className="pull-right footer-link copyright"
         >
-          © 2015-2017 Mattermost, Inc.
+          © 2015-2017 uChat, Inc.
         </span>
         <span
           className="pull-right"
@@ -168,7 +168,7 @@ exports[`components/HeaderFooterTemplate should match snapshot with children 1`]
         <span
           className="pull-right footer-site-name"
         >
-          Mattermost
+          uChat
         </span>
       </div>
       <div
@@ -177,7 +177,7 @@ exports[`components/HeaderFooterTemplate should match snapshot with children 1`]
         <span
           className="pull-right footer-link copyright"
         >
-          © 2015-2017 Mattermost, Inc.
+          © 2015-2017 uChat, Inc.
         </span>
         <span
           className="pull-right"
@@ -207,7 +207,7 @@ exports[`components/HeaderFooterTemplate should match snapshot with help link 1`
         <span
           className="pull-right footer-site-name"
         >
-          Mattermost
+          uChat
         </span>
       </div>
       <div
@@ -216,7 +216,7 @@ exports[`components/HeaderFooterTemplate should match snapshot with help link 1`
         <span
           className="pull-right footer-link copyright"
         >
-          © 2015-2017 Mattermost, Inc.
+          © 2015-2017 uChat, Inc.
         </span>
         <span
           className="pull-right"
@@ -260,7 +260,7 @@ exports[`components/HeaderFooterTemplate should match snapshot with privacy poli
         <span
           className="pull-right footer-site-name"
         >
-          Mattermost
+          uChat
         </span>
       </div>
       <div
@@ -269,7 +269,7 @@ exports[`components/HeaderFooterTemplate should match snapshot with privacy poli
         <span
           className="pull-right footer-link copyright"
         >
-          © 2015-2017 Mattermost, Inc.
+          © 2015-2017 uChat, Inc.
         </span>
         <span
           className="pull-right"
@@ -313,7 +313,7 @@ exports[`components/HeaderFooterTemplate should match snapshot with term of serv
         <span
           className="pull-right footer-site-name"
         >
-          Mattermost
+          uChat
         </span>
       </div>
       <div
@@ -322,7 +322,7 @@ exports[`components/HeaderFooterTemplate should match snapshot with term of serv
         <span
           className="pull-right footer-link copyright"
         >
-          © 2015-2017 Mattermost, Inc.
+          © 2015-2017 uChat, Inc.
         </span>
         <span
           className="pull-right"
@@ -366,7 +366,7 @@ exports[`components/HeaderFooterTemplate should match snapshot without children 
         <span
           className="pull-right footer-site-name"
         >
-          Mattermost
+          uChat
         </span>
       </div>
       <div
@@ -375,7 +375,7 @@ exports[`components/HeaderFooterTemplate should match snapshot without children 
         <span
           className="pull-right footer-link copyright"
         >
-          © 2015-2017 Mattermost, Inc.
+          © 2015-2017 uChat, Inc.
         </span>
         <span
           className="pull-right"

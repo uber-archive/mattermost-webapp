@@ -37,7 +37,7 @@ export default class SiteNameAndDescription extends React.PureComponent {
                 <h1 id='site_name'>{siteName}</h1>
                 <h4
                     id='site_description'
-                    className='color--light'
+                    className='text-center color--light'
                 >
                     {description}
                 </h4>

@@ -9,9 +9,11 @@ import GetIosApp from './get_ios_app.jsx';
 function mapStateToProps(state) {
     const config = getConfig(state);
     const iosAppDownloadLink = config.IosAppDownloadLink;
+    const iosAppUrlScheme = config.IosAppUrlScheme;
 
     return {
         iosAppDownloadLink,
+        iosAppUrlScheme,
     };
 }
 

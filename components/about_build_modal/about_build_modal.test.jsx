@@ -23,6 +23,8 @@ describe('components/AboutBuildModal', () => {
     let config = null;
     let license = null;
 
+    global.window.mm_config = {CustomOverride: true};
+
     afterEach(() => {
         global.Date = RealDate;
         config = null;

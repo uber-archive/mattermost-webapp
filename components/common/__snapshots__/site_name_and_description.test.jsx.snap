@@ -8,7 +8,7 @@ exports[`/components/common/SiteNameAndDescription should match snapshot, defaul
     Mattermost
   </h1>
   <h4
-    className="color--light"
+    className="text-center color--light"
     id="site_description"
   >
     <FormattedMessage
@@ -28,7 +28,7 @@ exports[`/components/common/SiteNameAndDescription should match snapshot, with c
     other_site
   </h1>
   <h4
-    className="color--light"
+    className="text-center color--light"
     id="site_description"
   >
     custom_description_text

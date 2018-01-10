@@ -32,6 +32,10 @@
     content: "\e900";
     color: #A6A5A5;
 }
+.uchat-icons-person_dnd:before {
+    content: "\e900";
+    color: #F74343;
+}
 .uchat-icons-person_away:before {
     content: "\e900";
     color: #ECAB20;

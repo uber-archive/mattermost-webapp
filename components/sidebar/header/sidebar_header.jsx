@@ -103,19 +103,28 @@ export default class SidebarHeader extends React.Component {
                 </h1>
             );
         } else {
+            var me = this.props.currentUser;
+            const fullName = Utils.getFullName(me);
             teamNameWithToolTip = (
                 <OverlayTrigger
                     trigger={['hover', 'focus']}
                     delayShow={Constants.OVERLAY_TIME_DELAY}
                     placement='bottom'
-                    overlay={<Tooltip id='team-name__tooltip'>{this.props.teamDescription}</Tooltip>}
+                    overlay={(
+                        <Tooltip
+                            className='hidden-xs'
+                            id='full-name__tooltip'
+                        >
+                            {fullName}
+                        </Tooltip>
+                    )}
                     ref='descriptionOverlay'
                 >
                     <h1
                         id='headerTeamName'
                         className='team__name'
                     >
-                        {this.props.teamDisplayName}
+                        {fullName}
                     </h1>
                 </OverlayTrigger>
             );

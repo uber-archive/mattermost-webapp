@@ -102,7 +102,7 @@ exports[`components/ChangeURLModal should match snapshot, modal not showing 1`] 
             <input
               autoFocus={true}
               className="form-control"
-              maxLength={22}
+              maxLength={64}
               onChange={[Function]}
               tabIndex="1"
               type="text"
@@ -242,7 +242,7 @@ exports[`components/ChangeURLModal should match snapshot, modal showing 1`] = `
             <input
               autoFocus={true}
               className="form-control"
-              maxLength={22}
+              maxLength={64}
               onChange={[Function]}
               tabIndex="1"
               type="text"
@@ -382,7 +382,7 @@ exports[`components/ChangeURLModal should match snapshot, on currentURL 1`] = `
             <input
               autoFocus={true}
               className="form-control"
-              maxLength={22}
+              maxLength={64}
               onChange={[Function]}
               tabIndex="1"
               type="text"
@@ -529,7 +529,7 @@ exports[`components/ChangeURLModal should match snapshot, on urlError 1`] = `
             <input
               autoFocus={true}
               className="form-control"
-              maxLength={22}
+              maxLength={64}
               onChange={[Function]}
               tabIndex="1"
               type="text"
@@ -676,7 +676,7 @@ exports[`components/ChangeURLModal should match snapshot, with a input 1`] = `
             <input
               autoFocus={true}
               className="form-control"
-              maxLength={22}
+              maxLength={64}
               onChange={[Function]}
               tabIndex="1"
               type="text"

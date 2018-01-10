@@ -37,7 +37,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
       componentClass="h4"
     >
       <FormattedMessage
-        defaultMessage="About Mattermost"
+        defaultMessage="About uChat"
         id="about.title"
         values={Object {}}
       />
@@ -59,7 +59,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
         <h3
           className="about-modal__title"
         >
-          Mattermost
+          uChat
            
           <FormattedMessage
             defaultMessage="Enterprise Edition"
@@ -130,23 +130,23 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
     >
       <div>
         <FormattedMessage
-          defaultMessage="Learn more about Enterprise Edition at "
+          defaultMessage="Learn more at "
           id="about.enterpriseEditionLearn"
           values={Object {}}
         />
         <a
-          href="http://about.mattermost.com/"
+          href="https://uchat.uberinternal.com/downloads"
           rel="noopener noreferrer"
           target="_blank"
         >
-          about.mattermost.com
+          uchat.uberinternal.com
         </a>
       </div>
       <div
         className="form-group about-modal__copyright"
       >
         <FormattedMessage
-          defaultMessage="Copyright 2015 - {currentYear} Mattermost, Inc. All rights reserved"
+          defaultMessage="Copyright 2015 - {currentYear}, Uber Technologies, Inc. All rights reserved"
           id="about.copyright"
           values={
             Object {
@@ -246,7 +246,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
       componentClass="h4"
     >
       <FormattedMessage
-        defaultMessage="About Mattermost"
+        defaultMessage="About uChat"
         id="about.title"
         values={Object {}}
       />
@@ -268,7 +268,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
         <h3
           className="about-modal__title"
         >
-          Mattermost
+          uChat
            
           <FormattedMessage
             defaultMessage="Team Edition"
@@ -328,23 +328,23 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
     >
       <div>
         <FormattedMessage
-          defaultMessage="Join the Mattermost community at "
+          defaultMessage="Join the uChat community at "
           id="about.teamEditionLearn"
           values={Object {}}
         />
         <a
-          href="http://www.mattermost.org/"
+          href="https://uchat.uberinternal.com/downloads"
           rel="noopener noreferrer"
           target="_blank"
         >
-          mattermost.org
+          uchat.uberinternal.com
         </a>
       </div>
       <div
         className="form-group about-modal__copyright"
       >
         <FormattedMessage
-          defaultMessage="Copyright 2015 - {currentYear} Mattermost, Inc. All rights reserved"
+          defaultMessage="Copyright 2015 - {currentYear}, Uber Technologies, Inc. All rights reserved"
           id="about.copyright"
           values={
             Object {
@@ -443,7 +443,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
       componentClass="h4"
     >
       <FormattedMessage
-        defaultMessage="About Mattermost"
+        defaultMessage="About uChat"
         id="about.title"
         values={Object {}}
       />
@@ -465,7 +465,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
         <h3
           className="about-modal__title"
         >
-          Mattermost
+          uChat
            
           <FormattedMessage
             defaultMessage="Team Edition"
@@ -537,23 +537,23 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
     >
       <div>
         <FormattedMessage
-          defaultMessage="Join the Mattermost community at "
+          defaultMessage="Join the uChat community at "
           id="about.teamEditionLearn"
           values={Object {}}
         />
         <a
-          href="http://www.mattermost.org/"
+          href="https://uchat.uberinternal.com/downloads"
           rel="noopener noreferrer"
           target="_blank"
         >
-          mattermost.org
+          uchat.uberinternal.com
         </a>
       </div>
       <div
         className="form-group about-modal__copyright"
       >
         <FormattedMessage
-          defaultMessage="Copyright 2015 - {currentYear} Mattermost, Inc. All rights reserved"
+          defaultMessage="Copyright 2015 - {currentYear}, Uber Technologies, Inc. All rights reserved"
           id="about.copyright"
           values={
             Object {
@@ -652,7 +652,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
       componentClass="h4"
     >
       <FormattedMessage
-        defaultMessage="About Mattermost"
+        defaultMessage="About uChat"
         id="about.title"
         values={Object {}}
       />
@@ -674,7 +674,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
         <h3
           className="about-modal__title"
         >
-          Mattermost
+          uChat
            
           <FormattedMessage
             defaultMessage="Team Edition"
@@ -734,23 +734,23 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
     >
       <div>
         <FormattedMessage
-          defaultMessage="Join the Mattermost community at "
+          defaultMessage="Join the uChat community at "
           id="about.teamEditionLearn"
           values={Object {}}
         />
         <a
-          href="http://www.mattermost.org/"
+          href="https://uchat.uberinternal.com/downloads"
           rel="noopener noreferrer"
           target="_blank"
         >
-          mattermost.org
+          uchat.uberinternal.com
         </a>
       </div>
       <div
         className="form-group about-modal__copyright"
       >
         <FormattedMessage
-          defaultMessage="Copyright 2015 - {currentYear} Mattermost, Inc. All rights reserved"
+          defaultMessage="Copyright 2015 - {currentYear}, Uber Technologies, Inc. All rights reserved"
           id="about.copyright"
           values={
             Object {

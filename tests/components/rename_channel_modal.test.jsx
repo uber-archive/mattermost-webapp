@@ -48,14 +48,14 @@ describe('components/RenameChannelModal', () => {
         expect(updateChannel).not.toHaveBeenCalled();
     });
 
-    test('should not call updateChannel as channel.name.length > Constants.MAX_CHANNELNAME_LENGTH (22)', () => {
+    test('should not call updateChannel as channel.name.length > Constants.MAX_CHANNELNAME_LENGTH (64)', () => {
         const {actions: {updateChannel}} = baseProps;
         const wrapper = shallowWithIntl(
             <RenameChannelModal {...baseProps}/>
         ).dive({disableLifecycleMethods: true});
 
         wrapper.find('#display_name').simulate(
-            'change', {preventDefault: jest.fn(), target: {value: 'string-above-twentytwo-characters'}}
+            'change', {preventDefault: jest.fn(), target: {value: 'string-above-sixty-four-characters_string-above-sixty-four-characters-twice'}}
         );
 
         wrapper.find('#save-button').simulate('click');

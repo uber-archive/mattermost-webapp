@@ -6,47 +6,31 @@ import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import {useSafeUrl} from 'utils/url';
-import AppStoreButton from 'images/app-store-button.png';
-import IPhone6Mockup from 'images/iphone-6-mockup.png';
+import logoImage from 'images/uchat_color.png';
+
+const {IosAppUrlScheme} = global.mm_config;
 
 export default function GetIosApp({iosAppDownloadLink}) {
     return (
+
         <div className='get-app get-ios-app'>
-            <h1 className='get-app__header'>
-                <FormattedMessage
-                    id='get_app.iosHeader'
-                    defaultMessage='Mattermost works best if you switch to our iPhone app'
-                />
-            </h1>
-            <hr/>
-            <a
-                className='get-ios-app__app-store-link'
-                href={useSafeUrl(iosAppDownloadLink)}
-                rel='noopener noreferrer'
-            >
-                <img src={AppStoreButton}/>
-            </a>
             <img
-                className='get-app__screenshot'
-                src={IPhone6Mockup}
+                src={logoImage}
+                className='get-app__logo'
             />
-            <h2 className='get-ios-app__already-have-it'>
-                <FormattedMessage
-                    id='get_app.alreadyHaveIt'
-                    defaultMessage='Already have it?'
-                />
-            </h2>
             <a
+                href={IosAppUrlScheme ? `${IosAppUrlScheme}://` : iosAppDownloadLink}
                 className='btn btn-primary get-ios-app__open-mattermost'
-                href='mattermost://'
             >
                 <FormattedMessage
                     id='get_app.openMattermost'
-                    defaultMessage='Open Mattermost'
+                    defaultMessage={IosAppUrlScheme ? 'Open in uChat App' : 'Download uChat for iOS'}
                 />
             </a>
-            <span className='get-app__continue-with-browser'>
+            <a
+                href='/login'
+                className='btn btn-secondary get-ios-app__continue-with-browser'
+            >
                 <FormattedMessage
                     id='get_app.continueWithBrowser'
                     defaultMessage='Or {link}'
@@ -61,7 +45,7 @@ export default function GetIosApp({iosAppDownloadLink}) {
                         ),
                     }}
                 />
-            </span>
+            </a>
         </div>
     );
 }

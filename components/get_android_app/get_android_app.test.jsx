@@ -20,6 +20,7 @@ describe('components/GetAndroidApp', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
+    /* Removed because uChat doesn't have this link
     test('should contain the download link', () => {
         const wrapper = shallow(
             <GetAndroidApp
@@ -30,6 +31,7 @@ describe('components/GetAndroidApp', () => {
         const link = wrapper.find('.get-android-app__app-store-link');
         expect(link.prop('href')).toEqual('https://about.mattermost.com/mattermost-android-app');
     });
+    */
 
     test('should redirect if the user chooses to stay in the browser. Redirect url param is present', () => {
         const push = jest.fn();

@@ -6,7 +6,6 @@ import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
 import fileOverlayImage from 'images/filesOverlay.png';
-import overlayLogoImage from 'images/logoWhite.png';
 
 export default function FileUploadOverlay(props) {
     var overlayClass = 'file-overlay hidden';
@@ -42,12 +41,6 @@ export default function FileUploadOverlay(props) {
                             defaultMessage='Drop a file to upload it.'
                         />
                     </span>
-                    <img
-                        className='overlay__logo'
-                        src={overlayLogoImage}
-                        width='100'
-                        alt='Logo'
-                    />
                 </div>
             </div>
         </div>

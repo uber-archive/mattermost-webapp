@@ -40,7 +40,8 @@ export default class SidebarHeader extends React.Component {
                 <div>
                     {profilePicture}
                     <div className='header__info'>
-                        <div className='team__name'>
+                        <div className='user__name'>{'@' + me.username}</div>
+                        <div className='full__name'>
                             <FormattedMessage
                                 id='admin.sidebarHeader.systemConsole'
                                 defaultMessage='System Console'

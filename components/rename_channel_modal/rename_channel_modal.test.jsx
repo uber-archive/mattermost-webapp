@@ -55,7 +55,7 @@ describe('components/RenameChannelModal', () => {
         ).dive({disableLifecycleMethods: true});
 
         wrapper.find('#display_name').simulate(
-            'change', {preventDefault: jest.fn(), target: {value: 'string-above-sixtyfour-characters-to-test-the-channel-maxlength-limit-properly-in-the-component'}}
+            'change', {preventDefault: jest.fn(), target: {value: 'string-above-sixty-four-characters_string-above-sixty-four-characters-twice'}}
         );
 
         wrapper.find('#save-button').simulate('click');

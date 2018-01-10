@@ -73,14 +73,14 @@ export default class AboutBuildModal extends React.PureComponent {
             <div>
                 <FormattedMessage
                     id='about.teamEditionLearn'
-                    defaultMessage='Join the Mattermost community at '
+                    defaultMessage='Join the uChat community at '
                 />
                 <a
                     target='_blank'
                     rel='noopener noreferrer'
-                    href='http://www.mattermost.org/'
+                    href='https://uchat.uberinternal.com/downloads'
                 >
-                    {'mattermost.org'}
+                    {'uchat.uberinternal.com'}
                 </a>
             </div>
         );
@@ -105,14 +105,14 @@ export default class AboutBuildModal extends React.PureComponent {
                 <div>
                     <FormattedMessage
                         id='about.enterpriseEditionLearn'
-                        defaultMessage='Learn more about Enterprise Edition at '
+                        defaultMessage='Learn more at '
                     />
                     <a
                         target='_blank'
                         rel='noopener noreferrer'
-                        href='http://about.mattermost.com/'
+                        href='https://uchat.uberinternal.com/downloads'
                     >
-                        {'about.mattermost.com'}
+                        {'uchat.uberinternal.com'}
                     </a>
                 </div>
             );
@@ -124,15 +124,17 @@ export default class AboutBuildModal extends React.PureComponent {
                         defaultMessage='Enterprise Edition'
                     />
                 );
-                licensee = (
-                    <div className='form-group'>
-                        <FormattedMessage
-                            id='about.licensed'
-                            defaultMessage='Licensed to:'
-                        />
-                        &nbsp;{license.Company}
-                    </div>
-                );
+                if (license.Company) {
+                    licensee = (
+                        <div className='form-group'>
+                            <FormattedMessage
+                                id='about.licensed'
+                                defaultMessage='Licensed to:'
+                            />
+                            &nbsp;{license.Company}
+                        </div>
+                    );
+                }
             }
         }
 
@@ -211,7 +213,7 @@ export default class AboutBuildModal extends React.PureComponent {
                     >
                         <FormattedMessage
                             id='about.title'
-                            defaultMessage='About Mattermost'
+                            defaultMessage='About uChat'
                         />
                     </Modal.Title>
                 </Modal.Header>
@@ -221,13 +223,15 @@ export default class AboutBuildModal extends React.PureComponent {
                             <MattermostLogo/>
                         </div>
                         <div>
-                            <h3 className='about-modal__title'>{'Mattermost'} {title}</h3>
+                            <h3 className='about-modal__title'>
+                                {'uChat'} {title}
+                            </h3>
                             <p className='about-modal__subtitle padding-bottom'>{subTitle}</p>
                             <div className='form-group less'>
                                 <div>
                                     <FormattedMessage
                                         id='about.version'
-                                        defaultMessage='Mattermost Version:'
+                                        defaultMessage='uChat Version:'
                                     />
                                     <span id='versionString'>{'\u00a0' + mmversion}</span>
                                 </div>
@@ -256,7 +260,7 @@ export default class AboutBuildModal extends React.PureComponent {
                             <div className='about-modal__copyright'>
                                 <FormattedMessage
                                     id='about.copyright'
-                                    defaultMessage='Copyright 2015 - {currentYear} Mattermost, Inc. All rights reserved'
+                                    defaultMessage='Copyright 2015 - {currentYear} Uber Technologies, Inc. All rights reserved'
                                     values={{
                                         currentYear: new Date().getFullYear(),
                                     }}
@@ -273,7 +277,7 @@ export default class AboutBuildModal extends React.PureComponent {
                         <p>
                             <FormattedMarkdownMessage
                                 id='about.notice'
-                                defaultMessage='Mattermost is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps.'
+                                defaultMessage='uChat is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps.'
                             />
                         </p>
                     </div>

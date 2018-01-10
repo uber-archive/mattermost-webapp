@@ -40,7 +40,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
       id="aboutModalLabel"
     >
       <FormattedMessage
-        defaultMessage="About Mattermost"
+        defaultMessage="About uChat"
         id="about.title"
         values={Object {}}
       />
@@ -62,7 +62,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
         <h3
           className="about-modal__title"
         >
-          Mattermost
+          uChat
            
           <FormattedMessage
             defaultMessage="Enterprise Edition"
@@ -84,7 +84,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
         >
           <div>
             <FormattedMessage
-              defaultMessage="Mattermost Version:"
+              defaultMessage="uChat Version:"
               id="about.version"
               values={Object {}}
             />
@@ -133,16 +133,16 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
     >
       <div>
         <FormattedMessage
-          defaultMessage="Learn more about Enterprise Edition at "
+          defaultMessage="Learn more at "
           id="about.enterpriseEditionLearn"
           values={Object {}}
         />
         <a
-          href="http://about.mattermost.com/"
+          href="https://uchat.uberinternal.com/downloads"
           rel="noopener noreferrer"
           target="_blank"
         >
-          about.mattermost.com
+          uchat.uberinternal.com
         </a>
       </div>
       <div
@@ -152,7 +152,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
           className="about-modal__copyright"
         >
           <FormattedMessage
-            defaultMessage="Copyright 2015 - {currentYear} Mattermost, Inc. All rights reserved"
+            defaultMessage="Copyright 2015 - {currentYear} Uber Technologies, Inc. All rights reserved"
             id="about.copyright"
             values={
               Object {
@@ -197,7 +197,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
     >
       <p>
         <InjectIntl(FormattedMarkdownMessage)
-          defaultMessage="Mattermost is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps."
+          defaultMessage="uChat is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps."
           id="about.notice"
         />
       </p>
@@ -284,7 +284,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
       id="aboutModalLabel"
     >
       <FormattedMessage
-        defaultMessage="About Mattermost"
+        defaultMessage="About uChat"
         id="about.title"
         values={Object {}}
       />
@@ -306,7 +306,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
         <h3
           className="about-modal__title"
         >
-          Mattermost
+          uChat
            
           <FormattedMessage
             defaultMessage="Team Edition"
@@ -328,7 +328,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
         >
           <div>
             <FormattedMessage
-              defaultMessage="Mattermost Version:"
+              defaultMessage="uChat Version:"
               id="about.version"
               values={Object {}}
             />
@@ -366,16 +366,16 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
     >
       <div>
         <FormattedMessage
-          defaultMessage="Join the Mattermost community at "
+          defaultMessage="Join the uChat community at "
           id="about.teamEditionLearn"
           values={Object {}}
         />
         <a
-          href="http://www.mattermost.org/"
+          href="https://uchat.uberinternal.com/downloads"
           rel="noopener noreferrer"
           target="_blank"
         >
-          mattermost.org
+          uchat.uberinternal.com
         </a>
       </div>
       <div
@@ -385,7 +385,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
           className="about-modal__copyright"
         >
           <FormattedMessage
-            defaultMessage="Copyright 2015 - {currentYear} Mattermost, Inc. All rights reserved"
+            defaultMessage="Copyright 2015 - {currentYear} Uber Technologies, Inc. All rights reserved"
             id="about.copyright"
             values={
               Object {
@@ -430,7 +430,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
     >
       <p>
         <InjectIntl(FormattedMarkdownMessage)
-          defaultMessage="Mattermost is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps."
+          defaultMessage="uChat is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps."
           id="about.notice"
         />
       </p>
@@ -516,7 +516,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
       id="aboutModalLabel"
     >
       <FormattedMessage
-        defaultMessage="About Mattermost"
+        defaultMessage="About uChat"
         id="about.title"
         values={Object {}}
       />
@@ -538,7 +538,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
         <h3
           className="about-modal__title"
         >
-          Mattermost
+          uChat
            
           <FormattedMessage
             defaultMessage="Team Edition"
@@ -560,7 +560,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
         >
           <div>
             <FormattedMessage
-              defaultMessage="Mattermost Version:"
+              defaultMessage="uChat Version:"
               id="about.version"
               values={Object {}}
             />
@@ -610,16 +610,16 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
     >
       <div>
         <FormattedMessage
-          defaultMessage="Join the Mattermost community at "
+          defaultMessage="Join the uChat community at "
           id="about.teamEditionLearn"
           values={Object {}}
         />
         <a
-          href="http://www.mattermost.org/"
+          href="https://uchat.uberinternal.com/downloads"
           rel="noopener noreferrer"
           target="_blank"
         >
-          mattermost.org
+          uchat.uberinternal.com
         </a>
       </div>
       <div
@@ -629,7 +629,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
           className="about-modal__copyright"
         >
           <FormattedMessage
-            defaultMessage="Copyright 2015 - {currentYear} Mattermost, Inc. All rights reserved"
+            defaultMessage="Copyright 2015 - {currentYear} Uber Technologies, Inc. All rights reserved"
             id="about.copyright"
             values={
               Object {
@@ -674,7 +674,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
     >
       <p>
         <InjectIntl(FormattedMarkdownMessage)
-          defaultMessage="Mattermost is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps."
+          defaultMessage="uChat is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps."
           id="about.notice"
         />
       </p>
@@ -760,7 +760,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
       id="aboutModalLabel"
     >
       <FormattedMessage
-        defaultMessage="About Mattermost"
+        defaultMessage="About uChat"
         id="about.title"
         values={Object {}}
       />
@@ -782,7 +782,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
         <h3
           className="about-modal__title"
         >
-          Mattermost
+          uChat
            
           <FormattedMessage
             defaultMessage="Team Edition"
@@ -804,7 +804,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
         >
           <div>
             <FormattedMessage
-              defaultMessage="Mattermost Version:"
+              defaultMessage="uChat Version:"
               id="about.version"
               values={Object {}}
             />
@@ -842,16 +842,16 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
     >
       <div>
         <FormattedMessage
-          defaultMessage="Join the Mattermost community at "
+          defaultMessage="Join the uChat community at "
           id="about.teamEditionLearn"
           values={Object {}}
         />
         <a
-          href="http://www.mattermost.org/"
+          href="https://uchat.uberinternal.com/downloads"
           rel="noopener noreferrer"
           target="_blank"
         >
-          mattermost.org
+          uchat.uberinternal.com
         </a>
       </div>
       <div
@@ -861,7 +861,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
           className="about-modal__copyright"
         >
           <FormattedMessage
-            defaultMessage="Copyright 2015 - {currentYear} Mattermost, Inc. All rights reserved"
+            defaultMessage="Copyright 2015 - {currentYear} Uber Technologies, Inc. All rights reserved"
             id="about.copyright"
             values={
               Object {
@@ -906,7 +906,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
     >
       <p>
         <InjectIntl(FormattedMarkdownMessage)
-          defaultMessage="Mattermost is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps."
+          defaultMessage="uChat is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps."
           id="about.notice"
         />
       </p>

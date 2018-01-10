@@ -249,7 +249,7 @@ export default class Post extends React.PureComponent {
                 );
             } else if (PostUtils.isSystemMessage(post)) {
                 profilePic = (
-                    <MattermostLogo className='icon'/>
+                    <MattermostLogo className='icon icon--uchat'/>
                 );
             }
 

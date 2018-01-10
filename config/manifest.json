@@ -1,6 +1,6 @@
 {
-    "name": "Mattermost",
-    "description": "Mattermost is an open source, self-hosted Slack-alternative",
+    "name": "uChat",
+    "description": "Uber's internal, real-time communication platform",
     "icons": [{
         "src": "/static/images/favicon/android-chrome-192x192.png",
         "type": "image/png",
@@ -17,6 +17,14 @@
         "src": "/static/images/favicon/apple-touch-icon-152x152.png",
         "type": "image/png",
         "sizes": "152x152"
+    }, {
+        "src": "/static/images/favicon/apple-touch-icon-167x167.png",
+        "type": "image/png",
+        "sizes": "167x167"
+    }, {
+        "src": "/static/images/favicon/apple-touch-icon-180x180.png",
+        "type": "image/png",
+        "sizes": "180x180"
     }, {
         "src": "/static/images/favicon/apple-touch-icon-57x57.png",
         "type": "image/png",

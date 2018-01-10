@@ -2,10 +2,13 @@
 // See License.txt for license information.
 
 import PropTypes from 'prop-types';
+
 import React from 'react';
 import {OverlayTrigger} from 'react-bootstrap';
 
 import Pluggable from 'plugins/pluggable';
+
+import * as PostUtils from 'utils/post_utils.jsx';
 
 import ProfilePopover from './profile_popover.jsx';
 import StatusIcon from './status_icon.jsx';
@@ -26,7 +29,8 @@ export default class ProfilePicture extends React.PureComponent {
         user: PropTypes.object,
         isBusy: PropTypes.bool,
         isRHS: PropTypes.bool,
-        hasMention: PropTypes.bool
+        hasMention: PropTypes.bool,
+        post: PropTypes.object
     };
 
     hideProfilePopover = () => {
@@ -34,6 +38,10 @@ export default class ProfilePicture extends React.PureComponent {
     }
 
     render() {
+        let isSystemMessage = false;
+        if (this.props.post) {
+            isSystemMessage = PostUtils.isSystemMessage(this.props.post);
+        }
         if (this.props.user) {
             return (
                 <OverlayTrigger
@@ -57,7 +65,7 @@ export default class ProfilePicture extends React.PureComponent {
                 >
                     <span className='status-wrapper'>
                         <img
-                            className='more-modal__image'
+                            className={`more-modal__image ${isSystemMessage ? 'icon--uchat' : ''}`}
                             width={this.props.width}
                             height={this.props.width}
                             src={this.props.src}
@@ -70,7 +78,7 @@ export default class ProfilePicture extends React.PureComponent {
         return (
             <span className='status-wrapper'>
                 <img
-                    className='more-modal__image'
+                    className={`more-modal__image ${isSystemMessage ? 'icon--uchat' : ''}`}
                     width={this.props.width}
                     height={this.props.width}
                     src={this.props.src}

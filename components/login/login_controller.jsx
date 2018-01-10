@@ -424,7 +424,7 @@ export default class LoginController extends React.Component {
                                 spellCheck='false'
                             />
                         </div>
-                        <div className='form-group'>
+                        <div className='form-group pull-right'>
                             <button
                                 id='loginButton'
                                 type='submit'
@@ -441,7 +441,7 @@ export default class LoginController extends React.Component {
         if (global.window.mm_config.EnableOpenServer === 'true' && this.checkSignUpEnabled()) {
             loginControls.push(
                 <div
-                    className='form-group'
+                    className='form-group hidden'
                     key='signup'
                 >
                     <span>
@@ -470,7 +470,10 @@ export default class LoginController extends React.Component {
                     key='forgotPassword'
                     className='form-group'
                 >
-                    <Link to={'/reset_password'}>
+                    <Link
+                        to={'/reset_password'}
+                        className='btn--link hidden'
+                    >
                         <FormattedMessage
                             id='login.forgot'
                             defaultMessage='I forgot my password'
@@ -564,9 +567,13 @@ export default class LoginController extends React.Component {
         }
 
         if (samlSigninEnabled) {
+            let samlClassname = 'btn btn-custom-login saml';
+            if (!emailSigninEnabled && !usernameSigninEnabled) {
+                samlClassname += ' email-username-hidden';
+            }
             loginControls.push(
                 <a
-                    className='btn btn-custom-login saml'
+                    className={samlClassname}
                     key='saml'
                     href={'/login/sso/saml' + this.props.location.search}
                 >
@@ -647,8 +654,10 @@ export default class LoginController extends React.Component {
                             src={logoImage}
                         />
                         <div className='signup__content'>
-                            <h1>{global.window.mm_config.SiteName}</h1>
-                            <h4 className='color--light'>
+                            <h1 className='text-center'>
+                                {global.window.mm_config.SiteName}
+                            </h1>
+                            <h4 className='text-center color--light'>
                                 {description}
                             </h4>
                             {content}

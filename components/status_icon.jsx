@@ -4,13 +4,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import StatusAwayAvatarIcon from 'components/svg/status_away_avatar_icon';
 import StatusAwayIcon from 'components/svg/status_away_icon';
-import StatusDndAvatarIcon from 'components/svg/status_dnd_avatar_icon';
 import StatusDndIcon from 'components/svg/status_dnd_icon';
-import StatusOfflineAvatarIcon from 'components/svg/status_offline_avatar_icon';
 import StatusOfflineIcon from 'components/svg/status_offline_icon';
-import StatusOnlineAvatarIcon from 'components/svg/status_online_avatar_icon';
 import StatusOnlineIcon from 'components/svg/status_online_icon';
 
 export default class StatusIcon extends React.PureComponent {
@@ -34,16 +30,23 @@ export default class StatusIcon extends React.PureComponent {
         const className = 'status ' + this.props.className;
 
         let IconComponent = 'span';
+        let statusIcon = '';
         if (type === 'avatar') {
             if (status === 'online') {
-                IconComponent = StatusOnlineAvatarIcon;
+                statusIcon = <i className='uchat-icons-person_online online--icon'/>;
             } else if (status === 'away') {
-                IconComponent = StatusAwayAvatarIcon;
+                statusIcon = <i className='uchat-icons-person_away away--icon'/>;
             } else if (status === 'dnd') {
-                IconComponent = StatusDndAvatarIcon;
+                statusIcon = <i className='uchat-icons-person_dnd away--icon'/>;
             } else {
-                IconComponent = StatusOfflineAvatarIcon;
+                statusIcon = <i className='uchat-icons-person_offline'/>;
             }
+
+            return (
+                <span className={className}>
+                    {statusIcon}
+                </span>
+            );
         } else if (status === 'online') {
             IconComponent = StatusOnlineIcon;
         } else if (status === 'away') {

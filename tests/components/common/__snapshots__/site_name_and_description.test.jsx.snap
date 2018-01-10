@@ -6,7 +6,7 @@ exports[`/components/common/SiteNameAndDescription should match snapshot, defaul
     Mattermost
   </h1>
   <h4
-    className="color--light"
+    className="text-center color--light"
   >
     <FormattedMessage
       defaultMessage="All team communication in one place, searchable and accessible anywhere"
@@ -23,7 +23,7 @@ exports[`/components/common/SiteNameAndDescription should match snapshot, with c
     other_site
   </h1>
   <h4
-    className="color--light"
+    className="text-center color--light"
   >
     <FormattedMessage
       defaultMessage="All team communication in one place, searchable and accessible anywhere"
@@ -40,7 +40,7 @@ exports[`/components/common/SiteNameAndDescription should match snapshot, with c
     other_site
   </h1>
   <h4
-    className="color--light"
+    className="text-center color--light"
   >
     custom_description_text
   </h4>

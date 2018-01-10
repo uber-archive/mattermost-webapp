@@ -7,53 +7,29 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import {useSafeUrl} from 'utils/url';
-import MattermostIcon from 'images/favicon/android-chrome-192x192.png';
-import Nexus6Mockup from 'images/nexus-6p-mockup.png';
+
+import logoImage from 'images/uchat_color.png';
 
 export default function GetAndroidApp({androidAppDownloadLink}) {
     return (
         <div className='get-app get-android-app'>
-            <h1 className='get-app__header'>
-                <FormattedMessage
-                    id='get_app.androidHeader'
-                    defaultMessage='Mattermost works best if you switch to our Android app'
-                />
-            </h1>
-            <hr/>
-            <div>
-                <img
-                    className='get-android-app__icon'
-                    src={MattermostIcon}
-                />
-                <div className='get-android-app__app-info'>
-                    <span className='get-android-app__app-name'>
-                        <FormattedMessage
-                            id='get_app.androidAppName'
-                            defaultMessage='Mattermost for Android'
-                        />
-                    </span>
-                    <span className='get-android-app__app-creator'>
-                        <FormattedMessage
-                            id='get_app.mattermostInc'
-                            defaultMessage='Mattermost, Inc'
-                        />
-                    </span>
-                </div>
-            </div>
+            <img
+                src={logoImage}
+                className='get-app__logo'
+            />
             <a
-                className='btn btn-primary get-android-app__continue'
+                className='btn btn-primary get-android-app__open-mattermost'
                 href={useSafeUrl(androidAppDownloadLink)}
             >
                 <FormattedMessage
-                    id='get_app.continue'
-                    defaultMessage='Continue'
+                    id='get_app.openMattermost'
+                    defaultMessage='Download uChat for Android'
                 />
             </a>
-            <img
-                className='get-app__screenshot'
-                src={Nexus6Mockup}
-            />
-            <span className='get-app__continue-with-browser'>
+            <a
+                href='/login'
+                className='btn btn-secondary get-android-app__continue-with-browser'
+            >
                 <FormattedMessage
                     id='get_app.continueWithBrowser'
                     defaultMessage='Or {link}'
@@ -68,7 +44,7 @@ export default function GetAndroidApp({androidAppDownloadLink}) {
                         ),
                     }}
                 />
-            </span>
+            </a>
         </div>
     );
 }

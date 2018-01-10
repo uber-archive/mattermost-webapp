@@ -8,14 +8,14 @@
     <meta name='robots' content='noindex, nofollow'>
     <meta name='referrer' content='no-referrer'>
 
-    <title>Mattermost</title>
+    <title>uChat</title>
 
     <!-- iOS add to homescreen -->
     <meta name='apple-mobile-web-app-capable' content='yes'>
     <meta name='apple-mobile-web-app-status-bar-style' content='default'>
     <meta name='mobile-web-app-capable' content='yes'>
-    <meta name='apple-mobile-web-app-title' content='Mattermost'>
-    <meta name='application-name' content='Mattermost'>
+    <meta name='apple-mobile-web-app-title' content='uChat'>
+    <meta name='application-name' content='uChat'>
     <meta name='format-detection' content='telephone=no'>
     <link rel='apple-touch-icon' sizes='57x57' href='images/favicon/apple-touch-icon-57x57.png'>
     <link rel='apple-touch-icon' sizes='60x60' href='images/favicon/apple-touch-icon-60x60.png'>
@@ -24,6 +24,8 @@
     <link rel='apple-touch-icon' sizes='144x144' href='images/favicon/apple-touch-icon-144x144.png'>
     <link rel='apple-touch-icon' sizes='120x120' href='images/favicon/apple-touch-icon-120x120.png'>
     <link rel='apple-touch-icon' sizes='152x152' href='images/favicon/apple-touch-icon-152x152.png'>
+    <link rel='apple-touch-icon' sizes='167x167' href='images/favicon/apple-touch-icon-167x167.png'>
+    <link rel='apple-touch-icon' sizes='180x180' href='images/favicon/apple-touch-icon-180x180.png'>
     <!-- iOS add to homescreen -->
 
     <!-- Android add to homescreen -->
@@ -38,49 +40,37 @@
     <link rel='stylesheet' class='code_theme'>
     <style>
         .error-screen {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
             padding-top: 50px;
-            max-width: 750px;
-            font-size: 14px;
-            color: #333333;
-            margin: auto;
+            color: #90d0bd;
             display: none;
-            line-height: 1.5;
-        }
-
-        .error-screen h2 {
-            font-size: 30px;
-            font-weight: normal;
-            line-height: 1.2;
-        }
-
-        .error-screen ul {
-            padding-left: 15px;
-            line-height: 1.7;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .error-screen hr {
-            color: #ddd;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            border: 0;
-            border-top: 1px solid #eee;
         }
 
         .error-screen-visible {
             display: block;
+        }
+
+        .error-message {
+            padding-bottom: 50px;
+        }
+
+        .retry-button,
+        .retry-button:hover,
+        .retry-button:active,
+        .retry-button:visited {
+            border: 2px solid #90d0bd;
+            text-decoration: none;
+            color: #90d0bd;
+            padding: 10px;
         }
     </style>
 </head>
 <body class='font--open_sans'>
     <div id='root'>
         <div class='error-screen'>
-            <h2>Cannot connect to Mattermost</h2>
-            <hr/>
-            <p>We’re having trouble connecting to Mattermost. If refreshing this page (Ctrl+R or Command+R) does not work, please verify that your computer is connected to the internet.</p>
-            <br/>
+            <h1 class='error-message'>Cannot connect to uChat.</h1>
+            <a class='retry-button' onClick='window.location.reload();'>Try Again</a>
         </div>
         <div
             class='loading-screen'
@@ -94,7 +84,7 @@
         </div>
     </div>
     <noscript>
-        To use Mattermost, please enable JavaScript.
+        To use uChat, please enable JavaScript.
     </noscript>
 </body>
 </html>

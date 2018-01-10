@@ -19,6 +19,9 @@ import githubIcon from 'images/themes/code_themes/github.png';
 import monokaiIcon from 'images/themes/code_themes/monokai.png';
 import solarizedDarkIcon from 'images/themes/code_themes/solarized-dark.png';
 import solarizedLightIcon from 'images/themes/code_themes/solarized-light.png';
+
+import shiftThemeImage from 'images/themes/shift.png';
+import monokaiThemeImage from 'images/themes/monokai.png';
 import mattermostThemeImage from 'images/themes/mattermost.png';
 import mattermostDarkThemeImage from 'images/themes/mattermost_dark.png';
 import defaultThemeImage from 'images/themes/organization.png';
@@ -681,6 +684,56 @@ export const Constants = {
             codeTheme: 'github',
             image: defaultThemeImage,
         },
+        shift: {
+            type: 'uChat Light',
+            sidebarBg: '#282727',
+            sidebarText: '#fff',
+            sidebarUnreadText: '#fff',
+            sidebarTextHoverBg: '#494949',
+            sidebarTextActiveBorder: '#11939a',
+            sidebarTextActiveColor: '#FFFFFF',
+            sidebarHeaderBg: '#000000',
+            sidebarHeaderTextColor: '#FFFFFF',
+            onlineIndicator: '#629a41',
+            awayIndicator: '#ecab20',
+            mentionBj: '#f8f8f9',
+            mentionColor: '#11939a',
+            centerChannelBg: '#ffffff',
+            centerChannelColor: '#333333',
+            newMessageSeparator: '#11939a',
+            linkColor: '#11939a',
+            buttonBg: '#11939a',
+            buttonColor: '#FFFFFF',
+            mentionHighlightBg: '#e8fafa',
+            mentionHighlightLink: '#11939a',
+            codeTheme: 'github',
+            image: shiftThemeImage,
+        },
+        monokai: {
+            type: 'uChat Dark',
+            sidebarBg: '#282727',
+            sidebarText: '#fff',
+            sidebarUnreadText: '#fff',
+            sidebarTextHoverBg: '#494949',
+            sidebarTextActiveBorder: '#11939a',
+            sidebarTextActiveColor: '#FFFFFF',
+            sidebarHeaderBg: '#000000',
+            sidebarHeaderTextColor: '#FFFFFF',
+            onlineIndicator: '#629a41',
+            awayIndicator: '#ecab20',
+            mentionBj: '#f8f8f9',
+            mentionColor: '#11939a',
+            centerChannelBg: '#282727',
+            centerChannelColor: '#ffffff',
+            newMessageSeparator: '#11939a',
+            linkColor: '#11939a',
+            buttonBg: '#11939a',
+            buttonColor: '#FFFFFF',
+            mentionHighlightBg: '#11939a',
+            mentionHighlightLink: '#FFFFFF',
+            codeTheme: 'monokai',
+            image: monokaiThemeImage,
+        },
         mattermostDark: {
             type: 'Mattermost Dark',
             sidebarBg: '#1b2c3e',
@@ -1076,7 +1129,7 @@ export const Constants = {
     MAX_TEAMNAME_LENGTH: 15,
     MAX_TEAMDESCRIPTION_LENGTH: 50,
     MIN_CHANNELNAME_LENGTH: 2,
-    MAX_CHANNELNAME_LENGTH: 22,
+    MAX_CHANNELNAME_LENGTH: 64,
     MIN_USERNAME_LENGTH: 3,
     MAX_USERNAME_LENGTH: 22,
     MAX_NICKNAME_LENGTH: 22,

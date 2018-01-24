@@ -5,14 +5,17 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import {getMyChannelMembers, viewChannel} from 'mattermost-redux/actions/channels';
-import {getTheme} from 'mattermost-redux/selectors/entities/preferences';
+
+import PreferenceStore from 'stores/preference_store.jsx';
+
+//import {getTheme} from 'mattermost-redux/selectors/entities/preferences';
 
 import NeedsTeam from './needs_team.jsx';
 
 function mapStateToProps(state, ownProps) {
     return {
         ...ownProps,
-        theme: getTheme(state)
+        theme: PreferenceStore.getTheme() //getTheme(state)
     };
 }
 

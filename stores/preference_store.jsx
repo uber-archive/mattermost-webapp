@@ -138,8 +138,27 @@ class PreferenceStore extends EventEmitter {
     }
 
     getTheme() {
-        return Selectors.getTheme(store.getState());
+        const teamId = 12;
+        if (this.preferences.has(this.getKey(Constants.Preferences.CATEGORY_THEME, teamId))) {
+            return this.getObject(Constants.Preferences.CATEGORY_THEME, teamId);
+        }
+
+        if (this.preferences.has(this.getKey(Constants.Preferences.CATEGORY_THEME, ''))) {
+            return this.getObject(Constants.Preferences.CATEGORY_THEME, '');
+        }
+
+        for (const k in Constants.THEMES) {
+            if (Constants.THEMES.hasOwnProperty(k) && k === global.mm_config.DefaultTheme) {
+                return Constants.THEMES[k];
+            }
+        }
+
+        return Constants.THEMES.default;
     }
+
+    /*getTheme() {
+        return Selectors.getTheme(store.getState());
+    }*/
 
     handleEventPayload(payload) {
         const action = payload.action;

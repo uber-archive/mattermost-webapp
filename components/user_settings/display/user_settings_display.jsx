@@ -3,6 +3,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import {getTimezoneRegion} from 'mattermost-redux/utils/timezone_utils';
 import {FormattedMessage} from 'react-intl';
 
 import {savePreferences} from 'actions/user_actions.jsx';
@@ -10,10 +11,12 @@ import PreferenceStore from 'stores/preference_store.jsx';
 import UserStore from 'stores/user_store.jsx';
 import Constants from 'utils/constants.jsx';
 import * as Utils from 'utils/utils.jsx';
+
 import * as I18n from 'i18n/i18n.jsx';
 import SettingItemMax from 'components/setting_item_max.jsx';
 import SettingItemMin from 'components/setting_item_min.jsx';
 
+import ManageTimezones from './manage_timezones.jsx';
 import ManageLanguages from './manage_languages.jsx';
 import ThemeSetting from './user_settings_theme';
 
@@ -21,7 +24,7 @@ const Preferences = Constants.Preferences;
 
 function getDisplayStateFromStores() {
     return {
-        militaryTime: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, 'use_military_time', 'false'),
+        militaryTime: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, 'false'),
         channelDisplayMode: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.CHANNEL_DISPLAY_MODE, Preferences.CHANNEL_DISPLAY_MODE_DEFAULT),
         messageDisplay: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.MESSAGE_DISPLAY, Preferences.MESSAGE_DISPLAY_DEFAULT),
         collapseDisplay: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.COLLAPSE_DISPLAY, Preferences.COLLAPSE_DISPLAY_DEFAULT),
@@ -37,6 +40,10 @@ export default class UserSettingsDisplay extends React.Component {
             ...getDisplayStateFromStores(),
             isSaving: false,
         };
+
+        if (props.timezones.length === 0) {
+            props.actions.getSupportedTimezones();
+        }
 
         this.prevSections = {
             theme: 'dummySectionName', // dummy value that should never match any section name
@@ -54,7 +61,7 @@ export default class UserSettingsDisplay extends React.Component {
         const timePreference = {
             user_id: userId,
             category: Preferences.CATEGORY_DISPLAY_SETTINGS,
-            name: 'use_military_time',
+            name: Preferences.USE_MILITARY_TIME,
             value: this.state.militaryTime,
         };
 
@@ -389,6 +396,42 @@ export default class UserSettingsDisplay extends React.Component {
             },
         });
 
+        let timezoneSelection;
+        const userTimezone = this.props.userTimezone;
+        if (this.props.activeSection === 'timezone') {
+            timezoneSelection = (
+                <div>
+                    <ManageTimezones
+                        user={this.props.user}
+                        timezones={this.props.timezones}
+                        useAutomaticTimezone={userTimezone.useAutomaticTimezone}
+                        automaticTimezone={userTimezone.automaticTimezone}
+                        manualTimezone={userTimezone.manualTimezone}
+                        updateSection={this.updateSection}
+                    />
+                    <div className='divider-dark'/>
+                </div>
+            );
+        } else {
+            timezoneSelection = (
+                <div>
+                    <SettingItemMin
+                        title={
+                            <FormattedMessage
+                                id='user.settings.display.timezone'
+                                defaultMessage='Timezone'
+                            />
+                        }
+                        width='medium'
+                        describe={getTimezoneRegion(this.props.currentUserTimezone)}
+                        section={'timezone'}
+                        updateSection={this.updateSection}
+                    />
+                    <div className='divider-dark'/>
+                </div>
+            );
+        }
+
         const messageDisplaySection = this.createSection({
             section: Preferences.MESSAGE_DISPLAY,
             display: 'messageDisplay',
@@ -557,6 +600,7 @@ export default class UserSettingsDisplay extends React.Component {
                     <div className='divider-dark first'/>
                     {themeSection}
                     {clockSection}
+                    {timezoneSelection}
                     {linkPreviewSection}
                     {collapseSection}
                     {messageDisplaySection}
@@ -577,8 +621,14 @@ UserSettingsDisplay.propTypes = {
     collapseModal: PropTypes.func.isRequired,
     setRequireConfirm: PropTypes.func.isRequired,
     setEnforceFocus: PropTypes.func.isRequired,
+    timezones: PropTypes.array.isRequired,
+    userTimezone: PropTypes.object.isRequired,
     allowCustomThemes: PropTypes.bool,
     enableLinkPreviews: PropTypes.bool,
     defaultClientLocale: PropTypes.string,
     enableThemeSelection: PropTypes.bool,
+    currentUserTimezone: PropTypes.string,
+    actions: PropTypes.shape({
+        getSupportedTimezones: PropTypes.func.isRequired,
+    }).isRequired,
 };

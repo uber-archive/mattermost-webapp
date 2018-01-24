@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 
 import TeamStore from 'stores/team_store.jsx';
 import {isMobile} from 'utils/user_agent.jsx';
+import LocalDateTime from 'components/local_date_time';
 
 export default class PostTime extends React.PureComponent {
     static propTypes = {
@@ -22,11 +23,6 @@ export default class PostTime extends React.PureComponent {
         eventTime: PropTypes.number.isRequired,
 
         /*
-         * Set to display using 24 hour format
-         */
-        useMilitaryTime: PropTypes.bool,
-
-        /*
          * The post id of posting being rendered
          */
         postId: PropTypes.string,
@@ -34,7 +30,6 @@ export default class PostTime extends React.PureComponent {
 
     static defaultProps = {
         eventTime: 0,
-        useMilitaryTime: false,
     };
 
     constructor(props) {
@@ -45,33 +40,14 @@ export default class PostTime extends React.PureComponent {
         };
     }
 
-    renderTimeTag() {
-        const date = new Date(this.props.eventTime);
-        const militaryTime = this.props.useMilitaryTime;
-
-        const hour = militaryTime ? date.getHours() : (date.getHours() % 12 || 12);
-        let minute = date.getMinutes();
-        minute = minute >= 10 ? minute : ('0' + minute);
-        let time = '';
-
-        if (!militaryTime) {
-            time = (date.getHours() >= 12 ? ' PM' : ' AM');
-        }
-
-        return (
-            <time
-                className='post__time'
-                dateTime={date.toISOString()}
-                title={date}
-            >
-                {hour + ':' + minute + time}
-            </time>
-        );
-    }
-
     render() {
+        const localDateTime = (
+            <LocalDateTime
+                eventTime={this.props.eventTime}
+            />
+        );
         if (isMobile() || !this.props.isPermalink) {
-            return this.renderTimeTag();
+            return localDateTime;
         }
 
         return (
@@ -79,7 +55,7 @@ export default class PostTime extends React.PureComponent {
                 to={`/${this.state.currentTeamDisplayName}/pl/${this.props.postId}`}
                 className='post__permalink'
             >
-                {this.renderTimeTag()}
+                {localDateTime}
             </Link>
         );
     }

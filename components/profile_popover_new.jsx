@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {OverlayTrigger, Popover, Tooltip} from 'react-bootstrap';
 
+import LocalDateTime from 'components/local_date_time';
 import {browserHistory} from 'utils/browser_history';
 import {openDirectChannelToUser} from 'actions/channel_actions.jsx';
 import * as GlobalActions from 'actions/global_actions.jsx';
@@ -312,6 +313,14 @@ class ProfilePopoverNew extends React.Component {
                 </a>
             </div>
         );
+
+        if (this.props.user.timezone) {
+            dataContent.push(
+                <span key='user-popover-local-time'>
+                    <LocalDateTime userTimezone={this.props.user.timezone}/>
+                </span>
+            );
+        }
 
         if (this.props.user.id === UserStore.getCurrentId()) {
             dataContentIcons.push(

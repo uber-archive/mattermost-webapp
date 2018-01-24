@@ -37,6 +37,7 @@ exports[`components/user_settings/EmailNotificationSetting should match snapshot
   updateSection={[MockFunction]}
 >
   <SettingItemMax
+    containerStyle={Object {}}
     infoPosition="bottom"
     inputs={
       Array [
@@ -113,6 +114,7 @@ exports[`components/user_settings/EmailNotificationSetting should match snapshot
   >
     <ul
       className="section-max form-horizontal"
+      style={Object {}}
     >
       <li
         className="col-sm-12 section-title"
@@ -341,6 +343,7 @@ exports[`components/user_settings/EmailNotificationSetting should match snapshot
   updateSection={[MockFunction]}
 >
   <SettingItemMax
+    containerStyle={Object {}}
     infoPosition="bottom"
     inputs={
       Array [
@@ -468,6 +471,7 @@ exports[`components/user_settings/EmailNotificationSetting should match snapshot
   >
     <ul
       className="section-max form-horizontal"
+      style={Object {}}
     >
       <li
         className="col-sm-12 section-title"
@@ -675,6 +679,7 @@ exports[`components/user_settings/EmailNotificationSetting should match snapshot
 
 exports[`components/user_settings/EmailNotificationSetting should match snapshot, not send email notifications 1`] = `
 <SettingItemMax
+  containerStyle={Object {}}
   infoPosition="bottom"
   inputs={
     Array [
@@ -698,6 +703,7 @@ exports[`components/user_settings/EmailNotificationSetting should match snapshot
 
 exports[`components/user_settings/EmailNotificationSetting should match snapshot, on serverError 1`] = `
 <SettingItemMax
+  containerStyle={Object {}}
   infoPosition="bottom"
   inputs={
     Array [

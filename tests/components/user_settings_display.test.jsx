@@ -18,7 +18,12 @@ describe('components/user_settings/UserSettingsDisplay', () => {
     const user = {
         id: 'user_id',
         username: 'username',
-        locale: 'en'
+        locale: 'en',
+        timezone: {
+            useAutomaticTimezone: 'true',
+            automaticTimezone: 'America/New_York',
+            manualTimezone: ''
+        }
     };
 
     const requiredProps = {
@@ -40,6 +45,7 @@ describe('components/user_settings/UserSettingsDisplay', () => {
         global.window.mm_config.EnableLinkPreviews = 'true';
         global.window.mm_config.EnableThemeSelection = 'false';
         global.window.mm_config.DefaultClientLocale = 'en';
+        global.window.mm_config.SupportedTimezones = ['America/New_York', 'America/Los_Angeles'];
     });
 
     test('should match snapshot, no active section', () => {
@@ -69,6 +75,12 @@ describe('components/user_settings/UserSettingsDisplay', () => {
 
     test('should match snapshot, clock section', () => {
         const props = {...requiredProps, activeSection: 'clock'};
+        const wrapper = shallow(<UserSettingsDisplay {...props}/>);
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    test('should match snapshot, timezone section', () => {
+        const props = {...requiredProps, activeSection: 'timezone'};
         const wrapper = shallow(<UserSettingsDisplay {...props}/>);
         expect(wrapper).toMatchSnapshot();
     });

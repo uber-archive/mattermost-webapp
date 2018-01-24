@@ -17,6 +17,7 @@ import * as UserAgent from 'utils/user_agent.jsx';
 import * as Utils from 'utils/utils.jsx';
 import LoadingScreen from 'components/loading_screen.jsx';
 import {checkIfMFARequired} from 'utils/route';
+import {autoUpdateTimezone} from 'utils/timezone.jsx';
 import store from 'stores/redux_store.jsx';
 
 const dispatch = store.dispatch;
@@ -43,6 +44,12 @@ export default class LoggedIn extends React.Component {
     onUserChanged() {
         // Grab the current user
         const user = UserStore.getCurrentUser();
+
+        if (global.window.mm_config.EnableTimezoneSelection === 'true') {
+            const timezone = UserStore.getTimezone(user.id);
+            autoUpdateTimezone(timezone);
+        }
+
         if (!Utils.areObjectsEqual(this.state.user, user)) {
             this.setState({
                 user

@@ -127,7 +127,10 @@ export default class SettingItemMax extends React.Component {
         }
 
         return (
-            <ul className='section-max form-horizontal'>
+            <ul
+                className='section-max form-horizontal'
+                style={this.props.containerStyle}
+            >
                 {title}
                 <li className={widthClass}>
                     <ul className='setting-list'>

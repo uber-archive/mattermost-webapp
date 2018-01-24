@@ -1077,6 +1077,28 @@ export function changeOpacity(oldColor, opacity) {
     return 'rgba(' + r + ',' + g + ',' + b + ',' + opacity + ')';
 }
 
+export function getCurrentTimezone(userTimezone) {
+    if (userTimezone.useAutomaticTimezone) {
+        return userTimezone.automaticTimezone;
+    }
+    return userTimezone.manualTimezone;
+}
+
+export function getTimezoneRegion(timezone) {
+    if (timezone) {
+        const split = timezone.split('/');
+        if (split.length > 1) {
+            const region = split.pop();
+            if (region.indexOf('_') >= 0) {
+                return region.replace('_', ' ');
+            }
+            return region;
+        }
+    }
+
+    return timezone;
+}
+
 export function getFullName(user) {
     if (user.first_name && user.last_name) {
         return user.first_name + ' ' + user.last_name;

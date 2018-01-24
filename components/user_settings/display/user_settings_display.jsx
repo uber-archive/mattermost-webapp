@@ -22,7 +22,8 @@ const Preferences = Constants.Preferences;
 
 function getDisplayStateFromStores() {
     return {
-        militaryTime: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, 'use_military_time', 'false'),
+        userTimezone: PreferenceStore.getTimezone(),
+        militaryTime: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, 'false'),
         channelDisplayMode: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.CHANNEL_DISPLAY_MODE, Preferences.CHANNEL_DISPLAY_MODE_DEFAULT),
         messageDisplay: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.MESSAGE_DISPLAY, Preferences.MESSAGE_DISPLAY_DEFAULT),
         collapseDisplay: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.COLLAPSE_DISPLAY, Preferences.COLLAPSE_DISPLAY_DEFAULT),
@@ -55,8 +56,8 @@ export default class UserSettingsDisplay extends React.Component {
         const timePreference = {
             user_id: userId,
             category: Preferences.CATEGORY_DISPLAY_SETTINGS,
-            name: 'use_military_time',
-            value: this.state.militaryTime,
+            name: Preferences.USE_MILITARY_TIME,
+            value: this.state.militaryTime
         };
 
         const channelDisplayModePreference = {
@@ -391,13 +392,16 @@ export default class UserSettingsDisplay extends React.Component {
         });
 
         let timezoneSelection;
-        const userTimezone = this.props.user.timezone;
+        const userTimezone = this.state.userTimezone;
+        const currentUserTimezone = Utils.getCurrentTimezone(userTimezone);
         if (this.props.activeSection === 'timezone') {
             timezoneSelection = (
                 <div>
                     <ManageTimezones
                         user={this.props.user}
-                        timezone={userTimezone}
+                        useAutomaticTimezone={userTimezone.useAutomaticTimezone}
+                        automaticTimezone={userTimezone.automaticTimezone}
+                        manualTimezone={userTimezone.manualTimezone}
                         updateSection={this.updateSection}
                     />
                     <div className='divider-dark'/>
@@ -414,7 +418,7 @@ export default class UserSettingsDisplay extends React.Component {
                             />
                         }
                         width='medium'
-                        describe={userTimezone}
+                        describe={Utils.getTimezoneRegion(currentUserTimezone)}
                         section={'timezone'}
                         updateSection={this.updateSection}
                     />

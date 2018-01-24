@@ -14,6 +14,7 @@ import * as I18n from 'i18n/i18n.jsx';
 import SettingItemMax from 'components/setting_item_max.jsx';
 import SettingItemMin from 'components/setting_item_min.jsx';
 
+import ManageTimezones from './manage_timezones.jsx';
 import ManageLanguages from './manage_languages.jsx';
 import ThemeSetting from './user_settings_theme';
 
@@ -389,6 +390,39 @@ export default class UserSettingsDisplay extends React.Component {
             },
         });
 
+        let timezoneSelection;
+        const userTimezone = this.props.user.timezone;
+        if (this.props.activeSection === 'timezone') {
+            timezoneSelection = (
+                <div>
+                    <ManageTimezones
+                        user={this.props.user}
+                        timezone={userTimezone}
+                        updateSection={this.updateSection}
+                    />
+                    <div className='divider-dark'/>
+                </div>
+            );
+        } else {
+            timezoneSelection = (
+                <div>
+                    <SettingItemMin
+                        title={
+                            <FormattedMessage
+                                id='user.settings.display.timezone'
+                                defaultMessage='Timezone'
+                            />
+                        }
+                        width='medium'
+                        describe={userTimezone}
+                        section={'timezone'}
+                        updateSection={this.updateSection}
+                    />
+                    <div className='divider-dark'/>
+                </div>
+            );
+        }
+
         const messageDisplaySection = this.createSection({
             section: Preferences.MESSAGE_DISPLAY,
             display: 'messageDisplay',
@@ -557,6 +591,7 @@ export default class UserSettingsDisplay extends React.Component {
                     <div className='divider-dark first'/>
                     {themeSection}
                     {clockSection}
+                    {timezoneSelection}
                     {linkPreviewSection}
                     {collapseSection}
                     {messageDisplaySection}

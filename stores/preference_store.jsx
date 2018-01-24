@@ -139,6 +139,10 @@ class PreferenceStore extends EventEmitter {
         return Selectors.getTheme(store.getState());
     }
 
+    getTimezone() {
+        return Selectors.getTimezone(store.getState());
+    }
+
     handleEventPayload(payload) {
         const action = payload.action;
 

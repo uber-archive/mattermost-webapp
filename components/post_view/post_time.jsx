@@ -8,6 +8,8 @@ import {Link} from 'react-router';
 import TeamStore from 'stores/team_store.jsx';
 
 import {isMobile, getWindowDimensions} from 'utils/utils.jsx';
+import UserStore from 'stores/user_store.jsx';
+import {getCurrentTimezone} from 'utils/timezone';
 
 export default class PostTime extends React.PureComponent {
     static propTypes = {
@@ -61,8 +63,25 @@ export default class PostTime extends React.PureComponent {
         });
     }
 
+    getCurrentUserTimezone = () => {
+        const userId = UserStore.getCurrentId();
+        const timezone = UserStore.getTimezone(userId);
+        return getCurrentTimezone(timezone);
+    };
+
     renderTimeTag() {
+        const userTimezone = this.getCurrentUserTimezone();
         const date = new Date(this.props.eventTime);
+
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: !this.props.useMilitaryTime
+        };
+
+        if (userTimezone && global.window.mm_config.EnableTimezoneSelection === 'true') {
+            options.timeZone = userTimezone;
+        }
 
         return (
             <time
@@ -70,7 +89,7 @@ export default class PostTime extends React.PureComponent {
                 dateTime={date.toISOString()}
                 title={date}
             >
-                {date.toLocaleString('en', {hour: '2-digit', minute: '2-digit', hour12: !this.props.useMilitaryTime})}
+                {date.toLocaleString('en', options)}
             </time>
         );
     }

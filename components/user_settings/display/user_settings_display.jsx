@@ -10,6 +10,8 @@ import PreferenceStore from 'stores/preference_store.jsx';
 import UserStore from 'stores/user_store.jsx';
 import Constants from 'utils/constants.jsx';
 import * as Utils from 'utils/utils.jsx';
+import {getTimezoneRegion, getCurrentTimezone} from 'utils/timezone';
+
 import * as I18n from 'i18n/i18n.jsx';
 import SettingItemMax from 'components/setting_item_max.jsx';
 import SettingItemMin from 'components/setting_item_min.jsx';
@@ -393,7 +395,7 @@ export default class UserSettingsDisplay extends React.Component {
 
         let timezoneSelection;
         const userTimezone = this.state.userTimezone;
-        const currentUserTimezone = Utils.getCurrentTimezone(userTimezone);
+        const currentUserTimezone = getCurrentTimezone(userTimezone);
         if (this.props.activeSection === 'timezone') {
             timezoneSelection = (
                 <div>
@@ -418,7 +420,7 @@ export default class UserSettingsDisplay extends React.Component {
                             />
                         }
                         width='medium'
-                        describe={Utils.getTimezoneRegion(currentUserTimezone)}
+                        describe={getTimezoneRegion(currentUserTimezone)}
                         section={'timezone'}
                         updateSection={this.updateSection}
                     />

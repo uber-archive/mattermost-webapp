@@ -8,9 +8,8 @@ import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 import * as UserActions from 'actions/user_actions.jsx';
 
 import SettingItemMax from 'components/setting_item_max.jsx';
-import {getTimezoneRegion} from 'utils/utils';
+import {getTimezoneRegion, getBrowserTimezone} from 'utils/timezone';
 
-const dateTimeFormat = new Intl.DateTimeFormat();
 export default class ManageTimezones extends React.Component {
     constructor(props) {
         super(props);
@@ -72,8 +71,7 @@ export default class ManageTimezones extends React.Component {
         let automaticTimezone = null;
 
         if (useAutomaticTimezone) {
-            const browserTimezone = dateTimeFormat.resolvedOptions().timeZone;
-            automaticTimezone = browserTimezone;
+            automaticTimezone = getBrowserTimezone();
         }
 
         this.setState({

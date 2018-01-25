@@ -7,11 +7,14 @@ import {PreferenceTypes} from 'mattermost-redux/action_types';
 import * as Selectors from 'mattermost-redux/selectors/entities/preferences';
 
 import store from 'stores/redux_store.jsx';
-import Constants from 'utils/constants.jsx';
+import Constants, {Preferences} from 'utils/constants.jsx';
+import {updateTimezone} from 'utils/timezone';
+
 import AppDispatcher from '../dispatcher/app_dispatcher.jsx';
 
 const ActionTypes = Constants.ActionTypes;
 
+const {CATEGORY_DISPLAY_SETTINGS, CATEGORY_TIMEZONE} = Preferences;
 const CHANGE_EVENT = 'change';
 
 class PreferenceStore extends EventEmitter {
@@ -33,6 +36,16 @@ class PreferenceStore extends EventEmitter {
             this.entities = newEntities;
 
             if (entities !== newEntities) {
+                const timezoneKey = `${CATEGORY_DISPLAY_SETTINGS}--${CATEGORY_TIMEZONE}`;
+
+                let timezone = entities[timezoneKey];
+                const newTimezone = newEntities[timezoneKey];
+
+                if (!timezone && newTimezone.value) {
+                    timezone = JSON.parse(newTimezone.value);
+                    updateTimezone(timezone);
+                }
+
                 this.preferences = new Map();
                 Object.keys(newEntities).forEach((key) => {
                     this.preferences.set(key, newEntities[key].value);

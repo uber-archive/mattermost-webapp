@@ -356,7 +356,10 @@ export async function saveTimezone(timezone, onSuccess) {
     }];
 
     await savePreferencesRedux(currentUserId, preference)(dispatch, getState);
-    onSuccess();
+
+    if (onSuccess) {
+        onSuccess();
+    }
 }
 
 export async function saveTheme(teamId, theme, cb) {

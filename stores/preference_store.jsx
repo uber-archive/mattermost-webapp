@@ -41,7 +41,7 @@ class PreferenceStore extends EventEmitter {
                 let timezone = entities[timezoneKey];
                 const newTimezone = newEntities[timezoneKey];
 
-                if (!timezone && newTimezone.value) {
+                if (!timezone && newTimezone && newTimezone.value) {
                     timezone = JSON.parse(newTimezone.value);
                     updateTimezone(timezone);
                 }

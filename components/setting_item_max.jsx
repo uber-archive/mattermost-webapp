@@ -14,6 +14,7 @@ export default class SettingItemMax extends React.PureComponent {
         infoPosition: 'bottom',
         saving: false,
         section: '',
+        containerStyle: {}
     };
 
     static propTypes = {
@@ -22,6 +23,11 @@ export default class SettingItemMax extends React.PureComponent {
          * Array of inputs selection
          */
         inputs: PropTypes.array,
+
+        /**
+         * Styles for main component
+         */
+        containerStyle: PropTypes.object,
 
         /**
          * Client error
@@ -212,7 +218,10 @@ export default class SettingItemMax extends React.PureComponent {
         }
 
         return (
-            <ul className='section-max form-horizontal'>
+            <ul
+                className='section-max form-horizontal'
+                style={this.props.containerStyle}
+            >
                 {title}
                 <li className={widthClass}>
                     <ul className='setting-list'>

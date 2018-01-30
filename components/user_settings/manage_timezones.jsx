@@ -5,10 +5,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 
+import Constants from 'utils/constants.jsx';
 import * as UserActions from 'actions/user_actions.jsx';
 
 import SettingItemMax from 'components/setting_item_max.jsx';
 import {getTimezoneRegion, getBrowserTimezone} from 'utils/timezone';
+
+import SuggestionBox from 'components/suggestion/suggestion_box.jsx';
+import SuggestionList from 'components/suggestion/suggestion_list.jsx';
+import TimezoneProvider from 'components/suggestion/timezone_provider.jsx';
+
+const KeyCodes = Constants.KeyCodes;
 
 export default class ManageTimezones extends React.Component {
     constructor(props) {
@@ -18,9 +25,25 @@ export default class ManageTimezones extends React.Component {
             useAutomaticTimezone: props.useAutomaticTimezone,
             automaticTimezone: props.automaticTimezone,
             manualTimezone: props.manualTimezone,
+            manualTimezoneInput: props.manualTimezone,
             isSaving: false
         };
     }
+
+    onChange = (e) => {
+        this.setState({manualTimezoneInput: e.target.value});
+    };
+
+    handleTimezoneSelected = (selected) => {
+        if (!selected) {
+            return;
+        }
+
+        this.setState({
+            manualTimezone: selected,
+            manualTimezoneInput: selected
+        });
+    };
 
     timezoneNotChanged = () => {
         const {
@@ -87,28 +110,13 @@ export default class ManageTimezones extends React.Component {
     render() {
         const {
             useAutomaticTimezone,
-            automaticTimezone,
-            manualTimezone
+            automaticTimezone
         } = this.state;
 
         let serverError;
         if (this.state.serverError) {
             serverError = <label className='has-error'>{this.state.serverError}</label>;
         }
-
-        const options = [];
-        const friendlyTimezones = global.window.mm_config.FriendlyTimezones;
-
-        friendlyTimezones.forEach((zone) => {
-            options.push(
-                <option
-                    key={zone.FriendlyName}
-                    value={zone.ProminentTimezone}
-                >
-                    {zone.FriendlyName}
-                </option>
-            );
-        });
 
         const inputs = [];
 
@@ -138,6 +146,7 @@ export default class ManageTimezones extends React.Component {
             </div>
         );
 
+        const providers = [new TimezoneProvider()];
         const manualTimezoneInput = (
             <div key='changeTimezone'>
                 <br/>
@@ -148,15 +157,21 @@ export default class ManageTimezones extends React.Component {
                     />
                 </label>
                 <div className='padding-top'>
-                    <select
-                        id='displayTimezone'
-                        ref='timezone'
-                        className='form-control'
-                        value={manualTimezone}
-                        onChange={this.handleManualTimezone}
-                    >
-                        {options}
-                    </select>
+                    <SuggestionBox
+                        ref={this.setSwitchBoxRef}
+                        className='form-control focused'
+                        type='search'
+                        onChange={this.onChange}
+                        value={this.state.manualTimezoneInput}
+                        onItemSelected={this.handleTimezoneSelected}
+                        listComponent={SuggestionList}
+                        maxLength='64'
+                        requiredCharacters={0}
+                        providers={providers}
+                        listStyle='bottom'
+                        completeOnTab={false}
+                        renderDividers={false}
+                    />
                     {serverError}
                 </div>
                 <div>
@@ -183,6 +198,11 @@ export default class ManageTimezones extends React.Component {
                         defaultMessage='Timezone'
                     />
                 }
+                containerStyle={{
+                    overflow: 'visible',
+                    display: 'table',
+                    width: '100%'
+                }}
                 width='medium'
                 submit={this.submitTimezoneChange}
                 saving={this.state.isSaving}

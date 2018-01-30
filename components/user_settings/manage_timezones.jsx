@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 
-import Constants from 'utils/constants.jsx';
 import * as UserActions from 'actions/user_actions.jsx';
 
 import SettingItemMax from 'components/setting_item_max.jsx';
@@ -14,8 +13,6 @@ import {getTimezoneRegion, getBrowserTimezone} from 'utils/timezone';
 import SuggestionBox from 'components/suggestion/suggestion_box.jsx';
 import SuggestionList from 'components/suggestion/suggestion_list.jsx';
 import TimezoneProvider from 'components/suggestion/timezone_provider.jsx';
-
-const KeyCodes = Constants.KeyCodes;
 
 export default class ManageTimezones extends React.Component {
     constructor(props) {

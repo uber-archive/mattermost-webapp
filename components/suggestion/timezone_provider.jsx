@@ -10,7 +10,7 @@ import {getTimezoneRegion} from 'utils/timezone';
 import Provider from './provider.jsx';
 import Suggestion from './suggestion.jsx';
 
-const timezones = global.window.mm_config.FriendlyTimezones;
+const timezones = global.window.mm_config.SupportedTimezones;
 
 class TimezoneSuggestion extends Suggestion {
     render() {

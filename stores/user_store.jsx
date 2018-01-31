@@ -459,6 +459,22 @@ class UserStoreClass extends EventEmitter {
         return this.getStatuses()[id] || UserStatuses.OFFLINE;
     }
 
+    getTimezone(id) {
+        const profile = store.getState().entities.users.profiles[id];
+        if (profile && profile.timezone) {
+            return {
+                ...profile.timezone,
+                useAutomaticTimezone: profile.timezone.useAutomaticTimezone === 'true'
+            };
+        }
+
+        return {
+            useAutomaticTimezone: true,
+            automaticTimezone: '',
+            manualTimezone: ''
+        };
+    }
+
     isSystemAdminForCurrentUser() {
         if (!Utils) {
             Utils = require('utils/utils.jsx'); //eslint-disable-line global-require

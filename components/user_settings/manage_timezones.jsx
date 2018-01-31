@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 
-import * as UserActions from 'actions/user_actions.jsx';
+import {updateUser} from 'actions/user_actions.jsx';
 
 import SettingItemMax from 'components/setting_item_max.jsx';
 import {getTimezoneRegion, getBrowserTimezone} from 'utils/timezone';
@@ -62,33 +62,52 @@ export default class ManageTimezones extends React.Component {
         );
     };
 
-    submitTimezoneChange = () => {
+    changeTimezone = () => {
+        if (this.timezoneNotChanged()) {
+            this.props.updateSection('');
+            return;
+        }
+
+        this.submitUser();
+    };
+
+    submitUser = () => {
+        const {user} = this.props;
         const {
             useAutomaticTimezone,
             automaticTimezone,
             manualTimezone
         } = this.state;
 
-        if (this.timezoneNotChanged()) {
-            this.props.updateSection('');
-            return;
-        }
-
         const timezone = {
-            useAutomaticTimezone,
+            useAutomaticTimezone: useAutomaticTimezone.toString(),
             automaticTimezone,
             manualTimezone
         };
 
-        UserActions.saveTimezone(
-            timezone,
-            () => this.props.updateSection('')
+        const updatedUser = {
+            ...user,
+            timezone
+        };
+
+        updateUser(
+            updatedUser,
+            () => this.props.updateSection(''),
+            (err) => {
+                let serverError;
+                if (err.message) {
+                    serverError = err.message;
+                } else {
+                    serverError = err;
+                }
+                this.setState({serverError, isSaving: false});
+            }
         );
     };
 
     handleAutomaticTimezone = (e) => {
         const useAutomaticTimezone = e.target.checked;
-        let automaticTimezone = null;
+        let automaticTimezone = '';
 
         if (useAutomaticTimezone) {
             automaticTimezone = getBrowserTimezone();
@@ -118,11 +137,11 @@ export default class ManageTimezones extends React.Component {
         const inputs = [];
 
         const timezoneRegion = (
-            <li
+            <div
                 className='section-describe'
             >
                 {useAutomaticTimezone && getTimezoneRegion(automaticTimezone)}
-            </li>
+            </div>
         );
 
         const automaticTimezoneInput = (
@@ -201,7 +220,7 @@ export default class ManageTimezones extends React.Component {
                     width: '100%'
                 }}
                 width='medium'
-                submit={this.submitTimezoneChange}
+                submit={this.changeTimezone}
                 saving={this.state.isSaving}
                 inputs={inputs}
                 updateSection={this.props.updateSection}

@@ -187,6 +187,7 @@ export default class ManageTimezones extends React.Component {
                         listStyle='bottom'
                         completeOnTab={false}
                         renderDividers={false}
+                        openOnFocus={true}
                     />
                     {serverError}
                 </div>

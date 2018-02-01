@@ -7,13 +7,12 @@ import {PreferenceTypes} from 'mattermost-redux/action_types';
 import * as Selectors from 'mattermost-redux/selectors/entities/preferences';
 
 import store from 'stores/redux_store.jsx';
-import Constants, {Preferences} from 'utils/constants.jsx';
+import Constants from 'utils/constants.jsx';
 
 import AppDispatcher from '../dispatcher/app_dispatcher.jsx';
 
 const ActionTypes = Constants.ActionTypes;
 
-const {CATEGORY_DISPLAY_SETTINGS, CATEGORY_TIMEZONE} = Preferences;
 const CHANGE_EVENT = 'change';
 
 class PreferenceStore extends EventEmitter {
@@ -139,10 +138,6 @@ class PreferenceStore extends EventEmitter {
 
     getTheme() {
         return Selectors.getTheme(store.getState());
-    }
-
-    getTimezone() {
-        return Selectors.getTimezone(store.getState());
     }
 
     handleEventPayload(payload) {

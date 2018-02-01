@@ -33,7 +33,7 @@ class TimezoneSuggestion extends Suggestion {
     }
 }
 
-export default class SwitchChannelProvider extends Provider {
+export default class TimezoneProvider extends Provider {
     handlePretextChanged(suggestionId, timezonePrefix) {
         if (timezonePrefix.length === 0) {
             this.displayAllTimezones(suggestionId, timezonePrefix);

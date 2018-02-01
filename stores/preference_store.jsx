@@ -8,7 +8,6 @@ import * as Selectors from 'mattermost-redux/selectors/entities/preferences';
 
 import store from 'stores/redux_store.jsx';
 import Constants, {Preferences} from 'utils/constants.jsx';
-import {updateTimezone} from 'utils/timezone';
 
 import AppDispatcher from '../dispatcher/app_dispatcher.jsx';
 
@@ -36,16 +35,6 @@ class PreferenceStore extends EventEmitter {
             this.entities = newEntities;
 
             if (entities !== newEntities) {
-                const timezoneKey = `${CATEGORY_DISPLAY_SETTINGS}--${CATEGORY_TIMEZONE}`;
-
-                let timezone = entities[timezoneKey];
-                const newTimezone = newEntities[timezoneKey];
-
-                if (!timezone && newTimezone && newTimezone.value) {
-                    timezone = JSON.parse(newTimezone.value);
-                    updateTimezone(timezone);
-                }
-
                 this.preferences = new Map();
                 Object.keys(newEntities).forEach((key) => {
                     this.preferences.set(key, newEntities[key].value);

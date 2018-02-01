@@ -23,12 +23,19 @@ import TeamStore from 'stores/team_store.jsx';
 import UserStore from 'stores/user_store.jsx';
 import * as Utils from 'utils/utils.jsx';
 import {Constants, Preferences} from 'utils/constants.jsx';
+import {autoUpdateTimezone} from 'utils/timezone.jsx';
 
 const dispatch = store.dispatch;
 const getState = store.getState;
 
 export async function loadMe() {
     await UserActions.loadMe()(dispatch, getState);
+
+    const userId = UserStore.getCurrentId();
+    const timezone = UserStore.getTimezone(userId);
+
+    autoUpdateTimezone(timezone);
+
     loadCurrentLocale();
 }
 

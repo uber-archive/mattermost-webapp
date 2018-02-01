@@ -353,22 +353,6 @@ export async function loadProfilesForDM() {
     populateDMChannelsWithProfiles(profileIds);
 }
 
-export async function saveTimezone(timezone, onSuccess) {
-    const currentUserId = UserStore.getCurrentId();
-    const preference = [{
-        user_id: currentUserId,
-        category: Preferences.CATEGORY_DISPLAY_SETTINGS,
-        name: 'timezone',
-        value: JSON.stringify(timezone)
-    }];
-
-    await savePreferencesRedux(currentUserId, preference)(dispatch, getState);
-
-    if (onSuccess) {
-        onSuccess();
-    }
-}
-
 export async function saveTheme(teamId, theme, cb) {
     const currentUserId = UserStore.getCurrentId();
     const preference = [{

@@ -32,11 +32,20 @@ export function autoUpdateTimezone(userTimezone) {
     }
 }
 
-export function getCurrentTimezone(userTimezone) {
-    if (userTimezone.useAutomaticTimezone) {
-        return userTimezone.automaticTimezone;
+export function getCurrentTimezone({
+        useAutomaticTimezone,
+        automaticTimezone,
+        manualTimezone
+    }) {
+    let useAutomatic = useAutomaticTimezone;
+    if (typeof useAutomaticTimezone === 'string') {
+        useAutomatic = useAutomaticTimezone === 'true';
     }
-    return userTimezone.manualTimezone;
+
+    if (useAutomatic) {
+        return automaticTimezone;
+    }
+    return manualTimezone;
 }
 
 export function getTimezoneRegion(timezone) {

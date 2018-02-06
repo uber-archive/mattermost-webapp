@@ -6,6 +6,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import TeamStore from 'stores/team_store.jsx';
+import UserStore from 'stores/user_store.jsx';
+import {getCurrentTimezone} from 'utils/timezone';
 import {isMobile} from 'utils/user_agent.jsx';
 
 export default class PostTime extends React.PureComponent {
@@ -45,17 +47,34 @@ export default class PostTime extends React.PureComponent {
         };
     }
 
+    getCurrentUserTimezone = () => {
+        const userId = UserStore.getCurrentId();
+        const timezone = UserStore.getTimezone(userId);
+        return getCurrentTimezone(timezone);
+    };
+
     renderTimeTag() {
+        const userTimezone = this.getCurrentUserTimezone();
         const date = new Date(this.props.eventTime);
         const militaryTime = this.props.useMilitaryTime;
 
-        const hour = militaryTime ? date.getHours() : (date.getHours() % 12 || 12);
-        let minute = date.getMinutes();
-        minute = minute >= 10 ? minute : ('0' + minute);
-        let time = '';
+        // const hour = militaryTime ? date.getHours() : (date.getHours() % 12 || 12);
+        // let minute = date.getMinutes();
+        // minute = minute >= 10 ? minute : ('0' + minute);
+        // let time = '';
+        //
+        // if (!militaryTime) {
+        //     time = (date.getHours() >= 12 ? ' PM' : ' AM');
+        // }
 
-        if (!militaryTime) {
-            time = (date.getHours() >= 12 ? ' PM' : ' AM');
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: !this.props.useMilitaryTime
+        };
+
+        if (userTimezone) {
+            options.timeZone = userTimezone;
         }
 
         return (
@@ -64,7 +83,7 @@ export default class PostTime extends React.PureComponent {
                 dateTime={date.toISOString()}
                 title={date}
             >
-                {hour + ':' + minute + time}
+                {date.toLocaleString('en', options)}
             </time>
         );
     }

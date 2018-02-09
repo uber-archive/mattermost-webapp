@@ -17,7 +17,6 @@ import BrowserStore from 'stores/browser_store.jsx';
 import ErrorStore from 'stores/error_store.jsx';
 import LocalizationStore from 'stores/localization_store.jsx';
 import UserStore from 'stores/user_store.jsx';
-import TeamStore from 'stores/team_store.jsx';
 
 import Constants, {StoragePrefixes} from 'utils/constants.jsx';
 
@@ -96,13 +95,9 @@ export default class Root extends React.Component {
     }
 
     redirectIfNecessary(props) {
-        const experimentalPrimaryTeam = global.mm_config.ExperimentalPrimaryTeam;
-        const primaryTeam = TeamStore.getByName(experimentalPrimaryTeam);
         if (props.location.pathname === '/') {
             if (UserStore.getNoAccounts()) {
                 browserHistory.push('/signup_user_complete');
-            } else if (UserStore.getCurrentUser() && primaryTeam) {
-                browserHistory.push(`/${primaryTeam.name}/channels/town-square`);
             } else if (UserStore.getCurrentUser()) {
                 GlobalActions.redirectUserToDefaultTeam();
             } else {

@@ -64,11 +64,7 @@ export default class LoginController extends React.Component {
     componentDidMount() {
         document.title = global.window.mm_config.SiteName;
         BrowserStore.removeGlobalItem('team');
-        const experimentalPrimaryTeam = global.mm_config.ExperimentalPrimaryTeam;
-        const primaryTeam = TeamStore.getByName(experimentalPrimaryTeam);
-        if (UserStore.getCurrentUser() && primaryTeam) {
-            browserHistory.push(`/${primaryTeam.name}/channels/town-square`);
-        } else if (UserStore.getCurrentUser()) {
+        if (UserStore.getCurrentUser()) {
             GlobalActions.redirectUserToDefaultTeam();
         }
 

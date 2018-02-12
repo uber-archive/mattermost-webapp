@@ -4,12 +4,18 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getChannelsNameMapInCurrentTeam, getMyChannelMemberships, makeGetChannel} from 'mattermost-redux/selectors/entities/channels';
+import {
+    getChannelsNameMapInCurrentTeam,
+    getMyChannelMemberships,
+    makeGetChannel,
+    isChannelReadOnly,
+} from 'mattermost-redux/selectors/entities/channels';
 import {getUserIdsInChannels, getUser} from 'mattermost-redux/selectors/entities/users';
 import {get as getPreference} from 'mattermost-redux/selectors/entities/preferences';
 import {savePreferences} from 'mattermost-redux/actions/preferences';
 import {leaveChannel} from 'mattermost-redux/actions/channels';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
+import {isFavoriteChannel} from 'mattermost-redux/utils/channel_utils';
 
 import {Constants, NotificationLevels} from 'utils/constants.jsx';
 
@@ -59,6 +65,9 @@ function makeMapStateToProps() {
             teammate = getUser(state, channel.teammate_id);
         }
 
+        const shouldHideChannel = isChannelReadOnly(state, channel) && !ownProps.active &&
+            !isFavoriteChannel(state.entities.preferences.myPreferences, channel.id);
+
         return {
             config,
             channelId,
@@ -78,6 +87,7 @@ function makeMapStateToProps() {
             unreadMsgs,
             unreadMentions,
             membersCount,
+            shouldHideChannel,
         };
     };
 }

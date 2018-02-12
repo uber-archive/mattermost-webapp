@@ -91,6 +91,11 @@ export default class PostInfo extends React.PureComponent {
          */
         enableEmojiPicker: PropTypes.bool.isRequired,
 
+        /**
+         * Set not to allow edits on post
+         */
+        isReadOnly: PropTypes.bool,
+
         actions: PropTypes.shape({
 
             /*
@@ -165,7 +170,7 @@ export default class PostInfo extends React.PureComponent {
             return null;
         }
 
-        const isMobile = this.props.isMobile;
+        const {isMobile, isReadOnly} = this.props;
         const hover = this.props.hover || this.state.showEmojiPicker || this.state.showDotMenu;
 
         let comments;
@@ -186,7 +191,7 @@ export default class PostInfo extends React.PureComponent {
                 );
             }
 
-            if (hover && this.props.enableEmojiPicker) {
+            if (hover && !isReadOnly && this.props.enableEmojiPicker) {
                 react = (
                     <span>
                         <EmojiPickerOverlay
@@ -220,6 +225,7 @@ export default class PostInfo extends React.PureComponent {
                     isFlagged={this.props.isFlagged}
                     handleCommentClick={this.props.handleCommentClick}
                     handleDropdownOpened={this.handleDotMenuOpened}
+                    isReadOnly={isReadOnly}
                 />
             );
         }
@@ -227,7 +233,7 @@ export default class PostInfo extends React.PureComponent {
         return (
             <div
                 ref='dotMenu'
-                className='col col__reply'
+                className={'col col__reply' + (isReadOnly ? ' dot_small' : '')}
             >
                 {dotMenu}
                 {react}

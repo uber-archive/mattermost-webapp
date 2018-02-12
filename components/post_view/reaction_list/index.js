@@ -15,7 +15,7 @@ function makeMapStateToProps() {
 
     return function mapStateToProps(state, ownProps) {
         const config = getConfig(state);
-        const enableEmojiPicker = config.EnableEmojiPicker === 'true';
+        const enableEmojiPicker = config.EnableEmojiPicker === 'true' && !ownProps.isReadOnly;
 
         return {
             reactions: getReactionsForPost(state, ownProps.post.id),

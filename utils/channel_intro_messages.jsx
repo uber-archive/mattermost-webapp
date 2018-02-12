@@ -4,6 +4,8 @@
 import React from 'react';
 import {FormattedDate, FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 
+import {isCurrentChannelReadOnly} from 'mattermost-redux/selectors/entities/channels';
+
 import * as GlobalActions from 'actions/global_actions.jsx';
 import ChannelStore from 'stores/channel_store.jsx';
 import TeamStore from 'stores/team_store.jsx';
@@ -14,6 +16,8 @@ import EditChannelHeaderModal from 'components/edit_channel_header_modal';
 import ProfilePicture from 'components/profile_picture.jsx';
 import ToggleModalButton from 'components/toggle_modal_button.jsx';
 import UserProfile from 'components/user_profile.jsx';
+
+import store from 'stores/redux_store.jsx';
 
 import {showManagementOptions} from './channel_utils.jsx';
 import * as Utils from './utils.jsx';
@@ -204,7 +208,8 @@ export function createOffTopicIntroMessage(channel, centeredIntro) {
 
 export function createDefaultIntroMessage(channel, centeredIntro) {
     let teamInviteLink = null;
-    if (isCurrentUserPermitted(global.window.mm_config.RestrictTeamInvite)) {
+    const isReadOnly = isCurrentChannelReadOnly(store.getState());
+    if (!isReadOnly && isCurrentUserPermitted(global.window.mm_config.RestrictTeamInvite)) {
         teamInviteLink = (
             <span
                 className='intro-links color--link cursor--pointer'
@@ -219,9 +224,9 @@ export function createDefaultIntroMessage(channel, centeredIntro) {
         );
     }
 
-    let setHeaderButton = createSetHeaderButton(channel);
-    if (!showManagementOption(channel)) {
-        setHeaderButton = null;
+    let setHeaderButton = null;
+    if (!isReadOnly && showManagementOption(channel)) {
+        setHeaderButton = createSetHeaderButton(channel);
     }
 
     return (

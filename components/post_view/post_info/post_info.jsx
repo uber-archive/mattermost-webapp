@@ -89,6 +89,11 @@ export default class PostInfo extends React.PureComponent {
          */
         showTimeWithoutHover: PropTypes.bool.isRequired,
 
+        /**
+         * Set not to allow edits on post
+         */
+        isReadOnly: PropTypes.bool,
+
         actions: PropTypes.shape({
 
             /*
@@ -102,6 +107,10 @@ export default class PostInfo extends React.PureComponent {
             addReaction: PropTypes.func.isRequired
         }).isRequired
     };
+
+    static defaultProps = {
+        isReadOnly: false
+    }
 
     constructor(props) {
         super(props);
@@ -166,13 +175,13 @@ export default class PostInfo extends React.PureComponent {
             return null;
         }
 
-        const isMobile = this.props.isMobile;
+        const {isMobile, isReadOnly} = this.props;
         const hover = this.props.hover || this.state.showEmojiPicker || this.state.showDotMenu;
 
         let comments;
         let react;
 
-        if (!isSystemMessage) {
+        if (!isReadOnly && !isSystemMessage) {
             if (isMobile || hover || (!post.root_id && this.props.replyCount) || this.props.isFirstReply) {
                 const extraClass = isMobile ? '' : 'pull-right';
                 comments = (
@@ -221,6 +230,7 @@ export default class PostInfo extends React.PureComponent {
                     isFlagged={this.props.isFlagged}
                     handleCommentClick={this.props.handleCommentClick}
                     handleDropdownOpened={this.handleDotMenuOpened}
+                    isReadOnly={isReadOnly}
                 />
             );
         }
@@ -228,7 +238,7 @@ export default class PostInfo extends React.PureComponent {
         return (
             <div
                 ref='dotMenu'
-                className='col col__reply'
+                className={'col col__reply' + (isReadOnly ? ' dot_small' : '')}
             >
                 {dotMenu}
                 {react}

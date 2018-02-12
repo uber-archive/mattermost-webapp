@@ -54,6 +54,7 @@ export default class ChannelHeader extends React.Component {
         dmUserStatus: PropTypes.object,
         dmUserIsInCall: PropTypes.bool,
         enableFormatting: PropTypes.bool.isRequired,
+        isReadOnly: PropTypes.bool,
         rhsState: PropTypes.oneOf(
             Object.values(RHSStates)
         ),
@@ -71,7 +72,8 @@ export default class ChannelHeader extends React.Component {
 
     static defaultProps = {
         dmUser: {},
-        dmUserStatus: {status: UserStatuses.OFFLINE}
+        dmUserStatus: {status: UserStatuses.OFFLINE},
+        isReadOnly: false
     }
 
     constructor(props) {
@@ -581,7 +583,7 @@ export default class ChannelHeader extends React.Component {
                 }
             }
 
-            if (ChannelUtils.showManagementOptions(channel, isChannelAdmin, isTeamAdmin, isSystemAdmin)) {
+            if (!this.props.isReadOnly && ChannelUtils.showManagementOptions(channel, isChannelAdmin, isTeamAdmin, isSystemAdmin)) {
                 dropdownContents.push(
                     <li
                         key='divider-2'
@@ -763,7 +765,7 @@ export default class ChannelHeader extends React.Component {
             );
         } else {
             let editMessage;
-            if (ChannelUtils.showManagementOptions(channel, isChannelAdmin, isTeamAdmin, isSystemAdmin)) {
+            if (!this.props.isReadOnly && ChannelUtils.showManagementOptions(channel, isChannelAdmin, isTeamAdmin, isSystemAdmin)) {
                 editMessage = (
                     <button
                         className='style--none'

@@ -37,7 +37,8 @@ function makeMapStateToProps() {
             loadingPosts: state.views.channel.loadingPosts[ownProps.channelId],
             focusedPostId: ownProps.focusedPostId,
             currentUserId: getCurrentUserId(state),
-            fullWidth: get(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.CHANNEL_DISPLAY_MODE, Preferences.CHANNEL_DISPLAY_MODE_DEFAULT) === Preferences.CHANNEL_DISPLAY_MODE_FULL_SCREEN
+            fullWidth: get(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.CHANNEL_DISPLAY_MODE, Preferences.CHANNEL_DISPLAY_MODE_DEFAULT) === Preferences.CHANNEL_DISPLAY_MODE_FULL_SCREEN,
+            isReadOnly: ownProps.isReadOnly
         };
     };
 }

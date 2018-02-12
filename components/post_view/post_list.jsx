@@ -67,6 +67,11 @@ export default class PostList extends React.PureComponent {
          */
         fullWidth: PropTypes.bool,
 
+        /**
+         * Set not to allow edits on post list
+         */
+        isReadOnly: PropTypes.bool.isRequired,
+
         actions: PropTypes.shape({
 
             /**
@@ -440,6 +445,7 @@ export default class PostList extends React.PureComponent {
                     post={post}
                     lastPostCount={(i >= 0 && i < Constants.TEST_ID_COUNT) ? i : -1}
                     getPostList={this.getPostList}
+                    isReadOnly={this.props.isReadOnly}
                 />
             );
 
@@ -524,7 +530,7 @@ export default class PostList extends React.PureComponent {
 
         let topRow;
         if (this.state.atEnd) {
-            topRow = createChannelIntroMessage(channel, this.props.fullWidth);
+            topRow = createChannelIntroMessage(channel, this.props.fullWidth, this.props.isReadOnly);
         } else if (this.props.postVisibility >= Constants.MAX_POST_VISIBILITY) {
             topRow = (
                 <div className='post-list__loading post-list__loading-search'>

@@ -182,6 +182,7 @@ exports[`components/post_view/PostInfo should match snapshot, hover 1`] = `
       idCount={-1}
       idPrefix="center"
       isFlagged={false}
+      isReadOnly={false}
       post={
         Object {
           "channel_id": "g6139tbospd18cmxroesdk3kkc",

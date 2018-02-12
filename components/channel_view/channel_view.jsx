@@ -33,7 +33,12 @@ export default class ChannelView extends React.PureComponent {
         /**
          * Set to show the tutorial
          */
-        showTutorial: PropTypes.bool.isRequired
+        showTutorial: PropTypes.bool.isRequired,
+
+        /**
+         * Set not to allow edits on channel
+         */
+        isReadOnly: PropTypes.bool.isRequired
     };
 
     constructor(props) {
@@ -114,15 +119,15 @@ export default class ChannelView extends React.PureComponent {
                     />
                 </div>
             );
+        } else if (this.props.isReadOnly) {
+            createPost = <div className='post-create-message'/>;
         } else {
             createPost = (
                 <div
                     className='post-create__container'
                     id='post-create'
                 >
-                    <CreatePost
-                        getChannelView={this.getChannelView}
-                    />
+                    <CreatePost getChannelView={this.getChannelView}/>
                 </div>
             );
         }
@@ -138,9 +143,11 @@ export default class ChannelView extends React.PureComponent {
                 <FileUploadOverlay overlayType='center'/>
                 <ChannelHeader
                     channelId={this.props.channelId}
+                    isReadOnly={this.props.isReadOnly}
                 />
                 <DeferredPostView
                     channelId={this.props.channelId}
+                    isReadOnly={this.props.isReadOnly}
                 />
                 {createPost}
             </div>

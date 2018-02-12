@@ -20,7 +20,7 @@ import UserProfile from 'components/user_profile.jsx';
 import {showManagementOptions} from './channel_utils.jsx';
 import * as Utils from './utils.jsx';
 
-export function createChannelIntroMessage(channel, fullWidthIntro) {
+export function createChannelIntroMessage(channel, fullWidthIntro, isReadOnly = false) {
     let centeredIntro = '';
     if (!fullWidthIntro) {
         centeredIntro = 'channel-intro--centered';
@@ -31,7 +31,7 @@ export function createChannelIntroMessage(channel, fullWidthIntro) {
     } else if (channel.type === Constants.GM_CHANNEL) {
         return createGMIntroMessage(channel, centeredIntro);
     } else if (ChannelStore.isDefault(channel)) {
-        return createDefaultIntroMessage(channel, centeredIntro);
+        return createDefaultIntroMessage(channel, centeredIntro, isReadOnly);
     } else if (channel.name === Constants.OFFTOPIC_CHANNEL) {
         return createOffTopicIntroMessage(channel, centeredIntro);
     } else if (channel.type === Constants.OPEN_CHANNEL || channel.type === Constants.PRIVATE_CHANNEL) {
@@ -204,9 +204,9 @@ export function createOffTopicIntroMessage(channel, centeredIntro) {
     );
 }
 
-export function createDefaultIntroMessage(channel, centeredIntro) {
+export function createDefaultIntroMessage(channel, centeredIntro, isReadOnly = false) {
     let teamInviteLink = null;
-    if (isCurrentUserPermitted(global.window.mm_config.RestrictTeamInvite)) {
+    if (!isReadOnly && isCurrentUserPermitted(global.window.mm_config.RestrictTeamInvite)) {
         teamInviteLink = (
             <span
                 className='intro-links color--link cursor--pointer'
@@ -221,9 +221,9 @@ export function createDefaultIntroMessage(channel, centeredIntro) {
         );
     }
 
-    let setHeaderButton = createSetHeaderButton(channel);
-    if (!showManagementOption(channel)) {
-        setHeaderButton = null;
+    let setHeaderButton = null;
+    if (!isReadOnly && showManagementOption(channel)) {
+        setHeaderButton = createSetHeaderButton(channel);
     }
 
     return (

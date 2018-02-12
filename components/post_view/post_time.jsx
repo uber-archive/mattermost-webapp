@@ -73,7 +73,7 @@ export default class PostTime extends React.PureComponent {
             hour12: !this.props.useMilitaryTime
         };
 
-        if (userTimezone) {
+        if (userTimezone && global.window.mm_config.EnableTimezoneSelection === 'true') {
             options.timeZone = userTimezone;
         }
 

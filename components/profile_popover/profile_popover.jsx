@@ -325,20 +325,22 @@ class ProfilePopover extends React.Component {
             );
         }
 
-        const currentTimezone = getCurrentTimezone(this.props.user.timezone);
-        if (currentTimezone) {
-            const useMilitaryTime = PreferenceStore.getBool(Constants.Preferences.CATEGORY_DISPLAY_SETTINGS, 'use_military_time');
-            const date = new Date();
-            dataContent.push(
-                <span>
-                    {date.toLocaleString('en', {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        hour12: !useMilitaryTime,
-                        timeZone: currentTimezone
-                    })}
-                </span>
-            );
+        if (global.window.mm_config.EnableTimezoneSelection === 'true') {
+            const currentTimezone = getCurrentTimezone(this.props.user.timezone);
+            if (currentTimezone) {
+                const useMilitaryTime = PreferenceStore.getBool(Constants.Preferences.CATEGORY_DISPLAY_SETTINGS, 'use_military_time');
+                const date = new Date();
+                dataContent.push(
+                    <span>
+                        {date.toLocaleString('en', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: !useMilitaryTime,
+                            timeZone: currentTimezone
+                        })}
+                    </span>
+                );
+            }
         }
 
         if (this.props.user.id === UserStore.getCurrentId()) {

@@ -265,7 +265,8 @@ class ProfilePopoverNew extends React.Component {
                 });
                 dataContent.push(
                     <span
-                        className='overflow--ellipsis text-nowrap profile-popover-position'>
+                        className='overflow--ellipsis text-nowrap profile-popover-position'
+                    >
                         {`Local Time: ${localDate}`}
                     </span>
                 );

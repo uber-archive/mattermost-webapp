@@ -79,24 +79,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, cha
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -163,7 +145,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, cha
     </div>
     <div>
       <SettingItemMax
-        containerStyle={Object {}}
         infoPosition="bottom"
         inputs={
           Array [
@@ -310,7 +291,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, clo
     />
     <div>
       <SettingItemMax
-        containerStyle={Object {}}
         infoPosition="bottom"
         inputs={
           Array [
@@ -374,24 +354,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, clo
           />
         }
         updateSection={[Function]}
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
-        describe=""
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
       />
       <div
         className="divider-dark"
@@ -585,24 +547,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, col
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -625,7 +569,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, col
     </div>
     <div>
       <SettingItemMax
-        containerStyle={Object {}}
         infoPosition="bottom"
         inputs={
           Array [
@@ -838,24 +781,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, lan
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -1046,24 +971,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, lin
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -1227,26 +1134,7 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, lin
       />
     </div>
     <div>
-      <SettingItemMin
-        describe=""
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
       <SettingItemMax
-        containerStyle={Object {}}
         infoPosition="bottom"
         inputs={
           Array [
@@ -1481,24 +1369,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, mes
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -1543,7 +1413,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, mes
     </div>
     <div>
       <SettingItemMax
-        containerStyle={Object {}}
         infoPosition="bottom"
         inputs={
           Array [
@@ -1754,24 +1623,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, no 
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -1951,24 +1802,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, the
           />
         }
         updateSection={[Function]}
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
-        describe=""
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
       />
       <div
         className="divider-dark"
@@ -2173,24 +2006,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, the
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -2198,7 +2013,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, the
             values={Object {}}
           />
         }
-        section="linkpreview"
         title={
           <FormattedMessage
             defaultMessage="Website Link Previews"
@@ -2221,7 +2035,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, the
             values={Object {}}
           />
         }
-        section="collapse"
         title={
           <FormattedMessage
             defaultMessage="Default appearance of image link previews"
@@ -2244,7 +2057,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, the
             values={Object {}}
           />
         }
-        section="message_display"
         title={
           <FormattedMessage
             defaultMessage="Message Display"
@@ -2267,7 +2079,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, the
             values={Object {}}
           />
         }
-        section="channel_display_mode"
         title={
           <FormattedMessage
             defaultMessage="Channel Display Mode"
@@ -2284,7 +2095,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, the
     <div>
       <SettingItemMin
         describe="English"
-        section="languages"
         title={
           <FormattedMessage
             defaultMessage="Language"
@@ -2315,7 +2125,7 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, tim
       className="close"
       data-dismiss="modal"
       id="closeButton"
-      onClick={[MockFunction]}
+      onClick={[Function]}
       type="button"
     >
       <span
@@ -2332,7 +2142,7 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, tim
       >
         <i
           className="fa fa-angle-left"
-          onClick={[MockFunction]}
+          onClick={[Function]}
         />
       </div>
       <FormattedMessage
@@ -2367,7 +2177,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, tim
             values={Object {}}
           />
         }
-        section="clock"
         title={
           <FormattedMessage
             defaultMessage="Clock Display"
@@ -2376,29 +2185,6 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, tim
           />
         }
         updateSection={[Function]}
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <ManageTimezones
-        automaticTimezone=""
-        manualTimezone=""
-        updateSection={[Function]}
-        useAutomaticTimezone={true}
-        user={
-          Object {
-            "id": "user_id",
-            "locale": "en",
-            "timezone": Object {
-              "automaticTimezone": "America/New_York",
-              "manualTimezone": "",
-              "useAutomaticTimezone": "true",
-            },
-            "username": "username",
-          }
-        }
       />
       <div
         className="divider-dark"

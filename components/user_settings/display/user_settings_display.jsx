@@ -395,7 +395,7 @@ export default class UserSettingsDisplay extends React.Component {
         });
 
         let timezoneSelection;
-        if (global.window.mm_config.EnableTimezoneSelection === 'true') {
+        if (global.mm_config.EnableTimezoneSelection === 'true') {
             const userTimezone = this.state.userTimezone;
             const currentUserTimezone = getCurrentTimezone(userTimezone);
             if (this.props.activeSection === 'timezone') {

@@ -168,7 +168,8 @@ SettingItemMax.propTypes = {
     title: PropTypes.node,
     width: PropTypes.string,
     submitExtra: PropTypes.node,
-    cancelButtonText: PropTypes.node
+    cancelButtonText: PropTypes.node,
+    containerStyle: PropTypes.object
 };
 
 SettingItemMax.defaultProps = {

@@ -420,7 +420,9 @@ export default class UserSettingsDisplay extends React.Component {
                             width='medium'
                             describe={getTimezoneRegion(currentUserTimezone)}
                             section={'timezone'}
-                            updateSection={this.updateSection}
+                            updateSection={() => {
+                                this.updateSection('timezone');
+                            }}
                         />
                         <div className='divider-dark'/>
                     </div>

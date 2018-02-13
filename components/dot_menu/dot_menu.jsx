@@ -24,6 +24,7 @@ export default class DotMenu extends Component {
         isFlagged: PropTypes.bool,
         handleCommentClick: PropTypes.func,
         handleDropdownOpened: PropTypes.func,
+        isReadOnly: PropTypes.bool,
 
         actions: PropTypes.shape({
 
@@ -58,7 +59,8 @@ export default class DotMenu extends Component {
         idCount: -1,
         post: {},
         commentCount: 0,
-        isFlagged: false
+        isFlagged: false,
+        isReadOnly: false
     }
 
     constructor(props) {
@@ -144,7 +146,7 @@ export default class DotMenu extends Component {
         let dotMenuPermalink = null;
         let dotMenuPin = null;
         if (!isSystemMessage) {
-            if (this.props.idPrefix === Constants.CENTER) {
+            if (!this.props.isReadOnly && this.props.idPrefix === Constants.CENTER) {
                 dotMenuReply = (
                     <DotMenuItem
                         idPrefix={idPrefix + 'Reply'}
@@ -161,18 +163,19 @@ export default class DotMenu extends Component {
                     post={this.props.post}
                 />
             );
-
-            dotMenuPin = (
-                <DotMenuItem
-                    idPrefix={idPrefix + 'Pin'}
-                    idCount={this.props.idCount}
-                    post={this.props.post}
-                    actions={{
-                        pinPost: this.props.actions.pinPost,
-                        unpinPost: this.props.actions.unpinPost
-                    }}
-                />
-            );
+            if (!this.props.isReadOnly) {
+                dotMenuPin = (
+                    <DotMenuItem
+                        idPrefix={idPrefix + 'Pin'}
+                        idCount={this.props.idCount}
+                        post={this.props.post}
+                        actions={{
+                            pinPost: this.props.actions.pinPost,
+                            unpinPost: this.props.actions.unpinPost
+                        }}
+                    />
+                );
+            }
         }
 
         let dotMenuDelete = null;

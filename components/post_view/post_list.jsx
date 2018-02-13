@@ -68,7 +68,7 @@ export default class PostList extends React.PureComponent {
         fullWidth: PropTypes.bool,
 
         /**
-         * Set not to allow edits on channel
+         * Set not to allow edits on post list
          */
         isReadOnly: PropTypes.bool.isRequired,
 
@@ -445,6 +445,7 @@ export default class PostList extends React.PureComponent {
                     post={post}
                     lastPostCount={(i >= 0 && i < Constants.TEST_ID_COUNT) ? i : -1}
                     getPostList={this.getPostList}
+                    isReadOnly={this.props.isReadOnly}
                 />
             );
 

@@ -93,7 +93,16 @@ export default class Post extends React.PureComponent {
         /**
          * Function to get the post list HTML element
          */
-        getPostList: PropTypes.func.isRequired
+        getPostList: PropTypes.func.isRequired,
+
+        /**
+         * Set not to allow edits on post
+         */
+        isReadOnly: PropTypes.bool
+    }
+
+    static defaultProps = {
+        isReadOnly: false
     }
 
     constructor(props) {
@@ -309,6 +318,7 @@ export default class Post extends React.PureComponent {
                                 showTimeWithoutHover={!hideProfilePicture}
                                 getPostList={this.props.getPostList}
                                 hover={this.state.hover}
+                                isReadOnly={this.props.isReadOnly}
                             />
                             <PostBody
                                 post={post}

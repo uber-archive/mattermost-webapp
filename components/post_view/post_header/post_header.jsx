@@ -82,7 +82,16 @@ export default class PostHeader extends React.PureComponent {
         /*
          * Set to render the post time when not hovering
          */
-        showTimeWithoutHover: PropTypes.bool
+        showTimeWithoutHover: PropTypes.bool,
+
+        /**
+         * Set not to allow edits on post
+         */
+        isReadOnly: PropTypes.bool
+    }
+
+    static defaultProps = {
+        isReadOnly: false
     }
 
     constructor(props) {
@@ -162,6 +171,7 @@ export default class PostHeader extends React.PureComponent {
                         showTimeWithoutHover={this.props.showTimeWithoutHover}
                         getPostList={this.props.getPostList}
                         hover={this.props.hover}
+                        isReadOnly={this.props.isReadOnly}
                     />
                 </div>
             </div>

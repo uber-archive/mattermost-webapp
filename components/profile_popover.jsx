@@ -311,7 +311,7 @@ class ProfilePopover extends React.Component {
             );
         }
 
-        if (global.window.mm_config.EnableTimezoneSelection === 'true') {
+        if (global.mm_config.EnableTimezoneSelection === 'true') {
             const currentTimezone = getCurrentTimezone(this.props.user.timezone);
             if (currentTimezone) {
                 const useMilitaryTime = PreferenceStore.getBool(Constants.Preferences.CATEGORY_DISPLAY_SETTINGS, 'use_military_time');

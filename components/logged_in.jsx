@@ -40,7 +40,7 @@ export default class LoggedIn extends React.Component {
         // Grab the current user
         const user = UserStore.getCurrentUser();
 
-        if (global.window.mm_config.EnableTimezoneSelection === 'true') {
+        if (global.mm_config.EnableTimezoneSelection === 'true') {
             const timezone = UserStore.getTimezone(user.id);
             autoUpdateTimezone(timezone);
         }

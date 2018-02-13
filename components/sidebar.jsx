@@ -69,6 +69,8 @@ export default class Sidebar extends React.Component {
         state.showMoreChannelsModal = false;
         state.loadingDMChannel = -1;
         state.inChannelChange = false;
+        state.isTownSquareReadOnly = !UserStore.isSystemAdminForCurrentUser() &&
+            global.mm_config.ExperimentalTownSquareIsReadOnly === 'true';
         this.state = state;
     }
 
@@ -544,6 +546,13 @@ export default class Sidebar extends React.Component {
         if (channelMember) {
             msgCount = unreadCount.msgs + unreadCount.mentions;
             unread = msgCount > 0 || channelMember.mention_count > 0;
+        }
+
+        if (!unread && channel.id !== activeId &&
+            channel.name === Constants.DEFAULT_CHANNEL &&
+            this.state.isTownSquareReadOnly
+        ) {
+            return;
         }
 
         if (unread) {

@@ -7,7 +7,9 @@ import {createSelector} from 'reselect';
 import {get} from 'mattermost-redux/selectors/entities/preferences';
 
 import {getDirectTeammate} from 'utils/utils.jsx';
-import {TutorialSteps, Preferences} from 'utils/constants.jsx';
+import ChannelStore from 'stores/channel_store.jsx';
+import UserStore from 'stores/user_store.jsx';
+import Constants, {TutorialSteps, Preferences} from 'utils/constants.jsx';
 
 import ChannelView from './channel_view.jsx';
 
@@ -24,10 +26,15 @@ const getDeactivatedChannel = createSelector(
 function mapStateToProps(state) {
     const channelId = state.entities.channels.currentChannelId;
 
+    const isReadOnly = ChannelStore.getCurrent().name === Constants.DEFAULT_CHANNEL &&
+        !UserStore.isSystemAdminForCurrentUser() &&
+        global.mm_config.ExperimentalTownSquareIsReadOnly === 'true';
+
     return {
         channelId,
         deactivatedChannel: getDeactivatedChannel(state, channelId),
-        showTutorial: Number(get(state, Preferences.TUTORIAL_STEP, state.entities.users.currentUserId, 999)) <= TutorialSteps.INTRO_SCREENS && global.window.mm_config.EnableTutorial === 'true'
+        showTutorial: Number(get(state, Preferences.TUTORIAL_STEP, state.entities.users.currentUserId, 999)) <= TutorialSteps.INTRO_SCREENS && global.mm_config.EnableTutorial === 'true',
+        isReadOnly
     };
 }
 

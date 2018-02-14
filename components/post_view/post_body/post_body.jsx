@@ -85,7 +85,16 @@ export default class PostBody extends React.PureComponent {
         /**
          * Flag passed down to PostBodyAdditionalContent for determining if post embed is visible
          */
-        isEmbedVisible: PropTypes.bool
+        isEmbedVisible: PropTypes.bool,
+
+        /**
+         * Set not to allow edits on post
+         */
+        isReadOnly: PropTypes.bool
+    }
+
+    static defaultProps = {
+        isReadOnly: false
     }
 
     constructor(props) {
@@ -274,7 +283,10 @@ export default class PostBody extends React.PureComponent {
                 <div className={`post__body ${mentionHighlightClass} ${ephemeralPostClass}`}>
                     {messageWithAdditionalContent}
                     {fileAttachmentHolder}
-                    <ReactionListContainer post={post}/>
+                    <ReactionListContainer
+                        post={post}
+                        isReadOnly={this.props.isReadOnly}
+                    />
                 </div>
             </div>
         );

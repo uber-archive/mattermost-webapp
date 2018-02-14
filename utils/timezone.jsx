@@ -6,6 +6,13 @@ import * as UserActions from 'actions/user_actions.jsx';
 
 const dateTimeFormat = new Intl.DateTimeFormat();
 
+export function getSupportedTimezones() {
+    if (global.mm_config && global.mm_config.SupportedTimezones) {
+        return global.mm_config.SupportedTimezones.split(',');
+    }
+    return [];
+}
+
 export function getBrowserTimezone() {
     return dateTimeFormat.resolvedOptions().timeZone;
 }

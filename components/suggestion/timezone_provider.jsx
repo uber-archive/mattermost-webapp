@@ -5,12 +5,12 @@ import React from 'react';
 
 import AppDispatcher from 'dispatcher/app_dispatcher.jsx';
 import {ActionTypes} from 'utils/constants.jsx';
-import {getTimezoneRegion} from 'utils/timezone';
+import {getSupportedTimezones, getTimezoneRegion} from 'utils/timezone';
 
 import Provider from './provider.jsx';
 import Suggestion from './suggestion.jsx';
 
-const timezones = global.mm_config ? global.mm_config.SupportedTimezones : [];
+const timezones = getSupportedTimezones();
 
 class TimezoneSuggestion extends Suggestion {
     render() {

@@ -548,7 +548,7 @@ export default class Sidebar extends React.Component {
             unread = msgCount > 0 || channelMember.mention_count > 0;
         }
 
-        if (channel.name === Constants.DEFAULT_CHANNEL &&
+        if (channel && channel.name === Constants.DEFAULT_CHANNEL &&
             this.state.isTownSquareReadOnly &&
             !unread && channel.id !== activeId &&
             !ChannelUtils.isFavoriteChannel(channel)

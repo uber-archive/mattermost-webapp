@@ -26,7 +26,9 @@ const getDeactivatedChannel = createSelector(
 function mapStateToProps(state) {
     const channelId = state.entities.channels.currentChannelId;
 
-    const isReadOnly = ChannelStore.getCurrent().name === Constants.DEFAULT_CHANNEL &&
+    const channel = ChannelStore.getCurrent();
+
+    const isReadOnly = channel && channel.name === Constants.DEFAULT_CHANNEL &&
         !UserStore.isSystemAdminForCurrentUser() &&
         global.mm_config.ExperimentalTownSquareIsReadOnly === 'true';
 

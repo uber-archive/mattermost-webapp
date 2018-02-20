@@ -43,9 +43,8 @@ describe('components/user_settings/display/UserSettingsDisplay', () => {
     });
 
     beforeEach(() => {
-        global.window.mm_config.EnableLinkPreviews = 'true';
-        global.window.mm_config.EnableThemeSelection = 'false';
-        global.window.mm_config.DefaultClientLocale = 'en';
+        global.window.mm_config = {};
+        global.window.mm_config.EnableTimezoneSelection = 'true';
         global.window.mm_config.SupportedTimezones = ['America/New_York', 'America/Los_Angeles'];
     });
 

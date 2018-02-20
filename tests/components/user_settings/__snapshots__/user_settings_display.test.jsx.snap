@@ -82,6 +82,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     <div>
       <SettingItemMin
         describe=""
+        focused={false}
         section="timezone"
         title={
           <FormattedMessage
@@ -394,6 +395,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     <div>
       <SettingItemMin
         describe=""
+        focused={false}
         section="timezone"
         title={
           <FormattedMessage
@@ -610,6 +612,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     <div>
       <SettingItemMin
         describe=""
+        focused={false}
         section="timezone"
         title={
           <FormattedMessage
@@ -874,6 +877,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     <div>
       <SettingItemMin
         describe=""
+        focused={false}
         section="timezone"
         title={
           <FormattedMessage
@@ -1092,6 +1096,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     <div>
       <SettingItemMin
         describe=""
+        focused={false}
         section="timezone"
         title={
           <FormattedMessage
@@ -1284,6 +1289,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     <div>
       <SettingItemMin
         describe=""
+        focused={false}
         section="timezone"
         title={
           <FormattedMessage
@@ -1548,6 +1554,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     <div>
       <SettingItemMin
         describe=""
+        focused={false}
         section="timezone"
         title={
           <FormattedMessage
@@ -1832,6 +1839,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     <div>
       <SettingItemMin
         describe=""
+        focused={false}
         section="timezone"
         title={
           <FormattedMessage
@@ -2048,6 +2056,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     <div>
       <SettingItemMin
         describe=""
+        focused={false}
         section="timezone"
         title={
           <FormattedMessage
@@ -2275,6 +2284,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     <div>
       <SettingItemMin
         describe=""
+        focused={false}
         section="timezone"
         title={
           <FormattedMessage
@@ -2299,6 +2309,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
             values={Object {}}
           />
         }
+        focused={false}
         section="linkpreview"
         title={
           <FormattedMessage
@@ -2322,6 +2333,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
             values={Object {}}
           />
         }
+        focused={true}
         section="collapse"
         title={
           <FormattedMessage
@@ -2345,6 +2357,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
             values={Object {}}
           />
         }
+        focused={false}
         section="message_display"
         title={
           <FormattedMessage
@@ -2368,6 +2381,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
             values={Object {}}
           />
         }
+        focused={false}
         section="channel_display_mode"
         title={
           <FormattedMessage
@@ -2385,6 +2399,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     <div>
       <SettingItemMin
         describe="English"
+        focused={false}
         section="languages"
         title={
           <FormattedMessage
@@ -2404,7 +2419,7 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
 </div>
 `;
 
-exports[`components/user_settings/UserSettingsDisplay should match snapshot, timezone section 1`] = `
+exports[`components/user_settings/display/UserSettingsDisplay should match snapshot, timezone section 1`] = `
 <div
   id="displaySettings"
 >
@@ -2468,6 +2483,7 @@ exports[`components/user_settings/UserSettingsDisplay should match snapshot, tim
             values={Object {}}
           />
         }
+        focused={false}
         section="clock"
         title={
           <FormattedMessage

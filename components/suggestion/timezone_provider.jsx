@@ -56,7 +56,7 @@ export default class TimezoneProvider extends Provider {
                 matchedPretext: '',
                 terms: timezones,
                 items: timezones,
-                component: TimezoneSuggestion
+                component: TimezoneSuggestion,
             });
         }, 0);
     }
@@ -74,7 +74,7 @@ export default class TimezoneProvider extends Provider {
                 matchedPretext: timezonePrefix,
                 terms: filteredTimezones,
                 items: filteredTimezones,
-                component: TimezoneSuggestion
+                component: TimezoneSuggestion,
             });
         }, 0);
     }

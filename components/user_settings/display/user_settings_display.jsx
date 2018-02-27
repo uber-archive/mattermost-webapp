@@ -60,7 +60,7 @@ export default class UserSettingsDisplay extends React.Component {
             user_id: userId,
             category: Preferences.CATEGORY_DISPLAY_SETTINGS,
             name: Preferences.USE_MILITARY_TIME,
-            value: this.state.militaryTime
+            value: this.state.militaryTime,
         };
 
         const channelDisplayModePreference = {

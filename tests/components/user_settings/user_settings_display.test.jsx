@@ -20,8 +20,8 @@ describe('components/user_settings/display/UserSettingsDisplay', () => {
         timezone: {
             useAutomaticTimezone: 'true',
             automaticTimezone: 'America/New_York',
-            manualTimezone: ''
-        }
+            manualTimezone: '',
+        },
     };
 
     const requiredProps = {

@@ -336,7 +336,7 @@ class ProfilePopover extends React.Component {
                             hour: '2-digit',
                             minute: '2-digit',
                             hour12: !useMilitaryTime,
-                            timeZone: currentTimezone
+                            timeZone: currentTimezone,
                         })}
                     </span>
                 );

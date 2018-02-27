@@ -27,12 +27,12 @@ export function autoUpdateTimezone(userTimezone) {
         const timezone = {
             useAutomaticTimezone: 'true',
             automaticTimezone: browserTimezone,
-            manualTimezone: userTimezone.manualTimezone
+            manualTimezone: userTimezone.manualTimezone,
         };
 
         const updatedUser = {
             ...user,
-            timezone
+            timezone,
         };
 
         UserActions.updateUser(updatedUser);
@@ -46,7 +46,7 @@ export function getCurrentTimezone(userTimezone) {
     const {
         useAutomaticTimezone,
         automaticTimezone,
-        manualTimezone
+        manualTimezone,
     } = userTimezone;
 
     let useAutomatic = useAutomaticTimezone;

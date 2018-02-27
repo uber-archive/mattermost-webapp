@@ -9,7 +9,7 @@ export default class Suggestion extends React.Component {
         return {
             item: PropTypes.oneOfType([
                 PropTypes.object,
-                PropTypes.string
+                PropTypes.string,
             ]).isRequired,
             term: PropTypes.string.isRequired,
             matchedPretext: PropTypes.string.isRequired,

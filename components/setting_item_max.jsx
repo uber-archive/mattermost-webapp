@@ -14,7 +14,7 @@ export default class SettingItemMax extends React.PureComponent {
         infoPosition: 'bottom',
         saving: false,
         section: '',
-        containerStyle: {}
+        containerStyle: {},
     };
 
     static propTypes = {

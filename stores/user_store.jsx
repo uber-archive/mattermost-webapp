@@ -464,14 +464,14 @@ class UserStoreClass extends EventEmitter {
         if (profile && profile.timezone) {
             return {
                 ...profile.timezone,
-                useAutomaticTimezone: profile.timezone.useAutomaticTimezone === 'true'
+                useAutomaticTimezone: profile.timezone.useAutomaticTimezone === 'true',
             };
         }
 
         return {
             useAutomaticTimezone: true,
             automaticTimezone: '',
-            manualTimezone: ''
+            manualTimezone: '',
         };
     }
 

@@ -56,7 +56,8 @@ export default class PostTime extends React.PureComponent {
     renderTimeTag() {
         const userTimezone = this.getCurrentUserTimezone();
         const date = new Date(this.props.eventTime);
-        const militaryTime = this.props.useMilitaryTime;
+
+        // const militaryTime = this.props.useMilitaryTime;
 
         // const hour = militaryTime ? date.getHours() : (date.getHours() % 12 || 12);
         // let minute = date.getMinutes();
@@ -70,7 +71,7 @@ export default class PostTime extends React.PureComponent {
         const options = {
             hour: '2-digit',
             minute: '2-digit',
-            hour12: !this.props.useMilitaryTime
+            hour12: !this.props.useMilitaryTime,
         };
 
         if (userTimezone && global.mm_config.EnableTimezoneSelection === 'true') {

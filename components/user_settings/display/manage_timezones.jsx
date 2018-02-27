@@ -23,7 +23,7 @@ export default class ManageTimezones extends React.Component {
             automaticTimezone: props.automaticTimezone,
             manualTimezone: props.manualTimezone,
             manualTimezoneInput: props.manualTimezone,
-            isSaving: false
+            isSaving: false,
         };
     }
 
@@ -38,7 +38,7 @@ export default class ManageTimezones extends React.Component {
 
         this.setState({
             manualTimezone: selected,
-            manualTimezoneInput: selected
+            manualTimezoneInput: selected,
         });
     };
 
@@ -46,13 +46,13 @@ export default class ManageTimezones extends React.Component {
         const {
             useAutomaticTimezone,
             automaticTimezone,
-            manualTimezone
+            manualTimezone,
         } = this.state;
 
         const {
             useAutomaticTimezone: oldUseAutomaticTimezone,
             automaticTimezone: oldAutomaticTimezone,
-            manualTimezone: oldManualTimezone
+            manualTimezone: oldManualTimezone,
         } = this.props;
 
         return (
@@ -76,18 +76,18 @@ export default class ManageTimezones extends React.Component {
         const {
             useAutomaticTimezone,
             automaticTimezone,
-            manualTimezone
+            manualTimezone,
         } = this.state;
 
         const timezone = {
             useAutomaticTimezone: useAutomaticTimezone.toString(),
             automaticTimezone,
-            manualTimezone
+            manualTimezone,
         };
 
         const updatedUser = {
             ...user,
-            timezone
+            timezone,
         };
 
         updateUser(
@@ -115,7 +115,7 @@ export default class ManageTimezones extends React.Component {
 
         this.setState({
             useAutomaticTimezone,
-            automaticTimezone
+            automaticTimezone,
         });
     };
 
@@ -126,7 +126,7 @@ export default class ManageTimezones extends React.Component {
     render() {
         const {
             useAutomaticTimezone,
-            automaticTimezone
+            automaticTimezone,
         } = this.state;
 
         let serverError;
@@ -218,7 +218,7 @@ export default class ManageTimezones extends React.Component {
                 containerStyle={{
                     overflow: 'visible',
                     display: 'table',
-                    width: '100%'
+                    width: '100%',
                 }}
                 width='medium'
                 submit={this.changeTimezone}
@@ -235,5 +235,5 @@ ManageTimezones.propTypes = {
     updateSection: PropTypes.func.isRequired,
     useAutomaticTimezone: PropTypes.bool.isRequired,
     automaticTimezone: PropTypes.string.isRequired,
-    manualTimezone: PropTypes.string.isRequired
+    manualTimezone: PropTypes.string.isRequired,
 };

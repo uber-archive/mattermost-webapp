@@ -32,6 +32,10 @@ export default class StatusDropdown extends React.Component {
         showDropdown: false,
     }
 
+    isUserOutOfOffice = () => {
+        return this.props.status === UserStatuses.OUT_OF_OFFICE;
+    }
+
     onToggle = (showDropdown) => {
         this.setState({showDropdown});
     }
@@ -69,19 +73,35 @@ export default class StatusDropdown extends React.Component {
     }
 
     renderStatusOnlineAction = () => {
+        if (this.isUserOutOfOffice()) {
+            return this.renderStatusActionDisabled(UserStatuses.ONLINE);
+        }
         return this.renderStatusAction(UserStatuses.ONLINE, this.setOnline);
     }
 
     renderStatusAwayAction = () => {
+        if (this.isUserOutOfOffice()) {
+            return this.renderStatusActionDisabled(UserStatuses.AWAY);
+        }
         return this.renderStatusAction(UserStatuses.AWAY, this.setAway);
     }
 
     renderStatusOfflineAction = () => {
+        if (this.isUserOutOfOffice()) {
+            return this.renderStatusActionDisabled(UserStatuses.OFFLINE);
+        }
         return this.renderStatusAction(UserStatuses.OFFLINE, this.setOffline);
     }
 
     renderStatusDndAction = () => {
+        if (this.isUserOutOfOffice()) {
+            return this.renderStatusActionDisabled(UserStatuses.DND);
+        }
         return this.renderStatusAction(UserStatuses.DND, this.setDnd, localizeMessage('status_dropdown.set_dnd.extra', 'Disables Desktop and Push Notifications'));
+    }
+
+    renderStatusOutOfOfficeAction = () => {
+        return this.renderStatusAction(UserStatuses.OUT_OF_OFFICE, null, localizeMessage('status_dropdown.set_ooo.extra', 'Auto Responder is enabled.'));
     }
 
     renderProfilePicture = () => {
@@ -93,6 +113,22 @@ export default class StatusDropdown extends React.Component {
                 className='user__picture'
                 src={this.props.profilePicture}
             />
+        );
+    }
+
+    renderStatusActionDisabled = (status) => {
+        return (
+            <li key={status}>
+                <a
+                    style={{cursor: 'not-allowed'}}
+                    id={'status' + status}
+                >
+                    <FormattedMessage
+                        id={`status_dropdown.set_${status}`}
+                        defaultMessage={status}
+                    />
+                </a>
+            </li>
         );
     }
 
@@ -116,12 +152,17 @@ export default class StatusDropdown extends React.Component {
 
     render() {
         const profilePicture = this.renderProfilePicture();
-        const actions = [
+        let actions = [
             this.renderStatusOnlineAction(),
             this.renderStatusAwayAction(),
             this.renderStatusDndAction(),
             this.renderStatusOfflineAction(),
         ];
+
+        if (this.isUserOutOfOffice()) {
+            actions = [this.renderStatusOutOfOfficeAction(), ...actions];
+        }
+
         return (
             <Dropdown
                 id={'status-dropdown'}

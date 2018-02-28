@@ -272,6 +272,7 @@ export const ModalIdentifiers = {
 };
 
 export const UserStatuses = {
+    OUT_OF_OFFICE: 'ooo',
     OFFLINE: 'offline',
     AWAY: 'away',
     ONLINE: 'online',

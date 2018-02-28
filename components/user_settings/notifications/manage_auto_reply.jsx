@@ -85,7 +85,7 @@ export default class ManageAutoReply extends React.Component {
                 <br/>
                 <FormattedHTMLMessage
                     id='user.settings.notifications.autoResponderHint'
-                    defaultMessage='When enabled, sends a custom message. Direct messages will trigger a response. Mentions in channels will not trigger a response.'
+                    defaultMessage='When enabled, sets your status to Do Not Disturb and answers direct messages with a custom response. Mentions in channels will not trigger a response. All notifications will be silenced.'
                 />
             </div>
         ));

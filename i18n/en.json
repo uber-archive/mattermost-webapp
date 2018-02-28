@@ -2806,7 +2806,7 @@
   "user.settings.notifications.allActivity": "For all activity",
   "user.settings.notifications.autoResponder": "Auto Responder",
   "user.settings.notifications.autoResponderPlaceholder": "Message",
-  "user.settings.notifications.autoResponderHint": "When enabled, sends a custom message. Direct messages will trigger a response. Mentions in channels will not trigger a response.",
+  "user.settings.notifications.autoResponderHint": "When enabled, sets your status to Do Not Disturb and answers direct messages with a custom response. Mentions in channels will not trigger a response. All notifications will be silenced.",
   "user.settings.notifications.autoResponderDefault": "Hello, I am out of office and unable to respond to messages.",
   "user.settings.notifications.autoResponderEnabled": "Enabled",
   "user.settings.notifications.autoResponderDisabled": "Disabled",

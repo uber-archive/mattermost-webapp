@@ -24,7 +24,7 @@ export default class ManageAutoReply extends React.Component {
     render() {
         const {
             autoReplyActive,
-            autoReplyMessage
+            autoReplyMessage,
         } = this.props;
 
         let serverError;
@@ -101,7 +101,7 @@ export default class ManageAutoReply extends React.Component {
                 containerStyle={{
                     overflow: 'visible',
                     display: 'table',
-                    width: '100%'
+                    width: '100%',
                 }}
                 width='medium'
                 shiftEnter={true}
@@ -121,5 +121,5 @@ ManageAutoReply.propTypes = {
     setParentState: PropTypes.func.isRequired,
     submit: PropTypes.func.isRequired,
     saving: PropTypes.bool.isRequired,
-    error: PropTypes.string
+    error: PropTypes.string,
 };

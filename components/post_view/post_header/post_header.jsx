@@ -104,13 +104,13 @@ export default class PostHeader extends React.PureComponent {
                 userProfileProps = {
                     user: this.props.user,
                     overwriteName: post.props.override_username,
-                    disablePopover: true
+                    disablePopover: true,
                 };
             } else {
                 userProfileProps = {
                     user: this.props.user,
                     displayNameType: this.props.displayNameType,
-                    disablePopover: true
+                    disablePopover: true,
                 };
             }
 
@@ -125,7 +125,7 @@ export default class PostHeader extends React.PureComponent {
                     />
                 ),
                 overwriteImage: Constants.SYSTEM_MESSAGE_PROFILE_IMAGE,
-                disablePopover: true
+                disablePopover: true,
             };
         } else {
             userProfileProps = {
@@ -133,7 +133,7 @@ export default class PostHeader extends React.PureComponent {
                 displayNameType: this.props.displayNameType,
                 status: this.props.status,
                 isBusy: this.props.isBusy,
-                hasMention: true
+                hasMention: true,
             };
         }
 

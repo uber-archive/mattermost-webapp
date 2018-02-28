@@ -91,7 +91,7 @@ export default class SettingItemMax extends React.PureComponent {
         /**
          * Avoid submitting when using SHIFT + ENTER
          */
-        shiftEnter: PropTypes.bool
+        shiftEnter: PropTypes.bool,
     }
 
     componentDidMount() {

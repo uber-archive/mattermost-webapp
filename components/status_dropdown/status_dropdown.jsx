@@ -10,6 +10,7 @@ import {UserStatuses} from 'utils/constants.jsx';
 import {localizeMessage} from 'utils/utils.jsx';
 import BootstrapSpan from 'components/bootstrap_span.jsx';
 import StatusIcon from 'components/status_icon.jsx';
+import {showResetStatusModal} from 'actions/global_actions.jsx';
 
 export default class StatusDropdown extends React.Component {
     static propTypes = {
@@ -19,7 +20,6 @@ export default class StatusDropdown extends React.Component {
         profilePicture: PropTypes.string,
         actions: PropTypes.shape({
             setStatus: PropTypes.func.isRequired,
-            showResetStatusModal: PropTypes.func.isRequired,
         }).isRequired,
     }
 
@@ -75,7 +75,7 @@ export default class StatusDropdown extends React.Component {
 
     showStatusChangeConfirmation = (status) => {
         this.closeDropdown();
-        this.props.actions.showResetStatusModal(status);
+        showResetStatusModal(status);
     };
 
     renderStatusOnlineAction = () => {

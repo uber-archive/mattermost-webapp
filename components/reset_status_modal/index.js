@@ -14,7 +14,6 @@ import ResetStatusModal from './reset_status_modal.jsx';
 
 function mapStateToProps(state, ownProps) {
     const {currentUserId} = state.entities.users;
-
     return {
         ...ownProps,
         autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, currentUserId, ''),

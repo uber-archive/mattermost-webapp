@@ -37,10 +37,6 @@ export default class ResetStatusModal extends React.PureComponent {
         }).isRequired,
     };
 
-    static defaultProps = {
-        newStatus: 'online',
-    };
-
     constructor(props) {
         super(props);
 
@@ -107,7 +103,6 @@ export default class ResetStatusModal extends React.PureComponent {
     render() {
         const userStatus = this.state.currentUserStatus.status || '';
         const userStatusId = 'modal.manaul_status.title_' + userStatus;
-        console.log('userStatus', userStatus);
         const manualStatusTitle = (
             <FormattedMessage
                 id={userStatusId}

@@ -19,7 +19,7 @@ export default class StatusDropdown extends React.Component {
         profilePicture: PropTypes.string,
         actions: PropTypes.shape({
             setStatus: PropTypes.func.isRequired,
-            showResetStatusDialog: PropTypes.func.isRequired,
+            showResetStatusModal: PropTypes.func.isRequired,
         }).isRequired,
     }
 
@@ -75,7 +75,7 @@ export default class StatusDropdown extends React.Component {
 
     showStatusChangeConfirmation = (status) => {
         this.closeDropdown();
-        this.props.actions.showResetStatusDialog(true, status);
+        this.props.actions.showResetStatusModal(status);
     };
 
     renderStatusOnlineAction = () => {

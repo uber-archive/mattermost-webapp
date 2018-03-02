@@ -6,8 +6,10 @@ import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {Preferences} from 'mattermost-redux/constants';
 
-import {toTitleCase} from 'utils/utils.jsx';
+import ModalStore from 'stores/modal_store.jsx';
 import ConfirmModal from 'components/confirm_modal.jsx';
+import {toTitleCase} from 'utils/utils.jsx';
+import {ActionTypes} from 'utils/constants.jsx';
 
 export default class ResetStatusModal extends React.PureComponent {
     static propTypes = {
@@ -16,17 +18,6 @@ export default class ResetStatusModal extends React.PureComponent {
          * The user's preference for whether their status is automatically reset
          */
         autoResetPref: PropTypes.string,
-
-        /**
-         * Overrides this.state.show
-         */
-        showDialog: PropTypes.bool,
-
-        /**
-         * Genalizes status change
-         */
-        newStatus: PropTypes.string,
-
         actions: PropTypes.shape({
 
             /*
@@ -43,13 +34,8 @@ export default class ResetStatusModal extends React.PureComponent {
              * Function to save user preferences
              */
             savePreferences: PropTypes.func.isRequired,
-
-            /**
-             * Overrides show
-             */
-            showResetStatusDialog: PropTypes.func.isRequired,
         }).isRequired,
-    }
+    };
 
     static defaultProps = {
         newStatus: 'online',
@@ -61,10 +47,12 @@ export default class ResetStatusModal extends React.PureComponent {
         this.state = {
             show: false,
             currentUserStatus: {},
+            newStatus: 'online',
         };
     }
 
     componentDidMount() {
+        ModalStore.addModalListener(ActionTypes.TOGGLE_RESET_STATUS_MODAL, this.toggleModal);
         this.props.actions.autoResetStatus().then(
             (status) => {
                 const statusIsManual = status.manual;
@@ -78,26 +66,33 @@ export default class ResetStatusModal extends React.PureComponent {
         );
     }
 
-    hideModal = () => {
-        if (this.props.showDialog) {
-            this.props.actions.showResetStatusDialog(false);
-            return;
-        }
-        this.setState({show: false});
+    componentWillUnmount() {
+        ModalStore.removeModalListener(ActionTypes.TOGGLE_RESET_STATUS_MODAL, this.toggleModal);
     }
+
+    toggleModal = (show, args) => {
+        this.setState({
+            show,
+            newStatus: args.newStatus || 'online',
+        });
+    };
+
+    hideModal = () => {
+        this.setState({show: false});
+    };
 
     onConfirm = (checked) => {
         this.hideModal();
 
         const newStatus = {...this.state.currentUserStatus};
-        newStatus.status = this.props.newStatus;
+        newStatus.status = this.state.newStatus;
         this.props.actions.setStatus(newStatus);
 
         if (checked) {
             const pref = {category: Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, user_id: newStatus.user_id, name: newStatus.user_id, value: 'true'};
             this.props.actions.savePreferences(pref.user_id, [pref]);
         }
-    }
+    };
 
     onCancel = (checked) => {
         this.hideModal();
@@ -107,7 +102,7 @@ export default class ResetStatusModal extends React.PureComponent {
             const pref = {category: Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, user_id: status.user_id, name: status.user_id, value: 'false'};
             this.props.actions.savePreferences(pref.user_id, [pref]);
         }
-    }
+    };
 
     render() {
         const userStatus = this.state.currentUserStatus.status || '';
@@ -125,20 +120,20 @@ export default class ResetStatusModal extends React.PureComponent {
 
         const manualStatusMessage = (
             <FormattedMessage
-                id={`modal.manaul_status.message_${this.props.newStatus}`}
+                id={`modal.manaul_status.message_${this.state.newStatus}`}
                 defaultMessage='Would you like to switch your status to "{status}"'
                 values={{
-                    status: toTitleCase(this.props.newStatus),
+                    status: toTitleCase(this.state.newStatus),
                 }}
             />
         );
 
         const manualStatusButton = (
             <FormattedMessage
-                id={`modal.manaul_status.button_${this.props.newStatus}`}
+                id={`modal.manaul_status.button_${this.state.newStatus}`}
                 defaultMessage='Yes, set my status to "{status}"'
                 values={{
-                    status: toTitleCase(this.props.newStatus),
+                    status: toTitleCase(this.state.newStatus),
                 }}
             />
         );
@@ -162,7 +157,7 @@ export default class ResetStatusModal extends React.PureComponent {
 
         return (
             <ConfirmModal
-                show={this.state.show || this.props.showDialog}
+                show={this.state.show}
                 title={manualStatusTitle}
                 message={manualStatusMessage}
                 confirmButtonText={manualStatusButton}

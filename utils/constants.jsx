@@ -215,6 +215,7 @@ export const ActionTypes = keyMirror({
     TOGGLE_CHANNEL_PURPOSE_UPDATE_MODAL: null,
     TOGGLE_CHANNEL_NAME_UPDATE_MODAL: null,
     TOGGLE_LEAVE_PRIVATE_CHANNEL_MODAL: null,
+    TOGGLE_RESET_STATUS_MODAL: null,
     SHOW_EDIT_POST_MODAL: null,
     HIDE_EDIT_POST_MODAL: null,
 
@@ -243,8 +244,6 @@ export const ActionTypes = keyMirror({
     SELECT_CHANNEL_WITH_MEMBER: null,
 
     INCREMENT_EMOJI_PICKER_PAGE: null,
-
-    SHOW_RESET_STATUS_MODAL: null,
 });
 
 export const WebrtcActionTypes = keyMirror({

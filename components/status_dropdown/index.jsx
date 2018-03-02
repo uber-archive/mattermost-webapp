@@ -8,7 +8,7 @@ import {Client4} from 'mattermost-redux/client';
 import {getCurrentUser, getStatusForUserId} from 'mattermost-redux/selectors/entities/users';
 
 import StatusDropdown from 'components/status_dropdown/status_dropdown.jsx';
-import {showResetStatusDialog} from 'actions/views/reset_status';
+import {showResetStatusModal} from 'actions/global_actions.jsx';
 
 function mapStateToProps(state) {
     const currentUser = getCurrentUser(state);
@@ -29,7 +29,7 @@ function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators({
             setStatus,
-            showResetStatusDialog,
+            showResetStatusModal,
         }, dispatch),
     };
 }

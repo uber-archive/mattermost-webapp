@@ -19,6 +19,7 @@ export default class StatusDropdown extends React.Component {
         profilePicture: PropTypes.string,
         actions: PropTypes.shape({
             setStatus: PropTypes.func.isRequired,
+            showResetStatusDialog: PropTypes.func.isRequired,
         }).isRequired,
     }
 
@@ -72,30 +73,35 @@ export default class StatusDropdown extends React.Component {
         this.setStatus(UserStatuses.DND);
     }
 
+    showStatusChangeConfirmation = (status) => {
+        this.closeDropdown();
+        this.props.actions.showResetStatusDialog(true, status);
+    };
+
     renderStatusOnlineAction = () => {
         if (this.isUserOutOfOffice()) {
-            return this.renderStatusActionDisabled(UserStatuses.ONLINE);
+            return this.renderStatusAction(UserStatuses.ONLINE, () => this.showStatusChangeConfirmation('online'));
         }
         return this.renderStatusAction(UserStatuses.ONLINE, this.setOnline);
     }
 
     renderStatusAwayAction = () => {
         if (this.isUserOutOfOffice()) {
-            return this.renderStatusActionDisabled(UserStatuses.AWAY);
+            return this.renderStatusAction(UserStatuses.AWAY, () => this.showStatusChangeConfirmation('away'));
         }
         return this.renderStatusAction(UserStatuses.AWAY, this.setAway);
     }
 
     renderStatusOfflineAction = () => {
         if (this.isUserOutOfOffice()) {
-            return this.renderStatusActionDisabled(UserStatuses.OFFLINE);
+            return this.renderStatusAction(UserStatuses.OFFLINE, () => this.showStatusChangeConfirmation('offline'));
         }
         return this.renderStatusAction(UserStatuses.OFFLINE, this.setOffline);
     }
 
     renderStatusDndAction = () => {
         if (this.isUserOutOfOffice()) {
-            return this.renderStatusActionDisabled(UserStatuses.DND);
+            return this.renderStatusAction(UserStatuses.DND, () => this.showStatusChangeConfirmation('dnd'));
         }
         return this.renderStatusAction(UserStatuses.DND, this.setDnd, localizeMessage('status_dropdown.set_dnd.extra', 'Disables Desktop and Push Notifications'));
     }
@@ -113,22 +119,6 @@ export default class StatusDropdown extends React.Component {
                 className='user__picture'
                 src={this.props.profilePicture}
             />
-        );
-    }
-
-    renderStatusActionDisabled = (status) => {
-        return (
-            <li key={status}>
-                <a
-                    style={{cursor: 'not-allowed'}}
-                    id={'status' + status}
-                >
-                    <FormattedMessage
-                        id={`status_dropdown.set_${status}`}
-                        defaultMessage={status}
-                    />
-                </a>
-            </li>
         );
     }
 

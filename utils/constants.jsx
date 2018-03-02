@@ -243,6 +243,8 @@ export const ActionTypes = keyMirror({
     SELECT_CHANNEL_WITH_MEMBER: null,
 
     INCREMENT_EMOJI_PICKER_PAGE: null,
+
+    SHOW_RESET_STATUS_MODAL: null,
 });
 
 export const WebrtcActionTypes = keyMirror({

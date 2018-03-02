@@ -9,6 +9,7 @@ import rhs from './rhs';
 import posts from './posts';
 import modals from './modals';
 import emoji from './emoji';
+import resetStatus from './reset_status';
 
 export default combineReducers({
     admin,
@@ -17,4 +18,5 @@ export default combineReducers({
     posts,
     modals,
     emoji,
+    resetStatus,
 });

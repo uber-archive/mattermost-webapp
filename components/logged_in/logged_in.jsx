@@ -44,7 +44,7 @@ export default class LoggedIn extends React.Component {
         // Grab the current user
         const user = UserStore.getCurrentUser();
 
-        if (global.mm_config.EnableTimezoneSelection === 'true') {
+        if (this.props.enableTimezone) {
             const timezone = UserStore.getTimezone(user.id);
             autoUpdateTimezone(timezone);
         }
@@ -176,4 +176,5 @@ export default class LoggedIn extends React.Component {
 LoggedIn.propTypes = {
     children: PropTypes.object,
     mfaRequired: PropTypes.bool.isRequired,
+    enableTimezone: PropTypes.bool.isRequired,
 };

@@ -13,12 +13,14 @@ function mapStateToProps(state) {
     const enableLinkPreviews = config.EnableLinkPreviews === 'true';
     const defaultClientLocale = config.DefaultClientLocale;
     const enableThemeSelection = config.EnableThemeSelection === 'true';
+    const enableTimezone = config.EnableTimezoneSelection === 'true';
 
     return {
         allowCustomThemes,
         enableLinkPreviews,
         defaultClientLocale,
         enableThemeSelection,
+        enableTimezone,
     };
 }
 

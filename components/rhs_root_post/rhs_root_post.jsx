@@ -21,7 +21,7 @@ import PostBodyAdditionalContent from 'components/post_view/post_body_additional
 import PostFlagIcon from 'components/post_view/post_flag_icon.jsx';
 import PostMessageContainer from 'components/post_view/post_message_view';
 import ReactionListContainer from 'components/post_view/reaction_list';
-import PostTime from 'components/post_view/post_time.jsx';
+import PostTime from 'components/post_view/post_time';
 import ProfilePicture from 'components/profile_picture.jsx';
 import EmojiIcon from 'components/svg/emoji_icon';
 import MattermostLogo from 'components/svg/mattermost_logo';

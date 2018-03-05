@@ -15,7 +15,7 @@ import CommentIcon from 'components/common/comment_icon.jsx';
 import DotMenu from 'components/dot_menu';
 import EmojiPickerOverlay from 'components/emoji_picker/emoji_picker_overlay.jsx';
 import PostFlagIcon from 'components/post_view/post_flag_icon.jsx';
-import PostTime from 'components/post_view/post_time.jsx';
+import PostTime from 'components/post_view/post_time';
 import EmojiIcon from 'components/svg/emoji_icon';
 
 export default class PostInfo extends React.PureComponent {

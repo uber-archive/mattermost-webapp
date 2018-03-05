@@ -14,6 +14,7 @@ function mapStateToProps(state, ownProps) {
 
     return {
         mfaRequired: checkIfMFARequired(license, config, ownProps.match.url),
+        enableTimezone: config.EnableTimezoneSelection === 'true',
     };
 }
 

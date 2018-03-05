@@ -78,6 +78,11 @@ class ProfilePopover extends React.Component {
          */
         enableWebrtc: PropTypes.bool.isRequired,
 
+        /**
+         * Whether or not Timezone is enabled.
+         */
+        enableTimezone: PropTypes.bool.isRequired,
+
         ...Popover.propTypes,
     }
 
@@ -325,7 +330,7 @@ class ProfilePopover extends React.Component {
             );
         }
 
-        if (global.mm_config.EnableTimezoneSelection === 'true') {
+        if (this.props.enableTimezone) {
             const currentTimezone = getCurrentTimezone(this.props.user.timezone);
             if (currentTimezone) {
                 const useMilitaryTime = PreferenceStore.getBool(Constants.Preferences.CATEGORY_DISPLAY_SETTINGS, 'use_military_time');

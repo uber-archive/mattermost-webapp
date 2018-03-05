@@ -18,6 +18,11 @@ export default class ResetStatusModal extends React.PureComponent {
          * The user's preference for whether their status is automatically reset
          */
         autoResetPref: PropTypes.string,
+
+        /*
+         * Props value is used to update currentUserStatus
+         */
+        currentUserStatus: PropTypes.string,
         actions: PropTypes.shape({
 
             /*
@@ -67,9 +72,15 @@ export default class ResetStatusModal extends React.PureComponent {
     }
 
     toggleModal = (show, args) => {
+        const {currentUserStatus} = this.props;
+
         this.setState({
             show,
             newStatus: args.newStatus || 'online',
+            currentUserStatus: {
+                ...this.state.currentUserStatus,
+                status: currentUserStatus,
+            },
         });
     };
 

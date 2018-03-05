@@ -81,25 +81,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        focused={false}
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -394,25 +375,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        focused={false}
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -604,25 +566,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
           />
         }
         updateSection={[Function]}
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
-        describe=""
-        focused={false}
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
       />
       <div
         className="divider-dark"
@@ -876,25 +819,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        focused={false}
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -1095,25 +1019,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        focused={false}
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -1281,25 +1186,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
           />
         }
         updateSection={[Function]}
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
-        describe=""
-        focused={false}
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
       />
       <div
         className="divider-dark"
@@ -1546,25 +1432,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
           />
         }
         updateSection={[Function]}
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
-        describe=""
-        focused={false}
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
       />
       <div
         className="divider-dark"
@@ -1838,25 +1705,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        focused={false}
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -2048,25 +1896,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
           />
         }
         updateSection={[Function]}
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
-        describe=""
-        focused={false}
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
       />
       <div
         className="divider-dark"
@@ -2283,25 +2112,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe=""
-        focused={false}
-        section="timezone"
-        title={
-          <FormattedMessage
-            defaultMessage="Timezone"
-            id="user.settings.display.timezone"
-            values={Object {}}
-          />
-        }
-        updateSection={[Function]}
-        width="medium"
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <SettingItemMin
         describe={
           <FormattedMessage
             defaultMessage="On"
@@ -2493,29 +2303,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
           />
         }
         updateSection={[Function]}
-      />
-      <div
-        className="divider-dark"
-      />
-    </div>
-    <div>
-      <ManageTimezones
-        automaticTimezone=""
-        manualTimezone=""
-        updateSection={[Function]}
-        useAutomaticTimezone={true}
-        user={
-          Object {
-            "id": "user_id",
-            "locale": "en",
-            "timezone": Object {
-              "automaticTimezone": "America/New_York",
-              "manualTimezone": "",
-              "useAutomaticTimezone": "true",
-            },
-            "username": "username",
-          }
-        }
       />
       <div
         className="divider-dark"

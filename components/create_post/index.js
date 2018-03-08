@@ -49,7 +49,7 @@ function mapStateToProps() {
         const tutorialStep = getInt(state, Preferences.TUTORIAL_STEP, getCurrentUserId(state), TutorialSteps.FINISHED);
         const enableEmojiPicker = config.EnableEmojiPicker === 'true';
         const enableConfirmNotificationsToChannel = config.EnableConfirmNotificationsToChannel === 'true';
-        const currentUserId = getCurrentUserId(state)
+        const currentUserId = getCurrentUserId(state);
         const userIsOutOfOffice = getStatusForUserId(state, currentUserId) === UserStatuses.OUT_OF_OFFICE;
 
         return {

@@ -23,16 +23,24 @@ exports[`components/ResetStatusModal should match snapshot 1`] = `
   confirmButtonClass="btn btn-primary"
   confirmButtonText={
     <FormattedMessage
-      defaultMessage="Yes, set my status to \\"Online\\""
-      id="modal.manaul_status.button"
-      values={Object {}}
+      defaultMessage="Yes, set my status to \\"{status}\\""
+      id="modal.manaul_status.button_online"
+      values={
+        Object {
+          "status": "Online",
+        }
+      }
     />
   }
   message={
     <FormattedMessage
-      defaultMessage="Would you like to switch your status to \\"Online\\"?"
-      id="modal.manaul_status.message"
-      values={Object {}}
+      defaultMessage="Would you like to switch your status to \\"{status}\\""
+      id="modal.manaul_status.message_online"
+      values={
+        Object {
+          "status": "Online",
+        }
+      }
     />
   }
   modalClass=""

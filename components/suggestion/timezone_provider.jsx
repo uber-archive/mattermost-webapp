@@ -10,8 +10,6 @@ import {getSupportedTimezones, getTimezoneRegion} from 'utils/timezone';
 import Provider from './provider.jsx';
 import Suggestion from './suggestion.jsx';
 
-const timezones = getSupportedTimezones();
-
 class TimezoneSuggestion extends Suggestion {
     render() {
         const {item, isSelection} = this.props;
@@ -54,15 +52,15 @@ export default class TimezoneProvider extends Provider {
                 type: ActionTypes.SUGGESTION_RECEIVED_SUGGESTIONS,
                 id: suggestionId,
                 matchedPretext: '',
-                terms: timezones,
-                items: timezones,
+                terms: getSupportedTimezones(),
+                items: getSupportedTimezones(),
                 component: TimezoneSuggestion,
             });
         }, 0);
     }
 
     async filterTimezones(suggestionId, timezonePrefix) {
-        const filteredTimezones = timezones.filter((t) => (
+        const filteredTimezones = getSupportedTimezones().filter((t) => (
             getTimezoneRegion(t).toLowerCase().indexOf(timezonePrefix) >= 0 ||
                 t.toLowerCase().indexOf(timezonePrefix) >= 0
         ));

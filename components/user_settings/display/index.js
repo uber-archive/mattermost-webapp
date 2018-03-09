@@ -2,12 +2,16 @@
 // See License.txt for license information.
 
 import {connect} from 'react-redux';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
+import {bindActionCreators} from 'redux';
 
-import UserSettingsDisplay from './user_settings_display.jsx';
+import {getSupportedTimezones} from 'mattermost-redux/actions/general';
+import {getConfig, getSupportedTimezones as getTimezones} from 'mattermost-redux/selectors/entities/general';
+
+import UserSettingnsDisplay from './user_settings_display.jsx';
 
 function mapStateToProps(state) {
     const config = getConfig(state);
+    const timezones = getTimezones(state);
 
     const allowCustomThemes = config.AllowCustomThemes === 'true';
     const enableLinkPreviews = config.EnableLinkPreviews === 'true';
@@ -21,7 +25,16 @@ function mapStateToProps(state) {
         defaultClientLocale,
         enableThemeSelection,
         enableTimezone,
+        timezones,
     };
 }
 
-export default connect(mapStateToProps)(UserSettingsDisplay);
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators({
+            getSupportedTimezones,
+        }, dispatch),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserSettingnsDisplay);

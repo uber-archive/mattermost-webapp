@@ -124,6 +124,7 @@ export default class ManageTimezones extends React.Component {
     };
 
     render() {
+        const {timezones} = this.props;
         const {
             useAutomaticTimezone,
             automaticTimezone,
@@ -144,6 +145,7 @@ export default class ManageTimezones extends React.Component {
             </div>
         );
 
+        const noTimezonesFromServer = timezones.length === 0;
         const automaticTimezoneInput = (
             <div className='checkbox'>
                 <label>
@@ -152,6 +154,7 @@ export default class ManageTimezones extends React.Component {
                         type='checkbox'
                         checked={useAutomaticTimezone}
                         onChange={this.handleAutomaticTimezone}
+                        disabled={noTimezonesFromServer}
                     />
                     <FormattedMessage
                         id='user.settings.timezones.automatic'
@@ -188,6 +191,7 @@ export default class ManageTimezones extends React.Component {
                         completeOnTab={false}
                         renderDividers={false}
                         openOnFocus={true}
+                        disabled={noTimezonesFromServer}
                     />
                     {serverError}
                 </div>
@@ -236,4 +240,5 @@ ManageTimezones.propTypes = {
     useAutomaticTimezone: PropTypes.bool.isRequired,
     automaticTimezone: PropTypes.string.isRequired,
     manualTimezone: PropTypes.string.isRequired,
+    timezones: PropTypes.array.isRequired,
 };

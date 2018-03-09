@@ -407,6 +407,7 @@ export default class UserSettingsDisplay extends React.Component {
                     <div>
                         <ManageTimezones
                             user={this.props.user}
+                            timezones={this.props.timezones}
                             useAutomaticTimezone={userTimezone.useAutomaticTimezone}
                             automaticTimezone={userTimezone.automaticTimezone}
                             manualTimezone={userTimezone.manualTimezone}

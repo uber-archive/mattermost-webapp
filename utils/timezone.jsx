@@ -1,16 +1,16 @@
 // Copyright (c) 2017-present Mattermost, Inc. All Rights Reserved.
 // See License.txt for license information.
 
-import UserStore from 'stores/user_store.jsx';
+import {getSupportedTimezones as getTimezones} from 'mattermost-redux/selectors/entities/general';
+
 import * as UserActions from 'actions/user_actions.jsx';
+import store from 'stores/redux_store.jsx';
+import UserStore from 'stores/user_store.jsx';
 
 const dateTimeFormat = new Intl.DateTimeFormat();
 
 export function getSupportedTimezones() {
-    if (global.mm_config && global.mm_config.SupportedTimezones) {
-        return global.mm_config.SupportedTimezones.split(',');
-    }
-    return [];
+    return getTimezones(store.getState());
 }
 
 export function getBrowserTimezone() {

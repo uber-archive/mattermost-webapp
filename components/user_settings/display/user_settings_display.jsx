@@ -43,6 +43,10 @@ export default class UserSettingsDisplay extends React.Component {
             isSaving: false,
         };
 
+        if (props.timezones.length === 0) {
+            props.actions.getSupportedTimezones();
+        }
+
         this.prevSections = {
             theme: 'dummySectionName', // dummy value that should never match any section name
             clock: 'theme',
@@ -621,9 +625,13 @@ UserSettingsDisplay.propTypes = {
     collapseModal: PropTypes.func.isRequired,
     setRequireConfirm: PropTypes.func.isRequired,
     setEnforceFocus: PropTypes.func.isRequired,
+    timezones: PropTypes.array.isRequired,
     allowCustomThemes: PropTypes.bool,
     enableLinkPreviews: PropTypes.bool,
     defaultClientLocale: PropTypes.string,
     enableThemeSelection: PropTypes.bool,
     enableTimezone: PropTypes.bool,
+    actions: PropTypes.shape({
+        getSupportedTimezones: PropTypes.func.isRequired,
+    }).isRequired,
 };

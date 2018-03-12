@@ -16,7 +16,7 @@ import UserProfile from 'components/user_profile.jsx';
 import DateSeparator from 'components/post_view/date_separator.jsx';
 import PostBodyAdditionalContent from 'components/post_view/post_body_additional_content';
 import PostFlagIcon from 'components/post_view/post_flag_icon.jsx';
-import PostTime from 'components/post_view/post_time';
+import PostTime from 'components/post_view/post_time.jsx';
 import {browserHistory} from 'utils/browser_history';
 
 import Constants from 'utils/constants.jsx';
@@ -159,7 +159,6 @@ export default class SearchResultsItem extends React.PureComponent {
             <PostTime
                 isPermalink={isPermalink}
                 eventTime={post.create_at}
-                useMilitaryTime={this.props.useMilitaryTime}
                 postId={post.id}
             />
         );

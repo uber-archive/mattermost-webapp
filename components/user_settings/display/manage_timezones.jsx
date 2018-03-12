@@ -15,7 +15,7 @@ import SuggestionBox from 'components/suggestion/suggestion_box.jsx';
 import SuggestionList from 'components/suggestion/suggestion_list.jsx';
 import TimezoneProvider from 'components/suggestion/timezone_provider.jsx';
 
-export default class ManageTimezones extends React.Component {
+export default class ManageTimezones extends React.PureComponent {
     constructor(props) {
         super(props);
 

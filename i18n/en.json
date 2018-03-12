@@ -2866,7 +2866,7 @@
   "user.settings.languages.promote": "Select which language Mattermost displays in the user interface.<br /><br />Would like to help with translations? Join the <a href='http://translate.mattermost.com/' target='_blank'>Mattermost Translation Server</a> to contribute.",
   "user.settings.timezones.automatic": "Set automatically",
   "user.settings.timezones.change": "Change timezone",
-  "user.settings.timezones.promote": "Select the time zone used for timestamps in the user interface and email notifications.",
+  "user.settings.timezones.promote": "Select the timezone used for timestamps in the user interface and email notifications.",
   "user.settings.mfa.add": "Add MFA to your account",
   "user.settings.mfa.addHelp": "Adding multi-factor authentication will make your account more secure by requiring a code from your mobile phone each time you sign in.",
   "user.settings.mfa.addHelpQr": "Please scan the QR code with the Google Authenticator app on your smartphone and fill in the token with one provided by the app. If you are unable to scan the code, you can manually enter the secret provided.",

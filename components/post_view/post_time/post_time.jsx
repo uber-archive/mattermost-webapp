@@ -4,10 +4,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {getUserCurrentTimezone} from 'mattermost-redux/utils/timezone_utils';
 
 import TeamStore from 'stores/team_store.jsx';
 import UserStore from 'stores/user_store.jsx';
-import {getCurrentTimezone} from 'utils/timezone';
 import {isMobile} from 'utils/user_agent.jsx';
 
 export default class PostTime extends React.PureComponent {
@@ -55,7 +55,7 @@ export default class PostTime extends React.PureComponent {
     getCurrentUserTimezone = () => {
         const userId = UserStore.getCurrentId();
         const timezone = UserStore.getTimezone(userId);
-        return getCurrentTimezone(timezone);
+        return getUserCurrentTimezone(timezone);
     };
 
     renderTimeTag() {

@@ -3,12 +3,13 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import {getTimezoneRegion} from 'mattermost-redux/utils/timezone_utils';
 import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 
 import {updateUser} from 'actions/user_actions.jsx';
 
 import SettingItemMax from 'components/setting_item_max.jsx';
-import {getTimezoneRegion, getBrowserTimezone} from 'utils/timezone';
+import {getBrowserTimezone} from 'utils/timezone';
 
 import SuggestionBox from 'components/suggestion/suggestion_box.jsx';
 import SuggestionList from 'components/suggestion/suggestion_list.jsx';

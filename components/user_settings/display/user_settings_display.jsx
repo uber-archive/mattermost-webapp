@@ -3,6 +3,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import {getTimezoneRegion, getUserCurrentTimezone} from 'mattermost-redux/utils/timezone_utils';
 import {FormattedMessage} from 'react-intl';
 
 import {savePreferences} from 'actions/user_actions.jsx';
@@ -10,7 +11,6 @@ import PreferenceStore from 'stores/preference_store.jsx';
 import UserStore from 'stores/user_store.jsx';
 import Constants from 'utils/constants.jsx';
 import * as Utils from 'utils/utils.jsx';
-import {getTimezoneRegion, getCurrentTimezone} from 'utils/timezone';
 
 import * as I18n from 'i18n/i18n.jsx';
 import SettingItemMax from 'components/setting_item_max.jsx';
@@ -401,7 +401,7 @@ export default class UserSettingsDisplay extends React.Component {
         let timezoneSelection;
         if (this.props.enableTimezone) {
             const userTimezone = this.state.userTimezone;
-            const currentUserTimezone = getCurrentTimezone(userTimezone);
+            const currentUserTimezone = getUserCurrentTimezone(userTimezone);
             if (this.props.activeSection === 'timezone') {
                 timezoneSelection = (
                     <div>

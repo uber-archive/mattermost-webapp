@@ -4,10 +4,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {getUserCurrentTimezone} from 'mattermost-redux/utils/timezone_utils';
 
 import TeamStore from 'stores/team_store.jsx';
-import UserStore from 'stores/user_store.jsx';
 import {isMobile} from 'utils/user_agent.jsx';
 
 export default class PostTime extends React.PureComponent {
@@ -37,6 +35,11 @@ export default class PostTime extends React.PureComponent {
          * Flag for enabling the timezone feature
          */
         enableTimezone: PropTypes.bool,
+
+        /*
+         * Current timezone of the user
+         */
+        currentUserTimezone: PropTypes.string,
     };
 
     static defaultProps = {
@@ -52,14 +55,8 @@ export default class PostTime extends React.PureComponent {
         };
     }
 
-    getCurrentUserTimezone = () => {
-        const userId = UserStore.getCurrentId();
-        const timezone = UserStore.getTimezone(userId);
-        return getUserCurrentTimezone(timezone);
-    };
-
     renderTimeTag() {
-        const userTimezone = this.getCurrentUserTimezone();
+        const userTimezone = this.props.currentUserTimezone;
         const date = new Date(this.props.eventTime);
 
         // const militaryTime = this.props.useMilitaryTime;

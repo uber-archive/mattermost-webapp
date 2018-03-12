@@ -16,7 +16,7 @@ import ErrorStore from 'stores/error_store.jsx';
 import * as UserAgent from 'utils/user_agent.jsx';
 import * as Utils from 'utils/utils.jsx';
 import LoadingScreen from 'components/loading_screen.jsx';
-import {autoUpdateTimezone} from 'utils/timezone.jsx';
+import {getBrowserTimezone} from 'utils/timezone.jsx';
 import store from 'stores/redux_store.jsx';
 
 const dispatch = store.dispatch;
@@ -45,8 +45,7 @@ export default class LoggedIn extends React.Component {
         const user = UserStore.getCurrentUser();
 
         if (this.props.enableTimezone) {
-            const timezone = UserStore.getTimezone(user.id);
-            autoUpdateTimezone(timezone);
+            this.props.actions.autoUpdateTimezone(getBrowserTimezone());
         }
 
         if (!Utils.areObjectsEqual(this.state.user, user)) {
@@ -177,4 +176,7 @@ LoggedIn.propTypes = {
     children: PropTypes.object,
     mfaRequired: PropTypes.bool.isRequired,
     enableTimezone: PropTypes.bool.isRequired,
+    actions: PropTypes.shape({
+        autoUpdateTimezone: PropTypes.func.isRequired,
+    }).isRequired,
 };

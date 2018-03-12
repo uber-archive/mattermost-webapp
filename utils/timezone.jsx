@@ -39,38 +39,38 @@ export function autoUpdateTimezone(userTimezone) {
     }
 }
 
-export function getCurrentTimezone(userTimezone) {
-    if (!userTimezone) {
-        return null;
-    }
-    const {
-        useAutomaticTimezone,
-        automaticTimezone,
-        manualTimezone,
-    } = userTimezone;
+// export function getCurrentTimezone(userTimezone) {
+//     if (!userTimezone) {
+//         return null;
+//     }
+//     const {
+//         useAutomaticTimezone,
+//         automaticTimezone,
+//         manualTimezone,
+//     } = userTimezone;
+//
+//     let useAutomatic = useAutomaticTimezone;
+//     if (typeof useAutomaticTimezone === 'string') {
+//         useAutomatic = useAutomaticTimezone === 'true';
+//     }
+//
+//     if (useAutomatic) {
+//         return automaticTimezone;
+//     }
+//     return manualTimezone;
+// }
 
-    let useAutomatic = useAutomaticTimezone;
-    if (typeof useAutomaticTimezone === 'string') {
-        useAutomatic = useAutomaticTimezone === 'true';
-    }
-
-    if (useAutomatic) {
-        return automaticTimezone;
-    }
-    return manualTimezone;
-}
-
-export function getTimezoneRegion(timezone) {
-    if (timezone) {
-        const split = timezone.split('/');
-        if (split.length > 1) {
-            const region = split.pop();
-            if (region.indexOf('_') >= 0) {
-                return region.replace('_', ' ');
-            }
-            return region;
-        }
-    }
-
-    return timezone;
-}
+// export function getTimezoneRegion(timezone) {
+//     if (timezone) {
+//         const split = timezone.split('/');
+//         if (split.length > 1) {
+//             const region = split.pop();
+//             if (region.indexOf('_') >= 0) {
+//                 return region.replace('_', ' ');
+//             }
+//             return region;
+//         }
+//     }
+//
+//     return timezone;
+// }

@@ -3,9 +3,11 @@
 
 import React from 'react';
 
+import {getTimezoneRegion} from 'mattermost-redux/utils/timezone_utils';
+
 import AppDispatcher from 'dispatcher/app_dispatcher.jsx';
 import {ActionTypes} from 'utils/constants.jsx';
-import {getSupportedTimezones, getTimezoneRegion} from 'utils/timezone';
+import {getSupportedTimezones} from 'utils/timezone';
 
 import Provider from './provider.jsx';
 import Suggestion from './suggestion.jsx';

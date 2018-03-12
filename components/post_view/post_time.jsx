@@ -1,0 +1,62 @@
+// Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
+// See License.txt for license information.
+
+import PropTypes from 'prop-types';
+import React from 'react';
+import {Link} from 'react-router-dom';
+
+import TeamStore from 'stores/team_store.jsx';
+import {isMobile} from 'utils/user_agent.jsx';
+import LocalDateTime from 'components/local_date_time';
+
+export default class PostTime extends React.PureComponent {
+    static propTypes = {
+
+        /*
+         * If true, time will be rendered as a permalink to the post
+         */
+        isPermalink: PropTypes.bool.isRequired,
+
+        /*
+         * The time to display
+         */
+        eventTime: PropTypes.number.isRequired,
+
+        /*
+         * The post id of posting being rendered
+         */
+        postId: PropTypes.string,
+    };
+
+    static defaultProps = {
+        eventTime: 0,
+    };
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            currentTeamDisplayName: TeamStore.getCurrent().name,
+        };
+    }
+
+    render() {
+        const localDateTime = (
+            <LocalDateTime
+                eventTime={this.props.eventTime}
+            />
+        );
+        if (isMobile() || !this.props.isPermalink) {
+            return localDateTime;
+        }
+
+        return (
+            <Link
+                to={`/${this.state.currentTeamDisplayName}/pl/${this.props.postId}`}
+                className='post__permalink'
+            >
+                {localDateTime}
+            </Link>
+        );
+    }
+}

@@ -3,7 +3,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import {getTimezoneRegion, getUserCurrentTimezone} from 'mattermost-redux/utils/timezone_utils';
+import {getTimezoneRegion} from 'mattermost-redux/utils/timezone_utils';
 import {FormattedMessage} from 'react-intl';
 
 import {savePreferences} from 'actions/user_actions.jsx';
@@ -630,6 +630,7 @@ UserSettingsDisplay.propTypes = {
     defaultClientLocale: PropTypes.string,
     enableThemeSelection: PropTypes.bool,
     enableTimezone: PropTypes.bool,
+    currentUserTimezone: PropTypes.string,
     actions: PropTypes.shape({
         getSupportedTimezones: PropTypes.func.isRequired,
     }).isRequired,

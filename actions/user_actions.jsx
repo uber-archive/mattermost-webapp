@@ -29,7 +29,6 @@ const getState = store.getState;
 
 export async function loadMe() {
     await UserActions.loadMe()(dispatch, getState);
-
     loadCurrentLocale();
 }
 

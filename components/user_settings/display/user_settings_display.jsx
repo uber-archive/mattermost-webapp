@@ -23,9 +23,7 @@ import ThemeSetting from './user_settings_theme';
 const Preferences = Constants.Preferences;
 
 function getDisplayStateFromStores() {
-    const userId = UserStore.getCurrentId();
     return {
-        userTimezone: UserStore.getTimezone(userId),
         militaryTime: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, 'false'),
         channelDisplayMode: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.CHANNEL_DISPLAY_MODE, Preferences.CHANNEL_DISPLAY_MODE_DEFAULT),
         messageDisplay: PreferenceStore.get(Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.MESSAGE_DISPLAY, Preferences.MESSAGE_DISPLAY_DEFAULT),
@@ -400,8 +398,7 @@ export default class UserSettingsDisplay extends React.Component {
 
         let timezoneSelection;
         if (this.props.enableTimezone) {
-            const userTimezone = this.state.userTimezone;
-            const currentUserTimezone = getUserCurrentTimezone(userTimezone);
+            const userTimezone = this.props.userTimezone;
             if (this.props.activeSection === 'timezone') {
                 timezoneSelection = (
                     <div>
@@ -427,7 +424,7 @@ export default class UserSettingsDisplay extends React.Component {
                                 />
                             }
                             width='medium'
-                            describe={getTimezoneRegion(currentUserTimezone)}
+                            describe={getTimezoneRegion(this.props.currentUserTimezone)}
                             section={'timezone'}
                             updateSection={this.updateSection}
                         />
@@ -627,6 +624,7 @@ UserSettingsDisplay.propTypes = {
     setRequireConfirm: PropTypes.func.isRequired,
     setEnforceFocus: PropTypes.func.isRequired,
     timezones: PropTypes.array.isRequired,
+    userTimezone: PropTypes.object.isRequired,
     allowCustomThemes: PropTypes.bool,
     enableLinkPreviews: PropTypes.bool,
     defaultClientLocale: PropTypes.string,

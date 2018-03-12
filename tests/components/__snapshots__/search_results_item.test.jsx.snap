@@ -75,11 +75,10 @@ exports[`components/SearchResultsItem should match snapshot for DM 1`] = `
           <div
             className="col"
           >
-            <Connect(PostTime)
+            <PostTime
               eventTime={1502715365009}
               isPermalink={true}
               postId="id"
-              useMilitaryTime={true}
             />
             <span
               className="post__pinned-badge"
@@ -275,11 +274,10 @@ exports[`components/SearchResultsItem should match snapshot for channel 1`] = `
           <div
             className="col"
           >
-            <Connect(PostTime)
+            <PostTime
               eventTime={1502715365009}
               isPermalink={true}
               postId="id"
-              useMilitaryTime={true}
             />
             <PostFlagIcon
               idCount={-1}
@@ -471,11 +469,10 @@ exports[`components/SearchResultsItem should match snapshot for deleted message 
           <div
             className="col"
           >
-            <Connect(PostTime)
+            <PostTime
               eventTime={1502715365009}
               isPermalink={true}
               postId="id"
-              useMilitaryTime={true}
             />
           </div>
         </div>

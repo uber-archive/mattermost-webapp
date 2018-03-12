@@ -36,6 +36,10 @@ describe('components/user_settings/display/UserSettingsDisplay', () => {
         enableLinkPreviews: true,
         enableThemeSelection: false,
         defaultClientLocale: 'en',
+        timezones: [
+            'America/New_York',
+            'America/Los_Angeles',
+        ],
     };
 
     afterEach(() => {

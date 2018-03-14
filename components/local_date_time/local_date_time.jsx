@@ -21,11 +21,6 @@ export default class LocalDateTime extends React.PureComponent {
          * Current timezone of the user
          */
         timezone: PropTypes.string,
-
-        /*
-          * Flag for enabling the timezone feature
-          */
-        enableTimezone: PropTypes.bool.isRequired,
     };
 
     render() {
@@ -43,7 +38,7 @@ export default class LocalDateTime extends React.PureComponent {
             hour12: !useMilitaryTime,
         };
 
-        if (timezone && this.props.enableTimezone) {
+        if (timezone) {
             options.timeZone = timezone;
         }
 

@@ -77,11 +77,6 @@ class ProfilePopover extends React.Component {
          */
         enableWebrtc: PropTypes.bool.isRequired,
 
-        /**
-         * Whether or not Timezone is enabled.
-         */
-        enableTimezone: PropTypes.bool.isRequired,
-
         ...Popover.propTypes,
     }
 
@@ -329,14 +324,12 @@ class ProfilePopover extends React.Component {
             );
         }
 
-        if (this.props.enableTimezone) {
-            if (this.props.user.timezone) {
-                dataContent.push(
-                    <span>
-                        <LocalDateTime/>
-                    </span>
-                );
-            }
+        if (this.props.user.timezone) {
+            dataContent.push(
+                <span>
+                    <LocalDateTime/>
+                </span>
+            );
         }
 
         if (this.props.user.id === UserStore.getCurrentId()) {

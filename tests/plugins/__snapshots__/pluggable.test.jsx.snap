@@ -53,7 +53,6 @@ exports[`plugins/Pluggable should match snapshot with no overridden component 1`
     >
       <ProfilePopover
         dispatch={[Function]}
-        enableTimezone={false}
         enableWebrtc={true}
         hasMention={false}
         isRHS={false}
@@ -68,7 +67,6 @@ exports[`plugins/Pluggable should match snapshot with no overridden component 1`
       >
         <Popover
           bsClass="popover"
-          enableTimezone={false}
           id="user-profile-popover"
           placement="right"
           theme={Object {}}
@@ -76,7 +74,6 @@ exports[`plugins/Pluggable should match snapshot with no overridden component 1`
         >
           <div
             className="popover right"
-            enableTimezone={false}
             id="user-profile-popover"
             role="tooltip"
             style={

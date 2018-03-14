@@ -2,16 +2,15 @@
 // See License.txt for license information.
 
 import {getSupportedTimezones as getTimezones} from 'mattermost-redux/selectors/entities/general';
+import moment from 'moment-timezone';
 
 import store from 'stores/redux_store.jsx';
-
-const dateTimeFormat = new Intl.DateTimeFormat();
 
 export function getSupportedTimezones() {
     return getTimezones(store.getState());
 }
 
 export function getBrowserTimezone() {
-    return dateTimeFormat.resolvedOptions().timeZone;
+    return moment.tz.guess();
 }
 

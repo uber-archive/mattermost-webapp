@@ -397,41 +397,39 @@ export default class UserSettingsDisplay extends React.Component {
         });
 
         let timezoneSelection;
-        if (this.props.enableTimezone) {
-            const userTimezone = this.props.userTimezone;
-            if (this.props.activeSection === 'timezone') {
-                timezoneSelection = (
-                    <div>
-                        <ManageTimezones
-                            user={this.props.user}
-                            timezones={this.props.timezones}
-                            useAutomaticTimezone={userTimezone.useAutomaticTimezone}
-                            automaticTimezone={userTimezone.automaticTimezone}
-                            manualTimezone={userTimezone.manualTimezone}
-                            updateSection={this.updateSection}
-                        />
-                        <div className='divider-dark'/>
-                    </div>
-                );
-            } else {
-                timezoneSelection = (
-                    <div>
-                        <SettingItemMin
-                            title={
-                                <FormattedMessage
-                                    id='user.settings.display.timezone'
-                                    defaultMessage='Timezone'
-                                />
-                            }
-                            width='medium'
-                            describe={getTimezoneRegion(this.props.currentUserTimezone)}
-                            section={'timezone'}
-                            updateSection={this.updateSection}
-                        />
-                        <div className='divider-dark'/>
-                    </div>
-                );
-            }
+        const userTimezone = this.props.userTimezone;
+        if (this.props.activeSection === 'timezone') {
+            timezoneSelection = (
+                <div>
+                    <ManageTimezones
+                        user={this.props.user}
+                        timezones={this.props.timezones}
+                        useAutomaticTimezone={userTimezone.useAutomaticTimezone}
+                        automaticTimezone={userTimezone.automaticTimezone}
+                        manualTimezone={userTimezone.manualTimezone}
+                        updateSection={this.updateSection}
+                    />
+                    <div className='divider-dark'/>
+                </div>
+            );
+        } else {
+            timezoneSelection = (
+                <div>
+                    <SettingItemMin
+                        title={
+                            <FormattedMessage
+                                id='user.settings.display.timezone'
+                                defaultMessage='Timezone'
+                            />
+                        }
+                        width='medium'
+                        describe={getTimezoneRegion(this.props.currentUserTimezone)}
+                        section={'timezone'}
+                        updateSection={this.updateSection}
+                    />
+                    <div className='divider-dark'/>
+                </div>
+            );
         }
 
         const messageDisplaySection = this.createSection({
@@ -629,7 +627,6 @@ UserSettingsDisplay.propTypes = {
     enableLinkPreviews: PropTypes.bool,
     defaultClientLocale: PropTypes.string,
     enableThemeSelection: PropTypes.bool,
-    enableTimezone: PropTypes.bool,
     currentUserTimezone: PropTypes.string,
     actions: PropTypes.shape({
         getSupportedTimezones: PropTypes.func.isRequired,

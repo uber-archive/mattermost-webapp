@@ -40,17 +40,12 @@ describe('components/user_settings/display/UserSettingsDisplay', () => {
             'America/New_York',
             'America/Los_Angeles',
         ],
+        userTimezone: {
+            useAutomaticTimezone: 'true',
+            automaticTimezone: 'America/New_York',
+            manualTimezone: '',
+        },
     };
-
-    afterEach(() => {
-        global.window.mm_config = {};
-    });
-
-    beforeEach(() => {
-        global.window.mm_config = {};
-        global.window.mm_config.EnableTimezoneSelection = 'true';
-        global.window.mm_config.SupportedTimezones = ['America/New_York', 'America/Los_Angeles'];
-    });
 
     test('should match snapshot, no active section', () => {
         const wrapper = shallow(<UserSettingsDisplay {...requiredProps}/>);

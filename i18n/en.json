@@ -2871,7 +2871,7 @@
   "user.settings.modal.sidebar": "Sidebar",
   "user.settings.modal.title": "Account Settings",
   "user.settings.notifications.allActivity": "For all activity",
-  "user.settings.notifications.autoResponder": "Auto Responder",
+  "user.settings.notifications.autoResponder": "Out Of Office: Auto Responder",
   "user.settings.notifications.autoResponderPlaceholder": "Message",
   "user.settings.notifications.autoResponderHint": "When enabled, sets your status to Out Of Office and answers direct messages with a custom response. Mentions in channels will not trigger a response. All notifications will be silenced.",
   "user.settings.notifications.autoResponderDefault": "Hello, I am out of office and unable to respond to messages.",

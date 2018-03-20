@@ -876,7 +876,7 @@ export default class NotificationsTab extends React.Component {
                         title={
                             <FormattedMessage
                                 id='user.settings.notifications.autoResponder'
-                                defaultMessage='Auto Responder'
+                                defaultMessage='Out Of Office: Auto Responder'
                             />
                         }
                         width='medium'

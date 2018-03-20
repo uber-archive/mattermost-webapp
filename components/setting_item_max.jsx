@@ -14,7 +14,7 @@ export default class SettingItemMax extends React.PureComponent {
         infoPosition: 'bottom',
         saving: false,
         section: '',
-        containerStyle: {},
+        containerStyle: '',
     };
 
     static propTypes = {
@@ -27,7 +27,7 @@ export default class SettingItemMax extends React.PureComponent {
         /**
          * Styles for main component
          */
-        containerStyle: PropTypes.object,
+        containerStyle: PropTypes.string,
 
         /**
          * Client error
@@ -219,8 +219,7 @@ export default class SettingItemMax extends React.PureComponent {
 
         return (
             <ul
-                className='section-max form-horizontal'
-                style={this.props.containerStyle}
+                className={`section-max form-horizontal ${this.props.containerStyle}`}
             >
                 {title}
                 <li className={widthClass}>

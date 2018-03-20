@@ -326,7 +326,7 @@ class ProfilePopover extends React.Component {
 
         if (this.props.user.timezone) {
             dataContent.push(
-                <span>
+                <span key='user-popover-local-time'>
                     <LocalDateTime userTimezone={this.props.user.timezone}/>
                 </span>
             );

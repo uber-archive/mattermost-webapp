@@ -220,11 +220,7 @@ export default class ManageTimezones extends React.PureComponent {
                         defaultMessage='Timezone'
                     />
                 }
-                containerStyle={{
-                    overflow: 'visible',
-                    display: 'table',
-                    width: '100%',
-                }}
+                containerStyle='timezone-container'
                 width='medium'
                 submit={this.changeTimezone}
                 saving={this.state.isSaving}

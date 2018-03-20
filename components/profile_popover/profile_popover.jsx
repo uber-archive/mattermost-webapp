@@ -15,6 +15,7 @@ import TeamStore from 'stores/team_store.jsx';
 import UserStore from 'stores/user_store.jsx';
 import WebrtcStore from 'stores/webrtc_store.jsx';
 import Constants from 'utils/constants.jsx';
+import {isTimezoneSupportEnabled} from 'utils/timezone';
 import * as Utils from 'utils/utils.jsx';
 
 const UserStatuses = Constants.UserStatuses;
@@ -324,7 +325,7 @@ class ProfilePopover extends React.Component {
             );
         }
 
-        if (this.props.user.timezone) {
+        if (isTimezoneSupportEnabled() && this.props.user.timezone) {
             dataContent.push(
                 <span key='user-popover-local-time'>
                     <LocalDateTime userTimezone={this.props.user.timezone}/>

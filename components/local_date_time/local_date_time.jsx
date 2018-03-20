@@ -3,6 +3,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import {FormattedTime} from 'react-intl';
 
 export default class LocalDateTime extends React.PureComponent {
     static propTypes = {
@@ -20,27 +21,19 @@ export default class LocalDateTime extends React.PureComponent {
         /*
          * Current timezone of the user
          */
-        timezone: PropTypes.string,
+        timeZone: PropTypes.string,
     };
 
     render() {
         const {
             eventTime,
-            timezone,
+            timeZone,
             useMilitaryTime,
         } = this.props;
 
         const date = eventTime ? new Date(eventTime) : new Date();
 
-        const options = {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: !useMilitaryTime,
-        };
-
-        if (timezone) {
-            options.timeZone = timezone;
-        }
+        const timezoneProps = timeZone ? {timeZone} : {};
 
         return (
             <time
@@ -48,7 +41,11 @@ export default class LocalDateTime extends React.PureComponent {
                 dateTime={date.toISOString()}
                 title={date}
             >
-                {date.toLocaleString('en', options)}
+                <FormattedTime
+                    {...timezoneProps}
+                    hour12={!useMilitaryTime}
+                    value={date}
+                />
             </time>
         );
     }

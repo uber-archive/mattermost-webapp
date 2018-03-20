@@ -12,9 +12,15 @@ import {Preferences} from 'utils/constants.jsx';
 
 import LocalDateTime from './local_date_time';
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
     const currentUserId = getCurrentUserId(state);
-    const userTimezone = getUserTimezone(state, currentUserId);
+
+    let userTimezone;
+    if (props.userTimezone) {
+        userTimezone = props.userTimezone;
+    } else {
+        userTimezone = getUserTimezone(state, currentUserId);
+    }
 
     return {
         useMilitaryTime: getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false),

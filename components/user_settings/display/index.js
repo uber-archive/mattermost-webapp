@@ -10,7 +10,7 @@ import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 import {getUserTimezone} from 'mattermost-redux/selectors/entities/timezone';
 import {getUserCurrentTimezone} from 'mattermost-redux/utils/timezone_utils';
 
-import UserSettingnsDisplay from './user_settings_display.jsx';
+import UserSettingsDisplay from './user_settings_display.jsx';
 
 function mapStateToProps(state) {
     const config = getConfig(state);
@@ -42,4 +42,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserSettingnsDisplay);
+export default connect(mapStateToProps, mapDispatchToProps)(UserSettingsDisplay);

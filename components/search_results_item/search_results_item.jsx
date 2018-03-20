@@ -62,11 +62,6 @@ export default class SearchResultsItem extends React.PureComponent {
         term: PropTypes.string,
 
         /**
-        *  Flag for determining time format
-        */
-        useMilitaryTime: PropTypes.bool.isRequired,
-
-        /**
         *  Flag for determining result flag state
         */
         isFlagged: PropTypes.bool,

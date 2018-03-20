@@ -34,7 +34,6 @@ export default class RhsRootPost extends React.Component {
         user: PropTypes.object.isRequired,
         currentUser: PropTypes.object.isRequired,
         compactDisplay: PropTypes.bool,
-        useMilitaryTime: PropTypes.bool.isRequired,
         commentCount: PropTypes.number.isRequired,
         isFlagged: PropTypes.bool,
         status: PropTypes.string,
@@ -71,10 +70,6 @@ export default class RhsRootPost extends React.Component {
         }
 
         if (nextProps.compactDisplay !== this.props.compactDisplay) {
-            return true;
-        }
-
-        if (nextProps.useMilitaryTime !== this.props.useMilitaryTime) {
             return true;
         }
 

@@ -11,10 +11,10 @@ import {localizeMessage} from 'utils/utils.jsx';
 
 const MESSAGE_MAX_LENGTH = 200;
 
-export default class ManageAutoReply extends React.PureComponent {
+export default class ManageAutoResponder extends React.PureComponent {
     static propTypes = {
-        autoReplyActive: PropTypes.bool.isRequired,
-        autoReplyMessage: PropTypes.string.isRequired,
+        autoResponderActive: PropTypes.bool.isRequired,
+        autoResponderMessage: PropTypes.string.isRequired,
         updateSection: PropTypes.func.isRequired,
         setParentState: PropTypes.func.isRequired,
         submit: PropTypes.func.isRequired,
@@ -22,18 +22,18 @@ export default class ManageAutoReply extends React.PureComponent {
         error: PropTypes.string,
     };
 
-    handleAutoReplyChecked = (e) => {
-        this.props.setParentState('autoReplyActive', e.target.checked);
+    handleAutoResponderChecked = (e) => {
+        this.props.setParentState('autoResponderActive', e.target.checked);
     };
 
     onMessageChanged = (e) => {
-        this.props.setParentState('autoReplyMessage', e.target.value);
+        this.props.setParentState('autoResponderMessage', e.target.value);
     };
 
     render() {
         const {
-            autoReplyActive,
-            autoReplyMessage,
+            autoResponderActive,
+            autoResponderMessage,
         } = this.props;
 
         let serverError;
@@ -47,12 +47,12 @@ export default class ManageAutoReply extends React.PureComponent {
             <div className='checkbox'>
                 <label>
                     <input
-                        id='autoReplyActive'
+                        id='autoResponderActive'
                         type='checkbox'
-                        checked={autoReplyActive}
-                        onChange={this.handleAutoReplyChecked}
+                        checked={autoResponderActive}
+                        onChange={this.handleAutoResponderChecked}
                     />
-                    {autoReplyActive ? (
+                    {autoResponderActive ? (
                         <FormattedMessage
                             id='user.settings.notifications.autoResponderEnabled'
                             defaultMessage='Enabled'
@@ -72,11 +72,11 @@ export default class ManageAutoReply extends React.PureComponent {
                 <div className='padding-top'>
                     <AutosizeTextarea
                         style={{resize: 'none'}}
-                        id='notificationAutoReplyMessage'
+                        id='autoResponderMessage'
                         className='form-control'
                         rows='5'
                         placeholder={localizeMessage('user.settings.notifications.autoResponderPlaceholder', 'Message')}
-                        value={autoReplyMessage}
+                        value={autoResponderMessage}
                         maxLength={MESSAGE_MAX_LENGTH}
                         onChange={this.onMessageChanged}
                     />
@@ -86,7 +86,7 @@ export default class ManageAutoReply extends React.PureComponent {
         );
 
         inputs.push(activeToggle);
-        if (autoReplyActive) {
+        if (autoResponderActive) {
             inputs.push(message);
         }
         inputs.push((

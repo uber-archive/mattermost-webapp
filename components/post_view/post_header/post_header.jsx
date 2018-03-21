@@ -140,7 +140,7 @@ export default class PostHeader extends React.PureComponent {
         const userProfile = <UserProfile {...userProfileProps}/>;
 
         if (fromAutoResponder) {
-            indicator = <div className='auto-responder-indicator'>{Constants.AUTO_RESPONSE_NAME}</div>;
+            indicator = <div className='auto-responder-indicator'>{Constants.AUTO_RESPONDER_NAME}</div>;
         }
 
         if (this.props.compactDisplay) {

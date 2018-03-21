@@ -26,7 +26,7 @@ export function isSystemMessage(post) {
 }
 
 export function fromAutoResponder(post) {
-    return Boolean(post.type && (post.type === Constants.AUTO_RESPONSE));
+    return Boolean(post.type && (post.type === Constants.AUTO_RESPONDER));
 }
 
 export function isFromWebhook(post) {

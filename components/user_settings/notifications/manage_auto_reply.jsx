@@ -11,7 +11,16 @@ import {localizeMessage} from 'utils/utils.jsx';
 
 const MESSAGE_MAX_LENGTH = 200;
 
-export default class ManageAutoReply extends React.Component {
+export default class ManageAutoReply extends React.PureComponent {
+    static propTypes = {
+        autoReplyActive: PropTypes.bool.isRequired,
+        autoReplyMessage: PropTypes.string.isRequired,
+        updateSection: PropTypes.func.isRequired,
+        setParentState: PropTypes.func.isRequired,
+        submit: PropTypes.func.isRequired,
+        saving: PropTypes.bool.isRequired,
+        error: PropTypes.string,
+    };
 
     handleAutoReplyChecked = (e) => {
         this.props.setParentState('autoReplyActive', e.target.checked);
@@ -95,14 +104,9 @@ export default class ManageAutoReply extends React.Component {
                 title={
                     <FormattedMessage
                         id='user.settings.notifications.autoResponder'
-                        defaultMessage='Auto Responder'
+                        defaultMessage='Out Of Office: Auto Responder'
                     />
                 }
-                containerStyle={{
-                    overflow: 'visible',
-                    display: 'table',
-                    width: '100%',
-                }}
                 width='medium'
                 shiftEnter={true}
                 submit={this.props.submit}
@@ -113,13 +117,3 @@ export default class ManageAutoReply extends React.Component {
         );
     }
 }
-
-ManageAutoReply.propTypes = {
-    autoReplyActive: PropTypes.bool.isRequired,
-    autoReplyMessage: PropTypes.string.isRequired,
-    updateSection: PropTypes.func.isRequired,
-    setParentState: PropTypes.func.isRequired,
-    submit: PropTypes.func.isRequired,
-    saving: PropTypes.bool.isRequired,
-    error: PropTypes.string,
-};

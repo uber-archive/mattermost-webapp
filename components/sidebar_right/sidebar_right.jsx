@@ -1,9 +1,9 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See License.txt for license information.
 
-import $ from 'jquery';
 import PropTypes from 'prop-types';
 import React from 'react';
+import classNames from 'classnames';
 
 import {trackEvent} from 'actions/diagnostics_actions.jsx';
 import {postListScrollChange} from 'actions/global_actions.jsx';
@@ -18,6 +18,7 @@ import SearchResults from 'components/search_results';
 
 export default class SidebarRight extends React.Component {
     static propTypes = {
+        isOpen: PropTypes.bool.isRequired,
         currentUser: PropTypes.object,
         channel: PropTypes.object,
         postRightVisible: PropTypes.bool,
@@ -44,7 +45,6 @@ export default class SidebarRight extends React.Component {
 
     componentDidMount() {
         PostStore.addPostPinnedChangeListener(this.onPostPinnedChange);
-        this.doStrangeThings();
     }
 
     componentWillUnmount() {
@@ -66,30 +66,8 @@ export default class SidebarRight extends React.Component {
         }
     }
 
-    doStrangeThings = () => {
-        // We should have a better way to do this stuff
-        // Hence the function name.
-        $('.app__body .inner-wrap').removeClass('.move--right');
-        $('.app__body .inner-wrap').addClass('move--left');
-        $('.app__body .sidebar--left').removeClass('move--right');
-        $('.multi-teams .team-sidebar').removeClass('move--right');
-        $('.app__body .sidebar--right').addClass('move--left');
-
-        if (!this.props.searchVisible && !this.props.postRightVisible) {
-            $('.app__body .inner-wrap').removeClass('move--left').removeClass('move--right');
-            $('.app__body .sidebar--right').removeClass('move--left');
-            return (
-                <div/>
-            );
-        }
-
-        return null;
-    }
-
     componentDidUpdate(prevProps) {
         const isOpen = this.props.searchVisible || this.props.postRightVisible;
-        WebrtcStore.emitRhsChanged(isOpen);
-        this.doStrangeThings();
 
         const wasOpen = prevProps.searchVisible || prevProps.postRightVisible;
 
@@ -183,7 +161,7 @@ export default class SidebarRight extends React.Component {
 
         return (
             <div
-                className={'sidebar--right ' + expandedClass}
+                className={classNames('sidebar--right', expandedClass, {'move--left': this.props.isOpen})}
                 id='sidebar-right'
             >
                 <div

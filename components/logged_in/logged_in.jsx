@@ -16,7 +16,7 @@ import ErrorStore from 'stores/error_store.jsx';
 import * as UserAgent from 'utils/user_agent.jsx';
 import * as Utils from 'utils/utils.jsx';
 import LoadingScreen from 'components/loading_screen.jsx';
-import {getBrowserTimezone, isTimezoneSupportEnabled} from 'utils/timezone.jsx';
+import {getBrowserTimezone} from 'utils/timezone.jsx';
 import store from 'stores/redux_store.jsx';
 
 const dispatch = store.dispatch;
@@ -44,9 +44,7 @@ export default class LoggedIn extends React.Component {
         // Grab the current user
         const user = UserStore.getCurrentUser();
 
-        if (isTimezoneSupportEnabled()) {
-            this.props.actions.autoUpdateTimezone(getBrowserTimezone());
-        }
+        this.props.actions.autoUpdateTimezone(getBrowserTimezone());
 
         if (!Utils.areObjectsEqual(this.state.user, user)) {
             this.setState({

@@ -681,6 +681,10 @@ export function applyTheme(theme) {
     }
 
     if (theme.centerChannelColor) {
+        changeCss('.app__body .popover#user-profile-popover-new .popover-content .profile-popover-container', 'box-shadow: 0 0 10px 0' + changeOpacity(theme.centerChannelColor, 0.5));
+        changeCss('.app__body .popover#user-profile-popover-new .popover-content .profile-popover-container', '-webkit-box-shadow: 0 0 10px 0 ' + changeOpacity(theme.centerChannelColor, 0.5));
+        changeCss('.app__body .popover#user-profile-popover-new .popover-content .profile-popover-container', '-moz-box-shadow: 0 0 10px 0 ' + changeOpacity(theme.centerChannelColor, 0.5));
+
         changeCss('.app__body .mentions__name .status.status--group, .app__body .multi-select__note', 'background:' + changeOpacity(theme.centerChannelColor, 0.12));
         changeCss('.app__body .file-view--single .file__image .image-loaded, .app__body .post .dropdown .dropdown-menu button, .app__body .member-list__popover .more-modal__body, .app__body .alert.alert-transparent, .app__body .channel-header .channel-header__icon, .app__body .search-bar__container .search__form, .app__body .table > thead > tr > th, .app__body .table > tbody > tr > td', 'border-color:' + changeOpacity(theme.centerChannelColor, 0.12));
         changeCss('.app__body .post-list__arrows, .app__body .post .flag-icon__container', 'fill:' + changeOpacity(theme.centerChannelColor, 0.3));

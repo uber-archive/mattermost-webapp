@@ -1,6 +1,12 @@
 @charset 'UTF-8';
 
 @media screen and (max-width: 768px) {
+    .textarea-wrapper {
+        .help__text {
+            display: none;
+        }
+    }
+
     .webrtc__option {
         display: none;
     }
@@ -44,6 +50,8 @@
     }
 
     .post-create__container {
+        z-index: 2;
+
         .post-create-footer {
             padding: 0 10px;
         }
@@ -382,6 +390,7 @@
             padding-right: 70px;
 
             .col__reply {
+                min-width: 45px;
                 top: -3px;
                 width: 65px;
                 z-index: auto;
@@ -1010,8 +1019,10 @@
                     opacity: 1;
                     padding-top: 13px;
                     position: fixed;
+                    right: 20px;
                     text-align: center;
                     text-shadow: none;
+                    top: 20px;
                     width: 30px;
                 }
 
@@ -1064,6 +1075,7 @@
 
     .footer-pane {
         .footer-link {
+            display: block;
             line-height: 1.7;
             padding: 0;
             text-align: right;
@@ -1089,8 +1101,10 @@
         .search__form {
             @include single-transition(all, .2s, linear);
             @include translateX(0);
+            background: $white;
             border: none;
             margin-top: 9px;
+            padding-left: 40px;
             width: 100%;
 
             .fa-spin {
@@ -1240,8 +1254,10 @@
                         .btn-close {
                             @include opacity(.5);
                             display: block;
+                            font-size: 25px;
                             right: 4px;
                             text-align: center;
+                            top: 4px;
                             width: 40px;
                         }
                     }
@@ -1480,7 +1496,7 @@
 }
 
 @media screen and (max-width: 640px) {
-    .col__reply {
+    .post__header {
         .dropdown-menu {
             > li {
                 > button {
@@ -1939,6 +1955,15 @@
 }
 
 @media screen and (max-width: 320px) {
+    .post {
+        &.post--system {
+             .post__header {
+                padding: 0;
+             }
+        }
+
+    }
+
     .multi-teams {
         .sidebar--left {
             width: 220px;

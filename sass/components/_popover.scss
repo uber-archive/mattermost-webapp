@@ -75,7 +75,6 @@
 
     &#user-profile-popover-new {
         text-align: center;
-        background: transparent;
         border: none;
         box-shadow: none;
         .popover-title, .arrow {
@@ -87,13 +86,9 @@
             height: auto;
             overflow: auto;
             .profile-popover-container {
-                background-color: #ffffff;
                 overflow: auto;
                 width: 200px;
                 padding-top: 15px;
-                -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
-                -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
-                box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
                 .user-popover__image {
                     height: 100px;
                     width: 100px;
@@ -103,6 +98,7 @@
                     -o-border-radius: 100px;
                     border-radius: 100px;
                     margin: 0;
+                    border: 1px solid gray;
                 }
                 .profile-popover-name {
                     padding: 0 12px;

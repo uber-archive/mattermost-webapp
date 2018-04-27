@@ -60,7 +60,7 @@ export default class ChannelMentionProvider extends Provider {
     }
 
     handlePretextChanged(suggestionId, pretext) {
-        const captured = (/(^|\s)(~([^~\r\n]*))$/i).exec(pretext.toLowerCase());
+        const captured = (/(^|\s)(~([^~\r\n\s]*))$/i).exec(pretext.toLowerCase());
 
         if (!captured) {
             // Not a channel mention

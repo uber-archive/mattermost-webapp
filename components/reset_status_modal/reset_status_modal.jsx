@@ -108,24 +108,28 @@ export default class ResetStatusModal extends React.PureComponent {
     renderModalMessage = () => {
         if (this.props.currentUserStatus === UserStatuses.OUT_OF_OFFICE) {
             return (
-                <FormattedMessage
-                    id={`modal.manual_status.auto_responder.message_${this.state.newStatus}`}
-                    defaultMessage='Would you like to switch your status to "{status}" and disable Automatic Replies?'
-                    values={{
-                        status: toTitleCase(this.state.newStatus),
-                    }}
-                />
+                <div id='oofMessage'>
+                    <FormattedMessage
+                        id={`modal.manual_status.auto_responder.message_${this.state.newStatus}`}
+                        defaultMessage='Would you like to switch your status to "{status}" and disable Automatic Replies?'
+                        values={{
+                            status: toTitleCase(this.state.newStatus),
+                        }}
+                    />
+                </div>
             );
         }
 
         return (
-            <FormattedMessage
-                id={`modal.manual_status.message_${this.state.newStatus}`}
-                defaultMessage='Would you like to switch your status to "{status}"?'
-                values={{
-                    status: toTitleCase(this.state.newStatus),
-                }}
-            />
+            <div id='regularMessage'>
+                <FormattedMessage
+                    id={`modal.manual_status.message_${this.state.newStatus}`}
+                    defaultMessage='Would you like to switch your status to "{status}"?'
+                    values={{
+                        status: toTitleCase(this.state.newStatus),
+                    }}
+                />
+            </div>
         );
     };
 
@@ -142,7 +146,9 @@ export default class ResetStatusModal extends React.PureComponent {
             />
         );
 
-        const manualStatusMessage = this.renderModalMessage();
+        const manualStatusMessage = (
+            <div id='manualStatusMessage'>{this.renderModalMessage()}</div>
+        );
 
         const manualStatusButton = (
             <FormattedMessage

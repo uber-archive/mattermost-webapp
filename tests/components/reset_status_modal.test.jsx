@@ -4,6 +4,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
+import {mountWithIntl} from 'tests/helpers/intl-test-helper.jsx';
 import ResetStatusModal from 'components/reset_status_modal/reset_status_modal.jsx';
 
 describe('components/ResetStatusModal', () => {
@@ -115,5 +116,34 @@ describe('components/ResetStatusModal', () => {
             'user_id_1',
             [{category: 'auto_reset_manual_status', name: 'user_id_1', user_id: 'user_id_1', value: 'false'}]
         );
+    });
+
+    test('should match snapshot, render regular message', () => {
+        const wrapper = mountWithIntl(
+            <ResetStatusModal {...baseProps}/>
+        );
+
+        wrapper.setState({
+            show: true,
+        });
+
+        expect(wrapper.find('#manualStatusMessage').exists()).toBe(true);
+        expect(wrapper.find('#oofMessage').exists()).toBe(false);
+        expect(wrapper.find('#regularMessage').exists()).toBe(true);
+    });
+
+    test('should match snapshot, render out of status message', () => {
+        const props = {...baseProps, currentUserStatus: 'ooo'};
+        const wrapper = mountWithIntl(
+            <ResetStatusModal {...props}/>
+        );
+
+        wrapper.setState({
+            show: true,
+        });
+
+        expect(wrapper.find('#manualStatusMessage').exists()).toBe(true);
+        expect(wrapper.find('#oofMessage').exists()).toBe(true);
+        expect(wrapper.find('#regularMessage').exists()).toBe(false);
     });
 });

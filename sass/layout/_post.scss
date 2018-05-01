@@ -843,6 +843,10 @@
             }
         }
 
+        .auto-responder {
+            background: alpha-color($white, .7);
+        }
+
         .status-wrapper {
             cursor: auto;
             height: 14px;

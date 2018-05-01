@@ -1140,6 +1140,7 @@ const UserStatusesWeight = {
     away: 1,
     dnd: 2,
     offline: 3,
+    ooo: 3,
 };
 
 /**

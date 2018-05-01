@@ -63,6 +63,11 @@ export default class ConfirmModal extends React.Component {
          * Function called when the cancel button is pressed or the modal is hidden. Passes `true` if the checkbox is checked
          */
         onCancel: PropTypes.func.isRequired,
+
+        /**
+         * Function called when modal is dismissed
+         */
+        onExited: PropTypes.func,
     }
 
     static defaultProps = {
@@ -140,6 +145,7 @@ export default class ConfirmModal extends React.Component {
                 className={'modal-confirm ' + this.props.modalClass}
                 show={this.props.show}
                 onHide={this.props.onCancel}
+                onExited={this.props.onExited}
             >
                 <Modal.Header closeButton={false}>
                     <Modal.Title>{this.props.title}</Modal.Title>

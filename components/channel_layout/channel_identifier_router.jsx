@@ -27,18 +27,25 @@ function onChannelByIdentifierEnter({match, history}) {
     const {path, identifier} = match.params;
 
     if (path === 'channels') {
-        if (identifier.length === LENGTH_OF_ID) {
-            // It's hard to tell an ID apart from a channel name of the same length, so check first if
-            // the identifier matches a channel that we have
-            if (ChannelStore.getByName(identifier)) {
-                goToChannelByChannelName(match, history);
-            } else {
-                goToChannelByChannelId(match, history);
+        if ((
+            identifier.length === LENGTH_OF_ID ||
+            identifier.length === LENGTH_OF_GROUP_ID ||
+            identifier.length === LENGTH_OF_USER_ID_PAIR) &&
+            identifier.match(/(?:[\W-])/gi) === null
+        ) {
+            if (identifier.length === LENGTH_OF_ID) {
+                // It's hard to tell an ID apart from a channel name of the same length, so check first if
+                // the identifier matches a channel that we have
+                if (ChannelStore.getByName(identifier)) {
+                    goToChannelByChannelName(match, history);
+                } else {
+                    goToChannelByChannelId(match, history);
+                }
+            } else if (identifier.length === LENGTH_OF_GROUP_ID) {
+                goToGroupChannelByGroupId(match, history);
+            } else if (identifier.length === LENGTH_OF_USER_ID_PAIR) {
+                goToDirectChannelByUserIds(match, history);
             }
-        } else if (identifier.length === LENGTH_OF_GROUP_ID) {
-            goToGroupChannelByGroupId(match, history);
-        } else if (identifier.length === LENGTH_OF_USER_ID_PAIR) {
-            goToDirectChannelByUserIds(match, history);
         } else {
             goToChannelByChannelName(match, history);
         }

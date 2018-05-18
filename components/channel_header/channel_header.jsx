@@ -11,6 +11,8 @@ import 'bootstrap';
 
 import {isChannelMuted} from 'mattermost-redux/utils/channel_utils';
 
+import {joinFeed} from 'actions/channel_actions.jsx';
+
 import * as GlobalActions from 'actions/global_actions.jsx';
 import * as WebrtcActions from 'actions/webrtc_actions.jsx';
 import WebrtcStore from 'stores/webrtc_store.jsx';
@@ -234,6 +236,31 @@ export default class ChannelHeader extends React.Component {
         this.setState({
             showChannelNotificationsModal: true,
         });
+    };
+
+    subscribeToNewsfeed = (e) => {
+        e.preventDefault();
+
+        joinFeed(
+            `${this.props.channel.name}-feed`,
+            () => {
+                /*
+                browserHistory.push(TeamStore.getCurrentTeamRelativeUrl() + '/channels/' + channel.name);
+                if (done) {
+                    done();
+                }
+                this.handleHide();
+                */
+            },
+            (err) => {
+                /*
+                this.setState({serverError: err.message});
+                if (done) {
+                    done();
+                }
+                */
+            }
+        );
     };
 
     hideChannelNotificationsModal = () => {
@@ -580,6 +607,25 @@ export default class ChannelHeader extends React.Component {
                         <FormattedMessage
                             id='channel_header.notificationPreferences'
                             defaultMessage='Notification Preferences'
+                        />
+                    </button>
+                </li>
+            );
+
+            dropdownContents.push(
+                <li
+                    key='subscribe_to_newsfeed'
+                    role='presentation'
+                >
+                    <button
+                        className='style--none'
+                        id='subscribeToNewsfeedGroup'
+                        role='menuitem'
+                        onClick={this.subscribeToNewsfeed}
+                    >
+                        <FormattedMessage
+                            id='channel_header.subscribeToNewsfeed'
+                            defaultMessage='Subscribe to Newsfeed'
                         />
                     </button>
                 </li>

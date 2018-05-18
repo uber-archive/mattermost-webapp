@@ -29,6 +29,12 @@ export default function HeaderIconWrapper({
                 messageID: 'channel_header.pinnedPosts',
                 message: 'Pinned Posts',
             },
+            feed: {
+                class: '',
+                id: 'feedTooltip',
+                messageID: 'channel_header.feed',
+                message: 'feed',
+            },
             recentMentions: {
                 class: '',
                 id: 'recentMentionsTooltip',

@@ -13,6 +13,7 @@ import {
     getIsSearchingTerm,
     getIsSearchingFlaggedPost,
     getIsSearchingPinnedPost,
+    getIsSearchingFeedPost,
 } from 'selectors/rhs';
 import {Preferences} from 'utils/constants.jsx';
 
@@ -75,6 +76,7 @@ function makeMapStateToProps() {
             isSearchingTerm: getIsSearchingTerm(state),
             isSearchingFlaggedPost: getIsSearchingFlaggedPost(state),
             isSearchingPinnedPost: getIsSearchingPinnedPost(state),
+            isSearchingFeedPost: getIsSearchingFeedPost(state),
             compactDisplay: PreferenceSelectors.get(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.MESSAGE_DISPLAY, Preferences.MESSAGE_DISPLAY_DEFAULT) === Preferences.MESSAGE_DISPLAY_COMPACT,
             dataRetentionEnableMessageDeletion,
             dataRetentionMessageRetentionDays,

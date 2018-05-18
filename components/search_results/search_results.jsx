@@ -48,12 +48,14 @@ export default class SearchResults extends React.PureComponent {
         isSearchingTerm: PropTypes.bool,
         isSearchingFlaggedPost: PropTypes.bool,
         isSearchingPinnedPost: PropTypes.bool,
+        isSearchingFeedPost: PropTypes.bool,
         compactDisplay: PropTypes.bool,
         toggleSize: PropTypes.func,
         shrink: PropTypes.func,
         isMentionSearch: PropTypes.bool,
         isFlaggedPosts: PropTypes.bool,
         isPinnedPosts: PropTypes.bool,
+        isFeedPosts: PropTypes.bool,
         channelDisplayName: PropTypes.string.isRequired,
         selectPost: PropTypes.func,
         dataRetentionEnableMessageDeletion: PropTypes.bool.isRequired,
@@ -129,7 +131,8 @@ export default class SearchResults extends React.PureComponent {
         if (
             this.props.isSearchingTerm ||
             this.props.isSearchingFlaggedPost ||
-            this.props.isSearchingPinnedPost
+            this.props.isSearchingPinnedPost ||
+            this.props.isSearchingFlaggedPost
         ) {
             ctls =
             (
@@ -378,6 +381,7 @@ export default class SearchResults extends React.PureComponent {
                     shrink={this.props.shrink}
                     isFlaggedPosts={this.props.isFlaggedPosts}
                     isPinnedPosts={this.props.isPinnedPosts}
+                    isFeedPosts={this.props.isFeedPosts}
                     channelDisplayName={this.props.channelDisplayName}
                     isLoading={this.props.isSearchingTerm}
                 />

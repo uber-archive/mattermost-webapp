@@ -251,6 +251,55 @@ export function showMentions() {
     };
 }
 
+export function getFeedPosts() {
+    return async (dispatch, getState) => {
+        const state = getState();
+        const userId = getCurrentUserId(state);
+        const teamId = getCurrentTeamId(state);
+
+        const result = await Client4.getFlaggedPosts(userId, '', teamId);
+
+        await PostActions.getProfilesAndStatusesForPosts(result.posts, dispatch, getState);
+
+        const searchActions = getSearchActions(result, teamId);
+
+        dispatch(batchActions(searchActions));
+    };
+}
+
+export function showFeed() {
+    return async (dispatch, getState) => {
+        const state = getState();
+        const userId = getCurrentUserId(state);
+        const teamId = getCurrentTeamId(state);
+
+        const preRHSSearchActions = getPreRHSSearchActions(
+            ActionTypes.SEARCH_FEED_POSTS_REQUEST,
+            '',
+            RHSStates.FEED
+        );
+
+        dispatch(batchActions(preRHSSearchActions));
+
+        let result;
+        try {
+            result = await Client4.getFlaggedPosts(userId, '', teamId);
+        } catch (error) {
+            dispatch({type: ActionTypes.SEARCH_FEED_POSTS_FAILURE, error});
+        }
+
+        await PostActions.getProfilesAndStatusesForPosts(result.posts, dispatch, getState);
+
+        const postRHSSearchActions = getPostRHSSearchActions(
+            ActionTypes.SEARCH_FEED_POSTS_SUCCESS,
+            result,
+            teamId
+        );
+
+        dispatch(batchActions(postRHSSearchActions));
+    };
+}
+
 export function closeRightHandSide() {
     return (dispatch) => {
         dispatch(batchActions([

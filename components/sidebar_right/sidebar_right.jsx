@@ -26,6 +26,7 @@ export default class SidebarRight extends React.Component {
         isMentionSearch: PropTypes.bool,
         isFlaggedPosts: PropTypes.bool,
         isPinnedPosts: PropTypes.bool,
+        isFeedPosts: PropTypes.bool,
         previousRhsState: PropTypes.string,
         actions: PropTypes.shape({
             getPinnedPosts: PropTypes.func,
@@ -99,6 +100,7 @@ export default class SidebarRight extends React.Component {
             isFlaggedPosts,
             isMentionSearch,
             isPinnedPosts,
+            isFeedPosts,
             postRightVisible,
             previousRhsState,
             searchVisible,
@@ -113,7 +115,7 @@ export default class SidebarRight extends React.Component {
 
         var searchForm = null;
         if (currentUser) {
-            searchForm = <SearchBar isFocus={searchVisible && !isFlaggedPosts && !isPinnedPosts}/>;
+            searchForm = <SearchBar isFocus={searchVisible && !isFlaggedPosts && !isPinnedPosts && !isFeedPosts}/>;
         }
 
         let channelDisplayName = '';
@@ -133,6 +135,7 @@ export default class SidebarRight extends React.Component {
                         isMentionSearch={isMentionSearch}
                         isFlaggedPosts={isFlaggedPosts}
                         isPinnedPosts={isPinnedPosts}
+                        isFeedPosts={isFeedPosts}
                         toggleSize={this.toggleSize}
                         shrink={this.onShrink}
                         channelDisplayName={channelDisplayName}

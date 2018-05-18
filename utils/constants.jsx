@@ -134,6 +134,10 @@ export const ActionTypes = keyMirror({
     SEARCH_PINNED_POSTS_SUCCESS: null,
     SEARCH_PINNED_POSTS_FAILURE: null,
 
+    SEARCH_FEED_POSTS_REQUEST: null,
+    SEARCH_FEED_POSTS_SUCCESS: null,
+    SEARCH_FEED_POSTS_FAILURE: null,
+
     RECEIVED_PROFILES: null,
     RECEIVED_PROFILES_IN_TEAM: null,
     RECEIVED_PROFILES_NOT_IN_TEAM: null,
@@ -481,6 +485,7 @@ export const RHSStates = {
     MENTION: 'mention',
     SEARCH: 'search',
     FLAG: 'flag',
+    FEED: 'feed',
     PIN: 'pin',
 };
 

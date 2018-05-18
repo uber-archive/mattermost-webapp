@@ -16,6 +16,7 @@ import {getLicense, getConfig} from 'mattermost-redux/selectors/entities/general
 import {withRouter} from 'react-router-dom';
 
 import {
+    showFeed,
     showFlaggedPosts,
     showPinnedPosts,
     showMentions,
@@ -66,6 +67,7 @@ function mapDispatchToProps(dispatch) {
             leaveChannel,
             favoriteChannel,
             unfavoriteChannel,
+            showFeed,
             showFlaggedPosts,
             showPinnedPosts,
             showMentions,

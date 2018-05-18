@@ -56,9 +56,9 @@ export default class ChannelHeader extends React.Component {
             leaveChannel: PropTypes.func.isRequired,
             favoriteChannel: PropTypes.func.isRequired,
             unfavoriteChannel: PropTypes.func.isRequired,
+            showFeed: PropTypes.func.isRequired,
             showFlaggedPosts: PropTypes.func.isRequired,
             showPinnedPosts: PropTypes.func.isRequired,
-            showFeed: PropTypes.func,
             showMentions: PropTypes.func.isRequired,
             closeRightHandSide: PropTypes.func.isRequired,
             updateRhsState: PropTypes.func.isRequired,
@@ -69,7 +69,6 @@ export default class ChannelHeader extends React.Component {
         channel: PropTypes.object.isRequired,
         channelMember: PropTypes.object.isRequired,
         isFavorite: PropTypes.bool,
-        isFeed: PropTypes.bool,
         isDefault: PropTypes.bool,
         currentUser: PropTypes.object.isRequired,
         dmUser: PropTypes.object,
@@ -194,7 +193,7 @@ export default class ChannelHeader extends React.Component {
 
     getFeed = (e) => {
         e.preventDefault();
-        if (this.props.isFeed) {
+        if (this.props.rhsState === RHSStates.FEED) {
             this.props.actions.closeRightHandSide();
         } else {
             this.props.actions.showFeed();
@@ -1012,8 +1011,6 @@ export default class ChannelHeader extends React.Component {
             pinnedIconClass += ' active';
         }
 
-        var feedBtnClass = this.props.isFeed ? 'active' : '';
-
         return (
             <div
                 id='channel-header'
@@ -1125,18 +1122,9 @@ export default class ChannelHeader extends React.Component {
                     />
                     <HeaderIconWrapper
                         iconComponent={
-                            <FlagIcon className='icon icon__flag'/>
-                        }
-                        buttonId={'channelHeaderFlagButton'}
-                        onClick={this.getFlagged}
-                        tooltipKey={'flaggedPosts'}
-                    />
-                    <HeaderIconWrapper
-                        iconComponent={
                             <FeedIcon className='icon icon__feed'/>
                         }
-                        buttonClass={'channel-header__icon style--none ' + feedBtnClass}
-                        buttonId={'channelHeaderFlagButton'}
+                        buttonId={'channelHeaderFeedButton'}
                         onClick={this.getFeed}
                         tooltipKey={'feed'}
                     />

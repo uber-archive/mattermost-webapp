@@ -33,7 +33,7 @@ export default function HeaderIconWrapper({
                 class: '',
                 id: 'feedTooltip',
                 messageID: 'channel_header.feed',
-                message: 'feed',
+                message: 'Newsfeed',
             },
             recentMentions: {
                 class: '',

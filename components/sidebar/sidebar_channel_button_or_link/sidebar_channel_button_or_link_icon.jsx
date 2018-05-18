@@ -9,6 +9,7 @@ import StatusIcon from 'components/status_icon.jsx';
 import ArchiveIcon from 'components/svg/archive_icon';
 import GlobeIcon from 'components/svg/globe_icon';
 import LockIcon from 'components/svg/lock_icon';
+import FeedIcon from 'components/svg/feed_icon';
 
 export default class SidebarChannelButtonOrLinkIcon extends React.PureComponent {
     static propTypes = {
@@ -32,6 +33,10 @@ export default class SidebarChannelButtonOrLinkIcon extends React.PureComponent 
             );
         } else if (this.props.channelType === Constants.GM_CHANNEL) {
             icon = <div className='status status--group'>{this.props.membersCount}</div>;
+        } else if (this.props.channelType === Constants.OPEN_FEED_CHANNEL) {
+            icon = (
+                <FeedIcon className='icon icon__feed'/>
+            );
         } else if (this.props.channelType === Constants.DM_CHANNEL) {
             if (this.props.teammateId && this.props.teammateDeletedAt) {
                 icon = (

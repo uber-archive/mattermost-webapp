@@ -633,6 +633,7 @@ export const Constants = {
     DM_CHANNEL: 'D',
     GM_CHANNEL: 'G',
     OPEN_CHANNEL: 'O',
+    OPEN_FEED_CHANNEL: 'F',
     PRIVATE_CHANNEL: 'P',
     INVITE_TEAM: 'I',
     OPEN_TEAM: 'O',

@@ -8,6 +8,7 @@ import * as PreferenceSelectors from 'mattermost-redux/selectors/entities/prefer
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 
 import {selectPostFromRightHandSideSearch} from 'actions/views/rhs';
+import {getRecentFeedPosts} from 'selectors/posts';
 import {
     getSearchResultsTerms,
     getIsSearchingTerm,
@@ -18,6 +19,7 @@ import {
 import {Preferences} from 'utils/constants.jsx';
 
 import SearchResults from './search_results.jsx';
+import {getFeedPosts} from '../../actions/views/rhs'
 
 const getCategory = PreferenceSelectors.makeGetCategory();
 
@@ -29,7 +31,9 @@ function makeMapStateToProps() {
     let isFlaggedByPostId;
 
     return function mapStateToProps(state) {
-        const newResults = getSearchResults(state);
+        let newResults = getSearchResults(state);
+
+        newResults = getRecentFeedPosts(state);
 
         // Cache posts and channels
         if (newResults && newResults !== results) {

@@ -13,7 +13,6 @@ import SearchSuggestionList from 'components/suggestion/search_suggestion_list.j
 import SearchUserProvider from 'components/suggestion/search_user_provider.jsx';
 import SuggestionBox from 'components/suggestion/suggestion_box.jsx';
 import HeaderIconWrapper from 'components/channel_header/components/header_icon_wrapper';
-import FeedIcon from 'components/svg/feed_icon';
 import FlagIcon from 'components/svg/flag_icon';
 import MentionsIcon from 'components/svg/mentions_icon';
 import SearchIcon from 'components/svg/search_icon';
@@ -26,13 +25,11 @@ export default class SearchBar extends React.Component {
         searchTerms: PropTypes.string,
         isMentionSearch: PropTypes.bool,
         isFlaggedPosts: PropTypes.bool,
-        isFeed: PropTypes.bool,
         actions: PropTypes.shape({
             updateSearchTerms: PropTypes.func,
             showSearchResults: PropTypes.func,
             showMentions: PropTypes.func,
             showFlaggedPosts: PropTypes.func,
-            showFeed: PropTypes.func,
             closeRightHandSide: PropTypes.func,
             closeWebrtc: PropTypes.func,
         }),
@@ -145,15 +142,6 @@ export default class SearchBar extends React.Component {
         }
     }
 
-    getFeed = (e) => {
-        e.preventDefault();
-        if (this.props.isFeed) {
-            this.props.actions.closeRightHandSide();
-        } else {
-            this.props.actions.showFeed();
-        }
-    }
-
     renderHintPopover(helpClass) {
         if (!this.props.isCommentsPage && Utils.isMobile() && this.state.isPristine) {
             return false;
@@ -190,6 +178,7 @@ export default class SearchBar extends React.Component {
 
         let mentionBtn;
         let flagBtn;
+
         if (this.props.showMentionFlagBtns) {
             var mentionBtnClass = this.props.isMentionSearch ? 'active' : '';
 
@@ -222,20 +211,6 @@ export default class SearchBar extends React.Component {
                 />
             );
         }
-
-        var feedBtnClass = this.props.isFeed ? 'active' : '';
-
-        const feedBtn = (
-            <HeaderIconWrapper
-                iconComponent={
-                    <FeedIcon className='icon icon__feed'/>
-                }
-                buttonClass={'channel-header__icon style--none ' + feedBtnClass}
-                buttonId={'channelHeaderFlagButton'}
-                onClick={this.getFlagged}
-                tooltipKey={'feed'}
-            />
-        );
 
         let clearClass = 'sidebar__search-clear';
         if (!this.props.isSearchingTerm && this.props.searchTerms && this.props.searchTerms.trim() !== '') {
@@ -307,7 +282,6 @@ export default class SearchBar extends React.Component {
                 </div>
                 {mentionBtn}
                 {flagBtn}
-                {feedBtn}
             </div>
         );
     }

@@ -30,6 +30,7 @@ import ChannelNotificationsModal from 'components/channel_notifications_modal';
 import DeleteChannelModal from 'components/delete_channel_modal';
 import EditChannelHeaderModal from 'components/edit_channel_header_modal';
 import EditChannelPurposeModal from 'components/edit_channel_purpose_modal';
+import FeedIcon from 'components/svg/feed_icon';
 import MoreDirectChannels from 'components/more_direct_channels';
 import PopoverListMembers from 'components/popover_list_members';
 import RenameChannelModal from 'components/rename_channel_modal';
@@ -57,6 +58,7 @@ export default class ChannelHeader extends React.Component {
             unfavoriteChannel: PropTypes.func.isRequired,
             showFlaggedPosts: PropTypes.func.isRequired,
             showPinnedPosts: PropTypes.func.isRequired,
+            showFeed: PropTypes.func,
             showMentions: PropTypes.func.isRequired,
             closeRightHandSide: PropTypes.func.isRequired,
             updateRhsState: PropTypes.func.isRequired,
@@ -67,6 +69,7 @@ export default class ChannelHeader extends React.Component {
         channel: PropTypes.object.isRequired,
         channelMember: PropTypes.object.isRequired,
         isFavorite: PropTypes.bool,
+        isFeed: PropTypes.bool,
         isDefault: PropTypes.bool,
         currentUser: PropTypes.object.isRequired,
         dmUser: PropTypes.object,
@@ -188,6 +191,15 @@ export default class ChannelHeader extends React.Component {
             this.props.actions.showFlaggedPosts();
         }
     };
+
+    getFeed = (e) => {
+        e.preventDefault();
+        if (this.props.isFeed) {
+            this.props.actions.closeRightHandSide();
+        } else {
+            this.props.actions.showFeed();
+        }
+    }
 
     searchButtonClick = (e) => {
         e.preventDefault();
@@ -1000,6 +1012,8 @@ export default class ChannelHeader extends React.Component {
             pinnedIconClass += ' active';
         }
 
+        var feedBtnClass = this.props.isFeed ? 'active' : '';
+
         return (
             <div
                 id='channel-header'
@@ -1108,6 +1122,23 @@ export default class ChannelHeader extends React.Component {
                         buttonId={'channelHeaderFlagButton'}
                         onClick={this.getFlagged}
                         tooltipKey={'flaggedPosts'}
+                    />
+                    <HeaderIconWrapper
+                        iconComponent={
+                            <FlagIcon className='icon icon__flag'/>
+                        }
+                        buttonId={'channelHeaderFlagButton'}
+                        onClick={this.getFlagged}
+                        tooltipKey={'flaggedPosts'}
+                    />
+                    <HeaderIconWrapper
+                        iconComponent={
+                            <FeedIcon className='icon icon__feed'/>
+                        }
+                        buttonClass={'channel-header__icon style--none ' + feedBtnClass}
+                        buttonId={'channelHeaderFlagButton'}
+                        onClick={this.getFeed}
+                        tooltipKey={'feed'}
                     />
                 </div>
                 {editHeaderModal}

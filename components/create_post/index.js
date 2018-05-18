@@ -4,7 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
+import {getCurrentTeamId, isCurrentUserCurrentTeamAdmin} from 'mattermost-redux/selectors/entities/teams';
 import {getCurrentChannel, getCurrentChannelStats} from 'mattermost-redux/selectors/entities/channels';
 import {getCurrentUserId, isCurrentUserSystemAdmin, getStatusForUserId} from 'mattermost-redux/selectors/entities/users';
 import {get, getInt, getBool} from 'mattermost-redux/selectors/entities/preferences';
@@ -68,7 +68,9 @@ function mapStateToProps() {
             commentCountForPost: getCommentCountForPost(state, {post}),
             latestReplyablePostId,
             currentUsersLatestPost: getCurrentUsersLatestPost(state),
-            readOnlyChannel: !isCurrentUserSystemAdmin(state) && config.ExperimentalTownSquareIsReadOnly === 'true' && currentChannel.name === Constants.DEFAULT_CHANNEL,
+            readOnlyChannel:
+                (!isCurrentUserSystemAdmin(state) && config.ExperimentalTownSquareIsReadOnly === 'true' && currentChannel.name === Constants.DEFAULT_CHANNEL) ||
+                ((!isCurrentUserSystemAdmin(state) && !isCurrentUserCurrentTeamAdmin(state)) && currentChannel.type === Constants.OPEN_FEED_CHANNEL),
             canUploadFiles: canUploadFiles(config),
             enableEmojiPicker,
             enableConfirmNotificationsToChannel,

@@ -278,6 +278,16 @@ export function loadDMsAndGMsForUnreads() {
     }
 }
 
+export async function joinFeed(channelName, success, error) {
+    const {data, err} = await ChannelActions.joinChannel(UserStore.getCurrentId(), TeamStore.getCurrentId(), null, channelName)(dispatch, getState);
+
+    if (data && success) {
+        success(data);
+    } else if (err && error) {
+        error({id: err.server_error_id, ...err});
+    }
+}
+
 export async function joinChannel(channel, success, error) {
     const {data, err} = await ChannelActions.joinChannel(UserStore.getCurrentId(), null, channel.id)(dispatch, getState);
 

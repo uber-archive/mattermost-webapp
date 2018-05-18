@@ -55,6 +55,11 @@ export default class Sidebar extends React.PureComponent {
         favoriteChannelIds: PropTypes.array.isRequired,
 
         /**
+         *  List of feed channels (ids)
+         */
+        feedChannelIds: PropTypes.array.isRequired,
+
+        /**
          * List of direct/group channels (ids)
          */
         directAndGroupChannelIds: PropTypes.array.isRequired,
@@ -459,6 +464,7 @@ export default class Sidebar extends React.PureComponent {
         const {
             directAndGroupChannelIds,
             favoriteChannelIds,
+            feedChannelIds,
             publicChannelIds,
             privateChannelIds,
             unreadChannelIds,
@@ -482,6 +488,7 @@ export default class Sidebar extends React.PureComponent {
         const publicChannelItems = publicChannelIds.map(this.createSidebarChannel);
         const privateChannelItems = privateChannelIds.map(this.createSidebarChannel);
         const directMessageItems = directAndGroupChannelIds.map(this.createSidebarChannel);
+        const feedChannelItems = feedChannelIds.map(this.createSidebarChannel);
 
         var directMessageMore = (
             <li key='more'>
@@ -766,6 +773,17 @@ export default class Sidebar extends React.PureComponent {
                         </li>
                         {directMessageItems}
                         {directMessageMore}
+                    </ul>
+                    <ul className='nav nav-pills nav-stacked'>
+                        <li>
+                            <h4 id='feedChannel'>
+                                <FormattedMessage
+                                    id='sidebar.feed'
+                                    defaultMessage='FEEDS'
+                                />
+                            </h4>
+                        </li>
+                        {feedChannelItems}
                     </ul>
                 </div>
                 <div className='sidebar__switcher'>

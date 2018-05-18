@@ -15,6 +15,7 @@ import {
     getSortedUnreadChannelIds,
     getSortedDirectChannelIds,
     getSortedFavoriteChannelIds,
+    getSortedFeedChannelIds,
     getSortedPublicChannelIds,
     getSortedPrivateChannelIds,
 } from 'mattermost-redux/selectors/entities/channels';
@@ -37,6 +38,7 @@ function mapStateToProps(state) {
     let privateChannelIds;
     let favoriteChannelIds;
     let directAndGroupChannelIds;
+    const feedChannelIds = getSortedFeedChannelIds(state);
 
     const showUnreadSection = config.ExperimentalGroupUnreadChannels !== GroupUnreadChannels.DISABLED && getBoolPreference(
         state,
@@ -66,6 +68,7 @@ function mapStateToProps(state) {
         publicChannelIds,
         privateChannelIds,
         favoriteChannelIds,
+        feedChannelIds,
         directAndGroupChannelIds,
         unreadChannelIds: getSortedUnreadChannelIds(state, keepChannelIdAsUnread),
         currentChannel,

@@ -1089,7 +1089,7 @@ export default class ChannelHeader extends React.Component {
                     <HeaderIconWrapper
                         iconComponent={
                             <FeedIcon
-                                className='icon icon__feed'
+                                className='icon icon__feed icon--stroke'
                                 aria-hidden='true'
                             />
                         }

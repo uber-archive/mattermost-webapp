@@ -13,12 +13,13 @@ export default class FlagIcon extends React.PureComponent {
                     viewBox='0 0 16 16'
                 >
                     <g
-                        stroke='none'
+                        stroke='inherit'
                         strokeWidth='1'
                         fill='inherit'
                         fillRule='evenodd'
                     >
                         <g
+                            stroke='inherit'
                             transform='translate(-1106.000000, -33.000000)'
                             fillRule='nonzero'
                             fill='inherit'

@@ -71,6 +71,10 @@ export function getIsSearchingPinnedPost(state) {
     return state.views.rhs.isSearchingPinnedPost;
 }
 
+export function getIsSearchingFeedPost(state) {
+    return state.views.rhs.isSearchingFeedPost;
+}
+
 export function getPostDraft(state, prefixId, suffixId) {
     const defaultDraft = {message: '', fileInfos: [], uploadsInProgress: []};
     const draft = makeGetGlobalItem(prefixId + suffixId, defaultDraft)(state);

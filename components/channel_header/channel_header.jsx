@@ -30,6 +30,7 @@ import ChannelNotificationsModal from 'components/channel_notifications_modal';
 import DeleteChannelModal from 'components/delete_channel_modal';
 import EditChannelHeaderModal from 'components/edit_channel_header_modal';
 import EditChannelPurposeModal from 'components/edit_channel_purpose_modal';
+import FeedIcon from 'components/svg/feed_icon';
 import MoreDirectChannels from 'components/more_direct_channels';
 import PopoverListMembers from 'components/popover_list_members';
 import RenameChannelModal from 'components/rename_channel_modal';
@@ -55,6 +56,7 @@ export default class ChannelHeader extends React.Component {
             leaveChannel: PropTypes.func.isRequired,
             favoriteChannel: PropTypes.func.isRequired,
             unfavoriteChannel: PropTypes.func.isRequired,
+            showFeed: PropTypes.func.isRequired,
             showFlaggedPosts: PropTypes.func.isRequired,
             showPinnedPosts: PropTypes.func.isRequired,
             showMentions: PropTypes.func.isRequired,
@@ -188,6 +190,15 @@ export default class ChannelHeader extends React.Component {
             this.props.actions.showFlaggedPosts();
         }
     };
+
+    getFeed = (e) => {
+        e.preventDefault();
+        if (this.props.rhsState === RHSStates.FEED) {
+            this.props.actions.closeRightHandSide();
+        } else {
+            this.props.actions.showFeed();
+        }
+    }
 
     searchButtonClick = (e) => {
         e.preventDefault();
@@ -1108,6 +1119,14 @@ export default class ChannelHeader extends React.Component {
                         buttonId={'channelHeaderFlagButton'}
                         onClick={this.getFlagged}
                         tooltipKey={'flaggedPosts'}
+                    />
+                    <HeaderIconWrapper
+                        iconComponent={
+                            <FeedIcon className='icon icon__feed'/>
+                        }
+                        buttonId={'channelHeaderFeedButton'}
+                        onClick={this.getFeed}
+                        tooltipKey={'feed'}
                     />
                 </div>
                 {editHeaderModal}

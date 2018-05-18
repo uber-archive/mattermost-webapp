@@ -13,6 +13,7 @@ export default class SearchResultsHeader extends React.Component {
         isMentionSearch: PropTypes.bool,
         isFlaggedPosts: PropTypes.bool,
         isPinnedPosts: PropTypes.bool,
+        isFeedPosts: PropTypes.bool,
         toggleSize: PropTypes.func,
         shrink: PropTypes.func,
         channelDisplayName: PropTypes.string.isRequired,
@@ -91,6 +92,13 @@ export default class SearchResultsHeader extends React.Component {
                     values={{
                         channelDisplayName: this.props.channelDisplayName,
                     }}
+                />
+            );
+        } else if (this.props.isFeedPosts) {
+            title = (
+                <FormattedMessage
+                    id='search_header.title5'
+                    defaultMessage='Newsfeed'
                 />
             );
         }

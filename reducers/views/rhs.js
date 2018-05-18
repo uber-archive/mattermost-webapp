@@ -113,6 +113,18 @@ function isSearchingPinnedPost(state = false, action) {
     }
 }
 
+function isSearchingFeedPost(state = false, action) {
+    switch (action.type) {
+    case ActionTypes.SEARCH_FEED_POSTS_REQUEST:
+        return true;
+    case ActionTypes.SEARCH_FEED_POSTS_FAILURE:
+    case ActionTypes.SEARCH_FEED_POSTS_SUCCESS:
+        return false;
+    default:
+        return state;
+    }
+}
+
 function isSidebarOpen(state = false, action) {
     switch (action.type) {
     case ActionTypes.UPDATE_RHS_STATE:
@@ -163,6 +175,7 @@ export default combineReducers({
     isSearchingTerm,
     isSearchingFlaggedPost,
     isSearchingPinnedPost,
+    isSearchingFeedPost,
     isSidebarOpen,
     isMenuOpen,
 });

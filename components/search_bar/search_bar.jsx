@@ -178,6 +178,7 @@ export default class SearchBar extends React.Component {
 
         let mentionBtn;
         let flagBtn;
+
         if (this.props.showMentionFlagBtns) {
             var mentionBtnClass = this.props.isMentionSearch ? 'active' : '';
 

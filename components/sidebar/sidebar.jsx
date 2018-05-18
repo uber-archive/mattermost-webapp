@@ -427,6 +427,10 @@ export default class Sidebar extends React.PureComponent {
         this.setState({newChannelModalType: type});
     }
 
+    showNewFeedModal = (type) => {
+        this.setState({newChannelModalType: type});
+    }
+
     hideNewChannelModal = () => {
         this.setState({newChannelModalType: ''});
     }
@@ -609,6 +613,23 @@ export default class Sidebar extends React.PureComponent {
             </OverlayTrigger>
         );
 
+        const createFeedChannelIcon = (
+            <OverlayTrigger
+                className='hidden-xs'
+                delayShow={500}
+                placement='top'
+                overlay={createDirectMessageTooltip}
+            >
+                <button
+                    id='createPrivateChannel'
+                    className='add-channel-btn cursor--pointer style--none'
+                    onClick={this.showNewFeedModal.bind(this, Constants.OPEN_FEED_CHANNEL)}
+                >
+                    {'+'}
+                </button>
+            </OverlayTrigger>
+        );
+
         let moreDirectChannelsModal;
         if (this.state.showDirectChannelsModal) {
             moreDirectChannelsModal = (
@@ -781,6 +802,7 @@ export default class Sidebar extends React.PureComponent {
                                     id='sidebar.feed'
                                     defaultMessage='FEEDS'
                                 />
+                                {createFeedChannelIcon}
                             </h4>
                         </li>
                         {feedChannelItems}

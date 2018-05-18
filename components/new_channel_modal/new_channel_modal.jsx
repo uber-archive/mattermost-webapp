@@ -130,8 +130,8 @@ export default class NewChannelModal extends React.PureComponent {
     handleChange = () => {
         const newData = {
             displayName: this.refs.display_name.value,
-            header: this.refs.channel_header.value,
-            purpose: this.refs.channel_purpose.value,
+            header: this.refs.channel_header ? this.refs.channel_header.value : '',
+            purpose: this.refs.channel_purpose ? this.refs.channel_purpose.value : '',
         };
         this.props.onDataChanged(newData);
     }
@@ -253,10 +253,17 @@ export default class NewChannelModal extends React.PureComponent {
                             <span className='sr-only'>{'Close'}</span>
                         </button>
                         <Modal.Title>
-                            <FormattedMessage
-                                id='channel_modal.modalTitle'
-                                defaultMessage='New Channel'
-                            />
+                            {this.props.channelType === 'F' ?
+                                <FormattedMessage
+                                    id='channel_modal.modalFeedTitle'
+                                    defaultMessage='New Feed'
+                                />
+                                :
+                                <FormattedMessage
+                                    id='channel_modal.modalTitle'
+                                    defaultMessage='New Channel'
+                                />
+                            }
                         </Modal.Title>
                     </Modal.Header>
                     <form
@@ -305,7 +312,9 @@ export default class NewChannelModal extends React.PureComponent {
                                     </p>
                                 </div>
                             </div>
-                            <div className='form-group'>
+                            {this.props.channelType !== 'F' &&
+                                <div>
+                                    <div className='form-group'>
                                 <div className='col-sm-3'>
                                     <label className='form__label control-label'>
                                         <FormattedMessage
@@ -376,6 +385,8 @@ export default class NewChannelModal extends React.PureComponent {
                                     {serverError}
                                 </div>
                             </div>
+                                </div>
+                            }
                         </Modal.Body>
                         <Modal.Footer>
                             <button
@@ -396,10 +407,17 @@ export default class NewChannelModal extends React.PureComponent {
                                 className='btn btn-primary'
                                 tabIndex='4'
                             >
-                                <FormattedMessage
-                                    id='channel_modal.createNew'
-                                    defaultMessage='Create New Channel'
-                                />
+                                {this.props.channelType === 'F' ?
+                                    <FormattedMessage
+                                        id='channel_modal.createNewFeed'
+                                        defaultMessage='Create New Feed'
+                                    />
+                                    :
+                                    <FormattedMessage
+                                        id='channel_modal.createNew'
+                                        defaultMessage='Create New Channel'
+                                    />
+                                }
                             </button>
                         </Modal.Footer>
                     </form>

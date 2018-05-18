@@ -182,6 +182,7 @@ export default class NewChannelFlow extends React.Component {
         let showChannelModal = false;
         let showGroupModal = false;
         let showChangeURLModal = false;
+        let showFeedChannelModal = false;
 
         let changeURLTitle = '';
         let changeURLSubmitButtonText = '';
@@ -192,6 +193,8 @@ export default class NewChannelFlow extends React.Component {
             case SHOW_NEW_CHANNEL:
                 if (this.state.channelType === Constants.OPEN_CHANNEL) {
                     showChannelModal = true;
+                } else if (this.state.channelType === Constants.OPEN_FEED_CHANNEL) {
+                    showFeedChannelModal = true;
                 } else {
                     showGroupModal = true;
                 }
@@ -245,6 +248,18 @@ export default class NewChannelFlow extends React.Component {
                     onSubmitChannel={this.onSubmit}
                     onModalExited={this.onModalExited}
                     onModalDismissed={this.props.onModalDismissed}
+                    onTypeSwitched={this.typeSwitched}
+                    onChangeURLPressed={this.urlChangeRequested}
+                    onDataChanged={this.channelDataChanged}
+                />
+                <NewChannelModal
+                    show={showFeedChannelModal}
+                    channelType={Constants.OPEN_FEED_CHANNEL}
+                    channelData={channelData}
+                    serverError={this.state.serverError}
+                    onSubmitChannel={this.onSubmit}
+                    onModalDismissed={this.props.onModalDismissed}
+                    onModalExited={this.onModalExited}
                     onTypeSwitched={this.typeSwitched}
                     onChangeURLPressed={this.urlChangeRequested}
                     onDataChanged={this.channelDataChanged}

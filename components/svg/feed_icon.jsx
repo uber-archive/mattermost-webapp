@@ -8,32 +8,118 @@ export default class FeedIcon extends React.PureComponent {
         return (
             <span {...this.props}>
                 <svg
-                    width='14px'
+                    width='16px'
                     height='14px'
-                    viewBox='0 0 16 16'
+                    viewBox='0 0 244 213'
                 >
                     <g
+                        id='Icons'
                         stroke='none'
                         strokeWidth='1'
-                        fill='inherit'
+                        fill='none'
                         fillRule='evenodd'
                     >
                         <g
-                            transform='translate(-1106.000000, -33.000000)'
-                            fillRule='nonzero'
-                            fill='inherit'
+                            id='Feeds'
+                            transform='translate(6.000000, 6.000000)'
                         >
-                            <g>
-                                <g transform='translate(1096.000000, 22.000000)'>
-                                    <g transform='translate(10.000000, 11.000000)'>
-                                        <path d='M8,1 L2,1 C2,0.447 1.553,0 1,0 C0.447,0 0,0.447 0,1 L0,15.5 C0,15.776 0.224,16 0.5,16 L1.5,16 C1.776,16 2,15.776 2,15.5 L2,11 L7,11 L7,12 C7,12.553 7.447,13 8,13 L15,13 C15.553,13 16,12.553 16,12 L16,4 C16,3.447 15.553,3 15,3 L9,3 L9,2 C9,1.447 8.553,1 8,1 Z M9,11 L9,9.5 C9,9.224 8.776,9 8.5,9 L2,9 L2,3 L7,3 L7,4.5 C7,4.776 7.224,5 7.5,5 L14,5 L14,11 L9,11 Z'/>
-                                    </g>
-                                </g>
-                            </g>
+                            <path
+                                d='M0.0911130122,14.3085938 L0.0911130122,181.941406 C1.69983697,192.662109 8.18453749,198.510091 19.5452146,199.485352 C30.9058917,200.460612 97.7138344,200.460612 219.969043,199.485352 C227.075814,199.126628 230.629199,196.112956 230.629199,190.444336 C230.629199,184.775716 230.977181,130.827148 231.673144,28.5986328 C231.763639,18.8603516 226.606087,14.7522786 216.200488,16.2744141 C208.966113,16.2744141 219.969043,1 203.561816,1 C187.15459,1 19.8436711,0.408287106 10.7971677,1 C4.76616543,1.39447526 1.19748054,5.83067318 0.0911130122,14.3085938 Z'
+                                id='Path'
+                                stroke='#B2B2B6'
+                                strokeWidth='12'
+                            />
+                            <path
+                                d='M212.85126,11.0488281 L212.85126,185 C212.61789,194.666667 216.001206,199.166667 223.001206,198.5 C229.668792,197.864992 232.235443,190.864992 230.701157,177.5'
+                                id='Path-3'
+                                stroke='#B2B2B6'
+                                strokeWidth='11'
+                            />
+                            <rect
+                                id='Rectangle'
+                                fill='#B2B2B6'
+                                x='18'
+                                y='18'
+                                width='76'
+                                height='76'
+                                rx='13'
+                            />
+                            <rect
+                                id='Rectangle-2'
+                                fill='#B2B2B6'
+                                x='114'
+                                y='18'
+                                width='85'
+                                height='15'
+                                rx='6'
+                            />
+                            <rect
+                                id='Rectangle-2'
+                                fill='#B2B2B6'
+                                x='114'
+                                y='49'
+                                width='85'
+                                height='15'
+                                rx='6'
+                            />
+                            <rect
+                                id='Rectangle-2'
+                                fill='#B2B2B6'
+                                x='114'
+                                y='79'
+                                width='85'
+                                height='15'
+                                rx='6'
+                            />
+                            <rect
+                                id='Rectangle-2'
+                                fill='#B2B2B6'
+                                x='18'
+                                y='108'
+                                width='181'
+                                height='15'
+                                rx='6'
+                            />
+                            <rect
+                                id='Rectangle-2'
+                                fill='#B2B2B6'
+                                x='18'
+                                y='138'
+                                width='76'
+                                height='15'
+                                rx='6'
+                            />
+                            <rect
+                                id='Rectangle-2'
+                                fill='#B2B2B6'
+                                x='18'
+                                y='169'
+                                width='76'
+                                height='15'
+                                rx='6'
+                            />
+                            <rect
+                                id='Rectangle-2'
+                                fill='#B2B2B6'
+                                x='104'
+                                y='138'
+                                width='95'
+                                height='15'
+                                rx='6'
+                            />
+                            <rect
+                                id='Rectangle-2'
+                                fill='#B2B2B6'
+                                x='104'
+                                y='169'
+                                width='95'
+                                height='15'
+                                rx='6'
+                            />
                         </g>
                     </g>
                 </svg>
-            </span>
+            </span >
         );
     }
 }

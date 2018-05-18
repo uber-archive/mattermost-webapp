@@ -1011,6 +1011,11 @@ export default class ChannelHeader extends React.Component {
             pinnedIconClass += ' active';
         }
 
+        let feedIconClass = 'channel-header__icon';
+        if (this.props.rhsState === RHSStates.FEED) {
+            feedIconClass += ' active';
+        }
+
         return (
             <div
                 id='channel-header'
@@ -1081,6 +1086,18 @@ export default class ChannelHeader extends React.Component {
                         onClick={this.getPinnedPosts}
                         tooltipKey={'pinnedPosts'}
                     />
+                    <HeaderIconWrapper
+                        iconComponent={
+                            <FeedIcon
+                                className='icon icon__feed'
+                                aria-hidden='true'
+                            />
+                        }
+                        buttonClass={'style--none ' + feedIconClass}
+                        buttonId={'channelHeaderFeedButton'}
+                        onClick={this.getFeed}
+                        tooltipKey={'feed'}
+                    />
                     {this.state.showSearchBar ? (
                         <div className='flex-child search-bar__container'>
                             <SearchBar
@@ -1119,14 +1136,6 @@ export default class ChannelHeader extends React.Component {
                         buttonId={'channelHeaderFlagButton'}
                         onClick={this.getFlagged}
                         tooltipKey={'flaggedPosts'}
-                    />
-                    <HeaderIconWrapper
-                        iconComponent={
-                            <FeedIcon className='icon icon__feed'/>
-                        }
-                        buttonId={'channelHeaderFeedButton'}
-                        onClick={this.getFeed}
-                        tooltipKey={'feed'}
                     />
                 </div>
                 {editHeaderModal}

@@ -168,6 +168,8 @@ export default class ResetStatusModal extends React.PureComponent {
             />
         );
 
+        const showCheckbox = this.props.currentUserStatus !== UserStatuses.OUT_OF_OFFICE;
+
         return (
             <ConfirmModal
                 show={this.state.show}
@@ -178,7 +180,7 @@ export default class ResetStatusModal extends React.PureComponent {
                 cancelButtonText={manualStatusCancel}
                 onCancel={this.onCancel}
                 onExited={this.props.onHide}
-                showCheckbox={true}
+                showCheckbox={showCheckbox}
                 checkboxText={manualStatusCheckbox}
             />
         );

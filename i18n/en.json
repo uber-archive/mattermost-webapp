@@ -3437,7 +3437,7 @@
   "user.settings.security.viewHistory.icon": "Access History Icon",
   "user.settings.sidebar.after_seven_days": "After 7 days with no new messages",
   "user.settings.sidebar.autoCloseDMDesc": "Direct Message conversations can be reopened with the “+” button in the sidebar or using the Channel Switcher (CTRL+K).",
-  "user.settings.sidebar.autoCloseDMTitle": "Automatically Close Direct Messages",
+  "user.settings.sidebar.autoCloseDMTitle": "Automatically Hide Direct Messages",
   "user.settings.sidebar.icon": "Sidebar Settings Icon",
   "user.settings.sidebar.never": "Never",
   "user.settings.sidebar.showUnreadSection": "At the top of the channel sidebar",

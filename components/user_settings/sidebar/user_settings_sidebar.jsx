@@ -125,7 +125,7 @@ export default class UserSettingsSidebar extends React.Component {
                     title={
                         <FormattedMessage
                             id='user.settings.sidebar.autoCloseDMTitle'
-                            defaultMessage='Automatically Close Direct Messages'
+                            defaultMessage='Automatically Hide Direct Messages'
                         />
                     }
                     inputs={[
@@ -185,7 +185,7 @@ export default class UserSettingsSidebar extends React.Component {
                 title={
                     <FormattedMessage
                         id='user.settings.sidebar.autoCloseDMTitle'
-                        defaultMessage='Automatically Close Direct Messages'
+                        defaultMessage='Automatically Hide Direct Messages'
                     />
                 }
                 describe={this.renderAutoCloseDMLabel(this.state.settings.close_unused_direct_messages)}

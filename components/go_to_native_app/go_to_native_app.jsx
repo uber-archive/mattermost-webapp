@@ -22,9 +22,6 @@ export default class GoNativeApp extends PureComponent {
         let nativeLocation = window.location.href.replace('/vault#', '');
         nativeLocation = nativeLocation.replace(/^(https|http)/, 'uberchat');
 
-        //***** TESTING PURPOSE - REMOVE BEFORE MERGE ****
-        nativeLocation = nativeLocation.replace(/\/\/[^/]+/, '//uchat.uberinternal.com');
-
         safeOpenProtocol(nativeLocation,
             () => this.setState({protocolUnsupported: true}),
             () => setTimeout(redirectWeb, 3000),
@@ -62,12 +59,6 @@ export default class GoNativeApp extends PureComponent {
                     src={logoImage}
                     className='get-app__logo'
                 />
-                <div className='get-app__launching'>
-                    <FormattedMessage
-                        id='get_app.launching'
-                        defaultMessage='Launching...'
-                    />
-                </div>
                 <div className='get-app__status'>
                     {goNativeAppMessage}
                 </div>
@@ -84,12 +75,12 @@ export default class GoNativeApp extends PureComponent {
                     >
                         <FormattedMessage
                             id='get_app.downloadMattermost'
-                            defaultMessage='Download & run uChat'
+                            defaultMessage='Download uChat'
                         />
                     </a>
                 </div>
                 <a
-                    href='/'
+                    href={window.location.href.replace('/vault#', '')}
                     className='btn btn-secondary get-app__continue'
                 >
                     <FormattedMessage
@@ -103,5 +94,5 @@ export default class GoNativeApp extends PureComponent {
 }
 
 function redirectWeb() {
-    window.location = window.location.href.replace('/vault#', '');
+    // window.location = window.location.href.replace('/vault#', '');
 }

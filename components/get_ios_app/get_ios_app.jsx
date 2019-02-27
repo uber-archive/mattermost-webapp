@@ -8,9 +8,7 @@ import PropTypes from 'prop-types';
 
 import logoImage from 'images/uchat_color.png';
 
-const {IosAppUrlScheme} = global.mm_config;
-
-export default function GetIosApp({iosAppDownloadLink}) {
+export default function GetIosApp({iosAppDownloadLink, iosAppUrlScheme}) {
     return (
 
         <div className='get-app get-ios-app'>
@@ -19,18 +17,15 @@ export default function GetIosApp({iosAppDownloadLink}) {
                 className='get-app__logo'
             />
             <a
-                href={IosAppUrlScheme ? `${IosAppUrlScheme}://` : iosAppDownloadLink}
+                href={iosAppUrlScheme ? `${iosAppUrlScheme}://` : iosAppDownloadLink}
                 className='btn btn-primary get-ios-app__open-mattermost'
             >
                 <FormattedMessage
                     id='get_app.openMattermost'
-                    defaultMessage={IosAppUrlScheme ? 'Open in uChat App' : 'Download uChat for iOS'}
+                    defaultMessage={iosAppUrlScheme ? 'Open in uChat App' : 'Download uChat for iOS'}
                 />
             </a>
-            <a
-                href='/login'
-                className='btn btn-secondary get-ios-app__continue-with-browser'
-            >
+            <span className='get-app__continue-with-browser'>
                 <FormattedMessage
                     id='get_app.continueWithBrowser'
                     defaultMessage='Or {link}'
@@ -45,11 +40,12 @@ export default function GetIosApp({iosAppDownloadLink}) {
                         ),
                     }}
                 />
-            </a>
+            </span>
         </div>
     );
 }
 
 GetIosApp.propTypes = {
     iosAppDownloadLink: PropTypes.string,
+    iosAppUrlScheme: PropTypes.string,
 };

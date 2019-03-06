@@ -2177,3 +2177,14 @@ label {
         font-size: 16px;
     }
 }
+
+@media only screen and (width:320px) and (device-width:320px) and (device-height:480px) and (orientation: landscape) {
+	body {
+		-webkit-transform: scale(0.667);
+		-webkit-transform-origin: top right;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 480px;
+	}
+}

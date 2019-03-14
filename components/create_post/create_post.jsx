@@ -256,6 +256,7 @@ export default class CreatePost extends React.Component {
             showConfirmModal: false,
             channelMembersCount: 0,
             uploadsProgressPercent: {},
+            orientation: null,
         };
 
         this.lastBlurAt = 0;
@@ -271,6 +272,7 @@ export default class CreatePost extends React.Component {
             }
             return value;
         });
+        this.onOrientationChange();
 
         // wait to load these since they may have changed since the component was constructed (particularly in the case of skipping the tutorial)
         this.setState({
@@ -282,6 +284,7 @@ export default class CreatePost extends React.Component {
         this.focusTextbox();
         document.addEventListener('paste', this.pasteHandler);
         document.addEventListener('keydown', this.documentKeyHandler);
+        this.setOrientationListeners();
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
@@ -306,6 +309,46 @@ export default class CreatePost extends React.Component {
     componentWillUnmount() {
         document.removeEventListener('paste', this.pasteHandler);
         document.removeEventListener('keydown', this.documentKeyHandler);
+        this.removeOrientationListeners();
+    }
+
+    setOrientationListeners = () => {
+        if ((window.screen.orientation) && ('onchange' in window.screen.orientation)) {
+            window.screen.orientation.addEventListener('change', this.onOrientationChange);
+        } else if ('onorientationchange' in window) {
+            window.addEventListener('orientationchange', this.onOrientationChange);
+        }
+    };
+
+    removeOrientationListeners = () => {
+        if ((window.screen.orientation) && ('onchange' in window.screen.orientation)) {
+            window.screen.orientation.removeEventListener('change', this.onOrientationChange);
+        } else if ('onorientationchange' in window) {
+            window.removeEventListener('orientationchange', this.onOrientationChange);
+        }
+    };
+
+    onOrientationChange = () => {
+        if (!UserAgent.isIosWeb()) {
+            return;
+        }
+
+        //Hide keyboard on iOS when orientation changes
+        const {orientation: prevOrientation} = this.state;
+        const LANDSCAPE_ANGLE = 90;
+        let orientation = 'portrait';
+        if (window.orientation) {
+            orientation = Math.abs(window.orientation) === LANDSCAPE_ANGLE ? 'landscape' : 'portrait';
+        }
+
+        if (window.screen.orientation) {
+            orientation = window.screen.orientation.type.split('-')[0];
+        }
+
+        this.setState({orientation});
+        if (prevOrientation && orientation !== prevOrientation && (document.activeElement || {}).id === 'post_textbox') {
+            this.refs.textbox.getWrappedInstance().blur();
+        }
     }
 
     handlePostError = (postError) => {

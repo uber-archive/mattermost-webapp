@@ -90,6 +90,11 @@ export default class Post extends React.PureComponent {
          * Function to get the post list HTML element
          */
         getPostList: PropTypes.func.isRequired,
+
+        /**
+         * Whether the channel is read only
+         */
+        isReadOnly: PropTypes.bool.isRequired,
     }
 
     static defaultProps = {
@@ -287,6 +292,7 @@ export default class Post extends React.PureComponent {
                             showTimeWithoutHover={!hideProfilePicture}
                             getPostList={this.props.getPostList}
                             hover={this.state.hover}
+                            isReadOnly={this.props.isReadOnly}
                         />
                         <PostBody
                             post={post}
@@ -295,6 +301,7 @@ export default class Post extends React.PureComponent {
                             lastPostCount={this.props.lastPostCount}
                             isCommentMention={this.props.isCommentMention}
                             isFirstReply={this.props.isFirstReply}
+                            isReadOnly={this.props.isReadOnly}
                         />
                     </div>
                 </div>

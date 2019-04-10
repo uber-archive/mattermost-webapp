@@ -67,7 +67,7 @@ function mapStateToProps(state, ownProps) {
         rhsState: getRhsState(state),
         isLicensed: license.IsLicensed === 'true',
         enableWebrtc: config.EnableWebrtc === 'true',
-        isReadOnly: isCurrentChannelReadOnly(state),
+        isReadOnly: ownProps.isReadOnly || isCurrentChannelReadOnly(state),
         lastViewedChannelName,
         penultimateViewedChannelName,
     };

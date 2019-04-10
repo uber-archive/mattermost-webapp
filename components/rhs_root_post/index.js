@@ -22,7 +22,7 @@ function mapStateToProps(state, ownProps) {
         enableEmojiPicker,
         enablePostUsernameOverride,
         isEmbedVisible: isEmbedVisible(state, ownProps.post.id),
-        isReadOnly: isChannelReadOnlyById(state, ownProps.post.channel_id),
+        isReadOnly: ownProps.isReadOnly || isChannelReadOnlyById(state, ownProps.post.channel_id),
         teamId,
         pluginPostTypes: state.plugins.postTypes,
         channelIsArchived: channel.delete_at !== 0,

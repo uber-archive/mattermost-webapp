@@ -73,6 +73,11 @@ export default class PostList extends React.PureComponent {
          */
         fullWidth: PropTypes.bool,
 
+        /**
+         * Whether the channel is read only
+         */
+        isReadOnly: PropTypes.bool.isRequired,
+
         actions: PropTypes.shape({
 
             /**
@@ -531,6 +536,7 @@ export default class PostList extends React.PureComponent {
                     post={post}
                     lastPostCount={(i >= 0 && i < Constants.TEST_ID_COUNT) ? i : -1}
                     getPostList={this.getPostList}
+                    isReadOnly={this.props.isReadOnly}
                 />
             );
 
@@ -609,6 +615,7 @@ export default class PostList extends React.PureComponent {
                 <CreateChannelIntroMessage
                     channel={channel}
                     fullWidth={this.props.fullWidth}
+                    isReadOnly={this.props.isReadOnly}
                 />
             );
         } else if (this.props.postVisibility >= Constants.MAX_POST_VISIBILITY) {

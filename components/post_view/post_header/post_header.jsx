@@ -87,6 +87,11 @@ export default class PostHeader extends React.PureComponent {
          * Whether or not the post username can be overridden.
          */
         enablePostUsernameOverride: PropTypes.bool.isRequired,
+
+        /**
+         * Whether the channel is read only
+         */
+        isReadOnly: PropTypes.bool.isRequired,
     }
 
     render() {
@@ -189,6 +194,7 @@ export default class PostHeader extends React.PureComponent {
                         showTimeWithoutHover={this.props.showTimeWithoutHover}
                         getPostList={this.props.getPostList}
                         hover={this.props.hover}
+                        isReadOnly={this.props.isReadOnly}
                     />
                 </div>
             </div>

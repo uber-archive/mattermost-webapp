@@ -59,6 +59,7 @@ export default class RhsThread extends React.Component {
         currentUser: PropTypes.object.isRequired,
         previewCollapsed: PropTypes.string.isRequired,
         previewEnabled: PropTypes.bool.isRequired,
+        isReadOnly: PropTypes.bool.isRequired,
         actions: PropTypes.shape({
             removePost: PropTypes.func.isRequired,
         }).isRequired,
@@ -294,6 +295,7 @@ export default class RhsThread extends React.Component {
         const postsArray = this.filterPosts(this.props.posts, this.props.selected, this.state.openTime);
         const selected = this.props.selected;
         const profiles = this.state.profiles || {};
+        const {isReadOnly} = this.props;
 
         let profile;
         if (UserStore.getCurrentId() === selected.user_id) {
@@ -371,6 +373,7 @@ export default class RhsThread extends React.Component {
                     removePost={this.props.actions.removePost}
                     previewCollapsed={this.props.previewCollapsed}
                     previewEnabled={this.props.previewEnabled}
+                    isReadOnly={isReadOnly}
                 />
             );
         }
@@ -378,7 +381,7 @@ export default class RhsThread extends React.Component {
         let createComment;
         const isFakeDeletedPost = selected.type === Constants.PostTypes.FAKE_PARENT_DELETED;
         const channelIsArchived = this.props.channel.delete_at !== 0;
-        if (!isFakeDeletedPost) {
+        if (!isReadOnly && !isFakeDeletedPost) {
             if (channelIsArchived) {
                 createComment = (
                     <div className='channel-archived-warning'>
@@ -458,6 +461,7 @@ export default class RhsThread extends React.Component {
                             previewCollapsed={this.props.previewCollapsed}
                             previewEnabled={this.props.previewEnabled}
                             isBusy={this.state.isBusy}
+                            isReadOnly={isReadOnly}
                         />
                         {isFakeDeletedPost && <DateSeparator date={rootPostDay}/>}
                         <div

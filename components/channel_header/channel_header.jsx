@@ -658,7 +658,7 @@ export default class ChannelHeader extends React.Component {
 
             dropdownContents.push(this.renderMute());
 
-            if (!this.props.isDefault) {
+            if (!this.props.isReadOnly && !this.props.isDefault) {
                 dropdownContents.push(
                     <li
                         key='divider-1'
@@ -817,7 +817,7 @@ export default class ChannelHeader extends React.Component {
                 );
             }
 
-            if (!this.props.isDefault && channel.type === Constants.OPEN_CHANNEL && !channelIsArchived) {
+            if (!this.props.isReadOnly && !this.props.isDefault && channel.type === Constants.OPEN_CHANNEL && !channelIsArchived) {
                 dropdownContents.push(
                     <TeamPermissionGate
                         teamId={teamId}
@@ -848,7 +848,7 @@ export default class ChannelHeader extends React.Component {
                 );
             }
 
-            if (!this.props.isDefault && !channelIsArchived) {
+            if (!this.props.isReadOnly && !this.props.isDefault && !channelIsArchived) {
                 dropdownContents.push(
                     <ChannelPermissionGate
                         channelId={channel.id}

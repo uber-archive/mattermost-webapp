@@ -31,6 +31,7 @@ describe('components/ChannelHeader', () => {
         currentUser: {},
         lastViewedChannelName: '',
         penultimateViewedChannelName: '',
+        isReadOnly: false,
     };
 
     const populatedProps = {

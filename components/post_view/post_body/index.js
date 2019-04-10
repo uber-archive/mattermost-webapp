@@ -34,7 +34,7 @@ function mapStateToProps(state, ownProps) {
         previewEnabled: getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.LINK_PREVIEW_DISPLAY, true),
         isEmbedVisible: isEmbedVisible(state, ownProps.post.id),
         enablePostUsernameOverride,
-        isReadOnly: isCurrentChannelReadOnly(state) || channelIsArchived,
+        isReadOnly: ownProps.isReadOnly || isCurrentChannelReadOnly(state) || channelIsArchived,
     };
 }
 

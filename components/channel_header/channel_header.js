@@ -527,7 +527,9 @@ export default class ChannelHeader extends React.PureComponent {
                         title={formatMessage({id: 'generic_icons.dropdown', defaultMessage: 'Dropdown Icon'})}
                     />
                 </div>
-                <ChannelHeaderDropdown/>
+                <ChannelHeaderDropdown
+                    isReadOnly={isReadOnly}
+                />
             </MenuWrapper>
         );
         if (isDirect && dmUser.is_bot) {

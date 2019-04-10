@@ -44,7 +44,9 @@ exports[`components/ChannelHeader should render archived view 1`] = `
                   title="Dropdown Icon"
                 />
               </div>
-              <ChannelHeaderDropdown />
+              <ChannelHeaderDropdown
+                isReadOnly={false}
+              />
             </MenuWrapper>
           </h2>
         </div>
@@ -206,7 +208,9 @@ exports[`components/ChannelHeader should render correct menu when muted 1`] = `
                   title="Dropdown Icon"
                 />
               </div>
-              <ChannelHeaderDropdown />
+              <ChannelHeaderDropdown
+                isReadOnly={false}
+              />
             </MenuWrapper>
           </h2>
           <OverlayTrigger
@@ -430,7 +434,9 @@ exports[`components/ChannelHeader should render properly when populated 1`] = `
                   title="Dropdown Icon"
                 />
               </div>
-              <ChannelHeaderDropdown />
+              <ChannelHeaderDropdown
+                isReadOnly={false}
+              />
             </MenuWrapper>
           </h2>
         </div>
@@ -583,7 +589,9 @@ exports[`components/ChannelHeader should render properly when populated with cha
                   title="Dropdown Icon"
                 />
               </div>
-              <ChannelHeaderDropdown />
+              <ChannelHeaderDropdown
+                isReadOnly={false}
+              />
             </MenuWrapper>
           </h2>
         </div>

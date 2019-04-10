@@ -11,8 +11,8 @@ import ToggleModalButtonRedux from 'components/toggle_modal_button_redux';
 import DeleteChannelModal from 'components/delete_channel_modal';
 import {Constants, ModalIdentifiers} from 'utils/constants';
 
-const DeleteChannel = ({channel, isDefault, isArchived, penultimateViewedChannelName}) => {
-    if (isDefault || isArchived) {
+const DeleteChannel = ({channel, isDefault, isArchived, isReadonly, penultimateViewedChannelName}) => {
+    if (isDefault || isArchived || isReadonly) {
         return null;
     }
 
@@ -67,6 +67,11 @@ DeleteChannel.propTypes = {
      * Boolean whether the channel is readonly
      */
     isArchived: PropTypes.bool.isRequired,
+
+    /**
+     * Boolean whether the channel is readonly
+     */
+    isReadonly: PropTypes.bool.isRequired,
 
     penultimateViewedChannelName: PropTypes.string.isRequired,
 };

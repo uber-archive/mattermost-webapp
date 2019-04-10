@@ -17,6 +17,7 @@ describe('components/ChannelHeaderDropdown/MenuItem.RenameChannel', () => {
             type: Constants.OPEN_CHANNEL,
         },
         isArchived: false,
+        isReadonly: false,
     };
 
     it('should match snapshot', () => {

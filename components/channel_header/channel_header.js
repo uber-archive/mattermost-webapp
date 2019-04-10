@@ -528,7 +528,9 @@ export default class ChannelHeader extends React.PureComponent {
                                             title={formatMessage({id: 'generic_icons.dropdown', defaultMessage: 'Dropdown Icon'})}
                                         />
                                     </button>
-                                    <ChannelHeaderDropdown/>
+                                    <ChannelHeaderDropdown
+                                        isReadOnly={isReadOnly}
+                                    />
                                 </h2>
                                 {muteTrigger}
                             </div>

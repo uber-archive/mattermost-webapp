@@ -14,6 +14,7 @@ describe('components/ChannelHeaderDropdown/MenuItem.ViewAndManageMembers', () =>
             type: Constants.OPEN_CHANNEL,
         },
         isDefault: false,
+        isReadonly: false,
     };
 
     it('should match snapshot', () => {

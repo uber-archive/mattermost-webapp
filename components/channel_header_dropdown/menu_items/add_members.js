@@ -12,8 +12,8 @@ import ChannelInviteModal from 'components/channel_invite_modal';
 import MoreDirectChannels from 'components/more_direct_channels';
 import {Constants, ModalIdentifiers} from 'utils/constants';
 
-const AddMembers = ({channel, isDefault, isArchived}) => {
-    if (isDefault) {
+const AddMembers = ({channel, isDefault, isArchived, isReadonly}) => {
+    if (isDefault || isReadonly) {
         return null;
     }
 
@@ -87,6 +87,11 @@ AddMembers.propTypes = {
      * Boolean whether the channel is archived
      */
     isArchived: PropTypes.bool.isRequired,
+
+    /**
+     * Boolean whether the channel is readonly
+     */
+    isReadonly: PropTypes.bool.isRequired,
 };
 
 export default AddMembers;

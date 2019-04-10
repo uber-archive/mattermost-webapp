@@ -12,7 +12,7 @@ import ChannelPermissionGate from 'components/permissions_gates/channel_permissi
 import ToggleModalButtonRedux from 'components/toggle_modal_button_redux';
 import ChannelMembersModal from 'components/channel_members_modal';
 
-const ViewAndManageMembers = ({channel, isDefault}) => {
+const ViewAndManageMembers = ({channel, isDefault, isReadonly}) => {
     if (channel.type === Constants.DM_CHANNEL) {
         return null;
     }
@@ -39,7 +39,7 @@ const ViewAndManageMembers = ({channel, isDefault}) => {
                 dialogType={ChannelMembersModal}
                 dialogProps={{channel}}
             >
-                {!isDefault &&
+                {!isDefault && !isReadonly &&
                     <>
                         <ChannelPermissionGate
                             channelId={channel.id}
@@ -60,7 +60,7 @@ const ViewAndManageMembers = ({channel, isDefault}) => {
                             {viewMembersMessage}
                         </ChannelPermissionGate>
                     </>}
-                {isDefault && viewMembersMessage}
+                {(isDefault || isReadonly) && viewMembersMessage}
             </ToggleModalButtonRedux>
         </li>
     );
@@ -77,6 +77,11 @@ ViewAndManageMembers.propTypes = {
      * Boolean whether the current channel is default
      */
     isDefault: PropTypes.bool.isRequired,
+
+    /**
+     * Boolean whether the channel is readonly
+     */
+    isReadonly: PropTypes.bool.isRequired,
 };
 
 export default ViewAndManageMembers;

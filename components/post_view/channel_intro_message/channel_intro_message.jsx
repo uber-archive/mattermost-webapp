@@ -56,7 +56,7 @@ export default class ChannelIntroMessage extends React.PureComponent {
         } else if (channel.name === Constants.OFFTOPIC_CHANNEL) {
             return createOffTopicIntroMessage(channel, centeredIntro);
         } else if (channel.type === Constants.OPEN_CHANNEL || channel.type === Constants.PRIVATE_CHANNEL) {
-            return createStandardIntroMessage(channel, centeredIntro, locale);
+            return createStandardIntroMessage(channel, centeredIntro, locale, isReadOnly);
         }
         return null;
     }
@@ -342,14 +342,14 @@ export function createDefaultIntroMessage(channel, centeredIntro, enableUserCrea
     );
 }
 
-function createStandardIntroMessage(channel, centeredIntro, locale) {
+function createStandardIntroMessage(channel, centeredIntro, locale, isReadOnly) {
     var uiName = channel.display_name;
     var creatorName = Utils.getDisplayNameByUserId(channel.creator_id);
     var uiType;
     var memberMessage;
     const channelIsArchived = channel.delete_at !== 0;
 
-    if (channelIsArchived) {
+    if (channelIsArchived || isReadOnly) {
         memberMessage = '';
     } else if (channel.type === Constants.PRIVATE_CHANNEL) {
         uiType = (
@@ -436,20 +436,23 @@ function createStandardIntroMessage(channel, centeredIntro, locale) {
 
     const isPrivate = channel.type === Constants.PRIVATE_CHANNEL;
     let setHeaderButton = null;
-    const children = createSetHeaderButton(channel);
-    if (children) {
-        setHeaderButton = (
-            <ChannelPermissionGate
-                teamId={channel.team_id}
-                channelId={channel.id}
-                permissions={[isPrivate ? Permissions.MANAGE_PRIVATE_CHANNEL_PROPERTIES : Permissions.MANAGE_PUBLIC_CHANNEL_PROPERTIES]}
-            >
-                {children}
-            </ChannelPermissionGate>
-        );
-    }
+    let channelInviteButton = null;
+    if (!isReadOnly) {
+        const children = createSetHeaderButton(channel);
+        if (children) {
+            setHeaderButton = (
+                <ChannelPermissionGate
+                    teamId={channel.team_id}
+                    channelId={channel.id}
+                    permissions={[isPrivate ? Permissions.MANAGE_PRIVATE_CHANNEL_PROPERTIES : Permissions.MANAGE_PUBLIC_CHANNEL_PROPERTIES]}
+                >
+                    {children}
+                </ChannelPermissionGate>
+            );
+        }
 
-    const channelInviteButton = createInviteChannelMemberButton(channel, uiType);
+        channelInviteButton = createInviteChannelMemberButton(channel, uiType);
+    }
 
     return (
         <div

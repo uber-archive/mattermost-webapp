@@ -18,6 +18,7 @@ describe('components/ChannelHeaderDropdown/MenuItem.DeleteChannel', () => {
         },
         isDefault: false,
         isArchived: false,
+        isReadonly: false,
         penultimateViewedChannelName: '',
     };
 

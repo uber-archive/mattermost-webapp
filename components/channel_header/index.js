@@ -40,7 +40,7 @@ import {ModalIdentifiers} from 'utils/constants';
 
 import ChannelHeader from './channel_header';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     const channel = getCurrentChannel(state) || {};
     const user = getCurrentUser(state);
 
@@ -58,7 +58,7 @@ const mapStateToProps = (state) => {
         dmUser,
         rhsState: getRhsState(state),
         isFavorite: isCurrentChannelFavorite(state),
-        isReadOnly: isCurrentChannelReadOnly(state),
+        isReadOnly: ownProps.isReadOnly || isCurrentChannelReadOnly(state),
         isMuted: isCurrentChannelMuted(state),
         isQuickSwitcherOpen: isModalOpen(state, ModalIdentifiers.QUICK_SWITCH),
     };

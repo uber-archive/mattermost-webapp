@@ -17,6 +17,7 @@ describe('components/ChannelHeaderDropdown/MenuItem.AddMembers', () => {
         },
         isDefault: false,
         isArchived: false,
+        isReadonly: false,
     };
 
     it('should match snapshot', () => {

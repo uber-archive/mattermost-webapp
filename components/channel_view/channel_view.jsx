@@ -26,6 +26,8 @@ export default class ChannelView extends React.PureComponent {
         showTutorial: PropTypes.bool.isRequired,
         channelIsArchived: PropTypes.bool.isRequired,
         viewArchivedChannels: PropTypes.bool.isRequired,
+        isReadOnly: PropTypes.bool.isRequired,
+        isCurrentUserSystemAdmin: PropTypes.bool.isRequired,
         actions: PropTypes.shape({
             goToLastViewedChannel: PropTypes.func.isRequired,
         }),
@@ -97,7 +99,7 @@ export default class ChannelView extends React.PureComponent {
     }
 
     render() {
-        const {channelIsArchived} = this.props;
+        const {channelIsArchived, isReadOnly, isCurrentUserSystemAdmin} = this.props;
         if (this.props.showTutorial) {
             return (
                 <TutorialView
@@ -107,47 +109,49 @@ export default class ChannelView extends React.PureComponent {
         }
 
         let createPost;
-        if (this.props.deactivatedChannel) {
-            createPost = (
-                <div
-                    className='post-create-message'
-                >
-                    <FormattedMessage
-                        id='create_post.deactivated'
-                        defaultMessage='You are viewing an archived channel with a deactivated user.'
-                    />
-                </div>
-            );
-        } else {
-            createPost = (
-                <div
-                    className='post-create__container'
-                    id='post-create'
-                >
-                    {!channelIsArchived &&
-                        <CreatePost
-                            getChannelView={this.getChannelView}
+        if (!isReadOnly || isCurrentUserSystemAdmin) {
+            if (this.props.deactivatedChannel) {
+                createPost = (
+                    <div
+                        className='post-create-message'
+                    >
+                        <FormattedMessage
+                            id='create_post.deactivated'
+                            defaultMessage='You are viewing an archived channel with a deactivated user.'
                         />
-                    }
-                    {channelIsArchived &&
-                        <div className='channel-archived__message'>
-                            <FormattedMarkdownMessage
-                                id='archivedChannelMessage'
-                                defaultMessage='You are viewing an **archived channel**. New messages cannot be posted.'
+                    </div>
+                );
+            } else {
+                createPost = (
+                    <div
+                        className='post-create__container'
+                        id='post-create'
+                    >
+                        {!channelIsArchived &&
+                            <CreatePost
+                                getChannelView={this.getChannelView}
                             />
-                            <button
-                                className='btn btn-primary channel-archived__close-btn'
-                                onClick={this.onClickCloseChannel}
-                            >
-                                <FormattedMessage
-                                    id='center_panel.archived.closeChannel'
-                                    defaultMessage='Close Channel'
+                        }
+                        {channelIsArchived &&
+                            <div className='channel-archived__message'>
+                                <FormattedMarkdownMessage
+                                    id='archivedChannelMessage'
+                                    defaultMessage='You are viewing an **archived channel**. New messages cannot be posted.'
                                 />
-                            </button>
-                        </div>
-                    }
-                </div>
-            );
+                                <button
+                                    className='btn btn-primary channel-archived__close-btn'
+                                    onClick={this.onClickCloseChannel}
+                                >
+                                    <FormattedMessage
+                                        id='center_panel.archived.closeChannel'
+                                        defaultMessage='Close Channel'
+                                    />
+                                </button>
+                            </div>
+                        }
+                    </div>
+                );
+            }
         }
 
         const DeferredPostView = this.deferredPostView;
@@ -161,9 +165,11 @@ export default class ChannelView extends React.PureComponent {
                 <FileUploadOverlay overlayType='center'/>
                 <ChannelHeader
                     channelId={this.props.channelId}
+                    isReadOnly={isReadOnly && !isCurrentUserSystemAdmin}
                 />
                 <DeferredPostView
                     channelId={this.props.channelId}
+                    isReadOnly={isReadOnly}
                 />
                 {createPost}
             </div>

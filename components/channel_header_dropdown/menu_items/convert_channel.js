@@ -12,8 +12,8 @@ import TeamPermissionGate from 'components/permissions_gates/team_permission_gat
 import ToggleModalButtonRedux from 'components/toggle_modal_button_redux';
 import ConvertChannelModal from 'components/convert_channel_modal';
 
-const ConvertChannel = ({channel, isDefault, isArchived}) => {
-    if (isDefault || isArchived) {
+const ConvertChannel = ({channel, isDefault, isArchived, isReadonly}) => {
+    if (isDefault || isArchived || isReadonly) {
         return null;
     }
 
@@ -63,6 +63,11 @@ ConvertChannel.propTypes = {
      * Boolean whether the channel is readonly
      */
     isArchived: PropTypes.bool.isRequired,
+
+    /**
+     * Boolean whether the channel is readonly
+     */
+    isReadonly: PropTypes.bool.isRequired,
 };
 
 export default ConvertChannel;

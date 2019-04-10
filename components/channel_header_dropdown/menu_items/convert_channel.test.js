@@ -18,6 +18,7 @@ describe('components/ChannelHeaderDropdown/MenuItem.ConvertChannel', () => {
         },
         isDefault: false,
         isArchived: false,
+        isReadonly: false,
     };
 
     it('should match snapshot', () => {

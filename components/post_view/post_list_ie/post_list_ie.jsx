@@ -17,6 +17,7 @@ import * as UserAgent from 'utils/user_agent.jsx';
 import * as Utils from 'utils/utils.jsx';
 import {isFromWebhook} from 'utils/post_utils.jsx';
 
+import Confetti from 'components/confetti.jsx';
 import LoadingScreen from 'components/loading_screen.jsx';
 import DateSeparator from 'components/post_view/date_separator';
 import FloatingTimestamp from 'components/post_view/floating_timestamp';
@@ -64,6 +65,16 @@ export default class PostList extends React.PureComponent {
          */
         focusedPostId: PropTypes.string,
 
+        /**
+         * Whether the channel is read only
+         */
+        isReadOnly: PropTypes.bool.isRequired,
+
+        /**
+         * Whether the current user is system admin
+         */
+        isCurrentUserSystemAdmin: PropTypes.bool.isRequired,
+
         actions: PropTypes.shape({
 
             loadInitialPosts: PropTypes.func.isRequired,
@@ -91,6 +102,7 @@ export default class PostList extends React.PureComponent {
         this.atBottom = false;
         this.extraPagesLoaded = 0;
         this.loadingPosts = false;
+        this.lastConfetti = null;
 
         this.state = {
             atEnd: false,
@@ -98,6 +110,7 @@ export default class PostList extends React.PureComponent {
             isDoingInitialLoad: true,
             isScrolling: false,
             lastViewed: props.lastViewedAt,
+            showConfetti: false,
         };
     }
 
@@ -140,8 +153,10 @@ export default class PostList extends React.PureComponent {
                 this.atBottom = false;
 
                 this.extraPagesLoaded = 0;
+                this.checkConfetti = true;
+                this.lastConfetti = null;
 
-                this.setState({atEnd: false, lastViewed: nextProps.lastViewedAt, isDoingInitialLoad: !nextProps.posts, unViewedCount: 0});
+                this.setState({atEnd: false, lastViewed: nextProps.lastViewedAt, isDoingInitialLoad: !nextProps.posts, unViewedCount: 0, showConfetti: false});
 
                 if (nextChannel.id) {
                     this.loadPosts(nextChannel.id);
@@ -175,6 +190,11 @@ export default class PostList extends React.PureComponent {
             this.loadPosts(this.props.channel.id);
         }
 
+        if (!prevState.showConfetti && this.state.showConfetti) {
+            setTimeout(() => {
+                this.setState({showConfetti: false});
+            }, 20000);
+        }
         this.loadPostsToFillScreenIfNecessary();
 
         // Do not update scrolling unless posts, visibility or intro message change
@@ -505,6 +525,7 @@ export default class PostList extends React.PureComponent {
         const lastViewed = this.props.lastViewedAt || 0;
 
         let renderedLastViewed = false;
+        let showConfetti = false;
 
         for (let i = posts.length - 1; i >= 0; i--) {
             const post = posts[i];
@@ -521,6 +542,7 @@ export default class PostList extends React.PureComponent {
                     <CombinedUserActivityPost
                         combinedId={post.id}
                         previousPostId={previousPostId}
+                        isReadOnly={this.props.isReadOnly && !this.props.isCurrentUserSystemAdmin}
                     />
                 );
             } else {
@@ -531,6 +553,7 @@ export default class PostList extends React.PureComponent {
                         post={post}
                         shouldHighlight={this.props.focusedPostId === post.id}
                         previousPostId={previousPostId}
+                        isReadOnly={this.props.isReadOnly && !this.props.isCurrentUserSystemAdmin}
                     />
                 );
             }
@@ -546,41 +569,52 @@ export default class PostList extends React.PureComponent {
             }
 
             const isNotCurrentUser = post.user_id !== currentUserId || isFromWebhook(post);
-            if (isNotCurrentUser &&
-                    lastViewed !== 0 &&
-                    post.create_at > lastViewed &&
-                    !Utils.isPostEphemeral(post) &&
-                    !renderedLastViewed) {
-                renderedLastViewed = true;
 
-                // Temporary fix to solve ie11 rendering issue
-                let newSeparatorId = '';
-                if (!UserAgent.isInternetExplorer()) {
-                    newSeparatorId = 'new_message_' + post.id;
+            if (((lastViewed !== 0 && post.create_at > lastViewed) ||
+                (lastViewed === 0 && post.create_at > this.state.lastViewed)) &&
+                !Utils.isPostEphemeral(post)) {
+                if (!showConfetti && this.props.isReadOnly &&
+                    post.create_at > this.lastConfetti &&
+                    post.message.startsWith('#celebrate')) {
+                    showConfetti = true;
+                    this.lastConfetti = post.create_at;
                 }
-                postCtls.push(
-                    <div
-                        id={newSeparatorId}
-                        key='unviewed'
-                        ref='newMessageSeparator'
-                        className='new-separator'
-                    >
-                        <hr
-                            className='separator__hr'
-                        />
-                        <div className='separator__text'>
-                            <FormattedMessage
-                                id='posts_view.newMsg'
-                                defaultMessage='New Messages'
+                if (lastViewed !== 0 && post.create_at > lastViewed &&
+                    isNotCurrentUser && !renderedLastViewed) {
+                    renderedLastViewed = true;
+
+                    // Temporary fix to solve ie11 rendering issue
+                    let newSeparatorId = '';
+                    if (!UserAgent.isInternetExplorer()) {
+                        newSeparatorId = 'new_message_' + post.id;
+                    }
+                    postCtls.push(
+                        <div
+                            id={newSeparatorId}
+                            key='unviewed'
+                            ref='newMessageSeparator'
+                            className='new-separator'
+                        >
+                            <hr
+                                className='separator__hr'
                             />
+                            <div className='separator__text'>
+                                <FormattedMessage
+                                    id='posts_view.newMsg'
+                                    defaultMessage='New Messages'
+                                />
+                            </div>
                         </div>
-                    </div>
-                );
+                    );
+                }
             }
 
             postCtls.push(postCtl);
             previousPostDay = currentPostDay;
             previousPostId = post.id;
+        }
+        if (showConfetti) {
+            this.setState({showConfetti});
         }
 
         return postCtls;
@@ -606,6 +640,7 @@ export default class PostList extends React.PureComponent {
             topRow = (
                 <CreateChannelIntroMessage
                     channel={channel}
+                    isReadOnly={this.props.isReadOnly && !this.props.isCurrentUserSystemAdmin}
                 />
             );
         } else if (this.props.postVisibility >= Constants.MAX_POST_VISIBILITY) {
@@ -678,6 +713,7 @@ export default class PostList extends React.PureComponent {
                         </div>
                     </div>
                 </div>
+                {this.state.showConfetti && <Confetti/>}
             </div>
         );
     }

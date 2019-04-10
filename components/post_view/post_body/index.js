@@ -28,7 +28,7 @@ function mapStateToProps(state, ownProps) {
         parentPostUser,
         pluginPostTypes: state.plugins.postTypes,
         enablePostUsernameOverride,
-        isReadOnly: isCurrentChannelReadOnly(state) || channelIsArchived,
+        isReadOnly: ownProps.isReadOnly || isCurrentChannelReadOnly(state) || channelIsArchived,
     };
 }
 

@@ -64,6 +64,11 @@ export default class PostHeader extends React.PureComponent {
          * If the user that made the post is a bot.
          */
         isBot: PropTypes.bool.isRequired,
+
+        /**
+        * Whether the channel is read only
+         */
+        isReadOnly: PropTypes.bool.isRequired,
     }
 
     render() {
@@ -160,6 +165,7 @@ export default class PostHeader extends React.PureComponent {
                         isFirstReply={this.props.isFirstReply}
                         showTimeWithoutHover={this.props.showTimeWithoutHover}
                         hover={this.props.hover}
+                        isReadOnly={this.props.isReadOnly}
                     />
                 </div>
             </div>

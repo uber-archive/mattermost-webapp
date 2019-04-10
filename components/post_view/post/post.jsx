@@ -68,6 +68,11 @@ export default class Post extends React.PureComponent {
          */
         replyCount: PropTypes.number,
 
+        /**
+         * Whether the channel is read only
+         */
+        isReadOnly: PropTypes.bool.isRequired,
+
         actions: PropTypes.shape({
             selectPost: PropTypes.func.isRequired,
         }).isRequired,
@@ -264,6 +269,7 @@ export default class Post extends React.PureComponent {
                             replyCount={this.props.replyCount}
                             showTimeWithoutHover={!hideProfilePicture}
                             hover={this.state.hover}
+                            isReadOnly={this.props.isReadOnly}
                         />
                         <PostBody
                             post={post}
@@ -271,6 +277,7 @@ export default class Post extends React.PureComponent {
                             compactDisplay={this.props.compactDisplay}
                             isCommentMention={this.props.isCommentMention}
                             isFirstReply={this.props.isFirstReply}
+                            isReadOnly={this.props.isReadOnly}
                         />
                     </div>
                 </div>

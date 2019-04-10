@@ -14,12 +14,11 @@ import {getCurrentLocale} from 'selectors/i18n';
 
 import ChannelIntroMessage from './channel_intro_message.jsx';
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
     const config = getConfig(state);
     const enableUserCreation = config.EnableUserCreation === 'true';
-    const isReadOnly = isCurrentChannelReadOnly(state);
+    const isReadOnly = ownProps.isReadOnly || isCurrentChannelReadOnly(state);
     const team = getCurrentTeam(state);
-
     return {
         currentUserId: getCurrentUserId(state),
         locale: getCurrentLocale(state),

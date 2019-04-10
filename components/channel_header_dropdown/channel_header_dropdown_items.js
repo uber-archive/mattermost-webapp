@@ -126,7 +126,7 @@ export default class ChannelHeaderDropdown extends React.PureComponent {
                     >
                         <MenuItemToggleModalRedux
                             id='channelAddMembers'
-                            show={channel.type !== Constants.DM_CHANNEL && channel.type !== Constants.GM_CHANNEL && !isArchived && !isDefault && !isGroupConstrained}
+                            show={channel.type !== Constants.DM_CHANNEL && channel.type !== Constants.GM_CHANNEL && !isArchived && !isDefault && !isGroupConstrained && !isReadonly}
                             modalId={ModalIdentifiers.CHANNEL_INVITE}
                             dialogType={ChannelInviteModal}
                             dialogProps={{channel}}
@@ -134,7 +134,7 @@ export default class ChannelHeaderDropdown extends React.PureComponent {
                         />
                         <MenuItemToggleModalRedux
                             id='channelAddMembers'
-                            show={channel.type === Constants.GM_CHANNEL && !isArchived && !isGroupConstrained}
+                            show={channel.type === Constants.GM_CHANNEL && !isArchived && !isGroupConstrained && !isReadonly}
                             modalId={ModalIdentifiers.CREATE_DM_CHANNEL}
                             dialogType={MoreDirectChannels}
                             dialogProps={{isExistingChannel: true}}
@@ -143,7 +143,7 @@ export default class ChannelHeaderDropdown extends React.PureComponent {
                     </ChannelPermissionGate>
                     <MenuItemToggleModalRedux
                         id='channelViewMembers'
-                        show={channel.type !== Constants.DM_CHANNEL && channel.type !== Constants.GM_CHANNEL && (isArchived || isDefault)}
+                        show={channel.type !== Constants.DM_CHANNEL && channel.type !== Constants.GM_CHANNEL && (isArchived || isDefault) && !isReadonly}
                         modalId={ModalIdentifiers.CHANNEL_MEMBERS}
                         dialogType={ChannelMembersModal}
                         dialogProps={{channel}}
@@ -172,7 +172,7 @@ export default class ChannelHeaderDropdown extends React.PureComponent {
                         />
                         <MenuItemToggleModalRedux
                             id='channelManageMembers'
-                            show={channel.type !== Constants.DM_CHANNEL && channel.type !== Constants.GM_CHANNEL && !isArchived && !isDefault}
+                            show={channel.type !== Constants.DM_CHANNEL && channel.type !== Constants.GM_CHANNEL && !isArchived && !isDefault && !isReadonly}
                             modalId={ModalIdentifiers.CHANNEL_MEMBERS}
                             dialogType={ChannelMembersModal}
                             dialogProps={{channel}}
@@ -187,7 +187,7 @@ export default class ChannelHeaderDropdown extends React.PureComponent {
                     >
                         <MenuItemToggleModalRedux
                             id='channelViewMembers'
-                            show={channel.type !== Constants.DM_CHANNEL && channel.type !== Constants.GM_CHANNEL && !isArchived && !isDefault}
+                            show={channel.type !== Constants.DM_CHANNEL && channel.type !== Constants.GM_CHANNEL && !isArchived && !isDefault && !isReadonly}
                             modalId={ModalIdentifiers.CHANNEL_MEMBERS}
                             dialogType={ChannelMembersModal}
                             dialogProps={{channel}}
@@ -228,7 +228,7 @@ export default class ChannelHeaderDropdown extends React.PureComponent {
                         />
                         <MenuItemToggleModalRedux
                             id='channelRename'
-                            show={!isArchived && channel.type !== Constants.DM_CHANNEL && channel.type !== Constants.GM_CHANNEL}
+                            show={!isArchived && !isReadonly && channel.type !== Constants.DM_CHANNEL && channel.type !== Constants.GM_CHANNEL}
                             modalId={ModalIdentifiers.RENAME_CHANNEL}
                             dialogType={RenameChannelModal}
                             dialogProps={{channel}}
@@ -241,7 +241,7 @@ export default class ChannelHeaderDropdown extends React.PureComponent {
                     >
                         <MenuItemToggleModalRedux
                             id='channelCovertToPrivate'
-                            show={!isArchived && !isDefault && channel.type === Constants.OPEN_CHANNEL}
+                            show={!isArchived && !isReadonly && !isDefault && channel.type === Constants.OPEN_CHANNEL}
                             modalId={ModalIdentifiers.CONVERT_CHANNEL}
                             dialogType={ConvertChannelModal}
                             dialogProps={{
@@ -258,7 +258,7 @@ export default class ChannelHeaderDropdown extends React.PureComponent {
                     >
                         <MenuItemToggleModalRedux
                             id='channelArchiveChannel'
-                            show={!isArchived && !isDefault && channel.type !== Constants.DM_CHANNEL && channel.type !== Constants.GM_CHANNEL}
+                            show={!isArchived && !isReadonly && !isDefault && channel.type !== Constants.DM_CHANNEL && channel.type !== Constants.GM_CHANNEL}
                             modalId={ModalIdentifiers.DELETE_CHANNEL}
                             dialogType={DeleteChannelModal}
                             dialogProps={{

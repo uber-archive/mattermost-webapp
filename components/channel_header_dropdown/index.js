@@ -48,13 +48,13 @@ const getTeammateStatus = createSelector(
     }
 );
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
     user: getCurrentUser(state),
     channel: getCurrentChannel(state),
     isDefault: isCurrentChannelDefault(state),
     isFavorite: isCurrentChannelFavorite(state),
     isMuted: isCurrentChannelMuted(state),
-    isReadonly: isCurrentChannelReadOnly(state),
+    isReadonly: ownProps.isReadOnly || isCurrentChannelReadOnly(state),
     isArchived: isCurrentChannelArchived(state),
     penultimateViewedChannelName: getPenultimateViewedChannelName(state) || Constants.DEFAULT_CHANNEL,
 });

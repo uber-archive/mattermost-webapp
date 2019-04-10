@@ -25,7 +25,7 @@ function mapStateToProps(state, ownProps) {
         isFlagged: get(state, Preferences.CATEGORY_FLAGGED_POST, ownProps.post.id, null) != null,
         isMobile: state.views.channel.mobileView,
         enableEmojiPicker,
-        isReadOnly: isCurrentChannelReadOnly(state) || channelIsArchived,
+        isReadOnly: ownProps.isReadOnly || isCurrentChannelReadOnly(state) || channelIsArchived,
     };
 }
 

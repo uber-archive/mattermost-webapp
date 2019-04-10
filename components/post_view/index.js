@@ -7,7 +7,7 @@ import {getPosts, getPostsAfter, getPostsBefore, getPostThread} from 'mattermost
 import {getChannel} from 'mattermost-redux/selectors/entities/channels';
 import {makeGetPostsAroundPost, makeGetPostsInChannel} from 'mattermost-redux/selectors/entities/posts';
 import {get} from 'mattermost-redux/selectors/entities/preferences';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
+import {getCurrentUserId, isCurrentUserSystemAdmin} from 'mattermost-redux/selectors/entities/users';
 
 import {increasePostVisibility} from 'actions/post_actions.jsx';
 import {checkAndSetMobileView} from 'actions/views/channel';
@@ -37,6 +37,7 @@ function makeMapStateToProps() {
             loadingPosts: state.views.channel.loadingPosts[ownProps.channelId],
             focusedPostId: ownProps.focusedPostId,
             currentUserId: getCurrentUserId(state),
+            isCurrentUserSystemAdmin: isCurrentUserSystemAdmin(state),
             fullWidth: get(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.CHANNEL_DISPLAY_MODE, Preferences.CHANNEL_DISPLAY_MODE_DEFAULT) === Preferences.CHANNEL_DISPLAY_MODE_FULL_SCREEN,
         };
     };

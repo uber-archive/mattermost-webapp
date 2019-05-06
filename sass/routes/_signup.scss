@@ -317,14 +317,13 @@
             min-width: 200px;
             padding: 0 24px;
             text-align: left;
-            display: flex;
             align-items: center;
             width: 200px;
 
             > span {
                 position: relative;
-                display: flex;
-                align-items: center;
+                top: 11px;
+                vertical-align: top;
 
                 > span {
                     line-height: normal;

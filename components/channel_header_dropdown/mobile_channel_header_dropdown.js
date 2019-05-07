@@ -112,10 +112,12 @@ export default class MobileChannelHeaderDropdown extends React.PureComponent {
                         channel={channel}
                         isDefault={isDefault}
                         isArchived={isArchived}
+                        isReadonly={isReadonly}
                     />
                     <MenuItem.ViewAndManageMembers
                         channel={channel}
                         isDefault={isDefault}
+                        isReadonly={isReadonly}
                     />
                     {Divider}
                     <MenuItem.SetChannelHeader
@@ -131,16 +133,19 @@ export default class MobileChannelHeaderDropdown extends React.PureComponent {
                     <MenuItem.RenameChannel
                         channel={channel}
                         isArchived={isArchived}
+                        isReadonly={isReadonly}
                     />
                     <MenuItem.ConvertChannel
                         channel={channel}
                         isDefault={isDefault}
                         isArchived={isArchived}
+                        isReadonly={isReadonly}
                     />
                     <MenuItem.DeleteChannel
                         channel={channel}
                         isDefault={isDefault}
                         isArchived={isArchived}
+                        isReadonly={isReadonly}
                     />
                     {Divider}
                     <MobileChannelHeaderPlug

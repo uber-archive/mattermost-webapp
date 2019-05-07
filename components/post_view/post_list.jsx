@@ -572,16 +572,17 @@ export default class PostList extends React.PureComponent {
 
             const isNotCurrentUser = post.user_id !== currentUserId || isFromWebhook(post);
 
-            if (lastViewed !== 0 &&
-                    post.create_at > lastViewed &&
-                    !Utils.isPostEphemeral(post)) {
+            if (((lastViewed !== 0 && post.create_at > lastViewed) ||
+                (lastViewed === 0 && post.create_at > this.state.lastViewed)) &&
+                !Utils.isPostEphemeral(post)) {
                 if (!showConfetti && this.props.isReadOnly &&
                     post.create_at > this.lastConfetti &&
                     post.message.startsWith('#celebrate')) {
                     showConfetti = true;
                     this.lastConfetti = post.create_at;
                 }
-                if (isNotCurrentUser && !renderedLastViewed) {
+                if (lastViewed !== 0 && post.create_at > lastViewed &&
+                    isNotCurrentUser && !renderedLastViewed) {
                     renderedLastViewed = true;
 
                     // Temporary fix to solve ie11 rendering issue

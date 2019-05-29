@@ -8,6 +8,7 @@ import StatusAwayIcon from 'components/svg/status_away_icon';
 import StatusDndIcon from 'components/svg/status_dnd_icon';
 import StatusOfflineIcon from 'components/svg/status_offline_icon';
 import StatusOnlineIcon from 'components/svg/status_online_icon';
+import StatusOooIcon from 'components/svg/status_ooo_icon';
 
 export default class StatusIcon extends React.PureComponent {
     static propTypes = {
@@ -38,6 +39,8 @@ export default class StatusIcon extends React.PureComponent {
                 statusIcon = <i className='uchat-icons-person_away away--icon'/>;
             } else if (status === 'dnd') {
                 statusIcon = <i className='uchat-icons-person_dnd away--icon'/>;
+            } else if (status === 'ooo') {
+                statusIcon = <i className='uchat-icons-person_ooo ooo--icon'/>;
             } else {
                 statusIcon = <i className='uchat-icons-person_offline'/>;
             }
@@ -53,6 +56,8 @@ export default class StatusIcon extends React.PureComponent {
             IconComponent = StatusAwayIcon;
         } else if (status === 'dnd') {
             IconComponent = StatusDndIcon;
+        } else if (status === 'ooo') {
+            IconComponent = StatusOooIcon;
         } else {
             IconComponent = StatusOfflineIcon;
         }

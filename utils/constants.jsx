@@ -198,6 +198,7 @@ export const ModalIdentifiers = {
     EMAIL_INVITE: 'email_invite',
     INTERACTIVE_DIALOG: 'interactive_dialog',
     ADD_TEAMS_TO_SCHEME: 'add_teams_to_scheme',
+    STATUS_DROPDOWN: 'status_dropdown',
 };
 
 export const UserStatuses = {

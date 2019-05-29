@@ -89,7 +89,9 @@
     .dnd--icon {
         fill: rgb(247, 67, 67);
     }
-
+    .ooo--icon {
+        fill: purple;
+    }
     svg {
         max-height: 14px;
         backface-visibility: hidden;
@@ -102,6 +104,7 @@
 
         &.online--icon,
         &.away--icon,
+        &.ooo--icon,
         &.dnd--icon {
             @include opacity(1);
         }

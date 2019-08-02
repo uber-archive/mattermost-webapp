@@ -193,6 +193,25 @@ export default class Sidebar extends React.PureComponent {
         this.updateUnreadIndicators();
         document.addEventListener('keydown', this.navigateChannelShortcut);
         document.addEventListener('keydown', this.navigateUnreadChannelShortcut);
+        document.addEventListener('mouseup', this.unbind);
+        document.getElementById('sidebar-resizer').addEventListener('mousedown', this.resizePanel);
+    }
+
+    resizePanel(e) {
+        e.preventDefault();
+        $(document).mousemove((e) => {
+            e.preventDefault();
+            let xMargin = 0;
+            xMargin = e.pageX - $('#sidebar-left').offset().left;
+            if (xMargin > Constants.SIDEBAR_DEFAULT_WIDTH && e.pageX < ($(window).width() - Constants.SIDEBAR_DEFAULT_WIDTH)) {
+                $('#sidebar-left').css('width', xMargin);
+                $('#app-content').css('margin-left', xMargin);
+            }
+        });
+    }
+
+    unbind() {
+        $(document).off('mousemove');
     }
 
     componentDidUpdate(prevProps) {
@@ -772,6 +791,10 @@ export default class Sidebar extends React.PureComponent {
                     {this.renderOrderedChannels()}
                 </div>
                 {quickSwitchText}
+                <div
+                    className='sidebar-resizer'
+                    id='sidebar-resizer'
+                />
             </div>
         );
     }

@@ -1,5 +1,15 @@
 @charset 'UTF-8';
 
+.sidebar-resizer {
+    height: 100%;
+    position: absolute;
+    right: -8px;
+    width: 8px;
+    z-index: 11;
+    cursor: col-resize;
+    display: block;        /* Likely future */
+}
+
 .sidebar--left {
     display: flex;
     flex-direction: column;

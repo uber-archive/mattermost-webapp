@@ -698,6 +698,8 @@ export const Constants = {
     SYSTEM_MESSAGE_PREFIX: 'system_',
     AUTO_RESPONDER: 'system_auto_responder',
     SYSTEM_MESSAGE_PROFILE_IMAGE: logoImage,
+    SIDEBAR_DEFAULT_WIDTH: 220,
+    SIDEBAR_DEFAULT_CHARACTERS: 24,
     RESERVED_TEAM_NAMES: [
         'signup',
         'login',

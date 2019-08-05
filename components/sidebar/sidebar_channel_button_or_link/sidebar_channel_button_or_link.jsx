@@ -4,14 +4,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 
 import {browserHistory} from 'utils/browser_history';
 import {mark, trackEvent} from 'actions/diagnostics_actions.jsx';
 import {isDesktopApp} from 'utils/user_agent.jsx';
-import Constants from 'utils/constants.jsx';
 import CopyUrlContextMenu from 'components/copy_url_context_menu';
 
 import Constants from 'utils/constants.jsx';

@@ -75,13 +75,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe={
-          <FormattedMessage
-            defaultMessage="Show first and last name"
-            id="user.settings.display.teammateNameDisplayFullname"
-            values={Object {}}
-          />
-        }
         focused={true}
         section="name_format"
         title={
@@ -373,13 +366,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe={
-          <FormattedMessage
-            defaultMessage="Show first and last name"
-            id="user.settings.display.teammateNameDisplayFullname"
-            values={Object {}}
-          />
-        }
         focused={true}
         section="name_format"
         title={
@@ -561,13 +547,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe={
-          <FormattedMessage
-            defaultMessage="Show first and last name"
-            id="user.settings.display.teammateNameDisplayFullname"
-            values={Object {}}
-          />
-        }
         focused={true}
         section="name_format"
         title={
@@ -804,13 +783,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe={
-          <FormattedMessage
-            defaultMessage="Show first and last name"
-            id="user.settings.display.teammateNameDisplayFullname"
-            values={Object {}}
-          />
-        }
         focused={true}
         section="name_format"
         title={
@@ -994,13 +966,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe={
-          <FormattedMessage
-            defaultMessage="Show first and last name"
-            id="user.settings.display.teammateNameDisplayFullname"
-            values={Object {}}
-          />
-        }
         focused={true}
         section="name_format"
         title={
@@ -1165,13 +1130,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe={
-          <FormattedMessage
-            defaultMessage="Show first and last name"
-            id="user.settings.display.teammateNameDisplayFullname"
-            values={Object {}}
-          />
-        }
         focused={true}
         section="name_format"
         title={
@@ -1408,13 +1366,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe={
-          <FormattedMessage
-            defaultMessage="Show first and last name"
-            id="user.settings.display.teammateNameDisplayFullname"
-            values={Object {}}
-          />
-        }
         focused={true}
         section="name_format"
         title={
@@ -1671,13 +1622,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe={
-          <FormattedMessage
-            defaultMessage="Show first and last name"
-            id="user.settings.display.teammateNameDisplayFullname"
-            values={Object {}}
-          />
-        }
         focused={true}
         section="name_format"
         title={
@@ -1859,13 +1803,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe={
-          <FormattedMessage
-            defaultMessage="Show first and last name"
-            id="user.settings.display.teammateNameDisplayFullname"
-            values={Object {}}
-          />
-        }
         focused={true}
         section="name_format"
         title={
@@ -2047,13 +1984,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe={
-          <FormattedMessage
-            defaultMessage="Show first and last name"
-            id="user.settings.display.teammateNameDisplayFullname"
-            values={Object {}}
-          />
-        }
         focused={true}
         section="name_format"
         title={
@@ -2247,13 +2177,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe={
-          <FormattedMessage
-            defaultMessage="Show first and last name"
-            id="user.settings.display.teammateNameDisplayFullname"
-            values={Object {}}
-          />
-        }
         focused={true}
         section="name_format"
         title={
@@ -2435,13 +2358,6 @@ exports[`components/user_settings/display/UserSettingsDisplay should match snaps
     </div>
     <div>
       <SettingItemMin
-        describe={
-          <FormattedMessage
-            defaultMessage="Show first and last name"
-            id="user.settings.display.teammateNameDisplayFullname"
-            values={Object {}}
-          />
-        }
         focused={true}
         section="name_format"
         title={

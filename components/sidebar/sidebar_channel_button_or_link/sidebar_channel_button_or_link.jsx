@@ -6,11 +6,15 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 
+import {OverlayTrigger, Tooltip} from 'react-bootstrap';
+
 import {browserHistory} from 'utils/browser_history';
 import {mark, trackEvent} from 'actions/diagnostics_actions.jsx';
 import {isDesktopApp} from 'utils/user_agent.jsx';
 import Constants from 'utils/constants.jsx';
 import CopyUrlContextMenu from 'components/copy_url_context_menu';
+
+import Constants from 'utils/constants.jsx';
 
 import SidebarChannelButtonOrLinkIcon from './sidebar_channel_button_or_link_icon.jsx';
 import SidebarChannelButtonOrLinkCloseButton from './sidebar_channel_button_or_link_close_button.jsx';
@@ -106,7 +110,7 @@ export default class SidebarChannelButtonOrLink extends React.PureComponent {
                     </CopyUrlContextMenu>
                 </div>
             );
-        } else {
+        } else if (this.props.displayName && this.props.displayName.length < Constants.SIDEBAR_DEFAULT_CHARACTERS) {
             element = (
                 <Link
                     id={`sidebarItem_${this.props.channelName}`}
@@ -116,6 +120,23 @@ export default class SidebarChannelButtonOrLink extends React.PureComponent {
                 >
                     {content}
                 </Link>
+            );
+        } else {
+            element = (
+                <OverlayTrigger
+                    overlay={
+                        <Tooltip id={`sidebarItem_Tooltip_${this.props.channelName}`}>{this.props.displayName}</Tooltip>
+                    }
+                >
+                    <Link
+                        id={`sidebarItem_${this.props.channelName}`}
+                        to={this.props.link}
+                        className={this.props.rowClass}
+                        onClick={this.trackChannelSelectedEvent}
+                    >
+                        {content}
+                    </Link>
+                </OverlayTrigger>
             );
         }
 

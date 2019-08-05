@@ -13,7 +13,6 @@ export default class OooSettings extends React.PureComponent {
         activeSection: PropTypes.string,
         prevActiveSection: PropTypes.string,
         updateSection: PropTypes.func,
-        updateTab: PropTypes.func,
         closeModal: PropTypes.func.isRequired,
         collapseModal: PropTypes.func.isRequired,
     }

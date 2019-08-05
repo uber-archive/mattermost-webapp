@@ -1,7 +1,5 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
-
-// import $ from 'jquery';
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 import ReactDOM from 'react-dom';
@@ -13,9 +11,9 @@ import Constants from 'utils/constants.jsx';
 import * as Utils from 'utils/utils.jsx';
 import {AsyncComponent} from 'components/async_load';
 
-import oooSetting from 'bundle-loader?lazy!components/status_dropdown/ooo_settings';
+import OooSetting from 'bundle-loader?lazy!components/status_dropdown/ooo_settings';
 
-class autoResponderModal extends React.Component {
+class AutoResponderModal extends React.Component {
     static propTypes = {
         currentUser: PropTypes.object,
         onHide: PropTypes.func.isRequired,
@@ -87,7 +85,7 @@ class autoResponderModal extends React.Component {
         this.props.onHide();
     };
 
-    // Called to hide the settings pane when on mobile
+    // Called to hide the OOO pane when on mobile
     handleCollapse = () => {
         $(ReactDOM.findDOMNode(this.refs.modalBody)).closest('.modal-dialog').removeClass('display--content');
 
@@ -160,7 +158,6 @@ class autoResponderModal extends React.Component {
     };
 
     render() {
-        // const {formatMessage} = this.props.intl;
         if (this.props.currentUser == null) {
             return (<div/>);
         }
@@ -185,11 +182,11 @@ class autoResponderModal extends React.Component {
                         />
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body ref='modalBody'>
 
                     <div>
                         <AsyncComponent
-                            doLoad={oooSetting}
+                            doLoad={OooSetting}
                             activeSection={this.state.active_section}
                             prevActiveSection={this.state.prev_active_section}
                             updateSection={this.updateSection}
@@ -203,4 +200,4 @@ class autoResponderModal extends React.Component {
     }
 }
 
-export default injectIntl(autoResponderModal);
+export default injectIntl(AutoResponderModal);

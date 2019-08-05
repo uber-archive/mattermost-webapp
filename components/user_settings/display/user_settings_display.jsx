@@ -503,14 +503,15 @@ export default class UserSettingsDisplay extends React.Component {
                     message: 'Show username',
                 },
             },
+
+            // thirdOption: {
+            //     value: Constants.TEAMMATE_NAME_DISPLAY.SHOW_NICKNAME_FULLNAME,
+            //     radionButtonText: {
+            //         id: t('user.settings.display.teammateNameDisplayNicknameFullname'),
+            //         message: 'HARRY | Show nickname if one exists, otherwise show first and last name',
+            //     },
+            // },
             secondOption: {
-                value: Constants.TEAMMATE_NAME_DISPLAY.SHOW_NICKNAME_FULLNAME,
-                radionButtonText: {
-                    id: t('user.settings.display.teammateNameDisplayNicknameFullname'),
-                    message: 'Show nickname if one exists, otherwise show first and last name',
-                },
-            },
-            thirdOption: {
                 value: Constants.TEAMMATE_NAME_DISPLAY.SHOW_FULLNAME,
                 radionButtonText: {
                     id: t('user.settings.display.teammateNameDisplayFullname'),

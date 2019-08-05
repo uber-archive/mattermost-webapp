@@ -10,6 +10,7 @@ import {mark, trackEvent} from 'actions/diagnostics_actions.jsx';
 import {isDesktopApp} from 'utils/user_agent.jsx';
 import CopyUrlContextMenu from 'components/copy_url_context_menu';
 
+import Constants from 'utils/constants.jsx';
 import SidebarChannelButtonOrLinkIcon from './sidebar_channel_button_or_link_icon.jsx';
 import SidebarChannelButtonOrLinkCloseButton from './sidebar_channel_button_or_link_close_button.jsx';
 
@@ -100,6 +101,17 @@ export default class SidebarChannelButtonOrLink extends React.PureComponent {
                     </button>
                 </CopyUrlContextMenu>
             );
+        } else if (this.props.displayName && this.props.displayName.length < Constants.SIDEBAR_DEFAULT_CHARACTERS) {
+            element = (
+                <Link
+                    id={`sidebarItem_${this.props.channelName}`}
+                    to={this.props.link}
+                    className={this.props.rowClass}
+                    onClick={this.trackChannelSelectedEvent}
+                >
+                    {content}
+                </Link>
+            );
         } else {
             element = (
                 <Link
@@ -107,6 +119,7 @@ export default class SidebarChannelButtonOrLink extends React.PureComponent {
                     to={this.props.link}
                     className={this.props.rowClass}
                     onClick={this.trackChannelSelectedEvent}
+                    title={this.props.displayName}
                 >
                     {content}
                 </Link>

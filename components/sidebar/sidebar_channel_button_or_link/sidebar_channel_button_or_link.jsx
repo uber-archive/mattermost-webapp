@@ -106,6 +106,17 @@ export default class SidebarChannelButtonOrLink extends React.PureComponent {
                     </CopyUrlContextMenu>
                 </div>
             );
+        } else if (this.props.displayName && this.props.displayName.length < Constants.SIDEBAR_DEFAULT_CHARACTERS) {
+            element = (
+                <Link
+                    id={`sidebarItem_${this.props.channelName}`}
+                    to={this.props.link}
+                    className={this.props.rowClass}
+                    onClick={this.trackChannelSelectedEvent}
+                >
+                    {content}
+                </Link>
+            );
         } else {
             element = (
                 <Link
@@ -113,6 +124,7 @@ export default class SidebarChannelButtonOrLink extends React.PureComponent {
                     to={this.props.link}
                     className={this.props.rowClass}
                     onClick={this.trackChannelSelectedEvent}
+                    title={this.props.displayName}
                 >
                     {content}
                 </Link>

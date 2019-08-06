@@ -11,6 +11,7 @@ import {isDesktopApp} from 'utils/user_agent.jsx';
 import CopyUrlContextMenu from 'components/copy_url_context_menu';
 
 import Constants from 'utils/constants.jsx';
+
 import SidebarChannelButtonOrLinkIcon from './sidebar_channel_button_or_link_icon.jsx';
 import SidebarChannelButtonOrLinkCloseButton from './sidebar_channel_button_or_link_close_button.jsx';
 

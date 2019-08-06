@@ -239,6 +239,11 @@ exports[`component/sidebar/sidebar_channel/SidebarChannel should match snapshot,
       </span>
     </button>
   </div>
+  <div
+    className="sidebar-resizer"
+    id="sidebar-resizer"
+    onMouseDown={[Function]}
+  />
 </div>
 `;
 
@@ -481,6 +486,11 @@ exports[`component/sidebar/sidebar_channel/SidebarChannel should match snapshot,
       </span>
     </button>
   </div>
+  <div
+    className="sidebar-resizer"
+    id="sidebar-resizer"
+    onMouseDown={[Function]}
+  />
 </div>
 `;
 
@@ -723,6 +733,11 @@ exports[`component/sidebar/sidebar_channel/SidebarChannel should match snapshot,
       </span>
     </button>
   </div>
+  <div
+    className="sidebar-resizer"
+    id="sidebar-resizer"
+    onMouseDown={[Function]}
+  />
 </div>
 `;
 
@@ -965,6 +980,11 @@ exports[`component/sidebar/sidebar_channel/SidebarChannel should match snapshot,
       </span>
     </button>
   </div>
+  <div
+    className="sidebar-resizer"
+    id="sidebar-resizer"
+    onMouseDown={[Function]}
+  />
 </div>
 `;
 
@@ -1215,6 +1235,11 @@ exports[`component/sidebar/sidebar_channel/SidebarChannel should show/hide corre
       </span>
     </button>
   </div>
+  <div
+    className="sidebar-resizer"
+    id="sidebar-resizer"
+    onMouseDown={[Function]}
+  />
 </div>
 `;
 
@@ -1457,6 +1482,11 @@ exports[`component/sidebar/sidebar_channel/SidebarChannel should show/hide corre
       </span>
     </button>
   </div>
+  <div
+    className="sidebar-resizer"
+    id="sidebar-resizer"
+    onMouseDown={[Function]}
+  />
 </div>
 `;
 
@@ -1703,6 +1733,11 @@ exports[`component/sidebar/sidebar_channel/SidebarChannel should show/hide corre
       </span>
     </button>
   </div>
+  <div
+    className="sidebar-resizer"
+    id="sidebar-resizer"
+    onMouseDown={[Function]}
+  />
 </div>
 `;
 
@@ -1945,6 +1980,11 @@ exports[`component/sidebar/sidebar_channel/SidebarChannel should show/hide corre
       </span>
     </button>
   </div>
+  <div
+    className="sidebar-resizer"
+    id="sidebar-resizer"
+    onMouseDown={[Function]}
+  />
 </div>
 `;
 
@@ -2187,6 +2227,11 @@ exports[`component/sidebar/sidebar_channel/SidebarChannel should show/hide corre
       </span>
     </button>
   </div>
+  <div
+    className="sidebar-resizer"
+    id="sidebar-resizer"
+    onMouseDown={[Function]}
+  />
 </div>
 `;
 
@@ -2429,5 +2474,10 @@ exports[`component/sidebar/sidebar_channel/SidebarChannel should show/hide corre
       </span>
     </button>
   </div>
+  <div
+    className="sidebar-resizer"
+    id="sidebar-resizer"
+    onMouseDown={[Function]}
+  />
 </div>
 `;

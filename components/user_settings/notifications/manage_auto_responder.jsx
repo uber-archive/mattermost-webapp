@@ -9,10 +9,11 @@ import AutosizeTextarea from 'components/autosize_textarea.jsx';
 import SettingItemMax from 'components/setting_item_max.jsx';
 import {localizeMessage} from 'utils/utils.jsx';
 
-const MESSAGE_MAX_LENGTH = 200;
+const MESSAGE_MAX_LENGTH = 500;
 
 export default class ManageAutoResponder extends React.PureComponent {
     static propTypes = {
+        isOooStatusDropdown: PropTypes.bool,
         autoResponderActive: PropTypes.bool.isRequired,
         autoResponderMessage: PropTypes.string.isRequired,
         updateSection: PropTypes.func.isRequired,
@@ -21,7 +22,9 @@ export default class ManageAutoResponder extends React.PureComponent {
         saving: PropTypes.bool.isRequired,
         error: PropTypes.string,
     };
-
+    static defaultProps = {
+        isOooStatusDropdown: false,
+    }
     handleAutoResponderChecked = (e) => {
         this.props.setParentState('autoResponderActive', e.target.checked);
     };
@@ -35,15 +38,16 @@ export default class ManageAutoResponder extends React.PureComponent {
             autoResponderActive,
             autoResponderMessage,
         } = this.props;
-
         let serverError;
         if (this.props.error) {
             serverError = <label className='has-error'>{this.props.error}</label>;
         }
 
         const inputs = [];
-
-        const activeToggle = (
+        if (autoResponderActive) {
+            this.props.setParentState('autoResponderActive', true);
+        }
+        let activeToggle = (
             <div
                 id='autoResponderCheckbox'
                 key='autoResponderCheckbox'
@@ -64,6 +68,7 @@ export default class ManageAutoResponder extends React.PureComponent {
             </div>
         );
 
+        activeToggle = this.props.isOooStatusDropdown ? null : activeToggle;
         const message = (
             <div
                 id='autoResponderMessage'
@@ -81,6 +86,10 @@ export default class ManageAutoResponder extends React.PureComponent {
                         onChange={this.onMessageChanged}
                     />
                     {serverError}
+                </div>
+                {/* eslint-disable-next-line react/jsx-no-literals */}
+                <div className='text-muted text-right'>
+                    Max. character limit is {MESSAGE_MAX_LENGTH}
                 </div>
             </div>
         );
@@ -100,20 +109,23 @@ export default class ManageAutoResponder extends React.PureComponent {
         ));
 
         return (
-            <SettingItemMax
-                title={
-                    <FormattedMessage
-                        id='user.settings.notifications.autoResponder'
-                        defaultMessage='Automatic Direct Message Replies'
-                    />
-                }
-                width='medium'
-                shiftEnter={true}
-                submit={this.props.submit}
-                saving={this.props.saving}
-                inputs={inputs}
-                updateSection={this.props.updateSection}
-            />
+            <div className=''>
+                <SettingItemMax
+
+                    // title={
+                    //     <FormattedMessage
+                    //         id='user.settings.notifications.autoResponder'
+                    //         defaultMessage='Automatic Direct Message Replies'
+                    //     />
+                    // }
+                    width='full'
+                    shiftEnter={true}
+                    submit={this.props.submit}
+                    saving={this.props.saving}
+                    inputs={inputs}
+                    updateSection={this.props.updateSection}
+                />
+            </div>
         );
     }
 }

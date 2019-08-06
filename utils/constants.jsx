@@ -198,6 +198,7 @@ export const ModalIdentifiers = {
     EMAIL_INVITE: 'email_invite',
     INTERACTIVE_DIALOG: 'interactive_dialog',
     ADD_TEAMS_TO_SCHEME: 'add_teams_to_scheme',
+    STATUS_DROPDOWN: 'status_dropdown',
 };
 
 export const UserStatuses = {
@@ -746,6 +747,7 @@ export const Constants = {
             onlineIndicator: '#06d6a0',
             awayIndicator: '#ffbc42',
             dndIndicator: '#f74343',
+            oooIndicator: '#0000ff',
             mentionBg: '#ffffff',
             mentionColor: '#145dbf',
             centerChannelBg: '#ffffff',
@@ -773,6 +775,7 @@ export const Constants = {
             onlineIndicator: '#7dbe00',
             awayIndicator: '#dcbd4e',
             dndIndicator: '#ff6a6a',
+            oooIndicator: '#ffbc42',
             mentionBg: '#fbfbfb',
             mentionColor: '#2071f7',
             centerChannelBg: '#f2f4f8',
@@ -850,6 +853,7 @@ export const Constants = {
             onlineIndicator: '#65dcc8',
             awayIndicator: '#c1b966',
             dndIndicator: '#e81023',
+            oooIndicator: '#ffbc42',
             mentionBg: '#b74a4a',
             mentionColor: '#ffffff',
             centerChannelBg: '#2f3e4e',
@@ -877,6 +881,7 @@ export const Constants = {
             onlineIndicator: '#399fff',
             awayIndicator: '#c1b966',
             dndIndicator: '#e81023',
+            oooIndicator: '#ffbc42',
             mentionBg: '#0177e7',
             mentionColor: '#ffffff',
             centerChannelBg: '#1f1f1f',
@@ -946,6 +951,11 @@ export const Constants = {
         {
             group: 'sidebarElements',
             id: 'dndIndicator',
+            uiName: 'Away Indicator',
+        },
+        {
+            group: 'sidebarElements',
+            id: 'oooIndicator',
             uiName: 'Away Indicator',
         },
         {

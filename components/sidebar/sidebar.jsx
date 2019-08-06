@@ -190,11 +190,10 @@ export default class Sidebar extends React.PureComponent {
         document.addEventListener('keydown', this.navigateChannelShortcut);
         document.addEventListener('keydown', this.navigateUnreadChannelShortcut);
         document.addEventListener('mouseup', this.unbind);
-        document.getElementById('sidebar-resizer').addEventListener('mousedown', this.resizePanel);
     }
 
-    resizePanel(e) {
-        e.preventDefault();
+    resizePanel(event) {
+        event.preventDefault();
         $(document).mousemove((e) => {
             e.preventDefault();
             let xMargin = 0;
@@ -783,6 +782,7 @@ export default class Sidebar extends React.PureComponent {
                 <div
                     className='sidebar-resizer'
                     id='sidebar-resizer'
+                    onMouseDown={this.resizePanel}
                 />
             </div>
         );

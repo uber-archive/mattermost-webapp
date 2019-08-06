@@ -501,7 +501,7 @@ describe('component/sidebar/sidebar_channel/SidebarChannel', () => {
         );
         const instance = wrapper.instance();
 
-        expect(document.addEventListener).toHaveBeenCalledTimes(2);
+        expect(document.addEventListener).toHaveBeenCalledTimes(3);
         expect(document.removeEventListener).not.toBeCalled();
         instance.componentWillUnmount();
         expect(document.removeEventListener).toHaveBeenCalledTimes(2);

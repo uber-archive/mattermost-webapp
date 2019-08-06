@@ -573,6 +573,7 @@ export default {
                                     display_name: t('admin.team.showUsername'),
                                     display_name_default: 'Show username (default)',
                                 },
+
                                 // {
                                 //     value: Constants.TEAMMATE_NAME_DISPLAY.SHOW_NICKNAME_FULLNAME,
                                 //     display_name: t('admin.team.showNickname'),

@@ -503,6 +503,7 @@ export default class UserSettingsDisplay extends React.Component {
                     message: 'Show username',
                 },
             },
+
             // thirdOption: {
             //     value: Constants.TEAMMATE_NAME_DISPLAY.SHOW_NICKNAME_FULLNAME,
             //     radionButtonText: {

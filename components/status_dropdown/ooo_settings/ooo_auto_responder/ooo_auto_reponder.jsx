@@ -26,7 +26,6 @@ function getNotificationsStateFromProps(props) {
             autoResponderMessage = user.notify_props.auto_responder_message;
         }
     }
-
     return {
 
         autoResponderActive,

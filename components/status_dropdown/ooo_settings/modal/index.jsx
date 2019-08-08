@@ -4,7 +4,7 @@
 import {connect} from 'react-redux';
 import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 
-import OooAutoResponderModal from './ooo_settings_modal.jsx';
+import OooSettingsModal from './ooo_settings_modal.jsx';
 
 function mapStateToProps(state) {
     return {
@@ -12,4 +12,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(OooAutoResponderModal);
+export default connect(mapStateToProps)(OooSettingsModal);

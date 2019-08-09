@@ -6,6 +6,8 @@ import React from 'react';
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
+import $ from 'jquery';
+
 import {mark, trackEvent} from 'actions/diagnostics_actions.jsx';
 import Constants from 'utils/constants.jsx';
 import {isDesktopApp} from 'utils/user_agent.jsx';
@@ -25,6 +27,7 @@ export default class TeamButton extends React.Component {
         mark('TeamLink#click');
         trackEvent('ui', 'ui_team_sidebar_switch_team');
         this.props.switchTeam(this.props.url);
+        $('#sidebar-left').css('width', Constants.SIDEBAR_DEFAULT_WIDTH);
     }
 
     handleDisabled(e) {

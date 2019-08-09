@@ -5,6 +5,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
+import {OverlayTrigger, Tooltip} from 'react-bootstrap';
+
 import {browserHistory} from 'utils/browser_history';
 import {mark, trackEvent} from 'actions/diagnostics_actions.jsx';
 import {isDesktopApp} from 'utils/user_agent.jsx';
@@ -115,15 +117,20 @@ export default class SidebarChannelButtonOrLink extends React.PureComponent {
             );
         } else {
             element = (
-                <Link
-                    id={`sidebarItem_${this.props.channelName}`}
-                    to={this.props.link}
-                    className={this.props.rowClass}
-                    onClick={this.trackChannelSelectedEvent}
-                    title={this.props.displayName}
+                <OverlayTrigger
+                    overlay={
+                        <Tooltip id={`sidebarItem_Tooltip_${this.props.channelName}`}>{this.props.displayName}</Tooltip>
+                    }
                 >
-                    {content}
-                </Link>
+                    <Link
+                        id={`sidebarItem_${this.props.channelName}`}
+                        to={this.props.link}
+                        className={this.props.rowClass}
+                        onClick={this.trackChannelSelectedEvent}
+                    >
+                        {content}
+                    </Link>
+                </OverlayTrigger>
             );
         }
 

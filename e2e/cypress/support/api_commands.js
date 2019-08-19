@@ -105,6 +105,21 @@ Cypress.Commands.add('apiCreateChannel', (teamId, name, displayName, type = 'O',
 });
 
 /**
+ * Creates a new group channel directly via API
+ * This API assume that the user is logged in and has cookie to access
+ * @param {String} userids - array of userids
+ * All parameters required
+ */
+Cypress.Commands.add('apiCreateGroupChannel', (userids) => {
+    return cy.request({
+        headers: {'X-Requested-With': 'XMLHttpRequest'},
+        url: '/api/v4/channels/group',
+        method: 'POST',
+        body: userids,
+    });
+});
+
+/**
  * Deletes a channel directly via API
  * This API assume that the user is logged in and has cookie to access
  * @param {String} channelId - The channel ID to be deleted
@@ -366,6 +381,15 @@ Cypress.Commands.add('apiSaveUserPreference', (preferences = [], userId = 'me') 
         url: `/api/v4/users/${userId}/preferences`,
         method: 'PUT',
         body: preferences,
+    });
+});
+
+Cypress.Commands.add('getUsers', (usernames = []) => {
+    return cy.request({
+        headers: {'X-Requested-With': 'XMLHttpRequest'},
+        url: '/api/v4/users/usernames',
+        method: 'POST',
+        body: usernames,
     });
 });
 

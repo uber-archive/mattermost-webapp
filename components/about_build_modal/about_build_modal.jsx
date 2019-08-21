@@ -71,17 +71,19 @@ export default class AboutBuildModal extends React.PureComponent {
 
         let learnMore = (
             <div>
-                <FormattedMessage
-                    id='about.teamEditionLearn'
-                    defaultMessage='Join the uChat community at '
-                />
-                <a
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    href='https://uchat.uberinternal.com/downloads'
-                >
-                    {'uchat.uberinternal.com'}
-                </a>
+                <div>
+                    <FormattedMessage
+                        id='about.teamEditionLearn'
+                        defaultMessage='Join the uChat community at '
+                    />
+                    <a
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        href='https://uchat.uberinternal.com/downloads'
+                    >
+                        {'uchat.uberinternal.com'}
+                    </a>
+                </div>
             </div>
         );
 
@@ -102,18 +104,21 @@ export default class AboutBuildModal extends React.PureComponent {
             );
 
             learnMore = (
-                <div>
-                    <FormattedMessage
-                        id='about.enterpriseEditionLearn'
-                        defaultMessage='Learn more at '
-                    />
-                    <a
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        href='https://uchat.uberinternal.com/downloads'
-                    >
-                        {'uchat.uberinternal.com'}
-                    </a>
+                <div >
+                    <div id='learn_info'>
+                        <FormattedMessage
+                            id='about.enterpriseEditionLearn'
+                            defaultMessage='Learn more at '
+                        />
+                        <a
+                            id='learn_link'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            ref='https://uchat.uberinternal.com/downloads'
+                        >
+                            {'uchat.uberinternal.com'}
+                        </a>
+                    </div>
                 </div>
             );
 
@@ -126,7 +131,10 @@ export default class AboutBuildModal extends React.PureComponent {
                 );
                 if (license.Company) {
                     licensee = (
-                        <div className='form-group'>
+                        <div
+                            className='form-group'
+                            id='license_check'
+                        >
                             <FormattedMessage
                                 id='about.licensed'
                                 defaultMessage='Licensed to:'
@@ -142,6 +150,7 @@ export default class AboutBuildModal extends React.PureComponent {
         if (config.TermsOfServiceLink) {
             termsOfService = (
                 <a
+                    id='terms_of_service'
                     target='_blank'
                     rel='noopener noreferrer'
                     href={config.TermsOfServiceLink}
@@ -158,6 +167,7 @@ export default class AboutBuildModal extends React.PureComponent {
         if (config.PrivacyPolicyLink) {
             privacyPolicy = (
                 <a
+                    id='privacy_policy'
                     target='_blank'
                     rel='noopener noreferrer'
                     href={config.PrivacyPolicyLink}
@@ -205,7 +215,7 @@ export default class AboutBuildModal extends React.PureComponent {
                 onHide={this.doHide}
             >
                 <Modal.Header closeButton={true}>
-                    <Modal.Title>
+                    <Modal.Title id='about_title'>
                         <FormattedMessage
                             id='about.title'
                             defaultMessage='About uChat'
@@ -218,12 +228,20 @@ export default class AboutBuildModal extends React.PureComponent {
                             <MattermostLogo/>
                         </div>
                         <div>
-                            <h3 className='about-modal__title'>
+                            <h3
+                                className='about-modal__title'
+                                id='about_modal_title'
+                            >
                                 {'uChat'} {title}
                             </h3>
-                            <p className='about-modal__subtitle padding-bottom'>{subTitle}</p>
+                            <p
+                                className='about-modal__subtitle padding-bottom'
+                                id='about_modal_subtitle'
+                            >
+                                {subTitle}
+                            </p>
                             <div className='form-group less'>
-                                <div>
+                                <div id='about_version'>
                                     <FormattedMessage
                                         id='about.version'
                                         defaultMessage='uChat Version:'
@@ -252,7 +270,10 @@ export default class AboutBuildModal extends React.PureComponent {
                     <div className='about-modal__footer'>
                         {learnMore}
                         <div className='form-group'>
-                            <div className='about-modal__copyright'>
+                            <div
+                                className='about-modal__copyright'
+                                id='copyright_msg'
+                            >
                                 <FormattedMessage
                                     id='about.copyright'
                                     defaultMessage='Copyright 2015 - {currentYear} Uber Technologies, Inc. All rights reserved'
@@ -268,7 +289,10 @@ export default class AboutBuildModal extends React.PureComponent {
                             </div>
                         </div>
                     </div>
-                    <div className='about-modal__notice form-group padding-top x2'>
+                    <div
+                        className='about-modal__notice form-group padding-top x2'
+                        id='about_notice'
+                    >
                         <p>
                             <FormattedMarkdownMessage
                                 id='about.notice'

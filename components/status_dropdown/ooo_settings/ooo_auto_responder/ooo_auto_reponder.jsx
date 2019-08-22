@@ -36,10 +36,7 @@ function getNotificationsStateFromProps(props) {
 
 export default class oooAutoResponder extends React.Component {
     static propTypes = {
-        user: PropTypes.object,
         updateSection: PropTypes.func,
-        activeSection: PropTypes.string,
-        closeModal: PropTypes.func.isRequired,
         enableAutoResponder: PropTypes.bool,
         actions: PropTypes.shape({
             updateMe: PropTypes.func.isRequired,
@@ -61,7 +58,6 @@ export default class oooAutoResponder extends React.Component {
         const data = {};
         data.auto_responder_active = this.state.autoResponderActive.toString();
         data.auto_responder_message = this.state.autoResponderMessage;
-
         if (!data.auto_responder_message || data.auto_responder_message === '') {
             data.auto_responder_message = Utils.localizeMessage(
                 'user.settings.notifications.autoResponderDefault',
@@ -122,7 +118,6 @@ export default class oooAutoResponder extends React.Component {
                     error={this.state.serverError}
                     saving={this.state.isSaving}
                 />
-                <div className='divider-dark'/>
             </div>
         );
         return (

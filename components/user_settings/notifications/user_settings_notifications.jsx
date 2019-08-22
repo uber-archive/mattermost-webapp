@@ -12,6 +12,7 @@ import SettingItemMin from 'components/setting_item_min.jsx';
 
 import DesktopNotificationSettings from './desktop_notification_settings.jsx';
 import EmailNotificationSetting from './email_notification_setting';
+import ManageAutoResponder from './manage_auto_responder.jsx';
 
 function getNotificationsStateFromProps(props) {
     const user = props.user;
@@ -125,6 +126,7 @@ export default class NotificationsTab extends React.Component {
         siteName: PropTypes.string,
         sendPushNotifications: PropTypes.bool,
         enableAutoResponder: PropTypes.bool,
+        showOutOfOfficeInStatusDropdown: PropTypes.bool.isRequired,
         actions: PropTypes.shape({
             updateMe: PropTypes.func.isRequired,
         }).isRequired,
@@ -829,6 +831,54 @@ export default class NotificationsTab extends React.Component {
             );
         }
 
+        let autoResponderSection;
+        if (this.props.enableAutoResponder) {
+            if (this.props.activeSection === 'auto-responder') {
+                autoResponderSection = (
+                    <div>
+                        <ManageAutoResponder
+                            autoResponderActive={this.state.autoResponderActive}
+                            autoResponderMessage={this.state.autoResponderMessage}
+                            updateSection={this.updateSection}
+                            setParentState={this.setStateValue}
+                            submit={this.handleSubmit}
+                            error={this.state.serverError}
+                            saving={this.state.isSaving}
+                        />
+                        <div className='divider-dark'/>
+                    </div>
+                );
+            } else {
+                const describe = this.state.autoResponderActive ? (
+                    <FormattedMessage
+                        id='user.settings.notifications.autoResponderEnabled'
+                        defaultMessage='Enabled'
+                    />
+                ) : (
+                    <FormattedMessage
+                        id='user.settings.notifications.autoResponderDisabled'
+                        defaultMessage='Disabled'
+                    />
+                );
+
+                autoResponderSection = (
+
+                    <SettingItemMin
+                        title={
+                            <FormattedMessage
+                                id='user.settings.notifications.autoResponder'
+                                defaultMessage='Automatic Direct Message Replies'
+                            />
+                        }
+                        width='medium'
+                        describe={describe}
+                        section={'auto-responder'}
+                        updateSection={this.updateSection}
+                    />
+                );
+            }
+        }
+
         const pushNotificationSection = this.createPushNotificationSection();
 
         return (
@@ -912,7 +962,8 @@ export default class NotificationsTab extends React.Component {
                     {keysSection}
                     <div className='divider-light'/>
                     {commentsSection}
-                    <div className='divider-light'/>
+                    {!this.props.showOutOfOfficeInStatusDropdown && <div> <div className='divider-light'/> {autoResponderSection} </div> }
+                    <div className='divider-dark'/>
                 </div>
             </div>
 

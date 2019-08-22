@@ -4,7 +4,7 @@ import React from 'react';
 import {Modal} from 'react-bootstrap';
 import ReactDOM from 'react-dom';
 
-import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
+import {FormattedMessage, injectIntl} from 'react-intl';
 import PropTypes from 'prop-types';
 
 import Constants from 'utils/constants.jsx';
@@ -17,8 +17,7 @@ class AutoResponderModal extends React.Component {
     static propTypes = {
         currentUser: PropTypes.object,
         onHide: PropTypes.func.isRequired,
-        intl: intlShape.isRequired,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -124,24 +123,6 @@ class AutoResponderModal extends React.Component {
         });
     };
 
-    // Called by settings tabs when their close button is pressed
-    closeModal = () => {
-        if (this.requireConfirm) {
-            this.showConfirmModal(this.closeModal);
-        } else {
-            this.handleHide();
-        }
-    };
-
-    // Called by settings tabs when their back button is pressed
-    collapseModal = () => {
-        if (this.requireConfirm) {
-            this.showConfirmModal(this.collapseModal);
-        } else {
-            this.handleCollapse();
-        }
-    };
-
     updateSection = (section, skipConfirm) => {
         if (!skipConfirm && this.requireConfirm) {
             this.showConfirmModal(() => this.updateSection(section, true));
@@ -184,11 +165,7 @@ class AutoResponderModal extends React.Component {
                     <div>
                         <AsyncComponent
                             doLoad={OooSetting}
-                            activeSection={this.state.active_section}
-                            prevActiveSection={this.state.prev_active_section}
                             updateSection={this.updateSection}
-                            closeModal={this.closeModal}
-                            collapseModal={this.collapseModal}
                         />
                     </div>
                 </Modal.Body>

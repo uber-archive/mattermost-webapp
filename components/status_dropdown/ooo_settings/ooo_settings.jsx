@@ -9,24 +9,17 @@ import OooAutoResponder from './ooo_auto_responder';
 export default class OooSettings extends React.PureComponent {
     static propTypes = {
         user: PropTypes.object.isRequired,
-        activeTab: PropTypes.string,
-        activeSection: PropTypes.string,
-        prevActiveSection: PropTypes.string,
         updateSection: PropTypes.func,
-        closeModal: PropTypes.func.isRequired,
         collapseModal: PropTypes.func.isRequired,
-    }
+    };
 
     render() {
         return (
+            // eslint-disable-next-line react/jsx-filename-extension
             <div>
                 <OooAutoResponder
                     user={this.props.user}
-                    activeSection={this.props.activeSection}
-                    prevActiveSection={this.props.prevActiveSection}
                     updateSection={this.props.updateSection}
-                    closeModal={this.props.closeModal}
-                    collapseModal={this.props.collapseModal}
                 />
                 <div className='divider-dark'/>
             </div>

@@ -28,6 +28,7 @@ export default class StatusDropdown extends React.Component {
         userId: PropTypes.string.isRequired,
         profilePicture: PropTypes.string,
         autoResetPref: PropTypes.string,
+        showOutOfOfficeInStatusDropdown: PropTypes.bool.isRequired,
         actions: PropTypes.shape({
             openModal: PropTypes.func.isRequired,
             setStatus: PropTypes.func.isRequired,
@@ -133,12 +134,6 @@ export default class StatusDropdown extends React.Component {
         );
     };
 
-    setStateValue = (key, value) => {
-        const data = {};
-        data[key] = value;
-        this.setState(data);
-    };
-
     updateSection = (section) => {
         this.setState({isSaving: false});
         // eslint-disable-next-line react/prop-types
@@ -156,6 +151,7 @@ export default class StatusDropdown extends React.Component {
         const setAway = needsConfirm ? () => this.showStatusChangeConfirmation('away') : this.setAway;
         const setOffline = needsConfirm ? () => this.showStatusChangeConfirmation('offline') : this.setOffline;
         const setOutOfOffice = needsConfirm ? () => null : this.setOutOfOffice;
+
         return (
             <MenuWrapper
                 onToggle={this.onToggle}
@@ -193,7 +189,7 @@ export default class StatusDropdown extends React.Component {
                             extraText={localizeMessage('status_dropdown.set_dnd.extra', 'Disables Desktop and Push Notifications')}
                         />
                         <MenuItemAction
-                            show={!this.isUserOutOfOffice()}
+                            show={this.props.showOutOfOfficeInStatusDropdown && !this.isUserOutOfOffice()}
                             onClick={setOutOfOffice}
                             text={localizeMessage('status_dropdown.set_ooo', 'Out of office')}
 

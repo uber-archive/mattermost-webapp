@@ -22,9 +22,11 @@ export default class ManageAutoResponder extends React.PureComponent {
         saving: PropTypes.bool.isRequired,
         error: PropTypes.string,
     };
+
     static defaultProps = {
         isOooStatusDropdown: false,
-    }
+    };
+
     handleAutoResponderChecked = (e) => {
         this.props.setParentState('autoResponderActive', e.target.checked);
     };
@@ -89,7 +91,7 @@ export default class ManageAutoResponder extends React.PureComponent {
                 </div>
                 {/* eslint-disable-next-line react/jsx-no-literals */}
                 <div className='text-muted text-right'>
-                    Max. character limit is {MESSAGE_MAX_LENGTH}
+                    {localizeMessage('user.settings.notifications.maxSize', 'Max. character limit is ')}{MESSAGE_MAX_LENGTH}
                 </div>
             </div>
         );
@@ -107,17 +109,9 @@ export default class ManageAutoResponder extends React.PureComponent {
                 />
             </div>
         ));
-
         return (
             <div className=''>
                 <SettingItemMax
-
-                    // title={
-                    //     <FormattedMessage
-                    //         id='user.settings.notifications.autoResponder'
-                    //         defaultMessage='Automatic Direct Message Replies'
-                    //     />
-                    // }
                     width='full'
                     shiftEnter={true}
                     submit={this.props.submit}

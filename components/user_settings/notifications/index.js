@@ -14,11 +14,13 @@ function mapStateToProps(state) {
     const siteName = config.SiteName;
     const sendPushNotifications = config.SendPushNotifications === 'true';
     const enableAutoResponder = config.ExperimentalEnableAutomaticReplies === 'true';
+    const showOutOfOfficeInStatusDropdown = config.ShowOutOfOfficeInStatusDropdown === 'true';
 
     return {
         siteName,
         sendPushNotifications,
         enableAutoResponder,
+        showOutOfOfficeInStatusDropdown,
     };
 }
 

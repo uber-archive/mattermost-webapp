@@ -506,6 +506,19 @@ exports[`components/AdminSidebar should match snapshot 1`] = `
               }
             />
             <AdminSidebarSection
+              key="out_of_office"
+              name="out_of_office"
+              parentLink=""
+              subsection={false}
+              title={
+                <FormattedMessage
+                  defaultMessage="Out Of Office"
+                  id="admin.sidebar.outOfOffice"
+                  values={Object {}}
+                />
+              }
+            />
+            <AdminSidebarSection
               key="gif"
               name="gif"
               parentLink=""
@@ -1126,6 +1139,19 @@ exports[`components/AdminSidebar should match snapshot, not render the plugin in
                 <FormattedMessage
                   defaultMessage="Emoji"
                   id="admin.sidebar.emoji"
+                  values={Object {}}
+                />
+              }
+            />
+            <AdminSidebarSection
+              key="out_of_office"
+              name="out_of_office"
+              parentLink=""
+              subsection={false}
+              title={
+                <FormattedMessage
+                  defaultMessage="Out Of Office"
+                  id="admin.sidebar.outOfOffice"
                   values={Object {}}
                 />
               }
@@ -1859,6 +1885,19 @@ exports[`components/AdminSidebar should match snapshot, with license (with all f
                 <FormattedMessage
                   defaultMessage="Emoji"
                   id="admin.sidebar.emoji"
+                  values={Object {}}
+                />
+              }
+            />
+            <AdminSidebarSection
+              key="out_of_office"
+              name="out_of_office"
+              parentLink=""
+              subsection={false}
+              title={
+                <FormattedMessage
+                  defaultMessage="Out Of Office"
+                  id="admin.sidebar.outOfOffice"
                   values={Object {}}
                 />
               }
@@ -2656,6 +2695,19 @@ exports[`components/AdminSidebar should match snapshot, with license (without an
                 <FormattedMessage
                   defaultMessage="Emoji"
                   id="admin.sidebar.emoji"
+                  values={Object {}}
+                />
+              }
+            />
+            <AdminSidebarSection
+              key="out_of_office"
+              name="out_of_office"
+              parentLink=""
+              subsection={false}
+              title={
+                <FormattedMessage
+                  defaultMessage="Out Of Office"
+                  id="admin.sidebar.outOfOffice"
                   values={Object {}}
                 />
               }

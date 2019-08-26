@@ -18,6 +18,7 @@ describe('components/user_settings/display/UserSettingsDisplay', () => {
         closeModal: jest.fn(),
         collapseModal: jest.fn(),
         prevActiveSection: '',
+        showOutOfOfficeInStatusDropdown: false,
         actions: {
             updateMe: jest.fn(() => Promise.resolve({})),
         },

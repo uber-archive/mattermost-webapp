@@ -232,6 +232,7 @@ exports[`components/select_team/components/SelectTeamItem should match snapshot,
               "useMemo": [Function],
               "useReducer": [Function],
               "useRef": [Function],
+              "useResponder": [Function],
               "useState": [Function],
             },
             "_element": <SelectTeamItem

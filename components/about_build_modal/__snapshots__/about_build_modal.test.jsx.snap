@@ -33,6 +33,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
     closeLabel="Close"
   >
     <ModalTitle
+      id="about_title"
       bsClass="modal-title"
       componentClass="h4"
     >
@@ -58,9 +59,10 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
       <div>
         <h3
           className="about-modal__title"
+          id="about_modal_title"
         >
           uChat
-           
+
           <FormattedMessage
             defaultMessage="Enterprise Edition"
             id="about.enterpriseEditione1"
@@ -69,6 +71,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
         </h3>
         <p
           className="about-modal__subtitle padding-bottom"
+          id="about_modal_subtitle"
         >
           <FormattedMessage
             defaultMessage="Modern communication from behind your firewall."
@@ -79,7 +82,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
         <div
           className="form-group less"
         >
-          <div>
+          <div id="about_version">
             <FormattedMessage
               defaultMessage="uChat Version:"
               id="about.version"
@@ -114,13 +117,14 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
         </div>
         <div
           className="form-group"
+          id="license_check"
         >
           <FormattedMessage
             defaultMessage="Licensed to:"
             id="about.licensed"
             values={Object {}}
           />
-           
+
           Mattermost Inc
         </div>
       </div>
@@ -147,6 +151,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
       >
         <div
           className="about-modal__copyright"
+          id="copyright_msg"
         >
           <FormattedMessage
             defaultMessage="Copyright 2015 - {currentYear} Uber Technologies, Inc. All rights reserved"
@@ -161,7 +166,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
         <div
           className="about-modal__links"
         >
-          <a
+          <a id="terms_of_service"
             href="https://about.mattermost.com/default-terms/"
             rel="noopener noreferrer"
             target="_blank"
@@ -173,9 +178,9 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
             />
           </a>
           <span>
-             - 
+             -
           </span>
-          <a
+          <a id="privacy_policy"
             href="https://mattermost.com/privacy-policy/"
             rel="noopener noreferrer"
             target="_blank"
@@ -191,6 +196,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
     </div>
     <div
       className="about-modal__notice form-group padding-top x2"
+      id="about_notice"
     >
       <p>
         <InjectIntl(FormattedMarkdownMessage)
@@ -208,7 +214,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
           id="about.hash"
           values={Object {}}
         />
-         
+
         abcdef1234567890
         <br />
         <FormattedMessage
@@ -216,7 +222,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
           id="about.hashee"
           values={Object {}}
         />
-         
+
         0123456789abcdef
         <br />
         <FormattedMessage
@@ -224,7 +230,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
           id="about.hashwebapp"
           values={Object {}}
         />
-         
+
         0a1b2c3d4f
       </p>
       <p>
@@ -233,7 +239,7 @@ exports[`components/AboutBuildModal should match snapshot for enterprise edition
           id="about.date"
           values={Object {}}
         />
-         
+
         21 January 2017
       </p>
     </div>
@@ -274,6 +280,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
     closeLabel="Close"
   >
     <ModalTitle
+      id="about_title"
       bsClass="modal-title"
       componentClass="h4"
     >
@@ -299,9 +306,10 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
       <div>
         <h3
           className="about-modal__title"
+          id="about_modal_title"
         >
           uChat
-           
+
           <FormattedMessage
             defaultMessage="Team Edition"
             id="about.teamEditiont0"
@@ -310,6 +318,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
         </h3>
         <p
           className="about-modal__subtitle padding-bottom"
+          id="about_modal_subtitle"
         >
           <FormattedMessage
             defaultMessage="All your team communication in one place, instantly searchable and accessible anywhere."
@@ -320,7 +329,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
         <div
           className="form-group less"
         >
-          <div>
+          <div id="about_version">
             <FormattedMessage
               defaultMessage="uChat Version:"
               id="about.version"
@@ -377,6 +386,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
       >
         <div
           className="about-modal__copyright"
+          id="copyright_msg"
         >
           <FormattedMessage
             defaultMessage="Copyright 2015 - {currentYear} Uber Technologies, Inc. All rights reserved"
@@ -391,7 +401,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
         <div
           className="about-modal__links"
         >
-          <a
+          <a id="terms_of_service"
             href="https://about.mattermost.com/default-terms/"
             rel="noopener noreferrer"
             target="_blank"
@@ -403,9 +413,9 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
             />
           </a>
           <span>
-             - 
+             -
           </span>
-          <a
+          <a id="privacy_policy"
             href="https://mattermost.com/privacy-policy/"
             rel="noopener noreferrer"
             target="_blank"
@@ -421,6 +431,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
     </div>
     <div
       className="about-modal__notice form-group padding-top x2"
+      id="about_notice"
     >
       <p>
         <InjectIntl(FormattedMarkdownMessage)
@@ -438,7 +449,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
           id="about.hash"
           values={Object {}}
         />
-         
+
         abcdef1234567890
         <br />
         <FormattedMessage
@@ -446,14 +457,14 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
           id="about.hashee"
           values={Object {}}
         />
-         
+
         <br />
         <FormattedMessage
           defaultMessage="Webapp Build Hash:"
           id="about.hashwebapp"
           values={Object {}}
         />
-         
+
         0a1b2c3d4f
       </p>
       <p>
@@ -462,7 +473,7 @@ exports[`components/AboutBuildModal should match snapshot for team edition 1`] =
           id="about.date"
           values={Object {}}
         />
-         
+
         21 January 2017
       </p>
     </div>
@@ -503,6 +514,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
     closeLabel="Close"
   >
     <ModalTitle
+      id="about_title"
       bsClass="modal-title"
       componentClass="h4"
     >
@@ -528,9 +540,10 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
       <div>
         <h3
           className="about-modal__title"
+          id="about_modal_title"
         >
           uChat
-           
+
           <FormattedMessage
             defaultMessage="Team Edition"
             id="about.teamEditiont0"
@@ -539,6 +552,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
         </h3>
         <p
           className="about-modal__subtitle padding-bottom"
+          id="about_modal_subtitle"
         >
           <FormattedMessage
             defaultMessage="All your team communication in one place, instantly searchable and accessible anywhere."
@@ -549,7 +563,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
         <div
           className="form-group less"
         >
-          <div>
+          <div id="about_version">
             <FormattedMessage
               defaultMessage="uChat Version:"
               id="about.version"
@@ -618,6 +632,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
       >
         <div
           className="about-modal__copyright"
+          id="copyright_msg"
         >
           <FormattedMessage
             defaultMessage="Copyright 2015 - {currentYear} Uber Technologies, Inc. All rights reserved"
@@ -632,7 +647,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
         <div
           className="about-modal__links"
         >
-          <a
+          <a id="terms_of_service"
             href="https://about.mattermost.com/default-terms/"
             rel="noopener noreferrer"
             target="_blank"
@@ -644,9 +659,9 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
             />
           </a>
           <span>
-             - 
+             -
           </span>
-          <a
+          <a id="privacy_policy"
             href="https://mattermost.com/privacy-policy/"
             rel="noopener noreferrer"
             target="_blank"
@@ -662,6 +677,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
     </div>
     <div
       className="about-modal__notice form-group padding-top x2"
+      id="about_notice"
     >
       <p>
         <InjectIntl(FormattedMarkdownMessage)
@@ -679,7 +695,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
           id="about.hash"
           values={Object {}}
         />
-         
+
         abcdef1234567890
         <br />
         <FormattedMessage
@@ -687,14 +703,14 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
           id="about.hashee"
           values={Object {}}
         />
-         
+
         <br />
         <FormattedMessage
           defaultMessage="Webapp Build Hash:"
           id="about.hashwebapp"
           values={Object {}}
         />
-         
+
         0a1b2c3d4f
       </p>
       <p>
@@ -703,7 +719,7 @@ exports[`components/AboutBuildModal should show ci if a ci build 1`] = `
           id="about.date"
           values={Object {}}
         />
-         
+
         21 January 2017
       </p>
     </div>
@@ -744,6 +760,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
     closeLabel="Close"
   >
     <ModalTitle
+      id="about_title"
       bsClass="modal-title"
       componentClass="h4"
     >
@@ -769,9 +786,10 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
       <div>
         <h3
           className="about-modal__title"
+          id="about_modal_title"
         >
           uChat
-           
+
           <FormattedMessage
             defaultMessage="Team Edition"
             id="about.teamEditiont0"
@@ -780,6 +798,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
         </h3>
         <p
           className="about-modal__subtitle padding-bottom"
+          id="about_modal_subtitle"
         >
           <FormattedMessage
             defaultMessage="All your team communication in one place, instantly searchable and accessible anywhere."
@@ -790,7 +809,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
         <div
           className="form-group less"
         >
-          <div>
+          <div id="about_version">
             <FormattedMessage
               defaultMessage="uChat Version:"
               id="about.version"
@@ -847,6 +866,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
       >
         <div
           className="about-modal__copyright"
+          id="copyright_msg"
         >
           <FormattedMessage
             defaultMessage="Copyright 2015 - {currentYear} Uber Technologies, Inc. All rights reserved"
@@ -861,7 +881,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
         <div
           className="about-modal__links"
         >
-          <a
+          <a id="terms_of_service"
             href="https://about.mattermost.com/default-terms/"
             rel="noopener noreferrer"
             target="_blank"
@@ -873,9 +893,9 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
             />
           </a>
           <span>
-             - 
+             -
           </span>
-          <a
+          <a id="privacy_policy"
             href="https://mattermost.com/privacy-policy/"
             rel="noopener noreferrer"
             target="_blank"
@@ -891,6 +911,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
     </div>
     <div
       className="about-modal__notice form-group padding-top x2"
+      id="about_notice"
     >
       <p>
         <InjectIntl(FormattedMarkdownMessage)
@@ -908,7 +929,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
           id="about.hash"
           values={Object {}}
         />
-         
+
         abcdef1234567890
         <br />
         <FormattedMessage
@@ -916,14 +937,14 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
           id="about.hashee"
           values={Object {}}
         />
-         
+
         <br />
         <FormattedMessage
           defaultMessage="Webapp Build Hash:"
           id="about.hashwebapp"
           values={Object {}}
         />
-         
+
         0a1b2c3d4f
       </p>
       <p>
@@ -932,7 +953,7 @@ exports[`components/AboutBuildModal should show dev if this is a dev build 1`] =
           id="about.date"
           values={Object {}}
         />
-         
+
         21 January 2017
       </p>
     </div>

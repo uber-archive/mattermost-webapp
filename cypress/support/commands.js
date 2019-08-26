@@ -13,8 +13,8 @@ Cypress.Commands.add('login', (username, {otherUsername, otherPassword, otherURL
     const usernameParam = user && user.username ? user.username : otherUsername;
     const passwordParam = user && user.password ? user.password : otherPassword;
     const urlParam = otherURL ? `${otherURL}/api/v4/users/login` : '/api/v4/users/login';
-
     cy.request({
+        headers: {'X-Requested-With': 'XMLHttpRequest'},
         url: urlParam,
         method: 'POST',
         body: {login_id: usernameParam, password: passwordParam},

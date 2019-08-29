@@ -2796,6 +2796,7 @@
   "status_dropdown.set_online": "Online",
   "status_dropdown.set_ooo": "Out of Office",
   "status_dropdown.set_ooo.extra": "Automatic Replies are enabled",
+  "status_dropdown.disabled_ooo.extra": "Automatic Replies are disabled",
   "string.id": "default message",
   "suggestion_list.no_matches": "No items match __{value}__",
   "suggestion.mention.all": "CAUTION: This mentions everyone in channel",

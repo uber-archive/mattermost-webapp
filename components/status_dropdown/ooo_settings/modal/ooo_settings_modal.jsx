@@ -156,7 +156,7 @@ class AutoResponderModal extends React.Component {
                     <Modal.Title id='oooAutoResponderTitle'>
                         <FormattedMessage
                             id='status.dropdown.modal.title'
-                            defaultMessage='Automatic Replies(Out of Office)'
+                            defaultMessage='Automatic Replies (Out of Office)'
                         />
                     </Modal.Title>
                 </Modal.Header>

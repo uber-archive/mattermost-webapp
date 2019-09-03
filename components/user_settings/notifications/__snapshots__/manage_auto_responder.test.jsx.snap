@@ -32,6 +32,7 @@ exports[`components/user_settings/notifications/ManageAutoResponder should match
       "timeZone": "Etc/UTC",
     }
   }
+  isOooDatePickerEnabled={false}
   isOooStatusDropdown={false}
   saving={false}
   setParentState={[MockFunction]}
@@ -64,7 +65,9 @@ exports[`components/user_settings/notifications/ManageAutoResponder should match
               />
             </label>
           </div>,
-          <div>
+          <div
+            style={null}
+          >
             <br />
             <FormattedHTMLMessage
               defaultMessage="Set a custom message that will be automatically sent in response to Direct Messages. Mentions in Public and Private Channels will not trigger the automated reply. Enabling Automatic Replies sets your status to Out of Office and disables email and push notifications."
@@ -118,6 +121,7 @@ exports[`components/user_settings/notifications/ManageAutoResponder should match
               </div>
               <div
                 key="autoResponderHint"
+                style={null}
               >
                 <br />
                 <FormattedHTMLMessage
@@ -217,6 +221,7 @@ exports[`components/user_settings/notifications/ManageAutoResponder should match
       "timeZone": "Etc/UTC",
     }
   }
+  isOooDatePickerEnabled={false}
   isOooStatusDropdown={false}
   saving={false}
   setParentState={
@@ -264,6 +269,8 @@ exports[`components/user_settings/notifications/ManageAutoResponder should match
               />
             </label>
           </div>,
+          false,
+          false,
           <div
             id="autoResponderMessage"
           >
@@ -287,13 +294,14 @@ exports[`components/user_settings/notifications/ManageAutoResponder should match
             </div>
             <div
               className="text-muted text-right"
-              id="maxCharacterMessage"
             >
               Max. character limit is 
               500
             </div>
           </div>,
-          <div>
+          <div
+            style={null}
+          >
             <br />
             <FormattedHTMLMessage
               defaultMessage="Set a custom message that will be automatically sent in response to Direct Messages. Mentions in Public and Private Channels will not trigger the automated reply. Enabling Automatic Replies sets your status to Out of Office and disables email and push notifications."
@@ -408,7 +416,6 @@ exports[`components/user_settings/notifications/ManageAutoResponder should match
                 </div>
                 <div
                   className="text-muted text-right"
-                  id="maxCharacterMessage"
                 >
                   Max. character limit is 
                   500
@@ -416,6 +423,7 @@ exports[`components/user_settings/notifications/ManageAutoResponder should match
               </div>
               <div
                 key="autoResponderHint"
+                style={null}
               >
                 <br />
                 <FormattedHTMLMessage

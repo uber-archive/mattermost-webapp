@@ -169,7 +169,7 @@ export default class StatusDropdown extends React.Component {
                     <MenuGroup>
                         <MenuItemAction
                             show={this.isUserOutOfOffice()}
-                            onClick={() => null}
+                            onClick={this.setOutOfOffice}
                             text={localizeMessage('status_dropdown.set_ooo', 'Out of office')}
                             extraText={localizeMessage('status_dropdown.set_ooo.extra', 'Automatic Replies are enabled')}
                         />

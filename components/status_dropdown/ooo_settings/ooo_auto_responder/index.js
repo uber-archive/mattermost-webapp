@@ -12,9 +12,11 @@ function mapStateToProps(state) {
     const config = getConfig(state);
 
     const enableAutoResponder = config.ExperimentalEnableAutomaticReplies === 'true';
+    const enableOutOfOfficeDatePicker = config.EnableOutOfOfficeDatePicker === 'true' && enableAutoResponder;
 
     return {
         enableAutoResponder,
+        enableOutOfOfficeDatePicker,
     };
 }
 

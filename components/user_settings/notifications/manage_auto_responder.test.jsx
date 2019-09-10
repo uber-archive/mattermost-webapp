@@ -7,7 +7,12 @@ import {mountWithIntl} from 'tests/helpers/intl-test-helper.jsx';
 import ManageAutoResponder from 'components/user_settings/notifications/manage_auto_responder.jsx';
 
 describe('components/user_settings/notifications/ManageAutoResponder', () => {
+    const user = {
+        id: 'user_id',
+    };
+
     const requiredProps = {
+        user,
         autoResponderActive: false,
         autoResponderMessage: 'Hello World!',
         updateSection: jest.fn(),

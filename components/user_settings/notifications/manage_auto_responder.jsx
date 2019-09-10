@@ -14,8 +14,61 @@ import TimePicker from 'components/time_picker.jsx';
 
 const MESSAGE_MAX_LENGTH = 500;
 
+function getDatePickerStateFromProps(props) {
+    const user = props.user;
+
+    const step = 30;
+    var options = [];
+    var options1 = [];
+    var start = '12:00 AM';
+    const end = '12:00 AM';
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+        if (moment(start, 'h:mm A').diff(moment(now, 'h:mm A')) >= 0) {
+            options.push({value: start, label: start});
+        }
+        options1.push({value: start, label: start});
+        start = moment(start, 'h:mm A').add(step, 'minutes').format('h:mm A');
+        const diff = moment(start, 'h:mm A').diff(moment(end, 'h:mm A'));
+        if (diff === 0) {
+            break;
+        }
+    }
+
+    let from = new Date();
+    let to = null;
+    let fromTime = now;
+    let toTime = '11:59 PM';
+    if (user.notify_props) {
+        if (user.notify_props.fromDate) {
+            from = new Date(user.notify_props.fromDate);
+        }
+        if (user.notify_props.toDate) {
+            to = new Date(user.notify_props.toDate);
+        }
+        if (user.notify_props.fromTime) {
+            fromTime = user.notify_props.fromTime;
+        }
+        if (user.notify_props.toTime) {
+            toTime = user.notify_props.toTime;
+        }
+    }
+    const today = new Date();
+    return {
+        options,
+        options1,
+        from,
+        to,
+        fromTime,
+        toTime,
+        fromTimePickerOptions: moment(today).isSame(from, 'day') ? options : options1,
+        toTimePickerOptions: moment(today).isSame(to, 'day') ? options : options1,
+    };
+}
+
 export default class ManageAutoResponder extends React.PureComponent {
     static propTypes = {
+        user: PropTypes.object,
         isOooStatusDropdown: PropTypes.bool,
         isOooDatePickerEnabled: PropTypes.bool,
         autoResponderActive: PropTypes.bool.isRequired,
@@ -32,33 +85,11 @@ export default class ManageAutoResponder extends React.PureComponent {
 
         this.handleFromChange = this.handleFromChange.bind(this);
         this.handleToChange = this.handleToChange.bind(this);
-        const step = 30;
-        var options = [];
-        var options1 = [];
-        var start = '12:00 AM';
-        var end = '12:00 AM';
-        // eslint-disable-next-line no-constant-condition
-        while (true) {
-            if (moment(start, 'h:mm A').diff(moment(now, 'h:mm A')) >= 0) {
-                options.push({value: start, label: start});
-            }
-            options1.push({value: start, label: start});
-            start = moment(start, 'h:mm A').add(step, 'minutes').format('h:mm A');
-            const diff = moment(start, 'h:mm A').diff(moment(end, 'h:mm A'));
-            if (diff === 0) {
-                break;
-            }
-        }
-        this.state = {
-            from: new Date(),
-            to: null,
-            options: options1,
-            fromTimePickerOptions: options,
-            toTimePickerOptions: options,
-        };
+        this.state = getDatePickerStateFromProps(props);
     }
 
     static defaultProps = {
+        user: null,
         isOooStatusDropdown: false,
         isOooDatePickerEnabled: false,
     };
@@ -89,8 +120,10 @@ export default class ManageAutoResponder extends React.PureComponent {
         this.setState({from}, async () => {
             this.props.setParentState('fromDate', this.from.getInput().value);
             const today = new Date();
-            if (!moment(today).isSame(this.from.getInput().value, 'day')) {
+            if (moment(today).isSame(this.from.getInput().value, 'day')) {
                 await this.setState({fromTimePickerOptions: this.state.options});
+            } else {
+                await this.setState({fromTimePickerOptions: this.state.options1});
             }
         });
     }
@@ -100,8 +133,10 @@ export default class ManageAutoResponder extends React.PureComponent {
             this.showFromMonth();
             this.props.setParentState('toDate', this.to.getInput().value);
             const today = new Date();
-            if (!moment(today).isSame(this.to.getInput().value, 'day')) {
+            if (moment(today).isSame(this.to.getInput().value, 'day')) {
                 await this.setState({toTimePickerOptions: this.state.options});
+            } else {
+                await this.setState({toTimePickerOptions: this.state.options1});
             }
         });
     }
@@ -223,7 +258,7 @@ export default class ManageAutoResponder extends React.PureComponent {
                 <span style={{paddingLeft: 10}}>
                     <TimePicker
                         keyValue={'fromTime'}
-                        defaultValue={now}
+                        defaultValue={this.state.fromTime}
                         options={this.state.fromTimePickerOptions}
                         submit={this.props.setParentState}
                     />
@@ -249,8 +284,8 @@ export default class ManageAutoResponder extends React.PureComponent {
                         selectedDays: [from, {from, to}],
                         disabledDays: {before: from},
                         modifiers,
-                        month: from,
-                        fromMonth: from,
+                        month: to === null ? from : to,
+                        fromMonth: to === null ? from : to,
                         numberOfMonths: 1,
                     }}
                     onDayChange={this.handleToChange}
@@ -258,7 +293,7 @@ export default class ManageAutoResponder extends React.PureComponent {
                 <span style={{paddingLeft: 10}}>
                     <TimePicker
                         keyValue={'toTime'}
-                        defaultValue={'11:59 PM'}
+                        defaultValue={this.state.toTime}
                         options={this.state.toTimePickerOptions}
                         submit={this.props.setParentState}
                     />

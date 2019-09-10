@@ -38,6 +38,11 @@ exports[`components/user_settings/notifications/ManageAutoResponder should match
   setParentState={[MockFunction]}
   submit={[MockFunction]}
   updateSection={[MockFunction]}
+  user={
+    Object {
+      "id": "user_id",
+    }
+  }
 >
   <div
     className=""
@@ -242,6 +247,11 @@ exports[`components/user_settings/notifications/ManageAutoResponder should match
   }
   submit={[MockFunction]}
   updateSection={[MockFunction]}
+  user={
+    Object {
+      "id": "user_id",
+    }
+  }
 >
   <div
     className=""

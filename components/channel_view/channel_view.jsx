@@ -72,6 +72,7 @@ export default class ChannelView extends React.PureComponent {
         if (this.props.match.url !== nextProps.match.url) {
             this.createDeferredPostView();
         }
+        this.leftMargin = $('#app-content').css('margin-left');
     }
 
     getChannelView = () => {
@@ -105,6 +106,7 @@ export default class ChannelView extends React.PureComponent {
                 this.props.actions.goToLastViewedChannel();
             }
         }
+        $('#app-content').css('margin-left', this.leftMargin);
     }
 
     render() {

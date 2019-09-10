@@ -334,6 +334,19 @@ exports[`components/AdminSidebar should match snapshot 1`] = `
           />
           <AdminSidebarSection
             key="9"
+            name="out_of_office"
+            parentLink=""
+            subsection={false}
+            title={
+              <FormattedMessage
+                defaultMessage="Out Of Office"
+                id="admin.sidebar.outOfOffice"
+                values={Object {}}
+              />
+            }
+          />
+          <AdminSidebarSection
+            key="10"
             name="site_config/posts"
             parentLink=""
             subsection={false}
@@ -346,7 +359,7 @@ exports[`components/AdminSidebar should match snapshot 1`] = `
             }
           />
           <AdminSidebarSection
-            key="10"
+            key="11"
             name="site_config/file_sharing_downloads"
             parentLink=""
             subsection={false}
@@ -359,7 +372,7 @@ exports[`components/AdminSidebar should match snapshot 1`] = `
             }
           />
           <AdminSidebarSection
-            key="11"
+            key="12"
             name="site_config/public_links"
             parentLink=""
             subsection={false}
@@ -905,6 +918,19 @@ exports[`components/AdminSidebar should match snapshot, not prevent the console 
           />
           <AdminSidebarSection
             key="9"
+            name="out_of_office"
+            parentLink=""
+            subsection={false}
+            title={
+              <FormattedMessage
+                defaultMessage="Out Of Office"
+                id="admin.sidebar.outOfOffice"
+                values={Object {}}
+              />
+            }
+          />
+          <AdminSidebarSection
+            key="10"
             name="site_config/posts"
             parentLink=""
             subsection={false}
@@ -917,7 +943,7 @@ exports[`components/AdminSidebar should match snapshot, not prevent the console 
             }
           />
           <AdminSidebarSection
-            key="10"
+            key="11"
             name="site_config/file_sharing_downloads"
             parentLink=""
             subsection={false}
@@ -930,7 +956,7 @@ exports[`components/AdminSidebar should match snapshot, not prevent the console 
             }
           />
           <AdminSidebarSection
-            key="11"
+            key="12"
             name="site_config/public_links"
             parentLink=""
             subsection={false}
@@ -1469,6 +1495,19 @@ exports[`components/AdminSidebar should match snapshot, not render the plugin in
           />
           <AdminSidebarSection
             key="9"
+            name="out_of_office"
+            parentLink=""
+            subsection={false}
+            title={
+              <FormattedMessage
+                defaultMessage="Out Of Office"
+                id="admin.sidebar.outOfOffice"
+                values={Object {}}
+              />
+            }
+          />
+          <AdminSidebarSection
+            key="10"
             name="site_config/posts"
             parentLink=""
             subsection={false}
@@ -1481,7 +1520,7 @@ exports[`components/AdminSidebar should match snapshot, not render the plugin in
             }
           />
           <AdminSidebarSection
-            key="10"
+            key="11"
             name="site_config/file_sharing_downloads"
             parentLink=""
             subsection={false}
@@ -1494,7 +1533,7 @@ exports[`components/AdminSidebar should match snapshot, not render the plugin in
             }
           />
           <AdminSidebarSection
-            key="11"
+            key="12"
             name="site_config/public_links"
             parentLink=""
             subsection={false}
@@ -2138,6 +2177,19 @@ exports[`components/AdminSidebar should match snapshot, with license (with all f
           />
           <AdminSidebarSection
             key="9"
+            name="out_of_office"
+            parentLink=""
+            subsection={false}
+            title={
+              <FormattedMessage
+                defaultMessage="Out Of Office"
+                id="admin.sidebar.outOfOffice"
+                values={Object {}}
+              />
+            }
+          />
+          <AdminSidebarSection
+            key="10"
             name="site_config/posts"
             parentLink=""
             subsection={false}
@@ -2150,7 +2202,7 @@ exports[`components/AdminSidebar should match snapshot, with license (with all f
             }
           />
           <AdminSidebarSection
-            key="10"
+            key="11"
             name="site_config/file_sharing_downloads"
             parentLink=""
             subsection={false}
@@ -2163,7 +2215,7 @@ exports[`components/AdminSidebar should match snapshot, with license (with all f
             }
           />
           <AdminSidebarSection
-            key="11"
+            key="12"
             name="site_config/public_links"
             parentLink=""
             subsection={false}
@@ -2847,6 +2899,19 @@ exports[`components/AdminSidebar should match snapshot, with license (without an
           />
           <AdminSidebarSection
             key="9"
+            name="out_of_office"
+            parentLink=""
+            subsection={false}
+            title={
+              <FormattedMessage
+                defaultMessage="Out Of Office"
+                id="admin.sidebar.outOfOffice"
+                values={Object {}}
+              />
+            }
+          />
+          <AdminSidebarSection
+            key="10"
             name="site_config/posts"
             parentLink=""
             subsection={false}
@@ -2859,7 +2924,7 @@ exports[`components/AdminSidebar should match snapshot, with license (without an
             }
           />
           <AdminSidebarSection
-            key="10"
+            key="11"
             name="site_config/file_sharing_downloads"
             parentLink=""
             subsection={false}
@@ -2872,7 +2937,7 @@ exports[`components/AdminSidebar should match snapshot, with license (without an
             }
           />
           <AdminSidebarSection
-            key="11"
+            key="12"
             name="site_config/public_links"
             parentLink=""
             subsection={false}

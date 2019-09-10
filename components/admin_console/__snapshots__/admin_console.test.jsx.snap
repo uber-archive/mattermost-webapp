@@ -118,6 +118,11 @@ exports[`components/AdminConsole should generate the routes 1`] = `
           render={[Function]}
         />
         <Route
+          key="out_of_office"
+          path="/out_of_office"
+          render={[Function]}
+        />
+        <Route
           key="site_config/posts"
           path="/site_config/posts"
           render={[Function]}
@@ -140,11 +145,6 @@ exports[`components/AdminConsole should generate the routes 1`] = `
         <Route
           key="authentication/email"
           path="/authentication/email"
-          render={[Function]}
-        />
-        <Route
-          key="authentication/password"
-          path="/authentication/password"
           render={[Function]}
         />
         <Route

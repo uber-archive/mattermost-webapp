@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import {FormattedMessage, intlShape} from 'react-intl';
 import {Link} from 'react-router-dom';
 
+import $ from 'jquery';
+
 import ChannelHeader from 'components/channel_header';
 import PostView from 'components/post_view';
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
@@ -53,6 +55,11 @@ export default class PermalinkView extends React.PureComponent {
         if (this.props.match.params.postid !== nextProps.match.params.postid) {
             this.doPermalinkEvent(nextProps);
         }
+        this.leftMargin = $('#app-content').css('margin-left');
+    }
+
+    componentDidUpdate() {
+        $('#app-content').css('margin-left', this.leftMargin);
     }
 
     doPermalinkEvent = async (props) => {

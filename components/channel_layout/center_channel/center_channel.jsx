@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import classNames from 'classnames';
 
+import $ from 'jquery';
+
 import PermalinkView from 'components/permalink_view';
 import ChannelHeaderMobile from 'components/channel_header_mobile';
 import ChannelIdentifierRouter from 'components/channel_layout/channel_identifier_router';
@@ -31,6 +33,11 @@ export default class CenterChannel extends React.PureComponent {
         if (this.props.location.pathname !== nextProps.location.pathname && nextProps.location.pathname.includes('/pl/')) {
             this.setState({returnTo: this.props.location.pathname});
         }
+        this.leftMargin = $('#app-content').css('margin-left');
+    }
+
+    componentDidUpdate() {
+        $('#app-content').css('margin-left', this.leftMargin);
     }
 
     render() {

@@ -12,6 +12,8 @@ import StatusOfflineAvatarIcon from 'components/widgets/icons/status_offline_ava
 import StatusOfflineIcon from 'components/widgets/icons/status_offline_icon';
 import StatusOnlineAvatarIcon from 'components/widgets/icons/status_online_avatar_icon';
 import StatusOnlineIcon from 'components/widgets/icons/status_online_icon';
+import StatusOooAvatarIcon from 'components/widgets/icons/status_ooo_avatar_icon';
+import StatusOooIcon from 'components/widgets/icons/status_ooo_icon';
 
 export default class StatusIcon extends React.PureComponent {
     static propTypes = {
@@ -47,6 +49,8 @@ export default class StatusIcon extends React.PureComponent {
                 IconComponent = StatusAwayAvatarIcon;
             } else if (status === 'dnd') {
                 IconComponent = StatusDndAvatarIcon;
+            } else if (status === 'ooo') {
+                IconComponent = StatusOooAvatarIcon;
             } else {
                 IconComponent = StatusOfflineAvatarIcon;
             }
@@ -56,6 +60,8 @@ export default class StatusIcon extends React.PureComponent {
             IconComponent = StatusAwayIcon;
         } else if (status === 'dnd') {
             IconComponent = StatusDndIcon;
+        } else if (status === 'ooo') {
+            IconComponent = StatusOooIcon;
         } else {
             IconComponent = StatusOfflineIcon;
         }

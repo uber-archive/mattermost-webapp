@@ -6,6 +6,8 @@ import {bindActionCreators} from 'redux';
 import {updateMe} from 'mattermost-redux/actions/users';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 
+import {getTheme} from 'mattermost-redux/selectors/entities/preferences';
+
 import OooAutoResponder from './ooo_auto_reponder.jsx';
 
 function mapStateToProps(state) {
@@ -17,6 +19,7 @@ function mapStateToProps(state) {
     return {
         enableAutoResponder,
         enableOutOfOfficeDatePicker,
+        theme: getTheme(state),
     };
 }
 

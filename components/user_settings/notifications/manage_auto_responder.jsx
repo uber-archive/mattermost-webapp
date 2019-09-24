@@ -69,6 +69,7 @@ function getDatePickerStateFromProps(props) {
 export default class ManageAutoResponder extends React.PureComponent {
     static propTypes = {
         user: PropTypes.object,
+        theme: PropTypes.object,
         isOooStatusDropdown: PropTypes.bool,
         isOooDatePickerEnabled: PropTypes.bool,
         autoResponderActive: PropTypes.bool.isRequired,
@@ -90,6 +91,7 @@ export default class ManageAutoResponder extends React.PureComponent {
 
     static defaultProps = {
         user: null,
+        theme: null,
         isOooStatusDropdown: false,
         isOooDatePickerEnabled: false,
     };
@@ -143,9 +145,11 @@ export default class ManageAutoResponder extends React.PureComponent {
 
     render() {
         const {
+            theme,
             autoResponderActive,
             autoResponderMessage,
         } = this.props;
+
         let serverError;
         if (this.props.error) {
             serverError = <label className='has-error'>{this.props.error}</label>;
@@ -233,11 +237,11 @@ export default class ManageAutoResponder extends React.PureComponent {
 
         const {from, to} = this.state;
         const modifiers = {start: from, end: to};
-
+        const color = 'black';
         const fromDatePicker = this.props.isOooDatePickerEnabled && (
-            <div style={{display: 'inline-flex'}}>
+            <div style={{display: 'inline-flex', color}}>
                 {/* eslint-disable-next-line react/jsx-no-literals */}
-                <label style={{paddingRight: 10, paddingTop: 11}}>Start Time:</label>
+                <label style={{paddingRight: 10, paddingTop: 11, color: theme.centerChannelBg === '#282727' ? 'white' : '#333333'}}>Start Time:</label>
                 <DayPickerInput
                     ref={(el) => {
                         this.from = el;
@@ -265,13 +269,12 @@ export default class ManageAutoResponder extends React.PureComponent {
                 </span>
             </div>
         );
-
         const toDatePicker = this.props.isOooDatePickerEnabled && (
             <div
-                style={{display: 'inline-flex', paddingTop: '10px', paddingLeft: '-10px', paddingBottom: '19px'}}
+                style={{display: 'inline-flex', paddingTop: '10px', paddingLeft: '-10px', paddingBottom: '19px', color}}
             >
                 {/* eslint-disable-next-line react/jsx-no-literals */}
-                <label style={{paddingRight: 18, paddingTop: 10}}>End Time:</label>
+                <label style={{paddingRight: 18, paddingTop: 10, background: 'inherit', color: theme.centerChannelBg === '#282727' ? 'white' : '#333333'}}>End Time:</label>
                 <DayPickerInput
                     ref={(el) => {
                         this.to = el;

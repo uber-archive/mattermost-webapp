@@ -27,6 +27,7 @@ function mapStateToProps(state) {
     const userId = currentUser.id;
     return {
         userId,
+        user: currentUser,
         profilePicture: Client4.getProfilePictureUrl(userId, currentUser.last_picture_update),
         autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),
         status: getStatusForUserId(state, userId),

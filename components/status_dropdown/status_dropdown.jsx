@@ -26,6 +26,7 @@ export default class StatusDropdown extends React.Component {
         status: PropTypes.string,
         updateSection: PropTypes.func,
         userId: PropTypes.string.isRequired,
+        user: PropTypes.object.isRequired,
         profilePicture: PropTypes.string,
         autoResetPref: PropTypes.string,
         showOutOfOfficeInStatusDropdown: PropTypes.bool.isRequired,
@@ -154,6 +155,9 @@ export default class StatusDropdown extends React.Component {
         const setOffline = needsConfirm ? () => this.showStatusChangeConfirmation('offline') : this.setOffline;
         const setOutOfOffice = needsConfirm ? () => null : this.setOutOfOffice;
 
+        const fromDate = this.props.user.notify_props.fromDate;
+        const autoResponderActive = fromDate !== '' && this.props.user.notify_props.auto_responder_active === 'true';
+
         return (
             <MenuWrapper
                 onToggle={this.onToggle}
@@ -195,7 +199,8 @@ export default class StatusDropdown extends React.Component {
                             onClick={setOutOfOffice}
                             text={localizeMessage('status_dropdown.set_ooo', 'Out of office')}
 
-                            extraText={localizeMessage('status_dropdown.disabled_ooo.extra', 'Automatic Replies are disabled')}
+                            extraText={autoResponderActive ? localizeMessage('status_dropdown.set_ooo_after.extra', 'Automatic Replies will be enabled from ' + fromDate) :
+                                localizeMessage('status_dropdown.disabled_ooo.extra', 'Automatic Replies are disabled')}
                         />
                         <MenuItemAction
                             onClick={setOffline}

@@ -37,6 +37,7 @@ exports[`components/user_settings/notifications/ManageAutoResponder should match
   saving={false}
   setParentState={[MockFunction]}
   submit={[MockFunction]}
+  theme={null}
   updateSection={[MockFunction]}
   user={
     Object {
@@ -246,6 +247,7 @@ exports[`components/user_settings/notifications/ManageAutoResponder should match
     }
   }
   submit={[MockFunction]}
+  theme={null}
   updateSection={[MockFunction]}
   user={
     Object {

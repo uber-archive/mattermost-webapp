@@ -141,6 +141,7 @@ export default class oooAutoResponder extends React.Component {
         updateSection: PropTypes.func,
         enableOutOfOfficeDatePicker: PropTypes.bool,
         enableAutoResponder: PropTypes.bool,
+        theme: PropTypes.object.isRequired,
         actions: PropTypes.shape({
             updateMe: PropTypes.func.isRequired,
         }).isRequired,
@@ -245,6 +246,7 @@ export default class oooAutoResponder extends React.Component {
                     autoResponderActive={true}
                     autoResponderMessage={this.state.autoResponderMessage}
                     updateSection={this.props.updateSection}
+                    theme={this.props.theme}
                     setParentState={this.setStateValue}
                     submit={this.handleSubmit}
                     error={this.state.serverError}

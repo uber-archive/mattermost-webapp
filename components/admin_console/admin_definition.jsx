@@ -4095,7 +4095,17 @@ export default {
                         help_text_markdown: false,
                         placeholder: t('admin.experimental.userStatusAwayTimeout.example'),
                         placeholder_default: 'E.g.: "300"',
-                    }, // eslint-disable-next-line lines-around-comment
+                    },
+                    {
+                        type: Constants.SettingsTypes.TYPE_BOOL,
+                        key: 'ExperimentalSettings.EnableTelemetry',
+                        label: t('admin.experimental.enableTelemetry'),
+                        label_default: 'Enable Telemetry:',
+                        help_text: t('admin.experimental.enableTelemetryDescription'),
+                        help_text_default: 'Enable this feature to allow telemetry collection at server and client side.',
+                        help_text_markdown: true,
+                    },
+                    // eslint-disable-next-line lines-around-comment
                     // {
                     //     type: Constants.SettingsTypes.TYPE_BOOL,
                     //     key: 'ServiceSettings.ExperimentalStrictCSRFEnforcement',

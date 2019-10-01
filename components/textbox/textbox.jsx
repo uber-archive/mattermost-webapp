@@ -333,6 +333,17 @@ export default class Textbox extends React.Component {
                     {helpText}
                     {previewLink}
                     <Link
+                        id='feedbackTextLink'
+                        rel='noopener noreferrer'
+                        to='/uber/channels/feedback'
+                        className='textbox-help-link'
+                    >
+                        <FormattedMessage
+                            id='textbox.feedback'
+                            defaultMessage='Feedback'
+                        />
+                    </Link>
+                    <Link
                         id='helpTextLink'
                         target='_blank'
                         rel='noopener noreferrer'

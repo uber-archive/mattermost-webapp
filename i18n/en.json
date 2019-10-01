@@ -2940,6 +2940,7 @@
   "textbox.bold": "**bold**",
   "textbox.edit": "Edit message",
   "textbox.help": "Help",
+  "textbox.feedback": "Feedback",
   "textbox.inlinecode": "`inline code`",
   "textbox.italic": "_italic_",
   "textbox.preformatted": "```preformatted```",

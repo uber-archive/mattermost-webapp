@@ -101,6 +101,7 @@
     "jquery-deferred": "0.3.1",
     "mini-css-extract-plugin": "0.4.5",
     "node-sass": "4.10.0",
+    "pre-commit": "^1.2.2",
     "react-router-enzyme-context": "^1.2.0",
     "redux-mock-store": "1.5.3",
     "redux-persist-node-storage": "2.0.0",
@@ -177,5 +178,8 @@
     "test:coverage": "jest --coverage",
     "cypress:run": "cypress run",
     "cypress:open": "cypress open"
+  },
+  "precommit": {
+    "run": "check, test"
   }
 }

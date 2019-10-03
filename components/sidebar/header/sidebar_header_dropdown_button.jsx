@@ -95,7 +95,7 @@ export default class SidebarHeaderDropdownButton extends React.PureComponent {
                         id='headerInfo'
                         className='header__info'
                     >
-                       {teamNameWithToolTip}<br/>
+                        {teamNameWithToolTip}<br/>
                         <div
                             id='headerUsername'
                             className='user__name'

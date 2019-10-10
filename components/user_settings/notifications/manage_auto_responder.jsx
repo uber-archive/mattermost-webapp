@@ -39,7 +39,7 @@ function getDatePickerStateFromProps(props) {
     let to = null;
     let fromTime = now;
     let toTime = '11:59 PM';
-    if (user && user.notify_props) {
+    if (user && user.notify_props && user.notify_props.auto_responder_active === 'true') {
         if (user.notify_props.fromDate) {
             from = new Date(user.notify_props.fromDate);
         }
@@ -159,7 +159,7 @@ export default class ManageAutoResponder extends React.PureComponent {
         if (autoResponderActive) {
             this.props.setParentState('autoResponderActive', true);
         }
-        let activeToggle = (
+        const activeToggle = (
             <div
                 id='autoResponderCheckbox'
                 key='autoResponderCheckbox'
@@ -180,14 +180,13 @@ export default class ManageAutoResponder extends React.PureComponent {
             </div>
         );
 
-        activeToggle = this.props.isOooStatusDropdown ? null : activeToggle;
         let message = null;
         if (this.props.isOooStatusDropdown) {
             message = (
                 <div
                     id='autoResponderMessage'
                     key='autoResponderMessage'
-                    style={{width: 530}}
+                    style={{width: 530, paddingLeft: '20px'}}
                 >
                     <div className='padding-top'>
                         <AutosizeTextarea
@@ -239,7 +238,7 @@ export default class ManageAutoResponder extends React.PureComponent {
         const modifiers = {start: from, end: to};
         const color = 'black';
         const fromDatePicker = this.props.isOooDatePickerEnabled && (
-            <div style={{display: 'inline-flex', color}}>
+            <div style={{display: 'inline-flex', paddingTop: '10px', paddingLeft: '20px', color}}>
                 {/* eslint-disable-next-line react/jsx-no-literals */}
                 <label style={{paddingRight: 10, paddingTop: 11, color: theme.centerChannelBg === '#282727' ? 'white' : '#333333'}}>Start Time:</label>
                 <DayPickerInput
@@ -271,7 +270,7 @@ export default class ManageAutoResponder extends React.PureComponent {
         );
         const toDatePicker = this.props.isOooDatePickerEnabled && (
             <div
-                style={{display: 'inline-flex', paddingTop: '10px', paddingLeft: '-10px', paddingBottom: '19px', color}}
+                style={{display: 'inline-flex', paddingTop: '10px', paddingLeft: '20px', paddingBottom: '19px', color}}
             >
                 {/* eslint-disable-next-line react/jsx-no-literals */}
                 <label style={{paddingRight: 18, paddingTop: 10, background: 'inherit', color: theme.centerChannelBg === '#282727' ? 'white' : '#333333'}}>End Time:</label>

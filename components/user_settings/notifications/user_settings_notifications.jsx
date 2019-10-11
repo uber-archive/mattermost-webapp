@@ -117,6 +117,7 @@ export default class NotificationsTab extends React.Component {
         siteName: PropTypes.string,
         sendPushNotifications: PropTypes.bool,
         enableAutoResponder: PropTypes.bool,
+        showOutOfOfficeInStatusDropdown: PropTypes.bool.isRequired,
         actions: PropTypes.shape({
             updateMe: PropTypes.func.isRequired,
         }).isRequired,
@@ -940,8 +941,7 @@ export default class NotificationsTab extends React.Component {
                     {keysSection}
                     <div className='divider-light'/>
                     {commentsSection}
-                    <div className='divider-light'/>
-                    {autoResponderSection}
+                    {!this.props.showOutOfOfficeInStatusDropdown && <div> <div className='divider-light'/> {autoResponderSection} </div> }
                     <div className='divider-dark'/>
                 </div>
             </div>

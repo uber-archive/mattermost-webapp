@@ -285,7 +285,8 @@ export default class DotMenu extends Component {
                         text={Utils.localizeMessage('post_info.reply', 'Reply')}
                         onClick={this.props.handleCommentClick}
                     />
-                    <Menu.ItemAction
+                    <MenuItemAction
+			id={`permalink_${this.props.post.id}`}
                         show={!isSystemMessage}
                         text={Utils.localizeMessage('post_info.permalink', 'Permalink')}
                         onClick={this.handlePermalinkMenuItemActivated}

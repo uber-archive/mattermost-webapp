@@ -216,6 +216,7 @@ export const ModalIdentifiers = {
     MANAGE_TEAM_GROUPS: 'manage_team_groups',
     MANAGE_CHANNEL_GROUPS: 'manage_channel_groups',
     PLUGIN_MARKETPLACE: 'plugin_marketplace',
+    STATUS_DROPDOWN: 'status_dropdown',
 };
 
 export const UserStatuses = {

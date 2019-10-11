@@ -1956,6 +1956,26 @@ const AdminDefinition = {
                 ],
             },
         },
+        out_of_office: {
+            url: 'out_of_office',
+            title: t('admin.sidebar.outOfOffice'),
+            title_default: 'Out Of Office',
+            schema: {
+                id: 'OutOfOfficeSettings',
+                name: t('admin.customization.outOfOffice'),
+                name_default: 'Out Of Office',
+                settings: [
+                    {
+                        type: Constants.SettingsTypes.TYPE_BOOL,
+                        key: 'ServiceSettings.ShowOutOfOfficeInStatusDropdown',
+                        label: t('admin.customization.showOutOfOfficeInStatusDropdown'),
+                        label_default: 'Show Out Of Office In Status Dropdown:',
+                        help_text: t('admin.customization.showOutOfOfficeInStatusDropdownDesc'),
+                        help_text_default: 'Allows user to change status to Out Of Office either from status dropdown or from notification tab in settings sidebar.',
+                    },
+                ],
+            },
+        },
         posts: {
             url: 'site_config/posts',
             title: t('admin.sidebar.posts'),

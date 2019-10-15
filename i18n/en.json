@@ -547,6 +547,8 @@
   "admin.experimental.samlSettingsLoginButtonTextColor.desc": "Specify the color of the SAML login button text for white labeling purposes. Use a hex code with a #-sign before the code. This setting only applies to the mobile apps.",
   "admin.experimental.samlSettingsLoginButtonTextColor.title": "SAML login Button Text Color:",
   "admin.experimental.timeBetweenUserTypingUpdatesMilliseconds.desc": "The number of milliseconds to wait between emitting user typing websocket events.",
+  "admin.experimental.EnableEmailSendInChannel.desc": "When true, email send button will show up in channel. When false, email send button will be hidden in channel.",
+  "admin.experimental.EnableEmailSendInChannel.title": "Enable Email Send Functionality in Channel:",
   "admin.experimental.timeBetweenUserTypingUpdatesMilliseconds.example": "E.g.: \"5000\"",
   "admin.experimental.timeBetweenUserTypingUpdatesMilliseconds.title": "User Typing Timeout:",
   "admin.experimental.useChannelInEmailNotifications.desc": "When true, channel and team name appears in email notification subject lines. Useful for servers using only one team. When false, only team name appears in email notification subject line.",

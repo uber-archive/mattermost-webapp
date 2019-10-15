@@ -4095,6 +4095,15 @@ export default {
                         help_text_markdown: false,
                         placeholder: t('admin.experimental.userStatusAwayTimeout.example'),
                         placeholder_default: 'E.g.: "300"',
+                    },
+                    {
+                        type: Constants.SettingsTypes.TYPE_BOOL,
+                        key: 'ServiceSettings.EnableEmailSendInChannel',
+                        label: t('admin.experimental.EnableEmailSendInChannel.title'),
+                        label_default: 'Enable Email Send Functionality in Channel:',
+                        help_text: t('admin.experimental.EnableEmailSendInChannel.desc'),
+                        help_text_default: 'When true, email send button will show up in channel. When false, email send button will be hidden in channel.',
+                        help_text_markdown: false,
                     }, // eslint-disable-next-line lines-around-comment
                     // {
                     //     type: Constants.SettingsTypes.TYPE_BOOL,

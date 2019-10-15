@@ -140,6 +140,18 @@ exports[`components/TextBox should match snapshot with required props 1`] = `
     </div>
     <Link
       className="textbox-help-link"
+      id="feedbackTextLink"
+      rel="noopener noreferrer"
+      to="/uber/channels/feedback"
+    >
+      <FormattedMessage
+        defaultMessage="Feedback"
+        id="textbox.feedback"
+        values={Object {}}
+      />
+    </Link>
+    <Link
+      className="textbox-help-link"
       id="helpTextLink"
       rel="noopener noreferrer"
       target="_blank"
@@ -295,6 +307,18 @@ exports[`components/TextBox should throw error when new property is too long 1`]
     </div>
     <Link
       className="textbox-help-link"
+      id="feedbackTextLink"
+      rel="noopener noreferrer"
+      to="/uber/channels/feedback"
+    >
+      <FormattedMessage
+        defaultMessage="Feedback"
+        id="textbox.feedback"
+        values={Object {}}
+      />
+    </Link>
+    <Link
+      className="textbox-help-link"
       id="helpTextLink"
       rel="noopener noreferrer"
       target="_blank"
@@ -448,6 +472,18 @@ exports[`components/TextBox should throw error when value is too long 1`] = `
         />
       </span>
     </div>
+    <Link
+      className="textbox-help-link"
+      id="feedbackTextLink"
+      rel="noopener noreferrer"
+      to="/uber/channels/feedback"
+    >
+      <FormattedMessage
+        defaultMessage="Feedback"
+        id="textbox.feedback"
+        values={Object {}}
+      />
+    </Link>
     <Link
       className="textbox-help-link"
       id="helpTextLink"

@@ -66,17 +66,19 @@ function getNotificationsStateFromProps(props) {
         if (user.notify_props.auto_responder_message) {
             autoResponderMessage = user.notify_props.auto_responder_message;
         }
-        if (user.notify_props.fromDate) {
-            fromDate = user.notify_props.fromDate;
-        }
-        if (user.notify_props.toDate) {
-            toDate = user.notify_props.toDate;
-        }
-        if (user.notify_props.fromTime) {
-            fromTime = user.notify_props.fromTime;
-        }
-        if (user.notify_props.toTime) {
-            toTime = user.notify_props.toTime;
+        if (autoResponderActive) {
+            if (user.notify_props.fromDate) {
+                fromDate = user.notify_props.fromDate;
+            }
+            if (user.notify_props.toDate) {
+                toDate = user.notify_props.toDate;
+            }
+            if (user.notify_props.fromTime) {
+                fromTime = user.notify_props.fromTime;
+            }
+            if (user.notify_props.toTime) {
+                toTime = user.notify_props.toTime;
+            }
         }
     }
 
@@ -243,7 +245,7 @@ export default class oooAutoResponder extends React.Component {
                     user={this.props.user}
                     isOooDatePickerEnabled={this.props.enableOutOfOfficeDatePicker}
                     isOooStatusDropdown={true}
-                    autoResponderActive={true}
+                    autoResponderActive={this.state.autoResponderActive}
                     autoResponderMessage={this.state.autoResponderMessage}
                     updateSection={this.props.updateSection}
                     theme={this.props.theme}

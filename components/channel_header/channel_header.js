@@ -9,6 +9,7 @@ import {Permissions} from 'mattermost-redux/constants';
 import {memoizeResult} from 'mattermost-redux/utils/helpers';
 
 import 'bootstrap';
+import moment from 'moment';
 
 import EditChannelHeaderModal from 'components/edit_channel_header_modal';
 import Markdown from 'components/markdown';
@@ -31,7 +32,7 @@ import {
     Constants,
     ModalIdentifiers,
     NotificationLevels,
-    RHSStates,
+    RHSStates, UserStatuses,
 } from 'utils/constants';
 import * as Utils from 'utils/utils';
 
@@ -327,11 +328,33 @@ export default class ChannelHeader extends React.PureComponent {
                 />
             );
 
+            let date = '';
+            if (channel.status === UserStatuses.OUT_OF_OFFICE) {
+                if (this.props.dmUser.notify_props && this.props.dmUser.notify_props.toDate) {
+                    let endTime = '';
+                    endTime += this.props.dmUser.notify_props.toDate;
+                    if (this.props.dmUser.notify_props.toTime) {
+                        endTime += ' ' + this.props.dmUser.notify_props.toTime;
+                    }
+
+                    var fmt = 'YYYY-MM-DD h:mm A';
+                    if (this.props.currentUser.timezone.useAutomaticTimezone === 'true') {
+                        date = moment(endTime, fmt).local().format('lll');
+                    } else {
+                        date = moment(endTime, fmt).tz(this.props.currentUser.timezone.manualTimezone).format('lll');
+                    }
+                }
+            }
+            const message = ' until ' + date;
+
             dmHeaderTextStatus = (
                 <span className='header-status__text'>
                     <FormattedMessage
-                        id={`status_dropdown.set_${channel.status}`}
-                        defaultMessage={Utils.toTitleCase(channel.status)}
+                        id={`status_dropdown.set_${channel.status + (date ? '.until' : '')}`}
+                        defaultMessage={Utils.toTitleCase(channel.status) + (date ? message : '')}
+                        values={{
+                            date,
+                        }}
                     />
                 </span>
             );

@@ -155,7 +155,7 @@ export default class StatusDropdown extends React.Component {
         const setOffline = needsConfirm ? () => this.showStatusChangeConfirmation('offline') : this.setOffline;
         const setOutOfOffice = needsConfirm ? () => null : this.setOutOfOffice;
 
-        const fromDate = this.props.user.notify_props.fromDate;
+        const fromDate = this.props.user.notify_props && this.props.user.notify_props.fromDate ? this.props.user.notify_props.fromDate : '';
         const autoResponderActive = fromDate !== '' && this.props.user.notify_props.auto_responder_active === 'true';
 
         return (

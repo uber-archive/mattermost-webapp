@@ -1498,11 +1498,12 @@
     .multi-teams {
 
         .app__content {
-            margin-left: 0;
+            margin-left: 0 !important;
         }
 
         .sidebar--left {
-            left: 0;
+            left: 0 !important;
+            width: 220px !important;
 
             &.move--right {
                 left: 65px;

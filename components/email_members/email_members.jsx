@@ -22,6 +22,9 @@ export default class EmailMembers extends React.Component {
     };
 
     render() {
+        if (this.props.config.EnableEmailSendInChannel !== 'true') {
+            return (<div/>);
+        }
         const icon = 'M';
         const emailMembersTooltip = (
             <Tooltip id='emailMembersTooltip'>
@@ -31,27 +34,24 @@ export default class EmailMembers extends React.Component {
                 />
             </Tooltip>
         );
-
-        if (this.props.config.EnableEmailSendInChannel === 'true') {
-            return (
-                <div
-                    id='channelMemberEmails'
-                    className={'channel-header__icon'}
+        return (
+            <div
+                id='channelMemberEmails'
+                className={'channel-header__icon'}
+            >
+                <OverlayTrigger
+                    trigger={['hover', 'focus']}
+                    placement='bottom'
+                    overlay={emailMembersTooltip}
                 >
-                    <OverlayTrigger
-                        trigger={['hover', 'focus']}
-                        placement='bottom'
-                        overlay={emailMembersTooltip}
+                    <div
+                        id='member_email'
+                        onClick={this.handleEmailChannelMembers}
                     >
-                        <div
-                            id='member_email'
-                            onClick={this.handleEmailChannelMembers}
-                        >{icon}
-                        </div>
-                    </OverlayTrigger>
-                </div>
-            );
-        }
-        return (<div/>);
+                        {icon}
+                    </div>
+                </OverlayTrigger>
+            </div>
+        );
     }
 }

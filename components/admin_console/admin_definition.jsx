@@ -4106,6 +4106,7 @@ export default {
                         help_text_markdown: false,
                     },
                     {
+                        type: Constants.SettingsTypes.TYPE_BOOL,
                         key: 'ExperimentalSettings.EnableTelemetry',
                         label: t('admin.experimental.enableTelemetry'),
                         label_default: 'Enable Telemetry:',

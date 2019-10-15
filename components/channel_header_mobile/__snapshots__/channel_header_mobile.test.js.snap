@@ -17,6 +17,22 @@ exports[`components/ChannelHeaderMobile/ChannelHeaderMobile should match snapsho
         className="navbar-brand"
       >
         <Connect(MobileChannelHeaderDropdown) />
+        <Connect(UnmuteChannelButton)
+          channel={
+            Object {
+              "display_name": "display_name",
+              "id": "channel_id",
+              "team_id": "team_id",
+              "type": "O",
+            }
+          }
+          muted={true}
+          user={
+            Object {
+              "id": "user_id",
+            }
+          }
+        />
       </div>
       <Connect(NavbarInfoButton)
         channel={
@@ -63,6 +79,23 @@ exports[`components/ChannelHeaderMobile/ChannelHeaderMobile should match snapsho
         className="navbar-brand"
       >
         <Connect(MobileChannelHeaderDropdown) />
+        <Connect(UnmuteChannelButton)
+          channel={
+            Object {
+              "display_name": "Town Square",
+              "id": "123",
+              "name": "town-square",
+              "team_id": "team_id",
+              "type": "O",
+            }
+          }
+          muted={true}
+          user={
+            Object {
+              "id": "user_id",
+            }
+          }
+        />
       </div>
       <Connect(NavbarInfoButton)
         channel={
@@ -111,6 +144,84 @@ exports[`components/ChannelHeaderMobile/ChannelHeaderMobile should match snapsho
         className="navbar-brand"
       >
         <Connect(MobileChannelHeaderDropdown) />
+        <Connect(UnmuteChannelButton)
+          channel={
+            Object {
+              "display_name": "display_name",
+              "id": "channel_id",
+              "team_id": "team_id",
+              "type": "P",
+            }
+          }
+          muted={true}
+          user={
+            Object {
+              "id": "user_id",
+            }
+          }
+        />
+      </div>
+      <Connect(NavbarInfoButton)
+        channel={
+          Object {
+            "display_name": "display_name",
+            "id": "channel_id",
+            "team_id": "team_id",
+            "type": "P",
+          }
+        }
+      />
+      <Connect(ShowSearchButton) />
+      <Connect(MobileChannelHeaderPlug)
+        channel={
+          Object {
+            "display_name": "display_name",
+            "id": "channel_id",
+            "team_id": "team_id",
+            "type": "P",
+          }
+        }
+        isDropdown={false}
+      />
+      <Connect(CollapseRhsButton) />
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`components/ChannelHeaderMobile/ChannelHeaderMobile should match snapshot, for private channel when already unmuted 1`] = `
+<nav
+  className="navbar navbar-default navbar-fixed-top"
+  id="navbar"
+  role="navigation"
+>
+  <div
+    className="container-fluid theme"
+  >
+    <div
+      className="navbar-header"
+    >
+      <Connect(CollapseLhsButton) />
+      <div
+        className="navbar-brand"
+      >
+        <Connect(MobileChannelHeaderDropdown) />
+        <Connect(UnmuteChannelButton)
+          channel={
+            Object {
+              "display_name": "display_name",
+              "id": "channel_id",
+              "team_id": "team_id",
+              "type": "P",
+            }
+          }
+          muted={false}
+          user={
+            Object {
+              "id": "user_id",
+            }
+          }
+        />
       </div>
       <Connect(NavbarInfoButton)
         channel={
@@ -157,6 +268,22 @@ exports[`components/ChannelHeaderMobile/ChannelHeaderMobile should match snapsho
         className="navbar-brand"
       >
         <Connect(MobileChannelHeaderDropdown) />
+        <Connect(UnmuteChannelButton)
+          channel={
+            Object {
+              "display_name": "display_name",
+              "id": "channel_id",
+              "team_id": "team_id",
+              "type": "O",
+            }
+          }
+          muted={true}
+          user={
+            Object {
+              "id": "user_id",
+            }
+          }
+        />
       </div>
       <Connect(NavbarInfoButton)
         channel={
@@ -203,6 +330,23 @@ exports[`components/ChannelHeaderMobile/ChannelHeaderMobile should match snapsho
         className="navbar-brand"
       >
         <Connect(MobileChannelHeaderDropdown) />
+        <Connect(UnmuteChannelButton)
+          channel={
+            Object {
+              "display_name": "display_name",
+              "id": "channel_id",
+              "name": "user_id_1__user_id_2",
+              "team_id": "team_id",
+              "type": "D",
+            }
+          }
+          muted={true}
+          user={
+            Object {
+              "id": "user_id",
+            }
+          }
+        />
       </div>
       <Connect(NavbarInfoButton)
         channel={
@@ -251,6 +395,22 @@ exports[`components/ChannelHeaderMobile/ChannelHeaderMobile should match snapsho
         className="navbar-brand"
       >
         <Connect(MobileChannelHeaderDropdown) />
+        <Connect(UnmuteChannelButton)
+          channel={
+            Object {
+              "display_name": "display_name",
+              "id": "channel_id",
+              "team_id": "team_id",
+              "type": "O",
+            }
+          }
+          muted={true}
+          user={
+            Object {
+              "id": "user_id",
+            }
+          }
+        />
       </div>
       <Connect(NavbarInfoButton)
         channel={

@@ -32,7 +32,7 @@
     "localforage-observable": "1.4.0",
     "mark.js": "8.11.1",
     "marked": "github:mattermost/marked#7041218f9bd64e4bdf9eb2de1b07be57c9050705",
-    "mattermost-redux": "github:uber-uchat/mattermost-redux#e2c37f7741592330a998f9b6e424a0105d12c0b4",
+    "mattermost-redux": "github:uber-uchat/mattermost-redux#01d2941f0017caf07bd6e02d83d3d825c51a6c7d",
     "moment-timezone": "0.5.25",
     "pdfjs-dist": "2.0.489",
     "perfect-scrollbar": "0.8.1",

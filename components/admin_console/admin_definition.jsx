@@ -4098,6 +4098,15 @@ export default {
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_BOOL,
+                        key: 'ServiceSettings.EnableEmailSendInChannel',
+                        label: t('admin.experimental.EnableEmailSendInChannel.title'),
+                        label_default: 'Enable Email Send Functionality in Channel:',
+                        help_text: t('admin.experimental.EnableEmailSendInChannel.desc'),
+                        help_text_default: 'When true, email send button will show up in channel. When false, email send button will be hidden in channel.',
+                        help_text_markdown: false,
+                    },
+                    {
+                        type: Constants.SettingsTypes.TYPE_BOOL,
                         key: 'ExperimentalSettings.EnableTelemetry',
                         label: t('admin.experimental.enableTelemetry'),
                         label_default: 'Enable Telemetry:',

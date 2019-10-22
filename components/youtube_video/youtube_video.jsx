@@ -222,7 +222,7 @@ export default class YoutubeVideo extends React.PureComponent {
                             src={this.state.thumb}
                         />
                         <div className='block'>
-                            <div className='yt'/div>
+                            <div className='yt'/>
                         </div>
                     </div>
                 </div>

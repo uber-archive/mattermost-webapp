@@ -59,6 +59,20 @@ exports[`components/ChannelHeader should render archived view 1`] = `
     <div
       className="flex-child"
     >
+      <Connect(EmailMembers)
+        channel={
+          Object {
+            "delete_at": 1234,
+            "id": "channel_id",
+            "name": "Test",
+            "team_id": "team_id",
+          }
+        }
+      />
+    </div>
+    <div
+      className="flex-child"
+    >
       <Connect(PopoverListMembers)
         channel={
           Object {
@@ -279,6 +293,20 @@ exports[`components/ChannelHeader should render correct menu when muted 1`] = `
     <div
       className="flex-child"
     >
+      <Connect(EmailMembers)
+        channel={
+          Object {
+            "delete_at": 0,
+            "id": "channel_id",
+            "name": "Test",
+            "team_id": "team_id",
+          }
+        }
+      />
+    </div>
+    <div
+      className="flex-child"
+    >
       <Connect(PopoverListMembers)
         channel={
           Object {
@@ -470,6 +498,20 @@ exports[`components/ChannelHeader should render properly when populated 1`] = `
     <div
       className="flex-child"
     >
+      <Connect(EmailMembers)
+        channel={
+          Object {
+            "delete_at": 0,
+            "id": "channel_id",
+            "name": "Test",
+            "team_id": "team_id",
+          }
+        }
+      />
+    </div>
+    <div
+      className="flex-child"
+    >
       <Connect(PopoverListMembers)
         channel={
           Object {
@@ -655,6 +697,27 @@ exports[`components/ChannelHeader should render properly when populated with cha
           </div>
         </OverlayTrigger>
       </div>
+    </div>
+    <div
+      className="flex-child"
+    >
+      <Connect(EmailMembers)
+        channel={
+          Object {
+            "header": "See ~test",
+            "id": "channel_id",
+            "name": "Test",
+            "props": Object {
+              "channel_mentions": Object {
+                "test": Object {
+                  "display_name": "Test",
+                },
+              },
+            },
+            "team_id": "team_id",
+          }
+        }
+      />
     </div>
     <div
       className="flex-child"

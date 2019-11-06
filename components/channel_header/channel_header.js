@@ -26,6 +26,7 @@ import QuickSwitchModal from 'components/quick_switch_modal';
 import {ChannelHeaderDropdown} from 'components/channel_header_dropdown';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper.jsx';
 import BotBadge from 'components/widgets/badges/bot_badge.jsx';
+import EmailMembers from 'components/email_members';
 
 import {
     Constants,
@@ -303,6 +304,15 @@ export default class ChannelHeader extends React.PureComponent {
         if (!isDirect) {
             popoverListMembers = (
                 <PopoverListMembers
+                    channel={channel}
+                />
+            );
+        }
+
+        let emailMembers;
+        if (!isDirect) {
+            emailMembers = (
+                <EmailMembers
                     channel={channel}
                 />
             );
@@ -587,6 +597,9 @@ export default class ChannelHeader extends React.PureComponent {
                             </div>
                             {headerTextContainer}
                         </div>
+                    </div>
+                    <div className='flex-child'>
+                        {emailMembers}
                     </div>
                     <div className='flex-child'>
                         {popoverListMembers}

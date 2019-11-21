@@ -35,6 +35,7 @@ describe('components/ChannelHeaderMobile/ChannelHeaderMobile', () => {
         },
         isLicensed: true,
         isFavoriteChannel: false,
+        isMuted: true,
     };
 
     test('should match snapshot', () => {
@@ -94,6 +95,17 @@ describe('components/ChannelHeaderMobile/ChannelHeaderMobile', () => {
             ...baseProps,
             channel: {type: 'P', id: 'channel_id', display_name: 'display_name', team_id: 'team_id'},
         };
+        const wrapper = shallow(<ChannelHeaderMobile {...props}/>);
+
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    test('should match snapshot, for private channel when already unmuted', () => {
+        const props = {
+            ...baseProps,
+            channel: {type: 'P', id: 'channel_id', display_name: 'display_name', team_id: 'team_id'},
+        };
+        props.isMuted = false;
         const wrapper = shallow(<ChannelHeaderMobile {...props}/>);
 
         expect(wrapper).toMatchSnapshot();

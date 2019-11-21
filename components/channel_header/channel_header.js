@@ -157,6 +157,17 @@ export default class ChannelHeader extends React.PureComponent {
         actions.updateChannelNotifyProps(currentUser.id, channel.id, options);
     };
 
+    mute = () => {
+        const {actions, channel, channelMember, currentUser} = this.props;
+
+        if (!channelMember || !currentUser || !channel) {
+            return;
+        }
+
+        const options = {mark_unread: NotificationLevels.MENTION};
+        actions.updateChannelNotifyProps(currentUser.id, channel.id, options);
+    };
+
     searchMentions = (e) => {
         e.preventDefault();
         if (this.props.rhsState === RHSStates.MENTION) {
@@ -501,26 +512,32 @@ export default class ChannelHeader extends React.PureComponent {
             </Tooltip>
         );
 
-        let muteTrigger;
-        if (channelMuted) {
-            muteTrigger = (
-                <OverlayTrigger
-                    trigger={['hover', 'focus']}
-                    delayShow={Constants.OVERLAY_TIME_DELAY}
-                    placement='bottom'
-                    overlay={channelMutedTooltip}
+        const channelUnmutedTooltip = (
+            <Tooltip id='channelUnmutedTooltip'>
+                <FormattedMessage
+                    id='channelHeader.mute'
+                    defaultMessage='Mute'
+                />
+            </Tooltip>
+        );
+
+        const muteTrigger = (
+            <OverlayTrigger
+                trigger={['hover', 'focus']}
+                delayShow={Constants.OVERLAY_TIME_DELAY}
+                placement='bottom'
+                overlay={channelMuted ? channelMutedTooltip : channelUnmutedTooltip}
+            >
+                <button
+                    id='toggleMute'
+                    onClick={channelMuted ? this.unmute : this.mute}
+                    className={'style--none color--link channel-header__mute inactive'}
+                    aria-label={formatMessage({id: 'generic_icons.muted', defaultMessage: 'Muted Icon'})}
                 >
-                    <button
-                        id='toggleMute'
-                        onClick={this.unmute}
-                        className={'style--none color--link channel-header__mute inactive'}
-                        aria-label={formatMessage({id: 'generic_icons.muted', defaultMessage: 'Muted Icon'})}
-                    >
-                        <i className={'icon fa fa-bell-slash-o'}/>
-                    </button>
-                </OverlayTrigger>
-            );
-        }
+                    <i className={channelMuted ? 'icon fa fa-bell-slash-o' : 'icon fa fa-bell-o'}/>
+                </button>
+            </OverlayTrigger>
+        );
 
         let pinnedIconClass = 'channel-header__icon';
         if (rhsState === RHSStates.PIN) {

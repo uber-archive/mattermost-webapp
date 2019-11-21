@@ -49,6 +49,41 @@ exports[`components/ChannelHeader should render archived view 1`] = `
               />
             </MenuWrapper>
           </h2>
+          <OverlayTrigger
+            defaultOverlayShown={false}
+            delayShow={400}
+            overlay={
+              <Tooltip
+                bsClass="tooltip"
+                id="channelUnmutedTooltip"
+                placement="right"
+              >
+                <FormattedMessage
+                  defaultMessage="Mute"
+                  id="channelHeader.mute"
+                  values={Object {}}
+                />
+              </Tooltip>
+            }
+            placement="bottom"
+            trigger={
+              Array [
+                "hover",
+                "focus",
+              ]
+            }
+          >
+            <button
+              aria-label="Muted Icon"
+              className="style--none color--link channel-header__mute inactive"
+              id="toggleMute"
+              onClick={[Function]}
+            >
+              <i
+                className="icon fa fa-bell-o"
+              />
+            </button>
+          </OverlayTrigger>
         </div>
         <div
           className="channel-header__description light"
@@ -467,6 +502,41 @@ exports[`components/ChannelHeader should render properly when populated 1`] = `
               />
             </MenuWrapper>
           </h2>
+          <OverlayTrigger
+            defaultOverlayShown={false}
+            delayShow={400}
+            overlay={
+              <Tooltip
+                bsClass="tooltip"
+                id="channelUnmutedTooltip"
+                placement="right"
+              >
+                <FormattedMessage
+                  defaultMessage="Mute"
+                  id="channelHeader.mute"
+                  values={Object {}}
+                />
+              </Tooltip>
+            }
+            placement="bottom"
+            trigger={
+              Array [
+                "hover",
+                "focus",
+              ]
+            }
+          >
+            <button
+              aria-label="Muted Icon"
+              className="style--none color--link channel-header__mute inactive"
+              id="toggleMute"
+              onClick={[Function]}
+            >
+              <i
+                className="icon fa fa-bell-o"
+              />
+            </button>
+          </OverlayTrigger>
         </div>
         <div
           className="channel-header__description light"
@@ -636,6 +706,41 @@ exports[`components/ChannelHeader should render properly when populated with cha
               />
             </MenuWrapper>
           </h2>
+          <OverlayTrigger
+            defaultOverlayShown={false}
+            delayShow={400}
+            overlay={
+              <Tooltip
+                bsClass="tooltip"
+                id="channelUnmutedTooltip"
+                placement="right"
+              >
+                <FormattedMessage
+                  defaultMessage="Mute"
+                  id="channelHeader.mute"
+                  values={Object {}}
+                />
+              </Tooltip>
+            }
+            placement="bottom"
+            trigger={
+              Array [
+                "hover",
+                "focus",
+              ]
+            }
+          >
+            <button
+              aria-label="Muted Icon"
+              className="style--none color--link channel-header__mute inactive"
+              id="toggleMute"
+              onClick={[Function]}
+            >
+              <i
+                className="icon fa fa-bell-o"
+              />
+            </button>
+          </OverlayTrigger>
         </div>
         <OverlayTrigger
           defaultOverlayShown={false}

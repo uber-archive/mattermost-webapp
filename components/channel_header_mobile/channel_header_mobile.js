@@ -36,7 +36,7 @@ export default class ChannelHeaderMobile extends React.PureComponent {
         /**
          * Bool whether the current channel is muted
          */
-        isMuted: PropTypes.bool,
+        isMuted: PropTypes.bool.isRequired,
 
         /**
          * Object with action creators
@@ -83,12 +83,11 @@ export default class ChannelHeaderMobile extends React.PureComponent {
                             <React.Fragment>
                                 <div className='navbar-brand'>
                                     <MobileChannelHeaderDropdown/>
-                                    {isMuted && (
-                                        <UnmuteChannelButton
-                                            user={user}
-                                            channel={channel}
-                                        />
-                                    )}
+                                    <UnmuteChannelButton
+                                        user={user}
+                                        channel={channel}
+                                        muted={isMuted}
+                                    />
                                 </div>
                                 <ChannelInfoButton
                                     ref='headerOverlay'
